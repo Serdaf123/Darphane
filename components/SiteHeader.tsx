@@ -80,7 +80,8 @@ export function SiteHeader({
             className="btn btn-primary site-header-cta"
             {...(cta.external ? { target: "_blank", rel: "noopener noreferrer" } : {})}
           >
-            {cta.label}
+            <span className="sm:hidden">{cta.shortLabel}</span>
+            <span className="hidden sm:inline">{cta.label}</span>
           </a>
         ) : null}
       </div>

@@ -51,7 +51,16 @@ export function navItems(sections: Section[], max = 4): NavItem[] {
   }));
 }
 
-export type NavCta = { label: string; href: string; external: boolean };
+export type NavCta = { label: string; shortLabel: string; href: string; external: boolean };
+
+/** Mobil header dar: uzun buton metni yerine eylemin kısa adı */
+const SHORT_LABELS: Partial<Record<SiteAction["kind"], string>> = {
+  whatsapp: "WhatsApp",
+  call: "Ara",
+  directions: "Yol Tarifi",
+  email: "E-posta",
+  instagram: "Instagram",
+};
 
 /** Header'daki tek buton: hero'nun ilk çalışan eylemi; yoksa WhatsApp ya da telefon. */
 export function navCta(sections: Section[], business: Business): NavCta | undefined {
@@ -69,6 +78,7 @@ export function navCta(sections: Section[], business: Business): NavCta | undefi
     if (href) {
       return {
         label: action.label,
+        shortLabel: SHORT_LABELS[action.kind] ?? action.label,
         href,
         external: action.kind !== "call" && action.kind !== "email",
       };

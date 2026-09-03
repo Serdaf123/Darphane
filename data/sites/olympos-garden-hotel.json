@@ -1,0 +1,150 @@
+{
+  "slug": "olympos-garden-hotel",
+  "business": {
+    "name": "Olympos Garden Hotel",
+    "category": "Otel · Taksim",
+    "tagline": "Taksim'e yürüme mesafesinde, kahvaltı ve otopark dahil 3 yıldızlı otel.",
+    "phone": "0530 388 67 12",
+    "whatsapp": "905303886712",
+    "address": "Feridiye Cd. No:106, Kocatepe",
+    "district": "Beyoğlu",
+    "city": "İstanbul",
+    "coords": { "lat": 41.0403, "lng": 28.9819 },
+    "social": {}
+  },
+  "theme": {
+    "preset": "sand",
+    "headingFont": "display",
+    "radius": "md",
+    "density": "normal",
+    "header": "glass",
+    "motion": { "hero": "zoom", "scroll": "rise" }
+  },
+  "sections": [
+    {
+      "type": "hero",
+      "id": "ust",
+      "variant": "image",
+      "headline": "Taksim'in iki sokak arkasında, sessiz bir otel",
+      "subline": "Meydana yürüyerek beş dakika. Kahvaltı, kablosuz internet ve otopark fiyata dahil — aracı sitelere ödediğiniz komisyon değil.",
+      "image": { "src": "https://images.unsplash.com/photo-1524231757912-21f4fe3a7200?w=1800&q=80&auto=format&fit=crop", "alt": "Galata Kulesi ve Beyoğlu çatıları" },
+      "badges": ["Google 4,1 · 126 yorum", "Kahvaltı dahil", "Ücretsiz otopark"],
+      "actions": [
+        { "label": "WhatsApp'tan Rezervasyon", "kind": "whatsapp", "value": "Merhaba, Olympos Garden Hotel için müsaitlik ve fiyat öğrenmek istiyorum. Tarih: ", "style": "primary" },
+        { "label": "Odaları Gör", "kind": "scroll", "value": "odalar", "style": "secondary" },
+        { "label": "Yol Tarifi", "kind": "directions", "style": "ghost" }
+      ]
+    },
+    {
+      "type": "about",
+      "id": "hakkinda",
+      "title": "Direkt rezervasyon, daha iyi fiyat",
+      "body": "Booking, Agoda gibi siteler her gecelikten pay alır; o pay fiyatınıza yansır. Bize doğrudan yazan misafirlerimize aynı odayı aracısız fiyatla veriyoruz.\n\nOtelimiz Kocatepe'de, Taksim Meydanı'na ve İstiklal Caddesi'ne yürüme mesafesinde ama gece gürültüsünden uzak bir sokakta. Ayasofya, Sultanahmet ve Kapalıçarşı'ya toplu taşımayla yarım saat.",
+      "image": { "src": "https://images.unsplash.com/photo-1631049307264-da0ec9d70304?w=1200&q=80&auto=format&fit=crop", "alt": "Standart çift kişilik oda" },
+      "highlights": [
+        { "label": "Google puanı", "value": "4,1 / 5" },
+        { "label": "Taksim Meydanı", "value": "5 dk yürüme" },
+        { "label": "Çıkış saati", "value": "11:00" }
+      ]
+    },
+    {
+      "type": "services",
+      "id": "odalar",
+      "navLabel": "Odalar",
+      "title": "Odalar",
+      "intro": "Tüm odalarda klima, ücretsiz kablosuz internet ve günlük temizlik. Kahvaltı her odaya dahildir. Güncel fiyat ve müsaitlik için WhatsApp'tan yazın — aracı komisyonu yok.",
+      "layout": "cards",
+      "items": [
+        { "name": "Standart Çift Kişilik", "description": "Bir büyük yatak. Tek başına ya da çift için." },
+        { "name": "İki Ayrı Yataklı", "description": "İki tek kişilik yatak. Arkadaş grupları ve iş seyahati için." },
+        { "name": "Üç Kişilik Aile Odası", "description": "Bir büyük, bir tek yatak. Çocuklu aileler için ferah seçenek." }
+      ]
+    },
+    {
+      "type": "services",
+      "id": "olanaklar",
+      "title": "Fiyata dahil",
+      "layout": "list",
+      "hideFromNav": true,
+      "items": [
+        { "name": "Kahvaltı", "description": "Her sabah, her oda için." },
+        { "name": "Otopark", "description": "Taksim'de nadir bulunan ücretsiz park yeri." },
+        { "name": "Kablosuz internet", "description": "Tüm odalarda ve ortak alanlarda." },
+        { "name": "Klima", "description": "Her odada bağımsız kontrol." },
+        { "name": "Çamaşır yıkama", "description": "Uzun konaklamalar için resepsiyona bırakın." },
+        { "name": "Çay, kahve, su", "description": "Misafirlerimiz sınırsız olduğunu yazıyor; doğrudur." }
+      ]
+    },
+    {
+      "type": "gallery",
+      "id": "galeri",
+      "title": "Otelden",
+      "layout": "grid",
+      "images": [
+        { "src": "https://images.unsplash.com/photo-1618773928121-c32242e63f39?w=1200&q=80&auto=format&fit=crop", "alt": "Çift kişilik oda" },
+        { "src": "https://images.unsplash.com/photo-1444201983204-c43cbd584d93?w=1200&q=80&auto=format&fit=crop", "alt": "Pencereli oda" },
+        { "src": "https://images.unsplash.com/photo-1522798514-97ceb8c4f1c8?w=1200&q=80&auto=format&fit=crop", "alt": "Bahçede kahvaltı alanı" },
+        { "src": "https://images.unsplash.com/photo-1541432901042-2d8bd64b4a9b?w=1200&q=80&auto=format&fit=crop", "alt": "Sultanahmet Camii" },
+        { "src": "https://images.unsplash.com/photo-1590490360182-c33d57733427?w=1200&q=80&auto=format&fit=crop", "alt": "Oturma alanlı oda" },
+        { "src": "https://images.unsplash.com/photo-1527838832700-5059252407fa?w=1200&q=80&auto=format&fit=crop", "alt": "Ayasofya" }
+      ]
+    },
+    {
+      "type": "reviews",
+      "id": "yorumlar",
+      "title": "Misafirlerimiz ne diyor?",
+      "summary": { "rating": 4.1, "count": 126, "source": "Google" },
+      "items": [
+        {
+          "author": "Sebahat E.",
+          "rating": 5,
+          "text": "Konum çok iyi, yataklar çok rahat, temizlik çok iyi. Her istediğimizde oda temizleniyor; çay, kahve, su sınırsız olarak veriliyor.",
+          "source": "Tripadvisor"
+        }
+      ]
+    },
+    {
+      "type": "faq",
+      "id": "sss",
+      "title": "Sık sorulanlar",
+      "items": [
+        { "q": "Giriş ve çıkış saatleri nedir?", "a": "Çıkış saati 11:00. Giriş saatini ve erken giriş imkânını rezervasyon sırasında WhatsApp'tan teyit ediyoruz." },
+        { "q": "Havalimanından nasıl gelirim?", "a": "İstanbul Havalimanı'ndan Havaist otobüsü Taksim'e gelir; oradan otel beş dakika yürüme. Taksi ya da transfer için de WhatsApp'tan yazabilirsiniz." },
+        { "q": "Otopark gerçekten ücretsiz mi?", "a": "Evet. Taksim çevresinde park ücreti günlük ciddi bir masraf; bizde konaklama süresince ücretsiz." },
+        { "q": "Kahvaltı fiyata dahil mi?", "a": "Evet, tüm odalarda kahvaltı dahildir." },
+        { "q": "Ödemeyi nasıl yapıyorum?", "a": "Girişte nakit ya da kart. Aracı site üzerinden değil, doğrudan otele ödersiniz." }
+      ]
+    },
+    {
+      "type": "location",
+      "id": "konum",
+      "title": "Nasıl gelinir?",
+      "showMap": true,
+      "note": "Kocatepe Mahallesi, Feridiye Caddesi üzerinde. Taksim Meydanı'na ve metroya beş dakika yürüme. Araçla gelenlere otopark ücretsiz."
+    },
+    {
+      "type": "cta",
+      "id": "rezervasyon",
+      "headline": "Tarihinizi yazın, fiyatı hemen söyleyelim",
+      "subline": "WhatsApp'tan giriş-çıkış tarihi ve kişi sayısını iletin; müsaitliği ve aracısız fiyatı dakikalar içinde onaylayalım.",
+      "actions": [
+        { "label": "WhatsApp'tan Yaz", "kind": "whatsapp", "value": "Merhaba, Olympos Garden Hotel için müsaitlik ve fiyat öğrenmek istiyorum. Tarih: ", "style": "primary" },
+        { "label": "0530 388 67 12", "kind": "call", "style": "ghost" }
+      ]
+    }
+  ],
+  "offer": {
+    "status": "draft",
+    "expiresAt": "2026-09-10T21:00:00+03:00",
+    "price": 8500,
+    "currency": "TRY",
+    "seller": {
+      "name": "fourpear",
+      "whatsapp": "905550000000"
+    }
+  },
+  "seo": {
+    "title": "Olympos Garden Hotel — Taksim, İstanbul",
+    "description": "Taksim'e yürüme mesafesinde 3 yıldızlı otel. Kahvaltı, kablosuz internet ve otopark dahil. WhatsApp'tan aracısız rezervasyon."
+  }
+}
