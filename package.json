@@ -8,16 +8,21 @@
     "start": "next start",
     "lint": "eslint",
     "new-site": "node scripts/new-site.mts",
-    "typecheck": "tsc --noEmit"
+    "typecheck": "tsc --noEmit",
+    "find-leads": "node --env-file-if-exists=.env.local scripts/find-leads.mts",
+    "screenshot": "node scripts/screenshot.mts"
   },
   "dependencies": {
     "@vercel/analytics": "^2.0.1",
+    "lucide-react": "^1.40.0",
+    "motion": "^13.2.0",
     "next": "16.3.4",
     "react": "19.2.8",
     "react-dom": "19.2.8",
     "zod": "^4.5.4"
   },
   "devDependencies": {
+    "@playwright/test": "^1.62.1",
     "@tailwindcss/postcss": "^4",
     "@types/node": "^20",
     "@types/react": "^19",

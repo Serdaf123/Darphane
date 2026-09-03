@@ -49,6 +49,7 @@ function CountdownBar({
   return (
     <div
       className="sticky top-0 z-50"
+      data-offer-bar
       style={{ background: BAR_BG, color: BAR_TEXT }}
       role="region"
       aria-label="Teklif bilgisi"
@@ -113,6 +114,7 @@ function DraftBar({ businessName }: { businessName: string }) {
   return (
     <div
       className="sticky top-0 z-50"
+      data-offer-bar
       style={{ background: "#7c2d12", color: "#fff7ed" }}
       role="region"
       aria-label="İç önizleme"

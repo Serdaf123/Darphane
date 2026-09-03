@@ -55,7 +55,31 @@ npm run build        # üretim derlemesi — bozuk JSON burada patlar
 npm run typecheck    # tip kontrolü
 npm run lint
 npm run new-site -- <slug> "<İşletme>" "<Kategori>" [tema]
+npm run find-leads -- "<kategori>" "<ilçe, şehir>" [minYorum]   # sitesiz işletme listesi → leads/*.csv
+npm run screenshot -- <slug> [baseUrl] [--clean]                # iPhone çerçeveli görsel → shots/ (--clean: teklif şeridi gizli)
 ```
+
+### İşletme bulma (`find-leads`)
+
+Google Places API (New) ile arar, `websiteUri` alanı boş olanları süzer, yorum sayısı / puan / fotoğraf / telefon üzerinden skorlar ve CSV yazar. `cp .env.example .env.local` yapıp `GOOGLE_PLACES_API_KEY` gir. `leads/` klasörü telefon numarası içerdiği için git dışında.
+
+### Telefon görseli (`screenshot`)
+
+WhatsApp'ta linkten önce görsel atmak açılma oranını artırır. Kurulu Google Chrome'u Playwright ile sürer, iPhone görünümünü alır, CSS çerçeveye oturtur. Dev sunucu açıkken çalıştır.
+
+## Claude Code skill'leri
+
+`.claude/skills/` altında, repo ile birlikte gelir (`skills-lock.json` kaynakları tutar):
+
+| Skill | Ne için |
+| --- | --- |
+| `frontend-design` (Anthropic) | Şablon gibi durmayan, işletmeye özgü tasarım kararları |
+| `web-design-guidelines`, `vercel-react-best-practices` (Vercel) | Erişilebilirlik/UX denetimi, React-Next performans kuralları |
+| `deploy-to-vercel` (Vercel) | Deploy akışı |
+| `copywriting`, `copy-editing`, `cro`, `offers`, `pricing` | Site metinleri, dönüşüm, teklif ve fiyat kurgusu |
+| `cold-email`, `prospecting`, `sales-enablement` | İlk mesaj, takip, itiraz cevapları, aday bulma |
+
+Kullanıcı düzeyinde ayrıca `claude-seo` eklentisi kurulu (`/seo` komutları; `seo-local`, `seo-schema` satış sonrası LocalBusiness/SEO için).
 
 ## Yapı
 

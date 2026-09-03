@@ -39,3 +39,10 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# darphane
+# lead listeleri kişisel veri (telefon) içerir — asla commit etme
+/leads/
+# ekran görüntüleri
+/shots/
+!.env.example
