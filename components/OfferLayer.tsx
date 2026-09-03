@@ -1,6 +1,6 @@
 "use client";
 
-import type { ReactNode } from "react";
+import { useLayoutEffect, useRef, useState, type ReactNode } from "react";
 import { OfferExpired } from "@/components/OfferExpired";
 import { formatPrice, purchaseUrl } from "@/lib/offer";
 import type { Offer } from "@/lib/schema";
@@ -48,7 +48,6 @@ function CountdownBar({
 
   return (
     <div
-      className="sticky top-0 z-50"
       data-offer-bar
       style={{ background: BAR_BG, color: BAR_TEXT }}
       role="region"
@@ -117,7 +116,6 @@ function CountdownBar({
 function DraftBar({ businessName }: { businessName: string }) {
   return (
     <div
-      className="sticky top-0 z-50"
       data-offer-bar
       style={{ background: "#7c2d12", color: "#fff7ed" }}
       role="region"
@@ -144,15 +142,40 @@ export function OfferLayer({
     offer.status === "pitched" && offer.expiresAt ? new Date(offer.expiresAt).getTime() : null;
   const expired = deadline !== null && now !== null && deadline <= now;
 
+  // Şeridin yüksekliği --offer-h olarak yayınlanır: header onun altına yapışır,
+  // çapalar onun altında kalmaz. Şerit yoksa 0.
+  const barRef = useRef<HTMLDivElement>(null);
+  const [barHeight, setBarHeight] = useState(0);
+  useLayoutEffect(() => {
+    const el = barRef.current;
+    if (!el) {
+      setBarHeight(0);
+      return;
+    }
+    const update = () => setBarHeight(el.getBoundingClientRect().height);
+    update();
+    const observer = new ResizeObserver(update);
+    observer.observe(el);
+    return () => observer.disconnect();
+  }, [offer.status]);
+
   if (expired) return <OfferExpired offer={offer} businessName={businessName} />;
 
+  const bar =
+    offer.status === "draft" ? (
+      <DraftBar businessName={businessName} />
+    ) : offer.status === "pitched" ? (
+      <CountdownBar offer={offer} businessName={businessName} now={now} />
+    ) : null;
+
   return (
-    <>
-      {offer.status === "draft" ? <DraftBar businessName={businessName} /> : null}
-      {offer.status === "pitched" ? (
-        <CountdownBar offer={offer} businessName={businessName} now={now} />
+    <div style={{ "--offer-h": `${barHeight}px` } as React.CSSProperties}>
+      {bar ? (
+        <div ref={barRef} className="sticky top-0 z-50">
+          {bar}
+        </div>
       ) : null}
       {children}
-    </>
+    </div>
   );
 }

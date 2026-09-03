@@ -1,3 +1,4 @@
+import { Item, Reveal, Stagger } from "@/components/motion/Reveal";
 import { SiteImage } from "@/components/SiteImage";
 import type { Section } from "@/lib/schema";
 
@@ -10,10 +11,11 @@ export function Gallery({ section, id }: { section: GalleryData; id: string }) {
   if (section.layout === "strip") {
     return (
       <section id={id} className="section">
-        <div className="container">
+        <Reveal className="container">
           <h2 className="section-title">{section.title}</h2>
-        </div>
-        <div
+        </Reveal>
+        <Reveal
+          delay={0.1}
           className="mt-6 flex gap-4 overflow-x-auto px-5 pb-4 md:px-8"
           style={{ scrollSnapType: "x mandatory" }}
         >
@@ -30,7 +32,7 @@ export function Gallery({ section, id }: { section: GalleryData; id: string }) {
               <SiteImage image={image} sizes="72vw" className="h-full w-full" />
             </div>
           ))}
-        </div>
+        </Reveal>
       </section>
     );
   }
@@ -40,10 +42,12 @@ export function Gallery({ section, id }: { section: GalleryData; id: string }) {
   return (
     <section id={id} className="section">
       <div className="container flex flex-col gap-[var(--stack-gap)]">
-        <h2 className="section-title">{section.title}</h2>
-        <div className="grid grid-cols-2 gap-3 md:grid-cols-3 md:gap-4">
+        <Reveal>
+          <h2 className="section-title">{section.title}</h2>
+        </Reveal>
+        <Stagger step={0.06} className="grid grid-cols-2 gap-3 md:grid-cols-3 md:gap-4">
           {section.images.map((image, index) => (
-            <div
+            <Item
               key={image.src + index}
               className="relative overflow-hidden"
               style={{
@@ -58,9 +62,9 @@ export function Gallery({ section, id }: { section: GalleryData; id: string }) {
                 sizes="(min-width: 768px) 33vw, 50vw"
                 className="h-full w-full"
               />
-            </div>
+            </Item>
           ))}
-        </div>
+        </Stagger>
       </div>
     </section>
   );

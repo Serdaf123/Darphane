@@ -1,4 +1,5 @@
 import { ActionButtons } from "@/components/ActionButtons";
+import { Reveal } from "@/components/motion/Reveal";
 import type { Business, Section } from "@/lib/schema";
 
 type CtaData = Extract<Section, { type: "cta" }>;
@@ -15,7 +16,7 @@ export function Cta({
   return (
     <section id={id} className="section">
       <div className="container">
-        <div
+        <Reveal
           className="flex flex-col items-start gap-[var(--stack-gap)] p-8 md:items-center md:p-14 md:text-center"
           style={{
             background: "var(--c-accent-soft)",
@@ -30,7 +31,7 @@ export function Cta({
             business={business}
             className="md:justify-center"
           />
-        </div>
+        </Reveal>
       </div>
     </section>
   );

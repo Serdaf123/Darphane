@@ -1,3 +1,4 @@
+import { Item, Reveal, Stagger } from "@/components/motion/Reveal";
 import type { Section } from "@/lib/schema";
 
 type ServicesData = Extract<Section, { type: "services" }>;
@@ -6,13 +7,16 @@ export function Services({ section, id }: { section: ServicesData; id: string })
   return (
     <section id={id} className="section section-surface">
       <div className="container flex flex-col gap-[var(--stack-gap)]">
-        <h2 className="section-title">{section.title}</h2>
-        {section.intro ? <p className="section-intro">{section.intro}</p> : null}
+        <Reveal className="flex flex-col gap-[var(--stack-gap)]">
+          <h2 className="section-title">{section.title}</h2>
+          {section.intro ? <p className="section-intro">{section.intro}</p> : null}
+        </Reveal>
 
         {section.layout === "list" ? (
-          <ul className="mt-2 flex flex-col" style={{ listStyle: "none", padding: 0 }}>
+          <Stagger as="ul" className="mt-2 flex flex-col" style={{ listStyle: "none", padding: 0 }}>
             {section.items.map((item) => (
-              <li
+              <Item
+                as="li"
                 key={item.name}
                 className="flex flex-wrap items-baseline justify-between gap-x-4 gap-y-1 py-4"
                 style={{ borderBottom: "1px solid var(--c-border)" }}
@@ -28,13 +32,13 @@ export function Services({ section, id }: { section: ServicesData; id: string })
                     {item.price}
                   </p>
                 ) : null}
-              </li>
+              </Item>
             ))}
-          </ul>
+          </Stagger>
         ) : (
-          <div className="mt-2 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+          <Stagger className="mt-2 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
             {section.items.map((item) => (
-              <div key={item.name} className="card flex flex-col gap-2">
+              <Item key={item.name} className="card flex flex-col gap-2">
                 <h3 className="text-lg font-semibold">{item.name}</h3>
                 {item.description ? (
                   <p className="muted text-sm leading-relaxed">{item.description}</p>
@@ -44,9 +48,9 @@ export function Services({ section, id }: { section: ServicesData; id: string })
                     {item.price}
                   </p>
                 ) : null}
-              </div>
+              </Item>
             ))}
-          </div>
+          </Stagger>
         )}
       </div>
     </section>

@@ -1,3 +1,4 @@
+import { Reveal } from "@/components/motion/Reveal";
 import { SiteImage } from "@/components/SiteImage";
 import type { Section } from "@/lib/schema";
 
@@ -11,7 +12,7 @@ export function About({ section, id }: { section: AboutData; id: string }) {
       <div
         className={`container grid gap-10 ${hasImage ? "md:grid-cols-2 md:items-center" : ""}`}
       >
-        <div className="flex flex-col gap-[var(--stack-gap)]">
+        <Reveal className="flex flex-col gap-[var(--stack-gap)]">
           <h2 className="section-title">{section.title}</h2>
           {section.body.split("\n\n").map((paragraph, index) => (
             <p key={index} className="section-intro">
@@ -34,10 +35,11 @@ export function About({ section, id }: { section: AboutData; id: string }) {
               ))}
             </dl>
           ) : null}
-        </div>
+        </Reveal>
 
         {hasImage ? (
-          <div
+          <Reveal
+            delay={0.15}
             className="relative aspect-4/3 overflow-hidden"
             style={{ borderRadius: "var(--radius)" }}
           >
@@ -46,7 +48,7 @@ export function About({ section, id }: { section: AboutData; id: string }) {
               sizes="(min-width: 768px) 50vw, 100vw"
               className="h-full w-full"
             />
-          </div>
+          </Reveal>
         ) : null}
       </div>
     </section>

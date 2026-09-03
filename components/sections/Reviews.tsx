@@ -1,3 +1,4 @@
+import { Item, Reveal, Stagger } from "@/components/motion/Reveal";
 import type { Section } from "@/lib/schema";
 
 type ReviewsData = Extract<Section, { type: "reviews" }>;
@@ -16,7 +17,7 @@ export function Reviews({ section, id }: { section: ReviewsData; id: string }) {
   return (
     <section id={id} className="section section-surface">
       <div className="container flex flex-col gap-[var(--stack-gap)]">
-        <div className="flex flex-wrap items-end justify-between gap-4">
+        <Reveal className="flex flex-wrap items-end justify-between gap-4">
           <h2 className="section-title">{section.title}</h2>
           {section.summary ? (
             <p className="pill">
@@ -27,20 +28,20 @@ export function Reviews({ section, id }: { section: ReviewsData; id: string }) {
               </span>
             </p>
           ) : null}
-        </div>
+        </Reveal>
 
-        <div className="grid gap-4 md:grid-cols-3">
+        <Stagger className="grid gap-4 md:grid-cols-3">
           {section.items.map((review, index) => (
-            <figure key={index} className="card m-0 flex flex-col gap-3">
+            <Item as="figure" key={index} className="card m-0 flex flex-col gap-3">
               <Stars rating={review.rating} />
               <blockquote className="m-0 leading-relaxed">“{review.text}”</blockquote>
               <figcaption className="muted mt-auto text-sm">
                 {review.author}
                 {review.source ? ` · ${review.source}` : ""}
               </figcaption>
-            </figure>
+            </Item>
           ))}
-        </div>
+        </Stagger>
       </div>
     </section>
   );

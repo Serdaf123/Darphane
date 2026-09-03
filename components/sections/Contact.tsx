@@ -1,5 +1,6 @@
 "use client";
 
+import { Reveal } from "@/components/motion/Reveal";
 import { useState } from "react";
 import { normalizePhone, whatsappUrl } from "@/lib/actions";
 import type { Business, Section } from "@/lib/schema";
@@ -42,7 +43,7 @@ export function Contact({
 
   return (
     <section id={id} className="section">
-      <div className="container grid gap-10 md:grid-cols-2">
+      <Reveal className="container grid gap-10 md:grid-cols-2">
         <div className="flex flex-col gap-[var(--stack-gap)]">
           <h2 className="section-title">{section.title}</h2>
           {section.intro ? <p className="section-intro">{section.intro}</p> : null}
@@ -140,7 +141,7 @@ export function Contact({
             </p>
           </form>
         ) : null}
-      </div>
+      </Reveal>
     </section>
   );
 }

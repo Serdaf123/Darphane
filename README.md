@@ -33,6 +33,16 @@ npm run new-site -- kuafor-nese "Kuaför Neşe" "Kadın Kuaförü" sage
 
 Oluşan `data/sites/kuafor-nese.json` dosyasını doldur. `offer.seller.whatsapp` senin numaran. Tema seçenekleri: `porcelain` `ember` `sage` `midnight` `cobalt` `sand`. Örnek olarak `ocakbasi-sahin.json` (restoran, koyu) ve `dishekimi-elif-yarar.json` (klinik, açık) dosyalarına bak.
 
+`theme` içinde iki alan daha siteyi başka bir siteye çevirir:
+
+| Alan | Seçenekler | Ne yapar |
+| --- | --- | --- |
+| `header` | `glass` `solid` `minimal` `none` | glass: görselli hero'nun üstünde saydam, kaydırınca buzlu cam · solid: hep dolu · minimal: isim + tek buton |
+| `motion.hero` | `rise` `reveal` `blur` `curtain` `zoom` `none` | Giriş animasyonu: alttan sırayla · perde arkasından · netleşerek · perde kalkar · görsel yaklaşır |
+| `motion.scroll` | `rise` `fade` `slide` `scale` `none` | Kaydırınca bölümlerin belirme biçimi; kartlar ve satırlar sırayla gelir |
+
+Header menüsü otomatik: bölümlerden türer (en fazla 4). Bir bölümü menüden çıkarmak için `"hideFromNav": true`, adını değiştirmek için `"navLabel": "Fiyatlar"`. Header butonu hero'nun ilk eylemidir. Sistemde "hareketi azalt" açıksa hiçbir animasyon oynamaz.
+
 **3. Kontrol et.**
 
 ```bash
@@ -88,13 +98,16 @@ app/[slug]/page.tsx       işletme sitesi (statik, 5 dk'da bir yenilenir)
 app/page.tsx              iç liste: hangi site hangi aşamada
 app/robots.ts             satılanlar hariç her şey kapalı
 components/sections/      Hero, About, Services, Menu, Gallery, Reviews, Hours, Location, Contact, Faq, Cta
-components/OfferLayer     taslak / geri sayım şeritleri
+components/SiteHeader     yapışkan header (şeridin altında), menü bölümlerden türer
+components/motion/        Reveal/Stagger (kaydırma), HeroItem/HeroMedia (giriş), MotionProvider
+components/OfferLayer     taslak / geri sayım şeritleri; yüksekliğini --offer-h olarak yayınlar
 components/OfferExpired   süre doldu ekranı
 components/StickyMobileBar
 lib/schema.ts             zod şeması — JSON'un tek doğruluk kaynağı
 lib/theme.ts              tema paletleri → CSS değişkenleri
 lib/hours.ts              "şu an açık" hesabı
 lib/actions.ts            tel: / wa.me / harita linkleri
+lib/nav.ts                header menüsü ve butonu
 content/pitch/            teklif mesajları
 scripts/new-site.mts      iskelet üretici
 ```

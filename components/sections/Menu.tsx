@@ -1,3 +1,4 @@
+import { Item, Reveal, Stagger } from "@/components/motion/Reveal";
 import type { Section } from "@/lib/schema";
 
 type MenuData = Extract<Section, { type: "menu" }>;
@@ -6,12 +7,14 @@ export function Menu({ section, id }: { section: MenuData; id: string }) {
   return (
     <section id={id} className="section">
       <div className="container flex flex-col gap-[var(--stack-gap)]">
-        <h2 className="section-title">{section.title}</h2>
-        {section.intro ? <p className="section-intro">{section.intro}</p> : null}
+        <Reveal className="flex flex-col gap-[var(--stack-gap)]">
+          <h2 className="section-title">{section.title}</h2>
+          {section.intro ? <p className="section-intro">{section.intro}</p> : null}
+        </Reveal>
 
-        <div className="mt-2 grid gap-10 md:grid-cols-2">
+        <Stagger step={0.12} className="mt-2 grid gap-10 md:grid-cols-2">
           {section.groups.map((group) => (
-            <div key={group.name}>
+            <Item key={group.name}>
               <h3
                 className="pb-3 text-sm font-semibold uppercase"
                 style={{
@@ -41,9 +44,9 @@ export function Menu({ section, id }: { section: MenuData; id: string }) {
                   </li>
                 ))}
               </ul>
-            </div>
+            </Item>
           ))}
-        </div>
+        </Stagger>
       </div>
     </section>
   );

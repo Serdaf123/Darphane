@@ -30,7 +30,9 @@
     "preset": "cobalt",
     "headingFont": "sans",
     "radius": "lg",
-    "density": "airy"
+    "density": "airy",
+    "header": "solid",
+    "motion": { "hero": "reveal", "scroll": "fade" }
   },
   "sections": [
     {

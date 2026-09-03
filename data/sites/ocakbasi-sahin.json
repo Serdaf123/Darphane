@@ -29,7 +29,9 @@
     "preset": "ember",
     "headingFont": "display",
     "radius": "sm",
-    "density": "normal"
+    "density": "normal",
+    "header": "glass",
+    "motion": { "hero": "zoom", "scroll": "rise" }
   },
   "sections": [
     {

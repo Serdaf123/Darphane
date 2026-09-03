@@ -1,10 +1,14 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
+import { MotionProvider } from "@/components/motion/MotionProvider";
 import { OfferExpired } from "@/components/OfferExpired";
 import { OfferLayer } from "@/components/OfferLayer";
 import { SiteFooter } from "@/components/SiteFooter";
+import { SiteHeader } from "@/components/SiteHeader";
 import { Sections } from "@/components/sections";
 import { StickyMobileBar } from "@/components/StickyMobileBar";
+import { sectionId } from "@/lib/actions";
+import { navCta, navItems } from "@/lib/nav";
 import { getSite, isOfferExpired, isPubliclyIndexable, listSiteSlugs } from "@/lib/sites";
 import { isDarkPreset, themeStyle } from "@/lib/theme";
 
@@ -64,20 +68,34 @@ export default async function SitePage({ params }: PageProps<"/[slug]">) {
     return <OfferExpired offer={offer} businessName={business.name} />;
   }
 
+  // Header görselli hero'nun üstüne biner; diğer hero'larda kendi zeminiyle durur.
+  const first = sections[0];
+  const overImage = first.type === "hero" && first.variant === "image";
+
   return (
     <div
       className="site-root"
       style={{ ...themeStyle(theme), colorScheme: isDarkPreset(theme.preset) ? "dark" : "light" }}
     >
-      <OfferLayer offer={offer} businessName={business.name}>
-        <main>
-          <Sections sections={sections} business={business} />
-        </main>
-        <SiteFooter business={business} />
-        <StickyMobileBar business={business} />
+      <MotionProvider motion={theme.motion}>
+        <OfferLayer offer={offer} businessName={business.name}>
+          <SiteHeader
+            business={business}
+            nav={navItems(sections)}
+            cta={navCta(sections, business)}
+            style={theme.header}
+            overImage={overImage}
+            topHref={`#${sectionId(first, 0)}`}
+          />
+          <main>
+            <Sections sections={sections} business={business} />
+          </main>
+          <SiteFooter business={business} />
+          <StickyMobileBar business={business} />
 
-        {isPubliclyIndexable(site) ? <LocalBusinessJsonLd site={site} /> : null}
-      </OfferLayer>
+          {isPubliclyIndexable(site) ? <LocalBusinessJsonLd site={site} /> : null}
+        </OfferLayer>
+      </MotionProvider>
     </div>
   );
 }

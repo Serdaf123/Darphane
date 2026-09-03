@@ -98,12 +98,39 @@ export const THEME_PRESETS = [
 ] as const;
 export type ThemePreset = (typeof THEME_PRESETS)[number];
 
+export const HERO_MOTIONS = ["rise", "reveal", "blur", "curtain", "zoom", "none"] as const;
+export const SCROLL_MOTIONS = ["rise", "fade", "slide", "scale", "none"] as const;
+export const HEADER_STYLES = ["glass", "solid", "minimal", "none"] as const;
+
+/**
+ * Hareket: hero girişi ve kaydırınca beliren bölümler.
+ * hero   rise    → metinler alttan sırayla, görsel hafif yaklaşır (varsayılan)
+ *        reveal  → satırlar perde arkasından çıkar, görsel soldan açılır
+ *        blur    → netleşerek belirir
+ *        curtain → tema renginde perde yukarı kalkar, sonra metinler
+ *        zoom    → görsel uzaktan yaklaşır, metinler yumuşak belirir
+ * scroll rise / fade / slide / scale / none
+ */
+const motionSchema = z.object({
+  hero: z.enum(HERO_MOTIONS).default("rise"),
+  scroll: z.enum(SCROLL_MOTIONS).default("rise"),
+});
+export type Motion = z.infer<typeof motionSchema>;
+
 const themeSchema = z.object({
   preset: z.enum(THEME_PRESETS).default("porcelain"),
   /** Başlık fontu */
   headingFont: z.enum(["sans", "display"]).default("sans"),
   radius: z.enum(["none", "sm", "md", "lg"]).default("md"),
   density: z.enum(["tight", "normal", "airy"]).default("normal"),
+  /**
+   * glass   → hero görselinin üstünde saydam, kaydırınca buzlu cam (varsayılan)
+   * solid   → her zaman dolu zemin
+   * minimal → sadece isim + tek buton, menü yok
+   * none    → header yok
+   */
+  header: z.enum(HEADER_STYLES).default("glass"),
+  motion: motionSchema.prefault({}),
 });
 export type Theme = z.infer<typeof themeSchema>;
 
@@ -112,6 +139,10 @@ export type Theme = z.infer<typeof themeSchema>;
 const sectionBase = {
   /** Sayfa içi bağlantı için; verilmezse tipten türetilir */
   id: z.string().optional(),
+  /** Header menüsündeki kısa ad; verilmezse tipten türetilir ("Menü", "Galeri"…) */
+  navLabel: z.string().optional(),
+  /** Header menüsünde görünmesin */
+  hideFromNav: z.boolean().optional(),
 };
 
 const heroSection = z.object({

@@ -1,3 +1,4 @@
+import { Reveal } from "@/components/motion/Reveal";
 import { directionsUrl, mapEmbedUrl, normalizePhone } from "@/lib/actions";
 import type { Business, Section } from "@/lib/schema";
 
@@ -23,7 +24,7 @@ export function Location({
   return (
     <section id={id} className="section section-surface">
       <div className="container grid gap-8 md:grid-cols-2 md:items-center">
-        <div className="flex flex-col gap-[var(--stack-gap)]">
+        <Reveal className="flex flex-col gap-[var(--stack-gap)]">
           <h2 className="section-title">{section.title}</h2>
           {address ? <p className="section-intro">{address}</p> : null}
           {section.note ? <p className="muted text-sm leading-relaxed">{section.note}</p> : null}
@@ -45,10 +46,11 @@ export function Location({
               </a>
             ) : null}
           </div>
-        </div>
+        </Reveal>
 
         {embed ? (
-          <div
+          <Reveal
+            delay={0.15}
             className="overflow-hidden"
             style={{ borderRadius: "var(--radius)", border: "1px solid var(--c-border)" }}
           >
@@ -60,7 +62,7 @@ export function Location({
               className="block h-72 w-full md:h-80"
               style={{ border: 0 }}
             />
-          </div>
+          </Reveal>
         ) : null}
       </div>
     </section>

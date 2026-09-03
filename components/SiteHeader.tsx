@@ -1,0 +1,89 @@
+"use client";
+
+import Image from "next/image";
+import { useEffect, useState } from "react";
+import type { Business, Theme } from "@/lib/schema";
+import type { NavCta, NavItem } from "@/lib/nav";
+
+/**
+ * Header. Teklif şeridinin hemen altına yapışır (top: --offer-h).
+ *
+ * glass: görselli hero'nun üstünde saydam ve beyaz yazılı başlar; 24px
+ * kaydırınca buzlu cam zemine geçer. Diğer hero'larda baştan cam.
+ * solid: hep dolu. minimal: menü yok, isim + buton. none: çizilmez.
+ *
+ * Mobilde menü gizli — tek sayfalık sitede alttaki Ara/Yol Tarifi/WhatsApp
+ * barı zaten var; header'da isim ve tek buton yeter.
+ */
+export function SiteHeader({
+  business,
+  nav,
+  cta,
+  style,
+  overImage,
+  topHref,
+}: {
+  business: Business;
+  nav: NavItem[];
+  cta?: NavCta;
+  style: Theme["header"];
+  overImage: boolean;
+  /** Marka tıklanınca gidilecek çapa (hero id'si) */
+  topHref: string;
+}) {
+  const [scrolled, setScrolled] = useState(false);
+
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 24);
+    onScroll();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
+
+  if (style === "none") return null;
+
+  const transparent = style === "glass" && overImage && !scrolled;
+  const showNav = style !== "minimal" && nav.length > 0;
+
+  return (
+    <header
+      className={`site-header ${transparent ? "site-header-transparent" : "site-header-solid"} ${overImage ? "site-header-over" : ""}`}
+      data-scrolled={scrolled || undefined}
+    >
+      <div className="container flex items-center justify-between gap-4">
+        <a href={topHref} className="site-header-brand" aria-label={`${business.name} — başa dön`}>
+          {business.logo ? (
+            <Image
+              src={business.logo.src}
+              alt={business.logo.alt}
+              width={36}
+              height={36}
+              className="site-header-logo"
+            />
+          ) : null}
+          <span className="site-header-name">{business.name}</span>
+        </a>
+
+        {showNav ? (
+          <nav aria-label="Bölümler" className="site-header-nav">
+            {nav.map((item) => (
+              <a key={item.href} href={item.href}>
+                {item.label}
+              </a>
+            ))}
+          </nav>
+        ) : null}
+
+        {cta ? (
+          <a
+            href={cta.href}
+            className="btn btn-primary site-header-cta"
+            {...(cta.external ? { target: "_blank", rel: "noopener noreferrer" } : {})}
+          >
+            {cta.label}
+          </a>
+        ) : null}
+      </div>
+    </header>
+  );
+}

@@ -1,5 +1,6 @@
 "use client";
 
+import { Reveal } from "@/components/motion/Reveal";
 import { OpenBadge } from "@/components/OpenBadge";
 import { hoursTable } from "@/lib/hours";
 import type { Business, Section } from "@/lib/schema";
@@ -31,7 +32,7 @@ export function HoursSection({
 
   return (
     <section id={id} className="section">
-      <div className="container flex flex-col gap-[var(--stack-gap)]">
+      <Reveal className="container flex flex-col gap-[var(--stack-gap)]">
         <div className="flex flex-wrap items-center justify-between gap-4">
           <h2 className="section-title">{section.title}</h2>
           <OpenBadge hours={hours} />
@@ -67,7 +68,7 @@ export function HoursSection({
         </table>
 
         {hours.note ? <p className="muted text-sm">{hours.note}</p> : null}
-      </div>
+      </Reveal>
     </section>
   );
 }

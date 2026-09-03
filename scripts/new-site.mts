@@ -61,7 +61,16 @@ const skeleton = {
       },
     },
   },
-  theme: { preset, headingFont: "sans", radius: "md", density: "normal" },
+  theme: {
+    preset,
+    headingFont: "sans",
+    radius: "md",
+    density: "normal",
+    // glass | solid | minimal | none
+    header: "glass",
+    // hero: rise | reveal | blur | curtain | zoom | none · scroll: rise | fade | slide | scale | none
+    motion: { hero: "rise", scroll: "rise" },
+  },
   sections: [
     {
       type: "hero",
