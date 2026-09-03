@@ -31,7 +31,24 @@ Satılmamış hiçbir site indekslenmez — üç katman: sayfa metadata'sı, `ro
 npm run new-site -- kuafor-nese "Kuaför Neşe" "Kadın Kuaförü" sage
 ```
 
-Oluşan `data/sites/kuafor-nese.json` dosyasını doldur. `offer.seller.whatsapp` senin numaran. Tema seçenekleri: `porcelain` `ember` `sage` `midnight` `cobalt` `sand`. Örnek olarak `ocakbasi-sahin.json` (restoran, koyu) ve `dishekimi-elif-yarar.json` (klinik, açık) dosyalarına bak.
+Oluşan `data/sites/kuafor-nese.json` dosyasını doldur. `offer.seller.whatsapp` senin numaran. Örnek olarak `ocakbasi-sahin.json` (restoran, koyu), `dishekimi-elif-yarar.json` (klinik, açık) ve `olympos-garden-hotel.json` (otel) dosyalarına bak.
+
+**Palet** (`theme.preset`): `porcelain` nötr · `ember` sıcak koyu · `sage` yumuşak yeşil · `midnight` lacivert+altın · `cobalt` güven mavisi · `sand` bej+ceviz · `bosphorus` taş+Boğaz yeşili · `graphite` kurşuni+buz mavisi
+
+**Font çifti** (`theme.fonts`) — sayfanın kişiliğini en çok bu belirler:
+
+| Çift | Fontlar | Kime |
+| --- | --- | --- |
+| `classic` | Inter + Playfair Display | nötr, varsayılan |
+| `hospitality` | Manrope + Cormorant Garamond | otel, restoran, konaklama |
+| `clean` | Figtree | klinik, teknik servis, muhasebe |
+| `craft` | Bricolage Grotesque + Source Serif 4 | ocakbaşı, kasap, zanaat |
+| `soft` | DM Sans + Fraunces | fırın, kafe, spa, çiçekçi |
+| `bold` | Space Grotesk | berber, dövme, oto servis, spor |
+
+`headingFont: "display"` başlıkları çiftin display yüzüyle, `"sans"` gövde yüzüyle yazar. Fontlar `preload: false` — yalnızca sitenin seçtiği çift indirilir.
+
+**Kutusuz düzenler:** `services.layout: "grid"` (iki sütun, kart yok) ve `reviews.layout: "quotes"` (büyük alıntı, az yorumda kartlardan iyi). Her şeyi karta koymak "şablon" hissi verir; her sitede en az bir bölümü kutusuz bırak.
 
 `theme` içinde iki alan daha siteyi başka bir siteye çevirir:
 

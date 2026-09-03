@@ -2,7 +2,7 @@
   "slug": "olympos-garden-hotel",
   "business": {
     "name": "Olympos Garden Hotel",
-    "category": "Otel · Taksim",
+    "category": "Taksim'de üç yıldızlı otel",
     "tagline": "Taksim'e yürüme mesafesinde, kahvaltı ve otopark dahil 3 yıldızlı otel.",
     "phone": "0530 388 67 12",
     "whatsapp": "905303886712",
@@ -13,12 +13,13 @@
     "social": {}
   },
   "theme": {
-    "preset": "sand",
+    "preset": "bosphorus",
+    "fonts": "hospitality",
     "headingFont": "display",
-    "radius": "md",
-    "density": "normal",
+    "radius": "sm",
+    "density": "airy",
     "header": "glass",
-    "motion": { "hero": "zoom", "scroll": "rise" }
+    "motion": { "hero": "blur", "scroll": "fade" }
   },
   "sections": [
     {
@@ -26,9 +27,9 @@
       "id": "ust",
       "variant": "image",
       "headline": "Taksim'in iki sokak arkasında, sessiz bir otel",
-      "subline": "Meydana yürüyerek beş dakika. Kahvaltı, kablosuz internet ve otopark fiyata dahil — aracı sitelere ödediğiniz komisyon değil.",
+      "subline": "Meydana yürüyerek beş dakika. Kahvaltı, kablosuz internet ve otopark fiyata dahil; aracı sitelere ödediğiniz komisyon değil.",
       "image": { "src": "https://images.unsplash.com/photo-1524231757912-21f4fe3a7200?w=1800&q=80&auto=format&fit=crop", "alt": "Galata Kulesi ve Beyoğlu çatıları" },
-      "badges": ["Google 4,1 · 126 yorum", "Kahvaltı dahil", "Ücretsiz otopark"],
+      "badges": ["Google'da 4,1 (126 yorum)", "Kahvaltı dahil", "Ücretsiz otopark"],
       "actions": [
         { "label": "WhatsApp'tan Rezervasyon", "kind": "whatsapp", "value": "Merhaba, Olympos Garden Hotel için müsaitlik ve fiyat öğrenmek istiyorum. Tarih: ", "style": "primary" },
         { "label": "Odaları Gör", "kind": "scroll", "value": "odalar", "style": "secondary" },
@@ -52,8 +53,8 @@
       "id": "odalar",
       "navLabel": "Odalar",
       "title": "Odalar",
-      "intro": "Tüm odalarda klima, ücretsiz kablosuz internet ve günlük temizlik. Kahvaltı her odaya dahildir. Güncel fiyat ve müsaitlik için WhatsApp'tan yazın — aracı komisyonu yok.",
-      "layout": "cards",
+      "intro": "Tüm odalarda klima, ücretsiz kablosuz internet ve günlük temizlik. Kahvaltı her odaya dahildir. Güncel fiyat ve müsaitlik için WhatsApp'tan yazın; aracı komisyonu yok.",
+      "layout": "grid",
       "items": [
         { "name": "Standart Çift Kişilik", "description": "Bir büyük yatak. Tek başına ya da çift için." },
         { "name": "İki Ayrı Yataklı", "description": "İki tek kişilik yatak. Arkadaş grupları ve iş seyahati için." },
@@ -64,7 +65,7 @@
       "type": "services",
       "id": "olanaklar",
       "title": "Fiyata dahil",
-      "layout": "list",
+      "layout": "grid",
       "hideFromNav": true,
       "items": [
         { "name": "Kahvaltı", "description": "Her sabah, her oda için." },
@@ -93,6 +94,7 @@
       "type": "reviews",
       "id": "yorumlar",
       "title": "Misafirlerimiz ne diyor?",
+      "layout": "quotes",
       "summary": { "rating": 4.1, "count": 126, "source": "Google" },
       "items": [
         {

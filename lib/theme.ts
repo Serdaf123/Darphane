@@ -1,4 +1,5 @@
 import type { CSSProperties } from "react";
+import { FONT_PAIRINGS } from "./fonts";
 import type { Theme, ThemePreset } from "./schema";
 
 /**
@@ -86,7 +87,7 @@ export const PALETTES: Record<ThemePreset, Palette> = {
     accentSoft: "#e3ecfd",
     overlay: "linear-gradient(180deg, rgba(10,20,40,.2) 0%, rgba(10,20,40,.68) 100%)",
   },
-  // Sıcak açık bej. Fırın, kahve, butik otel.
+  // Sıcak açık bej, ceviz vurgu. Fırın, kahve, butik.
   sand: {
     bg: "#fdfbf7",
     surface: "#f5efe4",
@@ -94,10 +95,36 @@ export const PALETTES: Record<ThemePreset, Palette> = {
     text: "#241c12",
     muted: "#6f6252",
     border: "#e3d8c5",
-    accent: "#a8642a",
+    accent: "#5a4632",
     accentText: "#ffffff",
-    accentSoft: "#f0e6d6",
+    accentSoft: "#efe6d8",
     overlay: "linear-gradient(180deg, rgba(36,28,18,.15) 0%, rgba(36,28,18,.66) 100%)",
+  },
+  // Taş rengi zemin, Boğaz yeşili vurgu. İstanbul oteli, balıkçı, deniz kenarı.
+  bosphorus: {
+    bg: "#f6f3ec",
+    surface: "#edeee6",
+    surfaceAlt: "#e1e4da",
+    text: "#152224",
+    muted: "#5b6a6b",
+    border: "#d6dbd1",
+    accent: "#1c6b66",
+    accentText: "#ffffff",
+    accentSoft: "#d9e8e4",
+    overlay: "linear-gradient(180deg, rgba(21,34,36,.18) 0%, rgba(21,34,36,.72) 100%)",
+  },
+  // Kurşuni koyu, buz mavisi vurgu. Oto servis, spor salonu, teknik.
+  graphite: {
+    bg: "#16181b",
+    surface: "#1f2226",
+    surfaceAlt: "#292d32",
+    text: "#eef0f2",
+    muted: "#9aa3ab",
+    border: "#30353b",
+    accent: "#7cc4ff",
+    accentText: "#0d1418",
+    accentSoft: "#22313d",
+    overlay: "linear-gradient(180deg, rgba(22,24,27,.3) 0%, rgba(22,24,27,.88) 100%)",
   },
 };
 
@@ -119,8 +146,11 @@ const DENSITY: Record<Theme["density"], { section: string; gap: string }> = {
 export function themeStyle(theme: Theme): CSSProperties {
   const palette = PALETTES[theme.preset];
   const density = DENSITY[theme.density];
+  const fonts = FONT_PAIRINGS[theme.fonts];
 
   return {
+    "--font-sans": fonts.sans,
+    "--font-display": fonts.display,
     "--c-bg": palette.bg,
     "--c-surface": palette.surface,
     "--c-surface-alt": palette.surfaceAlt,
@@ -139,7 +169,12 @@ export function themeStyle(theme: Theme): CSSProperties {
   } as CSSProperties;
 }
 
+/** Font çiftinin CSS değişkenlerini tanımlayan sınıflar — site köküne verilir. */
+export function themeFontClass(theme: Theme): string {
+  return FONT_PAIRINGS[theme.fonts].className;
+}
+
 /** Koyu temalarda tarayıcı arayüzü de koyu olmalı. */
 export function isDarkPreset(preset: ThemePreset) {
-  return preset === "ember" || preset === "midnight";
+  return preset === "ember" || preset === "midnight" || preset === "graphite";
 }

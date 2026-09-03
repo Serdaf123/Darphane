@@ -123,6 +123,17 @@ export function Contact({
                     id={`${id}-${field.name}`}
                     name={field.name}
                     type={field.type}
+                    inputMode={field.type === "tel" ? "tel" : field.type === "email" ? "email" : undefined}
+                    autoComplete={
+                      field.type === "tel"
+                        ? "tel"
+                        : field.type === "email"
+                          ? "email"
+                          : /ad|isim|name/i.test(field.name)
+                            ? "name"
+                            : "off"
+                    }
+                    spellCheck={field.type === "email" ? false : undefined}
                     required={field.required}
                     value={values[field.name] ?? ""}
                     onChange={(event) =>

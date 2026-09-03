@@ -35,6 +35,22 @@ export function Services({ section, id }: { section: ServicesData; id: string })
               </Item>
             ))}
           </Stagger>
+        ) : section.layout === "grid" ? (
+          <Stagger className="mt-2 grid gap-x-12 gap-y-7 sm:grid-cols-2">
+            {section.items.map((item) => (
+              <Item key={item.name} className="flex flex-col gap-1">
+                <h3 className="text-xl font-semibold">{item.name}</h3>
+                {item.description ? (
+                  <p className="muted leading-relaxed">{item.description}</p>
+                ) : null}
+                {item.price ? (
+                  <p className="font-semibold" style={{ color: "var(--c-accent)" }}>
+                    {item.price}
+                  </p>
+                ) : null}
+              </Item>
+            ))}
+          </Stagger>
         ) : (
           <Stagger className="mt-2 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
             {section.items.map((item) => (

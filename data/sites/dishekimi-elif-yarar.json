@@ -28,6 +28,7 @@
   },
   "theme": {
     "preset": "cobalt",
+    "fonts": "clean",
     "headingFont": "sans",
     "radius": "lg",
     "density": "airy",

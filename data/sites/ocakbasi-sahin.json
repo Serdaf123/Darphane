@@ -27,6 +27,7 @@
   },
   "theme": {
     "preset": "ember",
+    "fonts": "craft",
     "headingFont": "display",
     "radius": "sm",
     "density": "normal",

@@ -45,6 +45,15 @@ body {
   font-family: var(--font-sans);
   /* Mobil sticky bar sayfanın altını kapatmasın */
   padding-bottom: env(safe-area-inset-bottom);
+  /* Çift dokunma gecikmesi yok; dokunma vurgusu tema renginde */
+  touch-action: manipulation;
+  -webkit-tap-highlight-color: color-mix(in srgb, var(--c-accent) 20%, transparent);
+}
+
+/* Serif display yüzleri küçük puntoda ince kalır: başlıklarda ağırlık ve satır aralığı dengesi */
+.site-root h1,
+.site-root h2 {
+  font-weight: 600;
 }
 
 .site-root h1,
@@ -96,11 +105,11 @@ body {
   line-height: 1.65;
 }
 
+/* Başlık üstü küçük etiket: cümle düzeni, vurgu rengi. Büyük harf + harf
+   aralığı her sayfada aynı görünen kalıptı, kaldırıldı. */
 .eyebrow {
-  font-size: 0.75rem;
-  font-weight: 600;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
+  font-size: 0.9375rem;
+  font-weight: 500;
   color: var(--c-accent);
 }
 
@@ -192,6 +201,30 @@ body {
 .site-root textarea:focus-visible {
   outline: 2px solid var(--c-accent);
   outline-offset: 2px;
+}
+
+/* Klavye kullanıcısı için: Tab'a basınca görünür, içeriğe atlar */
+.skip-link {
+  position: absolute;
+  top: 0.5rem;
+  left: 0.5rem;
+  z-index: 60;
+  padding: 0.625rem 1rem;
+  border-radius: var(--radius);
+  background: var(--c-accent);
+  color: var(--c-accent-text);
+  font-weight: 600;
+  text-decoration: none;
+  transform: translateY(-200%);
+  transition: transform 0.15s ease;
+}
+
+.skip-link:focus-visible {
+  transform: translateY(0);
+}
+
+main:focus {
+  outline: none;
 }
 
 .visually-hidden {

@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { notFound } from "next/navigation";
 import { MotionProvider } from "@/components/motion/MotionProvider";
 import { OfferExpired } from "@/components/OfferExpired";
@@ -10,7 +10,7 @@ import { StickyMobileBar } from "@/components/StickyMobileBar";
 import { sectionId } from "@/lib/actions";
 import { navCta, navItems } from "@/lib/nav";
 import { getSite, isOfferExpired, isPubliclyIndexable, listSiteSlugs } from "@/lib/sites";
-import { isDarkPreset, themeStyle } from "@/lib/theme";
+import { PALETTES, isDarkPreset, themeFontClass, themeStyle } from "@/lib/theme";
 
 // Bilinmeyen slug'lar 404 döner — sadece data/sites'taki dosyalar yayınlanır.
 export const dynamicParams = false;
@@ -56,6 +56,13 @@ export async function generateMetadata({
   };
 }
 
+/** Tarayıcı çubuğu sayfanın zeminiyle aynı renkte olsun. */
+export async function generateViewport({ params }: PageProps<"/[slug]">): Promise<Viewport> {
+  const { slug } = await params;
+  const site = getSite(slug);
+  return { themeColor: site ? PALETTES[site.theme.preset].bg : undefined };
+}
+
 export default async function SitePage({ params }: PageProps<"/[slug]">) {
   const { slug } = await params;
   const site = getSite(slug);
@@ -74,11 +81,14 @@ export default async function SitePage({ params }: PageProps<"/[slug]">) {
 
   return (
     <div
-      className="site-root"
+      className={`site-root ${themeFontClass(theme)}`}
       style={{ ...themeStyle(theme), colorScheme: isDarkPreset(theme.preset) ? "dark" : "light" }}
     >
       <MotionProvider motion={theme.motion}>
         <OfferLayer offer={offer} businessName={business.name}>
+          <a href="#icerik" className="skip-link">
+            İçeriğe atla
+          </a>
           <SiteHeader
             business={business}
             nav={navItems(sections)}
@@ -87,7 +97,7 @@ export default async function SitePage({ params }: PageProps<"/[slug]">) {
             overImage={overImage}
             topHref={`#${sectionId(first, 0)}`}
           />
-          <main>
+          <main id="icerik" tabIndex={-1}>
             <Sections sections={sections} business={business} />
           </main>
           <SiteFooter business={business} />

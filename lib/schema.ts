@@ -95,7 +95,12 @@ export const THEME_PRESETS = [
   "midnight",
   "cobalt",
   "sand",
+  "bosphorus",
+  "graphite",
 ] as const;
+
+/** Font çiftleri — tanımlar lib/fonts.ts'te */
+export const FONT_PAIRINGS = ["classic", "hospitality", "clean", "craft", "soft", "bold"] as const;
 export type ThemePreset = (typeof THEME_PRESETS)[number];
 
 export const HERO_MOTIONS = ["rise", "reveal", "blur", "curtain", "zoom", "none"] as const;
@@ -119,7 +124,16 @@ export type Motion = z.infer<typeof motionSchema>;
 
 const themeSchema = z.object({
   preset: z.enum(THEME_PRESETS).default("porcelain"),
-  /** Başlık fontu */
+  /**
+   * classic     Inter + Playfair · nötr
+   * hospitality Manrope + Cormorant · otel, restoran
+   * clean       Figtree · klinik, teknik servis
+   * craft       Bricolage + Source Serif · ocakbaşı, zanaat
+   * soft        DM Sans + Fraunces · fırın, kafe, spa
+   * bold        Space Grotesk · berber, oto, spor
+   */
+  fonts: z.enum(FONT_PAIRINGS).default("classic"),
+  /** Başlıklar çiftin display yüzünü mü, gövde yüzünü mü kullansın */
   headingFont: z.enum(["sans", "display"]).default("sans"),
   radius: z.enum(["none", "sm", "md", "lg"]).default("md"),
   density: z.enum(["tight", "normal", "airy"]).default("normal"),
@@ -171,7 +185,8 @@ const servicesSection = z.object({
   type: z.literal("services"),
   title: z.string().default("Hizmetlerimiz"),
   intro: z.string().optional(),
-  layout: z.enum(["cards", "list"]).default("cards"),
+  /** cards: kutulu · list: tek sütun satırlar · grid: iki sütun, kutusuz */
+  layout: z.enum(["cards", "list", "grid"]).default("cards"),
   items: z.array(
     z.object({
       name: z.string(),
@@ -212,6 +227,8 @@ const reviewsSection = z.object({
   ...sectionBase,
   type: z.literal("reviews"),
   title: z.string().default("Müşterilerimiz ne diyor?"),
+  /** cards: kutulu ızgara · quotes: kutusuz, büyük alıntılar (az yorumda daha iyi) */
+  layout: z.enum(["cards", "quotes"]).default("cards"),
   /** Google puanı gibi bir özet */
   summary: z.object({ rating: z.number(), count: z.number(), source: z.string() }).optional(),
   items: z.array(

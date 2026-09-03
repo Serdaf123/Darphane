@@ -23,25 +23,51 @@ export function Reviews({ section, id }: { section: ReviewsData; id: string }) {
             <p className="pill">
               <Stars rating={section.summary.rating} />
               <strong>{section.summary.rating.toFixed(1)}</strong>
-              <span>
-                · {section.summary.count} değerlendirme · {section.summary.source}
+              <span className="muted">
+                {section.summary.count} değerlendirme, {section.summary.source}
               </span>
             </p>
           ) : null}
         </Reveal>
 
-        <Stagger className="grid gap-4 md:grid-cols-3">
-          {section.items.map((review, index) => (
-            <Item as="figure" key={index} className="card m-0 flex flex-col gap-3">
-              <Stars rating={review.rating} />
-              <blockquote className="m-0 leading-relaxed">“{review.text}”</blockquote>
-              <figcaption className="muted mt-auto text-sm">
-                {review.author}
-                {review.source ? ` · ${review.source}` : ""}
-              </figcaption>
-            </Item>
-          ))}
-        </Stagger>
+        {section.layout === "quotes" ? (
+          // Kutusuz: az sayıda yorumda kartlar boş kalır, alıntı büyür ve nefes alır
+          <Stagger step={0.12} className="grid gap-10 md:grid-cols-2">
+            {section.items.map((review, index) => (
+              <Item as="figure" key={index} className="m-0 flex max-w-2xl flex-col gap-4">
+                <blockquote
+                  className="m-0"
+                  style={{
+                    fontFamily: "var(--font-heading)",
+                    fontSize: "clamp(1.25rem, 1rem + 1vw, 1.75rem)",
+                    lineHeight: 1.35,
+                    textWrap: "pretty",
+                  }}
+                >
+                  “{review.text}”
+                </blockquote>
+                <figcaption className="flex flex-wrap items-center gap-x-3 gap-y-1 text-sm">
+                  <Stars rating={review.rating} />
+                  <span className="font-medium">{review.author}</span>
+                  {review.source ? <span className="muted">{review.source}</span> : null}
+                </figcaption>
+              </Item>
+            ))}
+          </Stagger>
+        ) : (
+          <Stagger className="grid gap-4 md:grid-cols-3">
+            {section.items.map((review, index) => (
+              <Item as="figure" key={index} className="card m-0 flex flex-col gap-3">
+                <Stars rating={review.rating} />
+                <blockquote className="m-0 leading-relaxed">“{review.text}”</blockquote>
+                <figcaption className="muted mt-auto text-sm">
+                  {review.author}
+                  {review.source ? ` — ${review.source}` : ""}
+                </figcaption>
+              </Item>
+            ))}
+          </Stagger>
+        )}
       </div>
     </section>
   );
