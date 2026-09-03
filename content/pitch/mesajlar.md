@@ -9,6 +9,7 @@ Değişkenler: `{isletme}` `{link}` `{fiyat}` `{gun}` `{tarih}`
 3. "Kampanya", "fırsat", "size özel indirim" gibi kelimeler yok. Bunlar mesajı reklama benzetir, reklam silinir.
 4. Karar vericiye ulaş. İşletme numarasında çalışan varsa "sahibiyle mi görüşüyorum" diye sor.
 5. Mesajı **akşam 19:00-21:00 arası** gönder — esnaf o saatte telefonuna bakar.
+6. **Önce görsel, sonra mesaj.** `npm run screenshot -- <slug> https://alanadi.com --clean` ile üretilen telefon görselini (`shots/<slug>-telefon.png`) ilk mesajdan hemen önce gönder. Link tıklanmadan site görülür; "bu benim dükkânım" hissi mesajın kalanını okutur.
 
 ---
 

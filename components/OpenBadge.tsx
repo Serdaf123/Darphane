@@ -5,18 +5,23 @@ import type { Hours } from "@/lib/schema";
 import { useNow } from "@/lib/useNow";
 
 /**
- * Statik HTML'de rozet yoktur (saat bilinmez); hidrasyondan sonra gerçek
- * zamanla belirir ve saniyelik saatle birlikte güncel kalır.
+ * Statik HTML'de saat bilinmez; rozet yine de çizilir (nötr etiketle) ki
+ * hidrasyonda belirip alttaki her şeyi itmesin — hero'da 0.2'lik CLS'nin
+ * sebebi buydu. Gerçek durum hidrasyondan sonra yerine oturur.
  */
 export function OpenBadge({ hours }: { hours: Hours }) {
   const now = useNow();
-  if (now === null) return null;
+  const state = now === null ? null : getOpenState(hours, new Date(now));
 
-  const state = getOpenState(hours, new Date(now));
-  if (state.status === "unknown") return null;
+  if (state?.status === "unknown") return null;
 
-  const isOpen = state.status === "open";
-  const label = isOpen ? `Şu an açık · ${state.until}'ye kadar` : state.label;
+  const isOpen = state?.status === "open";
+  const label =
+    state === null
+      ? "Çalışma saatleri"
+      : isOpen
+        ? `Şu an açık · ${state.until}'ye kadar`
+        : state.label;
 
   return (
     <span className="pill">

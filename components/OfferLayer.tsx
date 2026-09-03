@@ -54,27 +54,31 @@ function CountdownBar({
       role="region"
       aria-label="Teklif bilgisi"
     >
-      <div className="container flex flex-wrap items-center justify-between gap-3 py-2.5">
-        <div className="flex flex-col">
+      {/* Telefonda buton alta düşmesin: metin sütunu daralır, buton sabit kalır */}
+      <div className="container flex items-center justify-between gap-3 py-2.5">
+        <div className="flex min-w-0 flex-1 flex-col">
           <p className="text-[0.9375rem] font-semibold leading-tight">
-            Bu site {businessName} için hazırlandı
+            <span className="hidden sm:inline">Bu site </span>
+            {businessName} için hazırlandı
             {price ? ` · ${price}` : ""}
           </p>
-          {/* Saat henüz yokken (SSR/hidrasyon) satır boş ama yükseklik sabit: zıplama olmaz */}
+          {/* Bu satır SSR'da "Son gün", hidrasyonda geri sayım gösterir. İkisi de
+              TEK satır kalmalı — taşarsa şerit büyür, altındaki her şey kayar (CLS). */}
           <p
-            className="text-xs leading-tight tabular-nums"
+            className="truncate text-xs leading-tight tabular-nums"
             style={{ color: "rgba(245,246,247,.68)", minHeight: "1rem" }}
           >
             {left ? (
               <>
-                Yayından kalkmasına{" "}
+                <span className="hidden sm:inline">Yayından kalkmasına </span>
                 <span className="font-semibold" style={{ color: BAR_TEXT }}>
                   {left.days > 0 ? `${left.days} gün ` : ""}
                   {String(left.hours).padStart(2, "0")}:
                   {String(left.minutes).padStart(2, "0")}:
                   {String(left.seconds).padStart(2, "0")}
                 </span>{" "}
-                kaldı
+                <span className="sm:hidden">sonra kalkacak</span>
+                <span className="hidden sm:inline">kaldı</span>
               </>
             ) : deadline !== null ? (
               <>
@@ -93,12 +97,12 @@ function CountdownBar({
             href={href}
             target="_blank"
             rel="noopener noreferrer"
-            className="btn"
+            className="btn shrink-0 whitespace-nowrap"
             style={{
               background: "#22c55e",
               color: "#07130b",
               minHeight: "2.5rem",
-              padding: "0.5rem 1.125rem",
+              padding: "0.5rem 1rem",
               fontSize: "0.875rem",
             }}
           >
