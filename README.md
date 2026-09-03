@@ -106,7 +106,12 @@ WhatsApp'ta linkten önce görsel atmak açılma oranını artırır. Kurulu Goo
 | `copywriting`, `copy-editing`, `cro`, `offers`, `pricing` | Site metinleri, dönüşüm, teklif ve fiyat kurgusu |
 | `cold-email`, `prospecting`, `sales-enablement` | İlk mesaj, takip, itiraz cevapları, aday bulma |
 
+| `ui-ux-pro-max` | 79 stil, 192 palet, 74 font çifti, 119 UX kuralı; Python'lu arama. Örn. `python3 .claude/skills/ui-ux-pro-max/scripts/search.py "hotel mobile cta" --domain ux` |
+| `ui-styling`, `design-system` | ui-ux-pro-max ile gelen yardımcılar (shadcn/Tailwind kalıpları, token mimarisi) |
+
 Kullanıcı düzeyinde ayrıca `claude-seo` eklentisi kurulu (`/seo` komutları; `seo-local`, `seo-schema` satış sonrası LocalBusiness/SEO için).
+
+**Tasarım kararı verirken sıra:** önce `frontend-design` (klişe listesi ve "tek bir yerde cesur ol" ilkesi), sonra `ui-ux-pro-max` UX kuralları için; ui-ux-pro-max'ın palet/font önerileri jenerik (otele "lacivert + altın" der), o kısmı kendi tema sistemimizle çözüyoruz.
 
 ## Yapı
 
@@ -128,6 +133,10 @@ lib/nav.ts                header menüsü ve butonu
 content/pitch/            teklif mesajları
 scripts/new-site.mts      iskelet üretici
 ```
+
+## Link önizlemesi (og:image)
+
+Her site için `app/[slug]/opengraph-image.tsx` otomatik kart üretir: hero görseli + işletme adı + telefon, 600×315, ~400 KB. WhatsApp'a link atıldığında çıkan kart budur; `seo.ogImage` verilirse onun yerine o kullanılır. Canlıda mutlak URL için `NEXT_PUBLIC_SITE_URL` (Vercel'de `VERCEL_URL` otomatik).
 
 ## Görseller
 

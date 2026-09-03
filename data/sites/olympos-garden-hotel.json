@@ -88,6 +88,25 @@
       ]
     },
     {
+      "type": "reviews",
+      "id": "yorumlar",
+      "title": "Misafir yorumları",
+      "layout": "quotes",
+      "summary": {
+        "rating": 4.1,
+        "count": 126,
+        "source": "Google"
+      },
+      "items": [
+        {
+          "author": "Sebahat E.",
+          "rating": 5,
+          "source": "Tripadvisor",
+          "text": "Konum çok iyi, yataklar çok rahat, temizlik çok iyi. Her istediğimizde oda temizleniyor. Çay, kahve, su sınırsız veriliyor."
+        }
+      ]
+    },
+    {
       "type": "services",
       "id": "odalar",
       "navLabel": "Odalar",
@@ -171,25 +190,6 @@
         {
           "src": "https://images.unsplash.com/photo-1527838832700-5059252407fa?w=1200&q=80&auto=format&fit=crop",
           "alt": "Ayasofya"
-        }
-      ]
-    },
-    {
-      "type": "reviews",
-      "id": "yorumlar",
-      "title": "Misafir yorumları",
-      "layout": "quotes",
-      "summary": {
-        "rating": 4.1,
-        "count": 126,
-        "source": "Google"
-      },
-      "items": [
-        {
-          "author": "Sebahat E.",
-          "rating": 5,
-          "source": "Tripadvisor",
-          "text": "Konum çok iyi, yataklar çok rahat, temizlik çok iyi. Her istediğimizde oda temizleniyor. Çay, kahve, su sınırsız veriliyor."
         }
       ]
     },

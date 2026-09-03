@@ -51,7 +51,8 @@ export async function generateMetadata({
       description,
       type: "website",
       locale: "tr_TR",
-      images: seo.ogImage ? [{ url: seo.ogImage }] : undefined,
+      // Verilmezse app/[slug]/opengraph-image.tsx otomatik kullanılır
+      ...(seo.ogImage ? { images: [{ url: seo.ogImage }] } : {}),
     },
   };
 }

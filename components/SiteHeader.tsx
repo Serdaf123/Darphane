@@ -32,6 +32,7 @@ export function SiteHeader({
   topHref: string;
 }) {
   const [scrolled, setScrolled] = useState(false);
+  const [active, setActive] = useState<string | null>(null);
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 24);
@@ -39,6 +40,26 @@ export function SiteHeader({
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
+
+  // Menüdeki bölümlerden ekranın üst yarısında olanı vurgula
+  useEffect(() => {
+    const targets = nav
+      .map((item) => document.querySelector<HTMLElement>(item.href))
+      .filter((el): el is HTMLElement => el !== null);
+    if (targets.length === 0) return;
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        const visible = entries
+          .filter((entry) => entry.isIntersecting)
+          .sort((a, b) => a.boundingClientRect.top - b.boundingClientRect.top);
+        if (visible.length > 0) setActive(`#${visible[0].target.id}`);
+      },
+      { rootMargin: "-30% 0px -55% 0px", threshold: 0 }
+    );
+    targets.forEach((el) => observer.observe(el));
+    return () => observer.disconnect();
+  }, [nav]);
 
   if (style === "none") return null;
 
@@ -67,7 +88,11 @@ export function SiteHeader({
         {showNav ? (
           <nav aria-label="Bölümler" className="site-header-nav">
             {nav.map((item) => (
-              <a key={item.href} href={item.href}>
+              <a
+                key={item.href}
+                href={item.href}
+                aria-current={active === item.href ? "location" : undefined}
+              >
                 {item.label}
               </a>
             ))}

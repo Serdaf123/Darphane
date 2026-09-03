@@ -22,7 +22,7 @@ export function Gallery({ section, id }: { section: GalleryData; id: string }) {
           {section.images.map((image, index) => (
             <div
               key={image.src + index}
-              className="relative aspect-3/4 shrink-0 overflow-hidden"
+              className="gallery-item relative aspect-3/4 shrink-0"
               style={{
                 width: "min(72vw, 20rem)",
                 borderRadius: "var(--radius)",
@@ -49,7 +49,7 @@ export function Gallery({ section, id }: { section: GalleryData; id: string }) {
           {section.images.map((image, index) => (
             <Item
               key={image.src + index}
-              className="relative overflow-hidden"
+              className="gallery-item relative"
               style={{
                 borderRadius: "var(--radius)",
                 // masonry hissi: öne çıkarılanlar iki kat yer kaplar
