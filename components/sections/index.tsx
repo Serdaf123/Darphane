@@ -1,0 +1,59 @@
+import { sectionId } from "@/lib/actions";
+import type { Business, Section } from "@/lib/schema";
+import { About } from "./About";
+import { Contact } from "./Contact";
+import { Cta } from "./Cta";
+import { Faq } from "./Faq";
+import { Gallery } from "./Gallery";
+import { Hero } from "./Hero";
+import { HoursSection } from "./HoursSection";
+import { Location } from "./Location";
+import { Menu } from "./Menu";
+import { Reviews } from "./Reviews";
+import { Services } from "./Services";
+
+/**
+ * JSON'daki sections dizisi sayfayı belirler.
+ * Yeni bir bölüm tipi eklemek = şemaya bir varyant + buraya bir satır.
+ */
+export function Sections({
+  sections,
+  business,
+}: {
+  sections: Section[];
+  business: Business;
+}) {
+  return (
+    <>
+      {sections.map((section, index) => {
+        const id = sectionId(section, index);
+        const key = `${section.type}-${index}`;
+
+        switch (section.type) {
+          case "hero":
+            return <Hero key={key} section={section} business={business} id={id} />;
+          case "about":
+            return <About key={key} section={section} id={id} />;
+          case "services":
+            return <Services key={key} section={section} id={id} />;
+          case "menu":
+            return <Menu key={key} section={section} id={id} />;
+          case "gallery":
+            return <Gallery key={key} section={section} id={id} />;
+          case "reviews":
+            return <Reviews key={key} section={section} id={id} />;
+          case "hours":
+            return <HoursSection key={key} section={section} business={business} id={id} />;
+          case "location":
+            return <Location key={key} section={section} business={business} id={id} />;
+          case "contact":
+            return <Contact key={key} section={section} business={business} id={id} />;
+          case "faq":
+            return <Faq key={key} section={section} id={id} />;
+          case "cta":
+            return <Cta key={key} section={section} business={business} id={id} />;
+        }
+      })}
+    </>
+  );
+}

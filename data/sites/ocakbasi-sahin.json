@@ -1,0 +1,181 @@
+{
+  "slug": "ocakbasi-sahin",
+  "business": {
+    "name": "Ocakbaşı Şahin",
+    "category": "Ocakbaşı & Kebap",
+    "tagline": "1994'ten beri odun ateşinde, elde şişlenen kebap.",
+    "phone": "0555 000 00 01",
+    "whatsapp": "905550000001",
+    "address": "Kordon Caddesi No 42",
+    "district": "Alsancak",
+    "city": "İzmir",
+    "coords": { "lat": 38.4362, "lng": 27.1414 },
+    "social": { "instagram": "@ocakbasisahin" },
+    "hours": {
+      "timezone": "Europe/Istanbul",
+      "note": "Cuma ve Cumartesi gece 01:00'e kadar açığız.",
+      "days": {
+        "mon": [{ "open": "12:00", "close": "23:00" }],
+        "tue": [{ "open": "12:00", "close": "23:00" }],
+        "wed": [{ "open": "12:00", "close": "23:00" }],
+        "thu": [{ "open": "12:00", "close": "23:00" }],
+        "fri": [{ "open": "12:00", "close": "01:00" }],
+        "sat": [{ "open": "12:00", "close": "01:00" }],
+        "sun": []
+      }
+    }
+  },
+  "theme": {
+    "preset": "ember",
+    "headingFont": "display",
+    "radius": "sm",
+    "density": "normal"
+  },
+  "sections": [
+    {
+      "type": "hero",
+      "id": "ust",
+      "variant": "image",
+      "headline": "Ateşin başında geçen otuz yıl",
+      "subline": "Alsancak'ın en eski ocakbaşısı. Eti biz seçiyoruz, şişi biz diziyoruz, ateşi biz yakıyoruz.",
+      "image": {
+        "src": "https://picsum.photos/seed/ocakbasi-hero/1800/1200",
+        "alt": "Ocakbaşı Şahin'de kömür ateşinde pişen kebaplar"
+      },
+      "badges": ["1994'ten beri", "Odun ateşi", "Açık mutfak"],
+      "actions": [
+        { "label": "Masa Ayırt", "kind": "whatsapp", "style": "primary" },
+        { "label": "Menüyü Gör", "kind": "scroll", "value": "menu", "style": "secondary" },
+        { "label": "Yol Tarifi", "kind": "directions", "style": "ghost" }
+      ]
+    },
+    {
+      "type": "about",
+      "id": "hakkinda",
+      "title": "Mangalın başındaki aynı el",
+      "body": "Şahin Usta 1994'te Kordon'da tek ocakla başladı. Bugün aynı ocak, aynı tarif ve aynı kasap anlaşmasıyla devam ediyoruz.\n\nEtimiz her sabah geliyor, kıymamızı gün içinde iki kez çekiyoruz. Menümüzde dondurulmuş hiçbir ürün yok — bu yüzden bazı akşamlar bazı şişler biter, kusura bakmayın.",
+      "image": {
+        "src": "https://picsum.photos/seed/ocakbasi-usta/1200/900",
+        "alt": "Şahin Usta ocağın başında"
+      },
+      "highlights": [
+        { "label": "Kuruluş", "value": "1994" },
+        { "label": "Günlük et", "value": "Taze" },
+        { "label": "Kapasite", "value": "80 kişi" }
+      ]
+    },
+    {
+      "type": "menu",
+      "id": "menu",
+      "title": "Menü",
+      "intro": "Fiyatlar kişi başıdır. Tüm şişler pilav, közlenmiş biber ve lavaş ile servis edilir.",
+      "groups": [
+        {
+          "name": "Ocaktan",
+          "items": [
+            { "name": "Adana Kebap", "description": "Zırh ile çekilmiş kuzu kıyma, acılı", "price": "340 ₺" },
+            { "name": "Urfa Kebap", "description": "Acısız, tereyağlı", "price": "340 ₺" },
+            { "name": "Kuzu Şiş", "description": "Kuzu sırtından, kuşbaşı", "price": "420 ₺" },
+            { "name": "Kanat", "description": "Altı adet, sumaklı soğan ile", "price": "260 ₺" },
+            { "name": "Ciğer Şiş", "description": "Kuyruk yağı arası, tandır ekmeği ile", "price": "310 ₺" }
+          ]
+        },
+        {
+          "name": "Başlangıçlar",
+          "items": [
+            { "name": "Ezme", "description": "Taş havanda, günlük", "price": "90 ₺" },
+            { "name": "Haydari", "price": "85 ₺" },
+            { "name": "İçli Köfte", "description": "İki adet, el yapımı", "price": "120 ₺" },
+            { "name": "Zeytinyağlı Yaprak Sarma", "price": "110 ₺" }
+          ]
+        },
+        {
+          "name": "Tatlı",
+          "items": [
+            { "name": "Fıstıklı Künefe", "description": "Sipariş üzerine hazırlanır, 15 dk", "price": "160 ₺" },
+            { "name": "Kazandibi", "price": "95 ₺" }
+          ]
+        },
+        {
+          "name": "İçecek",
+          "items": [
+            { "name": "Şalgam", "price": "45 ₺" },
+            { "name": "Ayran", "description": "Ev yapımı, yayık", "price": "40 ₺" },
+            { "name": "Türk Kahvesi", "price": "55 ₺" }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "gallery",
+      "id": "galeri",
+      "title": "Ocaktan",
+      "layout": "strip",
+      "images": [
+        { "src": "https://picsum.photos/seed/ocak-1/900/1200", "alt": "Ateşte pişen kebaplar" },
+        { "src": "https://picsum.photos/seed/ocak-2/900/1200", "alt": "Ezme ve mezeler" },
+        { "src": "https://picsum.photos/seed/ocak-3/900/1200", "alt": "Restoranın iç mekanı" },
+        { "src": "https://picsum.photos/seed/ocak-4/900/1200", "alt": "Servise hazır tabak" },
+        { "src": "https://picsum.photos/seed/ocak-5/900/1200", "alt": "Künefe" }
+      ]
+    },
+    {
+      "type": "reviews",
+      "id": "yorumlar",
+      "title": "Müşterilerimiz ne diyor?",
+      "summary": { "rating": 4.7, "count": 612, "source": "Google" },
+      "items": [
+        {
+          "author": "Mehmet A.",
+          "rating": 5,
+          "text": "İzmir'de kebap arıyorsanız aramayı burada bitirin. Ciğer şiş inanılmaz.",
+          "source": "Google"
+        },
+        {
+          "author": "Seda K.",
+          "rating": 5,
+          "text": "Otuz yıldır ailece geliyoruz. Tadı hiç değişmedi, bu çok zor bir şey.",
+          "source": "Google"
+        },
+        {
+          "author": "Burak T.",
+          "rating": 4,
+          "text": "Akşam saatlerinde yoğun oluyor, mutlaka arayıp masa ayırtın. Yemek kusursuz.",
+          "source": "Google"
+        }
+      ]
+    },
+    { "type": "hours", "id": "saatler", "title": "Çalışma Saatleri" },
+    {
+      "type": "location",
+      "id": "konum",
+      "title": "Nasıl Gelinir?",
+      "showMap": true,
+      "note": "Kordon'a yürüme mesafesinde. Akşam 19:00'dan sonra sokakta park yeri bulmak zor, Alsancak Otoparkı 3 dakika."
+    },
+    {
+      "type": "cta",
+      "id": "rezervasyon",
+      "headline": "Masanızı WhatsApp'tan ayırtın",
+      "subline": "Kaç kişi, hangi saat — yazın, biz onaylayalım.",
+      "actions": [
+        { "label": "WhatsApp'tan Yaz", "kind": "whatsapp", "style": "primary" },
+        { "label": "Telefonla Ara", "kind": "call", "style": "ghost" }
+      ]
+    }
+  ],
+  "offer": {
+    "status": "pitched",
+    "expiresAt": "2026-09-10T21:00:00+03:00",
+    "price": 8500,
+    "currency": "TRY",
+    "seller": {
+      "name": "fourpear",
+      "whatsapp": "905550000000"
+    }
+  },
+  "seo": {
+    "title": "Ocakbaşı Şahin — Alsancak, İzmir",
+    "description": "1994'ten beri Alsancak'ta odun ateşinde kebap. Adana, kuzu şiş, ciğer ve el yapımı mezeler."
+  }
+}
