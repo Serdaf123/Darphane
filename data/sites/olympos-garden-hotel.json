@@ -23,8 +23,10 @@
     "density": "airy",
     "header": "glass",
     "motion": {
-      "hero": "blur",
-      "scroll": "fade"
+      "hero": "split",
+      "scroll": "fade",
+      "smooth": true,
+      "parallax": true
     }
   },
   "sections": [

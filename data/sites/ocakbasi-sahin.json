@@ -32,7 +32,7 @@
     "radius": "sm",
     "density": "normal",
     "header": "glass",
-    "motion": { "hero": "zoom", "scroll": "rise" }
+    "motion": { "hero": "zoom", "scroll": "rise", "smooth": true, "parallax": true }
   },
   "sections": [
     {
@@ -126,6 +126,7 @@
       "type": "reviews",
       "id": "yorumlar",
       "title": "Müşterilerimiz ne diyor?",
+      "layout": "marquee",
       "summary": { "rating": 4.7, "count": 612, "source": "Google" },
       "items": [
         {

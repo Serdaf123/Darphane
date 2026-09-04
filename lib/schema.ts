@@ -103,7 +103,7 @@ export const THEME_PRESETS = [
 export const FONT_PAIRINGS = ["classic", "hospitality", "clean", "craft", "soft", "bold"] as const;
 export type ThemePreset = (typeof THEME_PRESETS)[number];
 
-export const HERO_MOTIONS = ["rise", "reveal", "blur", "curtain", "zoom", "none"] as const;
+export const HERO_MOTIONS = ["rise", "reveal", "blur", "curtain", "zoom", "split", "none"] as const;
 export const SCROLL_MOTIONS = ["rise", "fade", "slide", "scale", "none"] as const;
 export const HEADER_STYLES = ["glass", "solid", "minimal", "none"] as const;
 
@@ -115,10 +115,15 @@ export const HEADER_STYLES = ["glass", "solid", "minimal", "none"] as const;
  *        curtain → tema renginde perde yukarı kalkar, sonra metinler
  *        zoom    → görsel uzaktan yaklaşır, metinler yumuşak belirir
  * scroll rise / fade / slide / scale / none
+ *        split   → başlık harf harf, maskeli satırlardan yükselir (GSAP SplitText)
+ * smooth   → Lenis yumuşak kaydırma
+ * parallax → hero görseli kaydırırken içerikten yavaş hareket eder
  */
 const motionSchema = z.object({
   hero: z.enum(HERO_MOTIONS).default("rise"),
   scroll: z.enum(SCROLL_MOTIONS).default("rise"),
+  smooth: z.boolean().default(false),
+  parallax: z.boolean().default(false),
 });
 export type Motion = z.infer<typeof motionSchema>;
 
@@ -227,8 +232,8 @@ const reviewsSection = z.object({
   ...sectionBase,
   type: z.literal("reviews"),
   title: z.string().default("Müşterilerimiz ne diyor?"),
-  /** cards: kutulu ızgara · quotes: kutusuz, büyük alıntılar (az yorumda daha iyi) */
-  layout: z.enum(["cards", "quotes"]).default("cards"),
+  /** cards: kutulu ızgara · quotes: kutusuz büyük alıntılar (az yorumda) · marquee: akan şerit (4+ yorumda) */
+  layout: z.enum(["cards", "quotes", "marquee"]).default("cards"),
   /** Google puanı gibi bir özet */
   summary: z.object({ rating: z.number(), count: z.number(), source: z.string() }).optional(),
   items: z.array(

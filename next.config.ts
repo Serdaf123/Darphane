@@ -41,6 +41,18 @@ const nextConfig: NextConfig = {
     ],
   },
 
+  // PostHog istekleri kendi alan adımızdan geçer: reklam engelleyici takılmaz
+  async rewrites() {
+    const host = process.env.NEXT_PUBLIC_POSTHOG_INGEST ?? "https://eu.i.posthog.com";
+    const assets = host.replace("://eu.i.", "://eu-assets.i.").replace("://us.i.", "://us-assets.i.");
+    return [
+      { source: "/ingest/static/:path*", destination: `${assets}/static/:path*` },
+      { source: "/ingest/:path*", destination: `${host}/:path*` },
+    ];
+  },
+  // PostHog'un /ingest/… yolları sondaki eğik çizgiyle çalışır
+  skipTrailingSlashRedirect: true,
+
   async headers() {
     const noindex = {
       key: "X-Robots-Tag",

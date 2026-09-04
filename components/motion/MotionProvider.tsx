@@ -13,6 +13,8 @@ type MotionContextValue = Motion & { reduced: boolean };
 const MotionContext = createContext<MotionContextValue>({
   hero: "rise",
   scroll: "rise",
+  smooth: false,
+  parallax: false,
   reduced: false,
 });
 

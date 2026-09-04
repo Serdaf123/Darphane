@@ -48,15 +48,17 @@ Oluşan `data/sites/kuafor-nese.json` dosyasını doldur. `offer.seller.whatsapp
 
 `headingFont: "display"` başlıkları çiftin display yüzüyle, `"sans"` gövde yüzüyle yazar. Fontlar `preload: false` — yalnızca sitenin seçtiği çift indirilir.
 
-**Kutusuz düzenler:** `services.layout: "grid"` (iki sütun, kart yok) ve `reviews.layout: "quotes"` (büyük alıntı, az yorumda kartlardan iyi). Her şeyi karta koymak "şablon" hissi verir; her sitede en az bir bölümü kutusuz bırak.
+**Kutusuz düzenler:** `services.layout: "grid"` (iki sütun, kart yok), `reviews.layout: "quotes"` (büyük alıntı, az yorumda kartlardan iyi), `reviews.layout: "marquee"` (akan şerit, 4+ yorumda; üzerine gelince durur). Her şeyi karta koymak "şablon" hissi verir; her sitede en az bir bölümü kutusuz bırak.
 
 `theme` içinde iki alan daha siteyi başka bir siteye çevirir:
 
 | Alan | Seçenekler | Ne yapar |
 | --- | --- | --- |
 | `header` | `glass` `solid` `minimal` `none` | glass: görselli hero'nun üstünde saydam, kaydırınca buzlu cam · solid: hep dolu · minimal: isim + tek buton |
-| `motion.hero` | `rise` `reveal` `blur` `curtain` `zoom` `none` | Giriş animasyonu: alttan sırayla · perde arkasından · netleşerek · perde kalkar · görsel yaklaşır |
+| `motion.hero` | `rise` `reveal` `blur` `curtain` `zoom` `split` `none` | Giriş animasyonu: alttan sırayla · perde arkasından · netleşerek · perde kalkar · görsel yaklaşır · **harf harf** (GSAP SplitText) |
 | `motion.scroll` | `rise` `fade` `slide` `scale` `none` | Kaydırınca bölümlerin belirme biçimi; kartlar ve satırlar sırayla gelir |
+| `motion.smooth` | `true` / `false` | Lenis yumuşak kaydırma; çapa tıklamaları da yumuşak gider |
+| `motion.parallax` | `true` / `false` | Hero görseli kaydırırken içerikten yavaş hareket eder (GSAP ScrollTrigger) |
 
 Header menüsü otomatik: bölümlerden türer (en fazla 4). Bir bölümü menüden çıkarmak için `"hideFromNav": true`, adını değiştirmek için `"navLabel": "Fiyatlar"`. Header butonu hero'nun ilk eylemidir. Sistemde "hareketi azalt" açıksa hiçbir animasyon oynamaz.
 
@@ -70,7 +72,7 @@ Telefondan da aç: alttaki Ara / Yol Tarifi / WhatsApp barı çalışıyor mu.
 
 **4. Gönder.** `offer.status` → `"pitched"`, `expiresAt` ayarla (varsayılan 7 gün), commit + push. Vercel deploy eder. Mesaj şablonları: [`content/pitch/mesajlar.md`](content/pitch/mesajlar.md). Gönderim **elle, kişisel WhatsApp'tan.**
 
-**5. Takip et.** Vercel Analytics'te `/kuafor-nese` görüntülenmişse link açılmıştır → aynı gün takip mesajı.
+**5. Takip et.** PostHog'da (eu.posthog.com) `site_viewed` olayını slug'a göre filtrele: kim açtı, kaç saniye kaldı (`engaged`), nereye kadar indi (`scroll_depth`), hangi butona bastı (`cta_click`: call / whatsapp / directions / buy). **Oturum kaydını izle** — esnaf menüye inip fiyata iki kez döndüyse o an ara. Anahtar yoksa Vercel Analytics'teki sayfa görüntülemesiyle idare et.
 
 **6. Satış.** `offer.status` → `"sold"`. Alan adını Vercel'e bağla. Site arama motorlarına açılır.
 
@@ -133,6 +135,10 @@ lib/nav.ts                header menüsü ve butonu
 content/pitch/            teklif mesajları
 scripts/new-site.mts      iskelet üretici
 ```
+
+## Satış sinyalleri (PostHog)
+
+`NEXT_PUBLIC_POSTHOG_KEY` verilince her işletme sitesinde oturum kaydı ve şu olaylar açılır: `site_viewed` (slug, teklif durumu), `scroll_depth` (25/50/75/100), `cta_click` (call / whatsapp / directions / email / buy), `engaged` (30 sn). Form alanları kayda maskelenmiş girer. İstekler `/ingest` üzerinden kendi alan adımızdan geçer (reklam engelleyici takılmaz). AB sunucusu.
 
 ## Link önizlemesi (og:image)
 

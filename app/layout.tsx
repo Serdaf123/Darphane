@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Inter, Playfair_Display } from "next/font/google";
 import { Analytics } from "@vercel/analytics/next";
+import { PostHogProvider } from "@/components/analytics/PostHogProvider";
 import "./globals.css";
 
 // latin-ext Türkçe karakterler (ı ş ğ ç ö ü) için gerekli.
@@ -31,7 +32,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
     <html lang="tr" className={`${sans.variable} ${display.variable} antialiased`}>
       <body>
-        {children}
+        <PostHogProvider>{children}</PostHogProvider>
         <Analytics />
       </body>
     </html>

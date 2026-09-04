@@ -1,6 +1,8 @@
 import type { Metadata, Viewport } from "next";
 import { notFound } from "next/navigation";
+import { SiteAnalytics } from "@/components/analytics/SiteAnalytics";
 import { MotionProvider } from "@/components/motion/MotionProvider";
+import { SmoothScroll } from "@/components/motion/SmoothScroll";
 import { OfferExpired } from "@/components/OfferExpired";
 import { OfferLayer } from "@/components/OfferLayer";
 import { SiteFooter } from "@/components/SiteFooter";
@@ -9,8 +11,18 @@ import { Sections } from "@/components/sections";
 import { StickyMobileBar } from "@/components/StickyMobileBar";
 import { sectionId } from "@/lib/actions";
 import { navCta, navItems } from "@/lib/nav";
-import { getSite, isOfferExpired, isPubliclyIndexable, listSiteSlugs } from "@/lib/sites";
-import { PALETTES, isDarkPreset, themeFontClass, themeStyle } from "@/lib/theme";
+import {
+  getSite,
+  isOfferExpired,
+  isPubliclyIndexable,
+  listSiteSlugs,
+} from "@/lib/sites";
+import {
+  PALETTES,
+  isDarkPreset,
+  themeFontClass,
+  themeStyle,
+} from "@/lib/theme";
 
 // Bilinmeyen slug'lar 404 döner — sadece data/sites'taki dosyalar yayınlanır.
 export const dynamicParams = false;
@@ -58,7 +70,9 @@ export async function generateMetadata({
 }
 
 /** Tarayıcı çubuğu sayfanın zeminiyle aynı renkte olsun. */
-export async function generateViewport({ params }: PageProps<"/[slug]">): Promise<Viewport> {
+export async function generateViewport({
+  params,
+}: PageProps<"/[slug]">): Promise<Viewport> {
   const { slug } = await params;
   const site = getSite(slug);
   return { themeColor: site ? PALETTES[site.theme.preset].bg : undefined };
@@ -83,29 +97,37 @@ export default async function SitePage({ params }: PageProps<"/[slug]">) {
   return (
     <div
       className={`site-root ${themeFontClass(theme)}`}
-      style={{ ...themeStyle(theme), colorScheme: isDarkPreset(theme.preset) ? "dark" : "light" }}
+      style={{
+        ...themeStyle(theme),
+        colorScheme: isDarkPreset(theme.preset) ? "dark" : "light",
+      }}
     >
       <MotionProvider motion={theme.motion}>
-        <OfferLayer offer={offer} businessName={business.name}>
-          <a href="#icerik" className="skip-link">
-            İçeriğe atla
-          </a>
-          <SiteHeader
-            business={business}
-            nav={navItems(sections)}
-            cta={navCta(sections, business)}
-            style={theme.header}
-            overImage={overImage}
-            topHref={`#${sectionId(first, 0)}`}
-          />
-          <main id="icerik" tabIndex={-1}>
-            <Sections sections={sections} business={business} />
-          </main>
-          <SiteFooter business={business} />
-          <StickyMobileBar business={business} />
+        <SmoothScroll>
+          <OfferLayer offer={offer} businessName={business.name}>
+            <a href="#icerik" className="skip-link">
+              İçeriğe atla
+            </a>
+            <SiteHeader
+              business={business}
+              nav={navItems(sections)}
+              cta={navCta(sections, business)}
+              style={theme.header}
+              overImage={overImage}
+              topHref={`#${sectionId(first, 0)}`}
+            />
+            <main id="icerik" tabIndex={-1}>
+              <Sections sections={sections} business={business} />
+            </main>
+            <SiteFooter business={business} />
+            <StickyMobileBar business={business} />
 
-          {isPubliclyIndexable(site) ? <LocalBusinessJsonLd site={site} /> : null}
-        </OfferLayer>
+            {isPubliclyIndexable(site) ? (
+              <LocalBusinessJsonLd site={site} />
+            ) : null}
+            <SiteAnalytics slug={slug} status={offer.status} />
+          </OfferLayer>
+        </SmoothScroll>
       </MotionProvider>
     </div>
   );
@@ -133,7 +155,11 @@ function LocalBusinessJsonLd({ site }: { site: ReturnType<typeof getSite> }) {
         }
       : undefined,
     geo: business.coords
-      ? { "@type": "GeoCoordinates", latitude: business.coords.lat, longitude: business.coords.lng }
+      ? {
+          "@type": "GeoCoordinates",
+          latitude: business.coords.lat,
+          longitude: business.coords.lng,
+        }
       : undefined,
   };
 
