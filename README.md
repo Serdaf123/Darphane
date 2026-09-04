@@ -25,11 +25,17 @@ Satılmamış hiçbir site indekslenmez — üç katman: sayfa metadata'sı, `ro
 
 **1. İşletme bul.** Google Haritalar'da web sitesi alanı boş, en az 20-30 yorumu olan, fotoğrafı bulunan işletmeler. Telefon numarası olsun.
 
-**2. Site oluştur.**
+**2. Site oluştur.** İki yol:
 
 ```bash
+# a) Claude ile taslak: Google Maps sayfasındaki metni bir dosyaya yapıştır, 2 dakikada JSON çıkar
+npm run draft -- kuafor-nese leads/kuafor-nese.txt --photos https://…/1.jpg,https://…/2.jpg
+
+# b) Boş iskelet, elle doldur
 npm run new-site -- kuafor-nese "Kuaför Neşe" "Kadın Kuaförü" sage
 ```
+
+`draft` yalnızca kaynakta doğrulanabilir bilgiyi yazar (puan, adres, saatler, olanaklar, gerçek yorumlar); uyduramadığı şeyi `null` bırakıp sonunda "teyit edilecekler" listesi verir. Temayı ve font çiftini işletme türünden seçer, WhatsApp mesajını doldurulacak alanlarla hazırlar. `ANTHROPIC_API_KEY`, `SELLER_WHATSAPP` ve `OFFER_PRICE` `.env.local`'da. Çıktı `draft` durumunda gelir; tarayıcıda oku, düzelt, sonra `pitched`.
 
 Oluşan `data/sites/kuafor-nese.json` dosyasını doldur. `offer.seller.whatsapp` senin numaran. Örnek olarak `ocakbasi-sahin.json` (restoran, koyu), `dishekimi-elif-yarar.json` (klinik, açık) ve `olympos-garden-hotel.json` (otel) dosyalarına bak.
 
@@ -84,6 +90,7 @@ npm run build        # üretim derlemesi — bozuk JSON burada patlar
 npm run typecheck    # tip kontrolü
 npm run lint
 npm run new-site -- <slug> "<İşletme>" "<Kategori>" [tema]
+npm run draft -- <slug> <maps-metni.txt> [--photos u1,u2] [--dry]   # Claude ile taslak (ANTHROPIC_API_KEY)
 npm run find-leads -- "<kategori>" "<ilçe, şehir>" [minYorum]   # sitesiz işletme listesi → leads/*.csv
 npm run screenshot -- <slug> [baseUrl] [--clean]                # iPhone çerçeveli görsel → shots/ (--clean: teklif şeridi gizli)
 ```

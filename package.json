@@ -10,9 +10,11 @@
     "new-site": "node scripts/new-site.mts",
     "typecheck": "tsc --noEmit",
     "find-leads": "node --env-file-if-exists=.env.local scripts/find-leads.mts",
-    "screenshot": "node scripts/screenshot.mts"
+    "screenshot": "node scripts/screenshot.mts",
+    "draft": "node --env-file-if-exists=.env.local scripts/draft-site.mts"
   },
   "dependencies": {
+    "@anthropic-ai/sdk": "^0.123.0",
     "@gsap/react": "^2.1.2",
     "@vercel/analytics": "^2.0.1",
     "gsap": "^3.15.0",
