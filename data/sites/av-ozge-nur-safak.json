@@ -1,0 +1,102 @@
+{
+  "slug": "av-ozge-nur-safak",
+  "business": {
+    "name": "Av. Özge Nur Şafak",
+    "category": "Şişli'de hukuk bürosu",
+    "tagline": "Ceza hukuku ve hukuki danışmanlık. Şişli, Halaskargazi Caddesi. Görüşmeler randevuyla.",
+    "phone": "0506 820 80 24",
+    "whatsapp": "905068208024",
+    "address": "19 Mayıs Mah., Halaskargazi Cd. Çifkurt Apt. No:226 K:2 D:3",
+    "district": "Şişli",
+    "city": "İstanbul",
+    "coords": { "lat": 41.0606, "lng": 28.9879 },
+    "social": {}
+  },
+  "theme": {
+    "preset": "porcelain",
+    "fonts": "classic",
+    "headingFont": "display",
+    "radius": "sm",
+    "density": "airy",
+    "header": "solid",
+    "motion": { "hero": "reveal", "scroll": "fade", "smooth": true, "parallax": false }
+  },
+  "sections": [
+    {
+      "type": "hero",
+      "id": "ust",
+      "variant": "minimal",
+      "headline": "Ceza hukuku ve hukuki danışmanlık",
+      "subline": "Av. Özge Nur Şafak Hukuk & Danışmanlık Bürosu, Şişli Halaskargazi Caddesi'nde. Görüşmeler randevuyla yapılır; ilk adım için WhatsApp'tan yazabilir ya da arayabilirsiniz.",
+      "badges": ["Şişli, Halaskargazi Caddesi", "Randevuyla görüşme", "Cumartesi açık"],
+      "actions": [
+        { "label": "Randevu Talep Et", "kind": "whatsapp", "value": "Merhaba, Av. Özge Nur Şafak ile görüşme randevusu talep ediyorum.\nKonu (kısaca): \nUygun gün ve saat: ", "style": "primary" },
+        { "label": "0506 820 80 24", "kind": "call", "style": "secondary" },
+        { "label": "Yol Tarifi", "kind": "directions", "style": "ghost" }
+      ]
+    },
+    {
+      "type": "about",
+      "id": "hakkinda",
+      "title": "Büro hakkında",
+      "body": "Büro, Şişli'de Halaskargazi Caddesi üzerinde, Çifkurt Apartmanı'nın ikinci katındadır. Osmanbey metro istasyonuna yürüme mesafesindedir.\n\nÇalışma alanı ceza hukuku ve hukuki danışmanlıktır. Görüşmeler önceden alınan randevuyla, büroda yüz yüze yapılır.\n\nBu sitede yalnızca tanıtıcı bilgi yer alır; Türkiye Barolar Birliği Reklam Yasağı Yönetmeliği gereği başarı ve sonuç vaadi içeren ifadelere yer verilmez.",
+      "highlights": [
+        { "label": "Çalışma alanı", "value": "Ceza hukuku" },
+        { "label": "Görüşme", "value": "Randevuyla" },
+        { "label": "Konum", "value": "Şişli" }
+      ]
+    },
+    {
+      "type": "services",
+      "id": "alanlar",
+      "navLabel": "Çalışma alanları",
+      "title": "Çalışma alanları",
+      "intro": "Dosyanızın bu alanlara girip girmediğinden emin değilseniz kısaca yazın; ilk görüşmede birlikte değerlendirilir.",
+      "layout": "grid",
+      "items": [
+        { "name": "Ceza hukuku", "description": "Soruşturma ve kovuşturma aşamalarında şüpheli, sanık ve mağdur vekilliği; tutukluluğa itiraz, ifade ve duruşmalarda temsil." },
+        { "name": "Hukuki danışmanlık", "description": "Bir işlem yapmadan ya da bir belgeyi imzalamadan önce hukuki durumun değerlendirilmesi ve yazılı görüş." }
+      ]
+    },
+    {
+      "type": "faq",
+      "id": "sss",
+      "title": "Sık sorulan sorular",
+      "items": [
+        { "q": "Nasıl randevu alırım?", "a": "WhatsApp'tan konuyu ve size uygun gün-saati yazın ya da 0506 820 80 24'ü arayın. Randevu teyidi aynı kanaldan gelir." },
+        { "q": "İlk görüşmede ne getirmeliyim?", "a": "Dosyanızla ilgili elinizdeki belgeleri (tebligat, iddianame, sözleşme, yazışma) ve kimliğinizi getirin. Belge yoksa da görüşme yapılır." },
+        { "q": "Görüşmeler ücretli mi?", "a": "Ücret, işin niteliğine göre görüşmede belirlenir ve avukatlık asgari ücret tarifesine uygun olarak yazılı sözleşmeyle bağlanır." },
+        { "q": "Büroya nasıl ulaşırım?", "a": "Halaskargazi Caddesi No:226, Çifkurt Apartmanı, 2. kat. Osmanbey metro istasyonundan yürüme mesafesindedir." },
+        { "q": "Hafta sonu görüşme yapılıyor mu?", "a": "Cumartesi günleri büro açıktır; randevuyla görüşme yapılır." }
+      ]
+    },
+    {
+      "type": "location",
+      "id": "konum",
+      "title": "Büro",
+      "showMap": true,
+      "note": "Çifkurt Apartmanı, No:226, Kat 2, Daire 3. Osmanbey metro istasyonuna yürüme mesafesi."
+    },
+    {
+      "type": "cta",
+      "id": "randevu",
+      "headline": "Görüşme için randevu alın",
+      "subline": "Konuyu ve uygun zamanınızı WhatsApp'tan yazın; randevu teyidi aynı gün iletilir.",
+      "actions": [
+        { "label": "WhatsApp'tan Yaz", "kind": "whatsapp", "value": "Merhaba, Av. Özge Nur Şafak ile görüşme randevusu talep ediyorum.\nKonu (kısaca): \nUygun gün ve saat: ", "style": "primary" },
+        { "label": "0506 820 80 24", "kind": "call", "style": "ghost" }
+      ]
+    }
+  ],
+  "offer": {
+    "status": "draft",
+    "expiresAt": "2026-09-11T21:00:00+03:00",
+    "price": 8500,
+    "currency": "TRY",
+    "seller": { "name": "fourpear", "whatsapp": "905550000000" }
+  },
+  "seo": {
+    "title": "Av. Özge Nur Şafak — Hukuk & Danışmanlık, Şişli",
+    "description": "Şişli Halaskargazi Caddesi'nde hukuk bürosu. Ceza hukuku ve hukuki danışmanlık. Görüşmeler randevuyla."
+  }
+}
