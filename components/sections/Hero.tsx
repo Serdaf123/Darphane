@@ -2,6 +2,7 @@ import { ActionButtons } from "@/components/ActionButtons";
 import { HeroItem, HeroMedia } from "@/components/motion/HeroMotion";
 import { OpenBadge } from "@/components/OpenBadge";
 import { SiteImage } from "@/components/SiteImage";
+import type { Locale } from "@/lib/i18n";
 import type { Business, Section } from "@/lib/schema";
 
 type HeroData = Extract<Section, { type: "hero" }>;
@@ -14,14 +15,16 @@ export function Hero({
   section,
   business,
   id,
+  locale = "tr",
 }: {
   section: HeroData;
   business: Business;
   id: string;
+  locale?: Locale;
 }) {
   const badges = (
     <>
-      {business.hours ? <OpenBadge hours={business.hours} /> : null}
+      {business.hours ? <OpenBadge hours={business.hours} locale={locale} /> : null}
       {section.badges.map((badge) => (
         <span key={badge} className="pill">
           {badge}
@@ -51,7 +54,7 @@ export function Hero({
             <div className="flex flex-wrap gap-2">{badges}</div>
           </HeroItem>
           <HeroItem order={4}>
-            <ActionButtons actions={section.actions} business={business} className="mt-2" />
+            <ActionButtons actions={section.actions} business={business} className="mt-2" locale={locale} />
           </HeroItem>
         </div>
       </section>
@@ -80,7 +83,7 @@ export function Hero({
               <div className="flex flex-wrap gap-2">{badges}</div>
             </HeroItem>
             <HeroItem order={4}>
-              <ActionButtons actions={section.actions} business={business} className="mt-1" />
+              <ActionButtons actions={section.actions} business={business} className="mt-1" locale={locale} />
             </HeroItem>
           </div>
           <div
@@ -149,7 +152,7 @@ export function Hero({
             <div className="flex flex-wrap gap-2">{badges}</div>
           </HeroItem>
           <HeroItem order={4}>
-            <ActionButtons actions={section.actions} business={business} className="mt-2" />
+            <ActionButtons actions={section.actions} business={business} className="mt-2" locale={locale} />
           </HeroItem>
         </div>
       </div>

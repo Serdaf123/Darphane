@@ -1,6 +1,7 @@
 "use client";
 
 import { getOpenState } from "@/lib/hours";
+import { t, type Locale } from "@/lib/i18n";
 import type { Hours } from "@/lib/schema";
 import { useNow } from "@/lib/useNow";
 
@@ -9,19 +10,14 @@ import { useNow } from "@/lib/useNow";
  * hidrasyonda belirip alttaki her şeyi itmesin — hero'da 0.2'lik CLS'nin
  * sebebi buydu. Gerçek durum hidrasyondan sonra yerine oturur.
  */
-export function OpenBadge({ hours }: { hours: Hours }) {
+export function OpenBadge({ hours, locale = "tr" }: { hours: Hours; locale?: Locale }) {
   const now = useNow();
-  const state = now === null ? null : getOpenState(hours, new Date(now));
+  const state = now === null ? null : getOpenState(hours, new Date(now), locale);
 
   if (state?.status === "unknown") return null;
 
   const isOpen = state?.status === "open";
-  const label =
-    state === null
-      ? "Çalışma saatleri"
-      : isOpen
-        ? `Şu an açık · ${state.until}'ye kadar`
-        : state.label;
+  const label = state === null ? t(locale).hours.schedule : state.label;
 
   return (
     <span className="pill">

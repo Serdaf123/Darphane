@@ -3,6 +3,7 @@
 import { Reveal } from "@/components/motion/Reveal";
 import { OpenBadge } from "@/components/OpenBadge";
 import { hoursTable } from "@/lib/hours";
+import { t, type Locale } from "@/lib/i18n";
 import type { Business, Section } from "@/lib/schema";
 import { useNow } from "@/lib/useNow";
 
@@ -16,16 +17,19 @@ export function HoursSection({
   section,
   business,
   id,
+  locale = "tr",
 }: {
   section: HoursData;
   business: Business;
   id: string;
+  locale?: Locale;
 }) {
   const now = useNow();
   const hours = business.hours;
   if (!hours) return null;
+  const s = t(locale).hours;
 
-  const rows = hoursTable(hours, now === null ? undefined : new Date(now)).map((row) => ({
+  const rows = hoursTable(hours, now === null ? undefined : new Date(now), locale).map((row) => ({
     ...row,
     isToday: now !== null && row.isToday,
   }));
@@ -35,14 +39,14 @@ export function HoursSection({
       <Reveal className="container flex flex-col gap-[var(--stack-gap)]">
         <div className="flex flex-wrap items-center justify-between gap-4">
           <h2 className="section-title">{section.title}</h2>
-          <OpenBadge hours={hours} />
+          <OpenBadge hours={hours} locale={locale} />
         </div>
 
         <table
           className="w-full max-w-xl border-collapse text-left"
           style={{ borderRadius: "var(--radius)" }}
         >
-          <caption className="visually-hidden">{business.name} çalışma saatleri</caption>
+          <caption className="visually-hidden">{s.caption(business.name)}</caption>
           <tbody>
             {rows.map((row) => (
               <tr key={row.day} style={{ borderBottom: "1px solid var(--c-border)" }}>
@@ -53,7 +57,7 @@ export function HoursSection({
                 >
                   {row.label}
                   {row.isToday ? (
-                    <span className="muted text-sm font-normal"> · bugün</span>
+                    <span className="muted text-sm font-normal"> · {s.today}</span>
                   ) : null}
                 </th>
                 <td

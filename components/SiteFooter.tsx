@@ -1,7 +1,8 @@
 import { instagramUrl, normalizePhone } from "@/lib/actions";
+import { t, type Locale } from "@/lib/i18n";
 import type { Business } from "@/lib/schema";
 
-export function SiteFooter({ business }: { business: Business }) {
+export function SiteFooter({ business, locale = "tr" }: { business: Business; locale?: Locale }) {
   const address = [business.address, business.district, business.city]
     .filter(Boolean)
     .join(", ");
@@ -42,7 +43,7 @@ export function SiteFooter({ business }: { business: Business }) {
         </div>
 
         <p className="muted text-xs">
-          © {new Date().getFullYear()} {business.name} · Site fourpear tarafından hazırlandı
+          © {new Date().getFullYear()} {business.name} · {t(locale).footer.madeBy}
         </p>
       </div>
     </footer>

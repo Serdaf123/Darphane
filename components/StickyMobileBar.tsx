@@ -1,4 +1,5 @@
 import { directionsUrl, normalizePhone, whatsappUrl } from "@/lib/actions";
+import { t, type Locale } from "@/lib/i18n";
 import type { Business } from "@/lib/schema";
 
 /**
@@ -44,26 +45,27 @@ function WhatsappIcon() {
   );
 }
 
-export function StickyMobileBar({ business }: { business: Business }) {
+export function StickyMobileBar({ business, locale = "tr" }: { business: Business; locale?: Locale }) {
+  const s = t(locale);
   const items = [
     business.phone && {
       href: `tel:${normalizePhone(business.phone)}`,
-      label: "Ara",
+      label: s.bar.call,
       icon: <PhoneIcon />,
       external: false,
     },
     directionsUrl(business) && {
       href: directionsUrl(business)!,
-      label: "Yol Tarifi",
+      label: s.bar.directions,
       icon: <PinIcon />,
       external: true,
     },
     (business.whatsapp ?? business.phone) && {
       href: whatsappUrl(
         (business.whatsapp ?? business.phone)!,
-        `Merhaba, ${business.name} hakkında bilgi almak istiyorum.`
+        s.whatsappDefault(business.name)
       ),
-      label: "WhatsApp",
+      label: s.bar.whatsapp,
       icon: <WhatsappIcon />,
       external: true,
     },
@@ -77,7 +79,7 @@ export function StickyMobileBar({ business }: { business: Business }) {
       <div aria-hidden style={{ height: "4.75rem" }} className="md:hidden" />
 
       <nav
-        aria-label="Hızlı iletişim"
+        aria-label={s.bar.aria}
         className="fixed inset-x-0 bottom-0 z-40 md:hidden"
         style={{
           background: "var(--c-bg)",

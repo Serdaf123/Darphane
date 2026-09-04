@@ -1,5 +1,6 @@
 import { ActionButtons } from "@/components/ActionButtons";
 import { Reveal } from "@/components/motion/Reveal";
+import type { Locale } from "@/lib/i18n";
 import type { Business, Section } from "@/lib/schema";
 
 type CtaData = Extract<Section, { type: "cta" }>;
@@ -8,10 +9,12 @@ export function Cta({
   section,
   business,
   id,
+  locale = "tr",
 }: {
   section: CtaData;
   business: Business;
   id: string;
+  locale?: Locale;
 }) {
   return (
     <section id={id} className="section">
@@ -30,6 +33,7 @@ export function Cta({
             actions={section.actions}
             business={business}
             className="md:justify-center"
+            locale={locale}
           />
         </Reveal>
       </div>

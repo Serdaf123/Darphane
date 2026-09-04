@@ -1,4 +1,5 @@
 import { actionHref } from "@/lib/actions";
+import type { Locale } from "@/lib/i18n";
 import type { Business, SiteAction } from "@/lib/schema";
 
 /** Gerekli bilgisi olmayan eylem (ör. telefon yok) hiç çizilmez. */
@@ -6,13 +7,15 @@ export function ActionButtons({
   actions,
   business,
   className = "",
+  locale = "tr",
 }: {
   actions: SiteAction[];
   business: Business;
   className?: string;
+  locale?: Locale;
 }) {
   const resolved = actions
-    .map((action) => ({ action, href: actionHref(action, business) }))
+    .map((action) => ({ action, href: actionHref(action, business, locale) }))
     .filter((entry): entry is { action: SiteAction; href: string } => Boolean(entry.href));
 
   if (resolved.length === 0) return null;

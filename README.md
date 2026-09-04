@@ -126,6 +126,9 @@ Kullanıcı düzeyinde ayrıca `claude-seo` eklentisi kurulu (`/seo` komutları;
 
 ```
 app/[slug]/page.tsx       işletme sitesi (statik, 5 dk'da bir yenilenir)
+app/[slug]/en/page.tsx    İngilizce sürüm (<slug>.en.json varsa)
+components/SitePage.tsx   iki rotanın ortak gövdesi
+lib/i18n.ts               arayüz metinleri tr/en
 app/page.tsx              iç liste: hangi site hangi aşamada
 app/robots.ts             satılanlar hariç her şey kapalı
 components/sections/      Hero, About, Services, Menu, Gallery, Reviews, Hours, Location, Contact, Faq, Cta
@@ -142,6 +145,10 @@ lib/nav.ts                header menüsü ve butonu
 content/pitch/            teklif mesajları
 scripts/new-site.mts      iskelet üretici
 ```
+
+## İngilizce sürüm
+
+Turistik işletmelerde (otel, restoran, tur) `data/sites/<slug>.en.json` eklenince `/<slug>/en` sayfası açılır, header'da TR ⇄ EN geçişi çıkar, `hreflang` alternatifleri yazılır. Dosya **kısmi**dir: `business` alanları, `seo` ve `id`'si eşleşen bölümler TR'nin üstüne biner; tema ve teklif değişmez. Arayüz metinleri (Ara / Directions, gün adları, "şu an açık") `lib/i18n.ts`'ten gelir. Teklif şeridi Türkçe kalır — o işletme sahibine hitap ediyor. Örnek: `olympos-garden-hotel.en.json`.
 
 ## Satış sinyalleri (PostHog)
 

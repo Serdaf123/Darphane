@@ -3,6 +3,7 @@
 import { Reveal } from "@/components/motion/Reveal";
 import { useState } from "react";
 import { normalizePhone, whatsappUrl } from "@/lib/actions";
+import { t, type Locale } from "@/lib/i18n";
 import type { Business, Section } from "@/lib/schema";
 
 type ContactData = Extract<Section, { type: "contact" }>;
@@ -16,12 +17,15 @@ export function Contact({
   section,
   business,
   id,
+  locale = "tr",
 }: {
   section: ContactData;
   business: Business;
   id: string;
+  locale?: Locale;
 }) {
   const [values, setValues] = useState<Record<string, string>>({});
+  const s = t(locale).contact;
   const target = business.whatsapp ?? business.phone;
   const fields = section.form.fields;
   const formEnabled = section.form.enabled && fields.length > 0 && Boolean(target);
@@ -37,7 +41,7 @@ export function Contact({
       })
       .filter(Boolean);
 
-    const message = [`${business.name} — web sitesi üzerinden mesaj`, "", ...lines].join("\n");
+    const message = [s.fromSite(business.name), "", ...lines].join("\n");
     window.open(whatsappUrl(target, message), "_blank", "noopener,noreferrer");
   }
 
@@ -111,7 +115,7 @@ export function Contact({
                       setValues((prev) => ({ ...prev, [field.name]: event.target.value }))
                     }
                   >
-                    <option value="">Seçiniz</option>
+                    <option value="">{s.select}</option>
                     {(field.options ?? []).map((option) => (
                       <option key={option} value={option}>
                         {option}
@@ -147,9 +151,7 @@ export function Contact({
             <button type="submit" className="btn btn-primary mt-1">
               {section.form.submitLabel}
             </button>
-            <p className="muted text-xs">
-              Gönder&apos;e bastığınızda mesajınız WhatsApp&apos;ta hazır olarak açılır.
-            </p>
+            <p className="muted text-xs">{s.note}</p>
           </form>
         ) : null}
       </Reveal>

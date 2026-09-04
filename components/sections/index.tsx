@@ -1,4 +1,5 @@
 import { sectionId } from "@/lib/actions";
+import type { Locale } from "@/lib/i18n";
 import type { Business, Section } from "@/lib/schema";
 import { About } from "./About";
 import { Contact } from "./Contact";
@@ -19,9 +20,11 @@ import { Services } from "./Services";
 export function Sections({
   sections,
   business,
+  locale = "tr",
 }: {
   sections: Section[];
   business: Business;
+  locale?: Locale;
 }) {
   return (
     <>
@@ -31,7 +34,7 @@ export function Sections({
 
         switch (section.type) {
           case "hero":
-            return <Hero key={key} section={section} business={business} id={id} />;
+            return <Hero key={key} section={section} business={business} id={id} locale={locale} />;
           case "about":
             return <About key={key} section={section} id={id} />;
           case "services":
@@ -41,17 +44,17 @@ export function Sections({
           case "gallery":
             return <Gallery key={key} section={section} id={id} />;
           case "reviews":
-            return <Reviews key={key} section={section} id={id} />;
+            return <Reviews key={key} section={section} id={id} locale={locale} />;
           case "hours":
-            return <HoursSection key={key} section={section} business={business} id={id} />;
+            return <HoursSection key={key} section={section} business={business} id={id} locale={locale} />;
           case "location":
-            return <Location key={key} section={section} business={business} id={id} />;
+            return <Location key={key} section={section} business={business} id={id} locale={locale} />;
           case "contact":
-            return <Contact key={key} section={section} business={business} id={id} />;
+            return <Contact key={key} section={section} business={business} id={id} locale={locale} />;
           case "faq":
             return <Faq key={key} section={section} id={id} />;
           case "cta":
-            return <Cta key={key} section={section} business={business} id={id} />;
+            return <Cta key={key} section={section} business={business} id={id} locale={locale} />;
         }
       })}
     </>

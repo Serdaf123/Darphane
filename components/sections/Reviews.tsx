@@ -1,13 +1,14 @@
 import { Item, Reveal, Stagger } from "@/components/motion/Reveal";
+import { t, type Locale } from "@/lib/i18n";
 import type { Section } from "@/lib/schema";
 
 type ReviewsData = Extract<Section, { type: "reviews" }>;
 
-function Stars({ rating }: { rating: number }) {
+function Stars({ rating, locale = "tr" }: { rating: number; locale?: Locale }) {
   const rounded = Math.round(rating);
   return (
     <span
-      aria-label={`${rating} / 5 puan`}
+      aria-label={t(locale).reviews.ratingAria(rating)}
       style={{ color: "var(--c-accent)", letterSpacing: "0.1em" }}
     >
       {"★".repeat(rounded)}
@@ -16,7 +17,15 @@ function Stars({ rating }: { rating: number }) {
   );
 }
 
-export function Reviews({ section, id }: { section: ReviewsData; id: string }) {
+export function Reviews({
+  section,
+  id,
+  locale = "tr",
+}: {
+  section: ReviewsData;
+  id: string;
+  locale?: Locale;
+}) {
   return (
     <section id={id} className="section section-surface">
       <div className="container flex flex-col gap-[var(--stack-gap)]">
@@ -24,10 +33,10 @@ export function Reviews({ section, id }: { section: ReviewsData; id: string }) {
           <h2 className="section-title">{section.title}</h2>
           {section.summary ? (
             <p className="pill">
-              <Stars rating={section.summary.rating} />
+              <Stars rating={section.summary.rating} locale={locale} />
               <strong>{section.summary.rating.toFixed(1)}</strong>
               <span className="muted">
-                {section.summary.count} değerlendirme, {section.summary.source}
+                {t(locale).reviews.summary(section.summary.count, section.summary.source)}
               </span>
             </p>
           ) : null}
@@ -55,7 +64,7 @@ export function Reviews({ section, id }: { section: ReviewsData; id: string }) {
                     key={index}
                     className="card marquee-item m-0 flex flex-col gap-3"
                   >
-                    <Stars rating={review.rating} />
+                    <Stars rating={review.rating} locale={locale} />
                     <blockquote className="m-0 leading-relaxed">
                       “{review.text}”
                     </blockquote>
@@ -89,7 +98,7 @@ export function Reviews({ section, id }: { section: ReviewsData; id: string }) {
                   “{review.text}”
                 </blockquote>
                 <figcaption className="flex flex-wrap items-center gap-x-3 gap-y-1 text-sm">
-                  <Stars rating={review.rating} />
+                  <Stars rating={review.rating} locale={locale} />
                   <span className="font-medium">{review.author}</span>
                   {review.source ? (
                     <span className="muted">{review.source}</span>
@@ -106,7 +115,7 @@ export function Reviews({ section, id }: { section: ReviewsData; id: string }) {
                 key={index}
                 className="card m-0 flex flex-col gap-3"
               >
-                <Stars rating={review.rating} />
+                <Stars rating={review.rating} locale={locale} />
                 <blockquote className="m-0 leading-relaxed">
                   “{review.text}”
                 </blockquote>

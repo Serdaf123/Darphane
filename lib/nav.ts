@@ -1,22 +1,23 @@
 import type { Business, Section, SiteAction } from "./schema";
 import { actionHref, sectionId } from "./actions";
+import { t, type Locale } from "./i18n";
 
 /**
  * Header menüsü JSON'dan değil bölümlerden türer: site kurarken ayrıca
  * menü yazmak gerekmez. En fazla 4 madde, sayfa sırasına göre.
  */
 
-const NAV_LABELS: Partial<Record<Section["type"], string>> = {
-  about: "Hakkında",
-  services: "Hizmetler",
-  menu: "Menü",
-  gallery: "Galeri",
-  reviews: "Yorumlar",
-  hours: "Saatler",
-  location: "Konum",
-  contact: "İletişim",
-  faq: "SSS",
-};
+const NAV_TYPES = new Set<Section["type"]>([
+  "about",
+  "services",
+  "menu",
+  "gallery",
+  "reviews",
+  "hours",
+  "location",
+  "contact",
+  "faq",
+]);
 
 /** Menüde en çok işe yarayanlar önce; sonra sayfa sırasına dizilir. */
 const PRIORITY: Section["type"][] = [
@@ -33,12 +34,13 @@ const PRIORITY: Section["type"][] = [
 
 export type NavItem = { label: string; href: string };
 
-export function navItems(sections: Section[], max = 4): NavItem[] {
+export function navItems(sections: Section[], locale: Locale = "tr", max = 4): NavItem[] {
+  const labels = t(locale).nav as Record<string, string>;
   const candidates = sections
     .map((section, index) => ({ section, index }))
     .filter(({ section }) => section.type !== "hero" && section.type !== "cta")
     .filter(({ section }) => !section.hideFromNav)
-    .filter(({ section }) => section.navLabel || NAV_LABELS[section.type]);
+    .filter(({ section }) => section.navLabel || NAV_TYPES.has(section.type));
 
   const chosen = [...candidates]
     .sort((a, b) => PRIORITY.indexOf(a.section.type) - PRIORITY.indexOf(b.section.type))
@@ -46,24 +48,23 @@ export function navItems(sections: Section[], max = 4): NavItem[] {
     .sort((a, b) => a.index - b.index);
 
   return chosen.map(({ section, index }) => ({
-    label: section.navLabel ?? NAV_LABELS[section.type]!,
+    label: section.navLabel ?? labels[section.type],
     href: `#${sectionId(section, index)}`,
   }));
 }
 
 export type NavCta = { label: string; shortLabel: string; href: string; external: boolean };
 
-/** Mobil header dar: uzun buton metni yerine eylemin kısa adı */
-const SHORT_LABELS: Partial<Record<SiteAction["kind"], string>> = {
-  whatsapp: "WhatsApp",
-  call: "Ara",
-  directions: "Yol Tarifi",
-  email: "E-posta",
-  instagram: "Instagram",
-};
+
 
 /** Header'daki tek buton: hero'nun ilk çalışan eylemi; yoksa WhatsApp ya da telefon. */
-export function navCta(sections: Section[], business: Business): NavCta | undefined {
+export function navCta(
+  sections: Section[],
+  business: Business,
+  locale: Locale = "tr"
+): NavCta | undefined {
+  // Mobil header dar: uzun buton metni yerine eylemin kısa adı
+  const short = t(locale).cta as Record<string, string>;
   const hero = sections.find((s) => s.type === "hero");
   const actions: SiteAction[] = hero?.type === "hero" ? hero.actions : [];
 
@@ -74,11 +75,11 @@ export function navCta(sections: Section[], business: Business): NavCta | undefi
 
   for (const action of [...actions, ...fallback]) {
     if (action.kind === "scroll") continue;
-    const href = actionHref(action, business);
+    const href = actionHref(action, business, locale);
     if (href) {
       return {
         label: action.label,
-        shortLabel: SHORT_LABELS[action.kind] ?? action.label,
+        shortLabel: short[action.kind] ?? action.label,
         href,
         external: action.kind !== "call" && action.kind !== "email",
       };

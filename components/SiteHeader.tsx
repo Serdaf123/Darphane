@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import { useEffect, useState } from "react";
+import { t, type Locale } from "@/lib/i18n";
 import type { Business, Theme } from "@/lib/schema";
 import type { NavCta, NavItem } from "@/lib/nav";
 
@@ -22,6 +23,8 @@ export function SiteHeader({
   style,
   overImage,
   topHref,
+  locale = "tr",
+  switchHref,
 }: {
   business: Business;
   nav: NavItem[];
@@ -30,7 +33,11 @@ export function SiteHeader({
   overImage: boolean;
   /** Marka tıklanınca gidilecek çapa (hero id'si) */
   topHref: string;
+  locale?: Locale;
+  /** Diğer dilin sayfası varsa oraya bağlantı (TR ⇄ EN) */
+  switchHref?: string;
 }) {
+  const s = t(locale).header;
   const [scrolled, setScrolled] = useState(false);
   const [active, setActive] = useState<string | null>(null);
 
@@ -72,7 +79,7 @@ export function SiteHeader({
       data-scrolled={scrolled || undefined}
     >
       <div className="container flex items-center justify-between gap-4">
-        <a href={topHref} className="site-header-brand" aria-label={`${business.name} — başa dön`}>
+        <a href={topHref} className="site-header-brand" aria-label={`${business.name} — ${s.backToTop}`}>
           {business.logo ? (
             <Image
               src={business.logo.src}
@@ -86,7 +93,7 @@ export function SiteHeader({
         </a>
 
         {showNav ? (
-          <nav aria-label="Bölümler" className="site-header-nav">
+          <nav aria-label={s.sections} className="site-header-nav">
             {nav.map((item) => (
               <a
                 key={item.href}
@@ -99,6 +106,12 @@ export function SiteHeader({
           </nav>
         ) : null}
 
+        <div className="flex items-center gap-3">
+        {switchHref ? (
+          <a href={switchHref} className="site-header-lang" aria-label={s.switchAria} hrefLang={locale === "tr" ? "en" : "tr"}>
+            {s.switchTo}
+          </a>
+        ) : null}
         {cta ? (
           <a
             href={cta.href}
@@ -109,6 +122,7 @@ export function SiteHeader({
             <span className="hidden sm:inline">{cta.label}</span>
           </a>
         ) : null}
+        </div>
       </div>
     </header>
   );

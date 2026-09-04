@@ -50,7 +50,6 @@ if (source.length < 40) {
 /* Modelin dolduracağı şema: siteSchema'nın regex/default içermeyen alt kümesi.
    Teklif (offer) ve slug bizden gelir; model içerik ve tema seçer.          */
 
-const image = z.object({ src: z.string(), alt: z.string() });
 const action = z.object({
   label: z.string(),
   kind: z.enum(["call", "whatsapp", "directions", "link", "scroll", "instagram", "email"]),

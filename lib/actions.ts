@@ -1,3 +1,4 @@
+import { t, type Locale } from "./i18n";
 import type { Business, Section, SiteAction } from "./schema";
 
 /** Tüm eylemler sunucusuz: telefon, WhatsApp, harita, çapa. Backend yok. */
@@ -32,7 +33,11 @@ export function sectionId(section: Section, index: number): string {
 }
 
 /** Eylemi gerçek bir href'e çevirir. Gerekli bilgi yoksa undefined döner ve buton çizilmez. */
-export function actionHref(action: SiteAction, business: Business): string | undefined {
+export function actionHref(
+  action: SiteAction,
+  business: Business,
+  locale: Locale = "tr"
+): string | undefined {
   switch (action.kind) {
     case "call":
       return business.phone ? `tel:${normalizePhone(business.phone)}` : undefined;
@@ -40,8 +45,7 @@ export function actionHref(action: SiteAction, business: Business): string | und
     case "whatsapp": {
       const number = business.whatsapp ?? business.phone;
       if (!number) return undefined;
-      const message =
-        action.value ?? `Merhaba, ${business.name} hakkında bilgi almak istiyorum.`;
+      const message = action.value ?? t(locale).whatsappDefault(business.name);
       return whatsappUrl(number, message);
     }
 

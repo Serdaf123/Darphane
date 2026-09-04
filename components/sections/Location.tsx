@@ -1,5 +1,6 @@
 import { Reveal } from "@/components/motion/Reveal";
 import { directionsUrl, mapEmbedUrl, normalizePhone } from "@/lib/actions";
+import { t, type Locale } from "@/lib/i18n";
 import type { Business, Section } from "@/lib/schema";
 
 type LocationData = Extract<Section, { type: "location" }>;
@@ -8,10 +9,12 @@ export function Location({
   section,
   business,
   id,
+  locale = "tr",
 }: {
   section: LocationData;
   business: Business;
   id: string;
+  locale?: Locale;
 }) {
   const address = [business.address, business.district, business.city]
     .filter(Boolean)
@@ -37,7 +40,7 @@ export function Location({
                 rel="noopener noreferrer"
                 className="btn btn-primary"
               >
-                Yol Tarifi Al
+                {t(locale).location.directions}
               </a>
             ) : null}
             {business.phone ? (
