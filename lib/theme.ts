@@ -113,6 +113,19 @@ export const PALETTES: Record<ThemePreset, Palette> = {
     accentSoft: "#d9e8e4",
     overlay: "linear-gradient(180deg, rgba(21,34,36,.18) 0%, rgba(21,34,36,.72) 100%)",
   },
+  // Kâğıt zemin, mürekkep metin, bordo vurgu (cübbe yakası). Avukat, noter, muhasebe, mimar.
+  ink: {
+    bg: "#f6f5f1",
+    surface: "#edece6",
+    surfaceAlt: "#e2e0d8",
+    text: "#15171b",
+    muted: "#5d6068",
+    border: "#d8d6ce",
+    accent: "#7a1f2b",
+    accentText: "#ffffff",
+    accentSoft: "#ece2e1",
+    overlay: "linear-gradient(180deg, rgba(21,23,27,.2) 0%, rgba(21,23,27,.8) 100%)",
+  },
   // Kurşuni koyu, buz mavisi vurgu. Oto servis, spor salonu, teknik.
   graphite: {
     bg: "#16181b",

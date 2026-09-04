@@ -61,6 +61,49 @@ export function Hero({
     );
   }
 
+  // statement: koyu antet — büyük isim, ince çizgi, arka planda monogram.
+  // Fotoğrafı olmayan meslekler (avukat, muhasebe, mimar) için "kartvizit" hissi.
+  if (section.variant === "statement") {
+    const monogram = business.name
+      .split(/\s+/)
+      .filter((w) => !/^(av|dr|dt|op|prof|doç)\.?$/i.test(w))
+      .map((w) => w[0]?.toLocaleUpperCase("tr-TR") ?? "")
+      .join("")
+      .slice(0, 3);
+
+    return (
+      <section id={id} className="hero-statement relative isolate overflow-hidden">
+        <span aria-hidden className="hero-statement-monogram">
+          {monogram}
+        </span>
+        <div className="on-image container relative pb-16 pt-32 md:pb-24 md:pt-40">
+          <div className="flex max-w-4xl flex-col gap-[var(--stack-gap)]">
+            <HeroItem order={0}>
+              <p className="hero-statement-eyebrow">{business.category}</p>
+            </HeroItem>
+            <HeroItem order={1}>
+              <h1 className="hero-statement-title">{section.headline}</h1>
+            </HeroItem>
+            <HeroItem order={2}>
+              <hr className="hero-statement-rule" />
+            </HeroItem>
+            {section.subline ? (
+              <HeroItem order={3}>
+                <p className="hero-statement-subline">{section.subline}</p>
+              </HeroItem>
+            ) : null}
+            <HeroItem order={4}>
+              <div className="flex flex-wrap gap-2">{badges}</div>
+            </HeroItem>
+            <HeroItem order={5}>
+              <ActionButtons actions={section.actions} business={business} className="mt-3" locale={locale} />
+            </HeroItem>
+          </div>
+        </div>
+      </section>
+    );
+  }
+
   if (section.variant === "split") {
     return (
       <section id={id} className="section">

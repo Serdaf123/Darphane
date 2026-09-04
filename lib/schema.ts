@@ -102,10 +102,11 @@ export const THEME_PRESETS = [
   "sand",
   "bosphorus",
   "graphite",
+  "ink",
 ] as const;
 
 /** Font çiftleri — tanımlar lib/fonts.ts'te */
-export const FONT_PAIRINGS = ["classic", "hospitality", "clean", "craft", "soft", "bold"] as const;
+export const FONT_PAIRINGS = ["classic", "hospitality", "clean", "craft", "soft", "bold", "editorial"] as const;
 export type ThemePreset = (typeof THEME_PRESETS)[number];
 
 export const HERO_MOTIONS = ["rise", "reveal", "blur", "curtain", "zoom", "split", "none"] as const;
@@ -141,6 +142,7 @@ const themeSchema = z.object({
    * craft       Bricolage + Source Serif · ocakbaşı, zanaat
    * soft        DM Sans + Fraunces · fırın, kafe, spa
    * bold        Space Grotesk · berber, oto, spor
+   * editorial   EB Garamond + IBM Plex Sans · avukat, muhasebe, mimar, danışman
    */
   fonts: z.enum(FONT_PAIRINGS).default("classic"),
   /** Başlıklar çiftin display yüzünü mü, gövde yüzünü mü kullansın */
@@ -172,7 +174,8 @@ const sectionBase = {
 const heroSection = z.object({
   ...sectionBase,
   type: z.literal("hero"),
-  variant: z.enum(["image", "split", "minimal"]).default("image"),
+  /** image: tam görsel · split: metin + görsel · minimal: sade · statement: koyu antet, büyük isim, fotoğrafsız meslekler */
+  variant: z.enum(["image", "split", "minimal", "statement"]).default("image"),
   headline: z.string(),
   subline: z.string().optional(),
   image: imageSchema.optional(),

@@ -39,7 +39,7 @@ npm run new-site -- kuafor-nese "Kuaför Neşe" "Kadın Kuaförü" sage
 
 Oluşan `data/sites/kuafor-nese.json` dosyasını doldur. `offer.seller.whatsapp` senin numaran. Örnek olarak `ocakbasi-sahin.json` (restoran, koyu), `dishekimi-elif-yarar.json` (klinik, açık) ve `olympos-garden-hotel.json` (otel) dosyalarına bak.
 
-**Palet** (`theme.preset`): `porcelain` nötr · `ember` sıcak koyu · `sage` yumuşak yeşil · `midnight` lacivert+altın · `cobalt` güven mavisi · `sand` bej+ceviz · `bosphorus` taş+Boğaz yeşili · `graphite` kurşuni+buz mavisi
+**Palet** (`theme.preset`): `porcelain` nötr · `ember` sıcak koyu · `sage` yumuşak yeşil · `midnight` lacivert+altın · `cobalt` güven mavisi · `sand` bej+ceviz · `bosphorus` taş+Boğaz yeşili · `graphite` kurşuni+buz mavisi · `ink` kâğıt+mürekkep+bordo (avukat, noter, muhasebe)
 
 **Font çifti** (`theme.fonts`) — sayfanın kişiliğini en çok bu belirler:
 
@@ -51,8 +51,11 @@ Oluşan `data/sites/kuafor-nese.json` dosyasını doldur. `offer.seller.whatsapp
 | `craft` | Bricolage Grotesque + Source Serif 4 | ocakbaşı, kasap, zanaat |
 | `soft` | DM Sans + Fraunces | fırın, kafe, spa, çiçekçi |
 | `bold` | Space Grotesk | berber, dövme, oto servis, spor |
+| `editorial` | EB Garamond + IBM Plex Sans | avukat, muhasebe, mimar, danışman — antetli kâğıt |
 
 `headingFont: "display"` başlıkları çiftin display yüzüyle, `"sans"` gövde yüzüyle yazar. Fontlar `preload: false` — yalnızca sitenin seçtiği çift indirilir.
+
+**Hero varyantları** (`sections[0].variant`): `image` tam görsel · `split` metin + görsel · `minimal` sade · `statement` koyu antet, büyük isim, arka planda monogram — fotoğrafı olmayan meslekler için (avukat örneği).
 
 **Kutusuz düzenler:** `services.layout: "grid"` (iki sütun, kart yok), `reviews.layout: "quotes"` (büyük alıntı, az yorumda kartlardan iyi), `reviews.layout: "marquee"` (akan şerit, 4+ yorumda; üzerine gelince durur). Her şeyi karta koymak "şablon" hissi verir; her sitede en az bir bölümü kutusuz bırak.
 

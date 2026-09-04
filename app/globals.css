@@ -539,3 +539,83 @@ main:focus {
     display: none;
   }
 }
+
+/* ----------------------------- Hero: statement ----------------------------- */
+
+.hero-statement {
+  background: var(--c-text);
+  color: var(--c-bg);
+}
+
+/* Arka planda büyük, silik monogram — antetli kâğıttaki kabartma gibi */
+.hero-statement-monogram {
+  position: absolute;
+  right: -0.08em;
+  bottom: -0.22em;
+  font-family: var(--font-heading);
+  font-weight: 500;
+  font-size: clamp(14rem, 36vw, 34rem);
+  line-height: 1;
+  letter-spacing: -0.06em;
+  color: transparent;
+  -webkit-text-stroke: 1px color-mix(in srgb, var(--c-bg) 16%, transparent);
+  user-select: none;
+  pointer-events: none;
+}
+
+/* Telefonda butonların arkasına denk gelmesin: daha aşağı, daha silik */
+@media (max-width: 767px) {
+  .hero-statement-monogram {
+    bottom: -0.42em;
+    right: -0.15em;
+    -webkit-text-stroke-color: color-mix(in srgb, var(--c-bg) 10%, transparent);
+  }
+}
+
+.hero-statement-eyebrow {
+  font-size: 0.9375rem;
+  font-weight: 500;
+  color: color-mix(in srgb, var(--c-bg) 72%, transparent);
+}
+
+.hero-statement-title {
+  font-size: clamp(2.75rem, 1.5rem + 6vw, 6.5rem);
+  line-height: 0.98;
+  letter-spacing: -0.03em;
+  color: var(--c-bg);
+  text-wrap: balance;
+}
+
+.hero-statement-rule {
+  width: 4.5rem;
+  height: 1px;
+  margin: 0.25rem 0;
+  border: 0;
+  background: var(--c-accent);
+}
+
+.hero-statement-subline {
+  max-width: 34rem;
+  font-size: 1.125rem;
+  line-height: 1.6;
+  color: color-mix(in srgb, var(--c-bg) 82%, transparent);
+}
+
+/* Koyu zeminde rozet ve ikincil butonlar açık tonda */
+.hero-statement .pill {
+  background: color-mix(in srgb, var(--c-bg) 8%, transparent);
+  border-color: color-mix(in srgb, var(--c-bg) 22%, transparent);
+  color: color-mix(in srgb, var(--c-bg) 85%, transparent);
+}
+
+.hero-statement .btn-secondary,
+.hero-statement .btn-ghost {
+  background: transparent;
+  color: var(--c-bg);
+  border-color: color-mix(in srgb, var(--c-bg) 35%, transparent);
+}
+
+.hero-statement .btn-secondary:hover,
+.hero-statement .btn-ghost:hover {
+  background: color-mix(in srgb, var(--c-bg) 10%, transparent);
+}

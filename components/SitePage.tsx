@@ -37,7 +37,8 @@ export function SitePage({
 
   // Header görselli hero'nun üstüne biner; diğer hero'larda kendi zeminiyle durur.
   const first = sections[0];
-  const overImage = first.type === "hero" && first.variant === "image";
+  const overImage =
+    first.type === "hero" && (first.variant === "image" || first.variant === "statement");
 
   const other = locales.find((l) => l !== locale);
   const switchHref = other ? (other === "tr" ? `/${slug}` : `/${slug}/${other}`) : undefined;

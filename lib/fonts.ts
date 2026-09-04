@@ -2,8 +2,10 @@ import {
   Bricolage_Grotesque,
   Cormorant_Garamond,
   DM_Sans,
+  EB_Garamond,
   Figtree,
   Fraunces,
+  IBM_Plex_Sans,
   Inter,
   Manrope,
   Playfair_Display,
@@ -37,6 +39,21 @@ const sourceSerif = Source_Serif_4({ subsets: ["latin", "latin-ext"], variable: 
 const fraunces = Fraunces({ subsets: ["latin", "latin-ext"], variable: "--f-fraunces", display: "swap", preload: false });
 const dmSans = DM_Sans({ subsets: ["latin", "latin-ext"], variable: "--f-dmsans", display: "swap", preload: false });
 const spaceGrotesk = Space_Grotesk({ subsets: ["latin", "latin-ext"], variable: "--f-spacegrotesk", display: "swap", preload: false });
+const ebGaramond = EB_Garamond({
+  subsets: ["latin", "latin-ext"],
+  weight: ["400", "500", "600"],
+  style: ["normal", "italic"],
+  variable: "--f-ebgaramond",
+  display: "swap",
+  preload: false,
+});
+const plexSans = IBM_Plex_Sans({
+  subsets: ["latin", "latin-ext"],
+  weight: ["400", "500", "600"],
+  variable: "--f-plexsans",
+  display: "swap",
+  preload: false,
+});
 
 export const FONT_PAIRINGS = {
   /** Nötr, tanıdık. Eski siteler için geriye uyumluluk. */
@@ -51,6 +68,8 @@ export const FONT_PAIRINGS = {
   soft: { className: `${dmSans.variable} ${fraunces.variable}`, sans: "var(--f-dmsans)", display: "var(--f-fraunces)", note: "DM Sans + Fraunces" },
   /** Berber, dövme, oto servis, spor salonu: sert, teknik. */
   bold: { className: spaceGrotesk.variable, sans: "var(--f-spacegrotesk)", display: "var(--f-spacegrotesk)", note: "Space Grotesk" },
+  /** Avukat, muhasebe, mimar, danışman: antetli kâğıt — Garamond başlık, Plex gövde. */
+  editorial: { className: `${ebGaramond.variable} ${plexSans.variable}`, sans: "var(--f-plexsans)", display: "var(--f-ebgaramond)", note: "EB Garamond + IBM Plex Sans" },
 } as const;
 
 export type FontPairing = keyof typeof FONT_PAIRINGS;
