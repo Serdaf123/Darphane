@@ -158,6 +158,8 @@ const themeSchema = z.object({
    * none    → header yok
    */
   header: z.enum(HEADER_STYLES).default("glass"),
+  /** mono: fotoğraflar tek ton, üzerine gelince renklenir (avukat, mimar, editoryal) */
+  photos: z.enum(["color", "mono"]).default("color"),
   motion: motionSchema.prefault({}),
 });
 export type Theme = z.infer<typeof themeSchema>;
@@ -202,6 +204,8 @@ const servicesSection = z.object({
   intro: z.string().optional(),
   /** cards: kutulu · list: tek sütun satırlar · grid: iki sütun, kutusuz */
   layout: z.enum(["cards", "list", "grid"]).default("cards"),
+  /** dark: bölüm mürekkep zeminli koyu panel olur — sayfaya koyu/açık ritmi verir */
+  tone: z.enum(["light", "dark"]).default("light"),
   items: z.array(
     z.object({
       name: z.string(),

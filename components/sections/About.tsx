@@ -40,7 +40,7 @@ export function About({ section, id }: { section: AboutData; id: string }) {
         {hasImage ? (
           <Reveal
             delay={0.15}
-            className="relative aspect-4/3 overflow-hidden"
+            className="about-photo relative aspect-4/3 overflow-hidden"
             style={{ borderRadius: "var(--radius)" }}
           >
             <SiteImage

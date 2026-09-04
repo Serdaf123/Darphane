@@ -55,7 +55,11 @@ Oluşan `data/sites/kuafor-nese.json` dosyasını doldur. `offer.seller.whatsapp
 
 `headingFont: "display"` başlıkları çiftin display yüzüyle, `"sans"` gövde yüzüyle yazar. Fontlar `preload: false` — yalnızca sitenin seçtiği çift indirilir.
 
-**Hero varyantları** (`sections[0].variant`): `image` tam görsel · `split` metin + görsel · `minimal` sade · `statement` koyu antet, büyük isim, arka planda monogram — fotoğrafı olmayan meslekler için (avukat örneği).
+**Hero varyantları** (`sections[0].variant`): `image` tam görsel · `split` metin + görsel · `minimal` sade · `statement` koyu antet, büyük hafif serif isim, arka planda monogram; `image` verilirse fotoğraf mürekkep tonuyla arkaya biner (avukat örneği: alacakaranlık İstanbul).
+
+**Fotoğraf tonu** (`theme.photos`): `color` · `mono` — tüm fotoğraflar tek ton, üzerine gelince renklenir. Referans avukat/mimar sitelerinin dili; fotoğraflar birbirine uymuyorsa da kurtarır.
+
+**Koyu panel** (`services.tone: "dark"`): bölüm mürekkep zeminli olur; sayfaya koyu/açık ritmi verir (Roy Black'in altın paneli gibi).
 
 **Kutusuz düzenler:** `services.layout: "grid"` (iki sütun, kart yok), `reviews.layout: "quotes"` (büyük alıntı, az yorumda kartlardan iyi), `reviews.layout: "marquee"` (akan şerit, 4+ yorumda; üzerine gelince durur). Her şeyi karta koymak "şablon" hissi verir; her sitede en az bir bölümü kutusuz bırak.
 

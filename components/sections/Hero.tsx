@@ -77,14 +77,26 @@ export function Hero({
 
     return (
       <section id={id} className="hero-statement relative isolate overflow-hidden">
+        {/* Fotoğraf varsa koyu mürekkep tonuyla arkaya: referans avukat siteleri gibi
+            alacakaranlık şehir / cam cephe — metin okunur kalsın diye ağır katman */}
+        {section.image ? (
+          <>
+            <HeroMedia className="absolute inset-0 -z-20">
+              <SiteImage
+                image={section.image}
+                priority
+                sizes="100vw"
+                className="absolute inset-0 h-full w-full hero-statement-photo"
+              />
+            </HeroMedia>
+            <div aria-hidden className="hero-statement-tint absolute inset-0 -z-10" />
+          </>
+        ) : null}
         <span aria-hidden className="hero-statement-monogram">
           {monogram}
         </span>
-        <div className="on-image container relative pb-16 pt-32 md:pb-24 md:pt-40">
+        <div className="on-image container relative pb-16 pt-32 md:pb-24 md:pt-44">
           <div className="flex max-w-4xl flex-col gap-[var(--stack-gap)]">
-            <HeroItem order={0}>
-              <p className="hero-statement-eyebrow">{business.category}</p>
-            </HeroItem>
             <HeroItem order={1}>
               <h1 className="hero-statement-title">{section.headline}</h1>
             </HeroItem>
