@@ -85,6 +85,11 @@ const businessSchema = z.object({
     .prefault({}),
   hours: hoursSchema.optional(),
   logo: imageSchema.optional(),
+  /** Satışta bağlanan alan adı (www'suz): "olymposgardenhotel.com". next.config host'a göre yönlendirir. */
+  domain: z
+    .string()
+    .regex(/^(?!www\.)[a-z0-9-]+(\.[a-z0-9-]+)+$/, "Alan adı küçük harf, www'suz: ornek.com")
+    .optional(),
 });
 export type Business = z.infer<typeof businessSchema>;
 
@@ -333,6 +338,8 @@ const offerSchema = z.object({
   expiresAt: z.string().optional(),
   price: z.number().optional(),
   currency: z.string().default("TRY"),
+  /** Ödeme linki (iyzico iyzilink / PayTR link). Varsa şeritteki ana buton buraya gider, WhatsApp ikinci buton olur. */
+  paymentUrl: z.string().url().optional(),
   /** Teklifi gönderen bizim taraf — geri sayım şeridindeki butonlar buraya gider */
   seller: z
     .object({

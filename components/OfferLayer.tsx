@@ -65,7 +65,7 @@ function CountdownBar({
               TEK satır kalmalı — taşarsa şerit büyür, altındaki her şey kayar (CLS). */}
           <p
             className="truncate text-xs leading-tight tabular-nums"
-            style={{ color: "rgba(245,246,247,.68)", minHeight: "1rem" }}
+            style={{ color: "rgba(245,246,247,.68)", minHeight: "1rem", whiteSpace: "nowrap" }}
           >
             {left ? (
               <>
@@ -76,8 +76,7 @@ function CountdownBar({
                   {String(left.minutes).padStart(2, "0")}:
                   {String(left.seconds).padStart(2, "0")}
                 </span>{" "}
-                <span className="sm:hidden">sonra kalkacak</span>
-                <span className="hidden sm:inline">kaldı</span>
+                kaldı
               </>
             ) : deadline !== null ? (
               <>
@@ -91,23 +90,51 @@ function CountdownBar({
           </p>
         </div>
 
-        {href ? (
-          <a
-            href={href}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="btn shrink-0 whitespace-nowrap"
-            style={{
-              background: "#22c55e",
-              color: "#07130b",
-              minHeight: "2.5rem",
-              padding: "0.5rem 1rem",
-              fontSize: "0.875rem",
-            }}
-          >
-            Sitemi Satın Al
-          </a>
-        ) : null}
+        <div className="flex shrink-0 items-center gap-2">
+          {/* Ödeme linki varsa karar anında ödeme; WhatsApp soru için kalır */}
+          {offer.paymentUrl ? (
+            <a
+              href={offer.paymentUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="btn whitespace-nowrap"
+              style={{
+                background: "#22c55e",
+                color: "#07130b",
+                minHeight: "2.5rem",
+                padding: "0.5rem 1rem",
+                fontSize: "0.875rem",
+              }}
+            >
+              Ödemeye Geç
+            </a>
+          ) : null}
+          {href ? (
+            <a
+              href={href}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="btn whitespace-nowrap"
+              style={{
+                background: offer.paymentUrl ? "transparent" : "#22c55e",
+                color: offer.paymentUrl ? BAR_TEXT : "#07130b",
+                border: offer.paymentUrl ? "1px solid rgba(245,246,247,.35)" : undefined,
+                minHeight: "2.5rem",
+                padding: "0.5rem 1rem",
+                fontSize: "0.875rem",
+              }}
+            >
+              {offer.paymentUrl ? (
+                <>
+                  <span className="sm:hidden">Sor</span>
+                  <span className="hidden sm:inline">Soru Sor</span>
+                </>
+              ) : (
+                "Sitemi Satın Al"
+              )}
+            </a>
+          ) : null}
+        </div>
       </div>
     </div>
   );

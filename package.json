@@ -11,7 +11,8 @@
     "typecheck": "tsc --noEmit",
     "find-leads": "node --env-file-if-exists=.env.local scripts/find-leads.mts",
     "screenshot": "node scripts/screenshot.mts",
-    "draft": "node --env-file-if-exists=.env.local scripts/draft-site.mts"
+    "draft": "node --env-file-if-exists=.env.local scripts/draft-site.mts",
+    "sell": "node --env-file-if-exists=.env.local scripts/sell.mts"
   },
   "dependencies": {
     "@anthropic-ai/sdk": "^0.123.0",

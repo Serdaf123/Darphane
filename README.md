@@ -80,7 +80,15 @@ Telefondan da aç: alttaki Ara / Yol Tarifi / WhatsApp barı çalışıyor mu.
 
 **5. Takip et.** PostHog'da (eu.posthog.com) `site_viewed` olayını slug'a göre filtrele: kim açtı, kaç saniye kaldı (`engaged`), nereye kadar indi (`scroll_depth`), hangi butona bastı (`cta_click`: call / whatsapp / directions / buy). **Oturum kaydını izle** — esnaf menüye inip fiyata iki kez döndüyse o an ara. Anahtar yoksa Vercel Analytics'teki sayfa görüntülemesiyle idare et.
 
-**6. Satış.** `offer.status` → `"sold"`. Alan adını Vercel'e bağla. Site arama motorlarına açılır.
+**6. Satış.** Tek komut:
+
+```bash
+npm run sell -- kuafor-nese --domain kuafornese.com
+```
+
+`status: sold` yazar, süreyi siler, commit + push eder (Vercel deploy eder; noindex kalkar, JSON-LD ve hreflang açılır), `VERCEL_TOKEN` varsa alan adını ve `www`'yi projeye ekler, işletmeye verilecek DNS kayıtlarını yazdırır. `ornek.com/` otomatik olarak `/<slug>`'a, `ornek.com/en` de `/<slug>/en`'e gider (next.config host yönlendirmesi). `--dry` ile önce bak.
+
+**Ödeme linki.** iyzico (iyzilink) ya da PayTR panelinden tek seferlik ödeme linki oluşturup JSON'da `offer.paymentUrl`'a yaz: şeritteki ana buton "Ödemeye Geç" olur, WhatsApp "Soru Sor"a düşer. Ödeme gelince `npm run sell`.
 
 ## Komutlar
 
@@ -91,6 +99,7 @@ npm run typecheck    # tip kontrolü
 npm run lint
 npm run new-site -- <slug> "<İşletme>" "<Kategori>" [tema]
 npm run draft -- <slug> <maps-metni.txt> [--photos u1,u2] [--dry]   # Claude ile taslak (ANTHROPIC_API_KEY)
+npm run sell -- <slug> [--domain ornek.com] [--payment-url url] [--dry] # satış: sold + push + Vercel alan adı + DNS
 npm run find-leads -- "<kategori>" "<ilçe, şehir>" [minYorum]   # sitesiz işletme listesi → leads/*.csv
 npm run screenshot -- <slug> [baseUrl] [--clean]                # iPhone çerçeveli görsel → shots/ (--clean: teklif şeridi gizli)
 ```

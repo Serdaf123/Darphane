@@ -14,21 +14,52 @@ import type { NextConfig } from "next";
 
 const SITES_DIR = path.join(process.cwd(), "data", "sites");
 
-function unsoldSlugs(): string[] {
+type SiteLite = { slug: string; status: string; domain?: string; hasEn: boolean };
+
+function readSites(): SiteLite[] {
   if (!fs.existsSync(SITES_DIR)) return [];
-  return fs
-    .readdirSync(SITES_DIR)
-    .filter((file) => file.endsWith(".json"))
-    .filter((file) => {
+  const files = fs.readdirSync(SITES_DIR);
+  return files
+    .filter((file) => /^[a-z0-9-]+\.json$/.test(file))
+    .map((file) => {
+      const slug = file.replace(/\.json$/, "");
       try {
         const site = JSON.parse(fs.readFileSync(path.join(SITES_DIR, file), "utf8"));
-        return site?.offer?.status !== "sold";
+        return {
+          slug,
+          status: String(site?.offer?.status ?? "draft"),
+          domain: site?.business?.domain as string | undefined,
+          hasEn: files.includes(`${slug}.en.json`),
+        };
       } catch {
         // Okunamayan dosyayı güvenli tarafta tut: kapalı say.
-        return true;
+        return { slug, status: "draft", hasEn: false };
       }
-    })
-    .map((file) => file.replace(/\.json$/, ""));
+    });
+}
+
+function unsoldSlugs(): string[] {
+  return readSites()
+    .filter((site) => site.status !== "sold")
+    .map((site) => site.slug);
+}
+
+/**
+ * Satılan site kendi alan adına bağlanınca: ornek.com/ → /<slug>, ornek.com/en → /<slug>/en.
+ * Alan adı Vercel'e scripts/sell.mts ile eklenir; burası sadece yönlendirme.
+ */
+function domainRewrites() {
+  return readSites()
+    .filter((site) => site.status === "sold" && site.domain)
+    .flatMap((site) => {
+      const hosts = [site.domain!, `www.${site.domain!}`];
+      return hosts.flatMap((host) => [
+        { source: "/", has: [{ type: "host" as const, value: host }], destination: `/${site.slug}` },
+        ...(site.hasEn
+          ? [{ source: "/en", has: [{ type: "host" as const, value: host }], destination: `/${site.slug}/en` }]
+          : []),
+      ]);
+    });
 }
 
 const nextConfig: NextConfig = {
@@ -48,6 +79,7 @@ const nextConfig: NextConfig = {
     return [
       { source: "/ingest/static/:path*", destination: `${assets}/static/:path*` },
       { source: "/ingest/:path*", destination: `${host}/:path*` },
+      ...domainRewrites(),
     ];
   },
   // PostHog'un /ingest/… yolları sondaki eğik çizgiyle çalışır
