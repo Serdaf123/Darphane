@@ -132,6 +132,10 @@ WhatsApp'ta linkten önce görsel atmak açılma oranını artırır. Kurulu Goo
 
 Kullanıcı düzeyinde ayrıca `claude-seo` eklentisi kurulu (`/seo` komutları; `seo-local`, `seo-schema` satış sonrası LocalBusiness/SEO için).
 
+| `impeccable` (pbakaus, 65k★) | Tasarım yönetmeni: `/impeccable critique` (Nielsen puanı + 61 deterministik "üretilmiş tasarım" kontrolü, iki ayrı alt ajan), `audit`, `polish`, `typeset`, `layout`, `distill`, `bolder`, `quieter`. Edit sonrası otomatik dedektör kancası `.claude/settings.local.json`'da |
+
+**Slop kontrolü (kod tarayan lint):** `~/Library/Python/3.9/bin/uxskill lint app components` — 152 regex kural, LLM yok, ~1 sn. Bilinen yanlış pozitifler: spread ile gelen `aria-hidden`'lı SVG'ler, h2 altındaki h3'ler, cam header'ın blur'u.
+
 **Tasarım kararı verirken sıra:** önce `frontend-design` (klişe listesi ve "tek bir yerde cesur ol" ilkesi), sonra `ui-ux-pro-max` UX kuralları için; ui-ux-pro-max'ın palet/font önerileri jenerik (otele "lacivert + altın" der), o kısmı kendi tema sistemimizle çözüyoruz.
 
 ## Yapı
