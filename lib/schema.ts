@@ -85,6 +85,8 @@ const businessSchema = z.object({
     .prefault({}),
   hours: hoursSchema.optional(),
   logo: imageSchema.optional(),
+  /** Footer'da küçük punto yasal/bilgi notu (ör. avukat reklam yasağı cümlesi) */
+  footerNote: z.string().optional(),
   /** Satışta bağlanan alan adı (www'suz): "olymposgardenhotel.com". next.config host'a göre yönlendirir. */
   domain: z
     .string()

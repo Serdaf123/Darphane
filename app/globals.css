@@ -114,7 +114,8 @@ body {
 
 .section-intro {
   color: var(--c-muted);
-  max-width: 46rem;
+  /* 17px'te ~70 karakter: dedektörün ölçtüğü 87 karakterlik satırlar okumayı yoruyordu */
+  max-width: 40rem;
   font-size: 1.0625rem;
   line-height: 1.65;
 }
@@ -443,11 +444,30 @@ main:focus {
   opacity: 1;
 }
 
+/* Telefonda alt bar zaten Ara/Yol Tarifi/WhatsApp taşıyor: header butonu masaüstünde */
 .site-header-cta {
-  min-height: 2.5rem;
+  display: none;
+  min-height: 2.75rem;
   padding: 0.5rem 1rem;
   font-size: 0.875rem;
   flex-shrink: 0;
+}
+
+@media (min-width: 768px) {
+  .site-header-cta {
+    display: inline-flex;
+  }
+}
+
+/* Hero'da telefonda ilk iki buton; gerisi geniş ekranda */
+.btn-desktop-only {
+  display: none;
+}
+
+@media (min-width: 640px) {
+  .btn-desktop-only {
+    display: inline-flex;
+  }
 }
 
 /* Saydam header'da buton beyaz zeminli olsun ki görselde okunsun */
@@ -459,6 +479,17 @@ main:focus {
 
 .site-header-transparent .site-header-cta:hover {
   background: rgba(255, 255, 255, 0.9);
+}
+
+/* Koyu antet üstünde header butonu hero'nun birincil butonuyla aynı renk */
+.site-header-transparent .site-header-cta-accent {
+  background: var(--c-accent);
+  color: var(--c-accent-text);
+  border-color: var(--c-accent);
+}
+
+.site-header-transparent .site-header-cta-accent:hover {
+  background: color-mix(in srgb, var(--c-accent) 88%, #000);
 }
 
 /* ------------------------------ Hover dokunuşları --------------------------- */

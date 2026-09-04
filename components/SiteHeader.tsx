@@ -25,6 +25,7 @@ export function SiteHeader({
   topHref,
   locale = "tr",
   switchHref,
+  ctaAccent = false,
 }: {
   business: Business;
   nav: NavItem[];
@@ -36,6 +37,8 @@ export function SiteHeader({
   locale?: Locale;
   /** Diğer dilin sayfası varsa oraya bağlantı (TR ⇄ EN) */
   switchHref?: string;
+  /** Koyu antet (statement) üstünde buton beyaz değil vurgu renginde: hero'daki birincil butonla aynı dil */
+  ctaAccent?: boolean;
 }) {
   const s = t(locale).header;
   const [scrolled, setScrolled] = useState(false);
@@ -61,6 +64,8 @@ export function SiteHeader({
           .filter((entry) => entry.isIntersecting)
           .sort((a, b) => a.boundingClientRect.top - b.boundingClientRect.top);
         if (visible.length > 0) setActive(`#${visible[0].target.id}`);
+        // Hero'ya geri dönüldü: hiçbir menü bölümü görünür değil
+        else if (window.scrollY < window.innerHeight * 0.5) setActive(null);
       },
       { rootMargin: "-30% 0px -55% 0px", threshold: 0 }
     );
@@ -115,7 +120,7 @@ export function SiteHeader({
         {cta ? (
           <a
             href={cta.href}
-            className="btn btn-primary site-header-cta"
+            className={`btn btn-primary site-header-cta${ctaAccent ? " site-header-cta-accent" : ""}`}
             {...(cta.external ? { target: "_blank", rel: "noopener noreferrer" } : {})}
           >
             <span className="sm:hidden">{cta.shortLabel}</span>

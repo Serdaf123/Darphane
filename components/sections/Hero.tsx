@@ -54,7 +54,7 @@ export function Hero({
             <div className="flex flex-wrap gap-2">{badges}</div>
           </HeroItem>
           <HeroItem order={4}>
-            <ActionButtons actions={section.actions} business={business} className="mt-2" locale={locale} />
+            <ActionButtons actions={section.actions} business={business} className="mt-2" locale={locale} mobileLimit={2} />
           </HeroItem>
         </div>
       </section>
@@ -69,7 +69,11 @@ export function Hero({
       .filter((w) => !/^(av|dr|dt|op|prof|doç)\.?$/i.test(w))
       .map((w) => w[0]?.toLocaleUpperCase("tr-TR") ?? "")
       .join("")
-      .slice(0, 3);
+      .slice(0, 3)
+      // Ö/Ş/Ç'nin noktaları ve çengelleri dev boyutta harften kopuk durur
+      .normalize("NFD")
+      .replace(/\p{M}/gu, "")
+      .replace("I", "I");
 
     return (
       <section id={id} className="hero-statement relative isolate overflow-hidden">
@@ -96,7 +100,7 @@ export function Hero({
               <div className="flex flex-wrap gap-2">{badges}</div>
             </HeroItem>
             <HeroItem order={5}>
-              <ActionButtons actions={section.actions} business={business} className="mt-3" locale={locale} />
+              <ActionButtons actions={section.actions} business={business} className="mt-3" locale={locale} mobileLimit={2} />
             </HeroItem>
           </div>
         </div>
@@ -126,7 +130,7 @@ export function Hero({
               <div className="flex flex-wrap gap-2">{badges}</div>
             </HeroItem>
             <HeroItem order={4}>
-              <ActionButtons actions={section.actions} business={business} className="mt-1" locale={locale} />
+              <ActionButtons actions={section.actions} business={business} className="mt-1" locale={locale} mobileLimit={2} />
             </HeroItem>
           </div>
           <div
@@ -195,7 +199,7 @@ export function Hero({
             <div className="flex flex-wrap gap-2">{badges}</div>
           </HeroItem>
           <HeroItem order={4}>
-            <ActionButtons actions={section.actions} business={business} className="mt-2" locale={locale} />
+            <ActionButtons actions={section.actions} business={business} className="mt-2" locale={locale} mobileLimit={2} />
           </HeroItem>
         </div>
       </div>

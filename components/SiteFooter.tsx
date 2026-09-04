@@ -42,6 +42,9 @@ export function SiteFooter({ business, locale = "tr" }: { business: Business; lo
           </div>
         </div>
 
+        {business.footerNote ? (
+          <p className="muted max-w-[40rem] text-xs leading-relaxed">{business.footerNote}</p>
+        ) : null}
         <p className="muted text-xs">
           © {new Date().getFullYear()} {business.name} · {t(locale).footer.madeBy}
         </p>

@@ -2,8 +2,8 @@
   "slug": "av-ozge-nur-safak",
   "business": {
     "name": "Av. Özge Nur Şafak",
-    "category": "Avukat, Şişli",
-    "tagline": "Ceza hukuku ve hukuki danışmanlık. Şişli, Halaskargazi Caddesi. Görüşmeler randevuyla.",
+    "category": "Hukuk ve danışmanlık bürosu",
+    "tagline": "Ceza hukuku ve hukuki danışmanlık. Şişli, Halaskargazi Caddesi. Görüşmeler randevuyla; acil durumlarda telefon.",
     "phone": "0506 820 80 24",
     "whatsapp": "905068208024",
     "address": "19 Mayıs Mah., Halaskargazi Cd. Çifkurt Apt. No:226 K:2 D:3",
@@ -13,7 +13,8 @@
       "lat": 41.0606,
       "lng": 28.9879
     },
-    "social": {}
+    "social": {},
+    "footerNote": "Bu sitede yalnızca tanıtıcı bilgi yer alır; Türkiye Barolar Birliği Reklam Yasağı Yönetmeliği gereği başarı ve sonuç vaadi içeren ifadelere yer verilmez. Görüşmeler avukatlık sırrı kapsamındadır."
   },
   "theme": {
     "preset": "ink",
@@ -35,22 +36,22 @@
       "id": "ust",
       "variant": "statement",
       "headline": "Özge Nur Şafak",
-      "subline": "Ceza hukuku ve hukuki danışmanlık. Büro Şişli Halaskargazi Caddesi'nde; görüşmeler randevuyla yapılır.",
+      "subline": "Ceza hukuku ve hukuki danışmanlık. Büro Şişli Halaskargazi Caddesi'nde, görüşmeler randevuyla. Gözaltı ve tutuklama gibi acil durumlarda doğrudan arayın.",
       "badges": [
         "Şişli, Halaskargazi Caddesi",
-        "Randevuyla görüşme",
-        "Cumartesi açık"
+        "Cumartesi açık",
+        "Acil durumda telefon"
       ],
       "actions": [
+        {
+          "label": "Hemen Ara",
+          "kind": "call",
+          "style": "primary"
+        },
         {
           "label": "Randevu Talep Et",
           "kind": "whatsapp",
           "value": "Merhaba, Av. Özge Nur Şafak ile görüşme randevusu talep ediyorum.\nKonu (kısaca): \nUygun gün ve saat: ",
-          "style": "primary"
-        },
-        {
-          "label": "0506 820 80 24",
-          "kind": "call",
           "style": "secondary"
         },
         {
@@ -64,21 +65,8 @@
       "type": "about",
       "id": "hakkinda",
       "title": "Büro hakkında",
-      "body": "Büro, Şişli'de Halaskargazi Caddesi üzerinde, Çifkurt Apartmanı'nın ikinci katındadır. Osmanbey metro istasyonuna yürüme mesafesindedir.\n\nÇalışma alanı ceza hukuku ve hukuki danışmanlıktır. Görüşmeler önceden alınan randevuyla, büroda yüz yüze yapılır.\n\nBu sitede yalnızca tanıtıcı bilgi yer alır; Türkiye Barolar Birliği Reklam Yasağı Yönetmeliği gereği başarı ve sonuç vaadi içeren ifadelere yer verilmez.",
-      "highlights": [
-        {
-          "label": "Çalışma alanı",
-          "value": "Ceza hukuku"
-        },
-        {
-          "label": "Görüşme",
-          "value": "Randevuyla"
-        },
-        {
-          "label": "Konum",
-          "value": "Şişli"
-        }
-      ]
+      "body": "Büro, Şişli'de Halaskargazi Caddesi üzerinde, Çifkurt Apartmanı'nın ikinci katındadır; Osmanbey metro istasyonuna yürüme mesafesindedir.\n\nÇalışma alanı ceza hukuku ve hukuki danışmanlıktır. Görüşmeler önceden alınan randevuyla büroda yapılır; gözaltı ve tutuklama gibi acil durumlarda telefonla ulaşabilirsiniz.\n\nGörüşmelerde paylaştığınız her şey avukatlık sırrı kapsamındadır.",
+      "highlights": []
     },
     {
       "type": "services",
@@ -86,15 +74,15 @@
       "navLabel": "Çalışma alanları",
       "title": "Çalışma alanları",
       "intro": "Dosyanızın bu alanlara girip girmediğinden emin değilseniz kısaca yazın; ilk görüşmede birlikte değerlendirilir.",
-      "layout": "grid",
+      "layout": "list",
       "items": [
         {
           "name": "Ceza hukuku",
-          "description": "Soruşturma ve kovuşturma aşamalarında şüpheli, sanık ve mağdur vekilliği; tutukluluğa itiraz, ifade ve duruşmalarda temsil."
+          "description": "Gözaltı, tutuklama, ifade ve duruşma süreçlerinde yanınızda; soruşturmadan karara kadar temsil. Mağdur tarafında da vekillik."
         },
         {
           "name": "Hukuki danışmanlık",
-          "description": "Bir işlem yapmadan ya da bir belgeyi imzalamadan önce hukuki durumun değerlendirilmesi ve yazılı görüş."
+          "description": "Bir işlem yapmadan ya da bir belgeyi imzalamadan önce durumun değerlendirilmesi ve yazılı görüş."
         }
       ]
     },
@@ -106,6 +94,10 @@
         {
           "q": "Nasıl randevu alırım?",
           "a": "WhatsApp'tan konuyu ve size uygun gün-saati yazın ya da 0506 820 80 24'ü arayın. Randevu teyidi aynı kanaldan gelir."
+        },
+        {
+          "q": "Acil bir durum var, hemen ulaşabilir miyim?",
+          "a": "Gözaltı, tutuklama ve benzeri acil durumlarda telefonla arayın. Telefona ulaşılamazsa WhatsApp'tan 'acil' yazın; en kısa sürede dönüş yapılır."
         },
         {
           "q": "İlk görüşmede ne getirmeliyim?",
@@ -136,10 +128,10 @@
       "type": "cta",
       "id": "randevu",
       "headline": "Görüşme için randevu alın",
-      "subline": "Konuyu ve uygun zamanınızı WhatsApp'tan yazın; randevu teyidi aynı gün iletilir.",
+      "subline": "Konuyu ve uygun zamanınızı WhatsApp'tan yazın; randevu teyidi aynı gün iletilir. Acil durumlarda arayın.",
       "actions": [
         {
-          "label": "WhatsApp'tan Yaz",
+          "label": "Randevu Talep Et",
           "kind": "whatsapp",
           "value": "Merhaba, Av. Özge Nur Şafak ile görüşme randevusu talep ediyorum.\nKonu (kısaca): \nUygun gün ve saat: ",
           "style": "primary"
@@ -163,7 +155,7 @@
     }
   },
   "seo": {
-    "title": "Av. Özge Nur Şafak — Hukuk & Danışmanlık, Şişli",
-    "description": "Şişli Halaskargazi Caddesi'nde hukuk bürosu. Ceza hukuku ve hukuki danışmanlık. Görüşmeler randevuyla."
+    "title": "Av. Özge Nur Şafak — Ceza Avukatı, Şişli",
+    "description": "Şişli Halaskargazi Caddesi'nde ceza hukuku ve hukuki danışmanlık. Görüşmeler randevuyla; acil durumlarda telefon."
   }
 }

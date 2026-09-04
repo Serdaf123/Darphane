@@ -40,6 +40,10 @@ export function SitePage({
   const overImage =
     first.type === "hero" && (first.variant === "image" || first.variant === "statement");
 
+  // Alt bar ve header, hero'daki WhatsApp şablonunu paylaşır: avukata/işletmeye gelen her mesaj aynı biçimde
+  const heroWhatsapp =
+    first.type === "hero" ? first.actions.find((a) => a.kind === "whatsapp")?.value : undefined;
+
   const other = locales.find((l) => l !== locale);
   const switchHref = other ? (other === "tr" ? `/${slug}` : `/${slug}/${other}`) : undefined;
 
@@ -64,12 +68,13 @@ export function SitePage({
               topHref={`#${sectionId(first, 0)}`}
               locale={locale}
               switchHref={switchHref}
+              ctaAccent={first.type === "hero" && first.variant === "statement"}
             />
             <main id="icerik" tabIndex={-1}>
               <Sections sections={sections} business={business} locale={locale} />
             </main>
             <SiteFooter business={business} locale={locale} />
-            <StickyMobileBar business={business} locale={locale} />
+            <StickyMobileBar business={business} locale={locale} whatsappMessage={heroWhatsapp} />
 
             {isPubliclyIndexable(site) ? <LocalBusinessJsonLd site={site} /> : null}
             <SiteAnalytics slug={slug} status={offer.status} />

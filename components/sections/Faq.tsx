@@ -23,7 +23,7 @@ export function Faq({ section, id }: { section: FaqData; id: string }) {
               >
                 {item.q}
               </summary>
-              <p className="muted pb-4 leading-relaxed">{item.a}</p>
+              <p className="muted max-w-[40rem] pb-4 leading-relaxed">{item.a}</p>
             </details>
             </Item>
           ))}

@@ -8,11 +8,14 @@ export function ActionButtons({
   business,
   className = "",
   locale = "tr",
+  mobileLimit,
 }: {
   actions: SiteAction[];
   business: Business;
   className?: string;
   locale?: Locale;
+  /** Telefonda ilk N buton görünür; gerisi sm ve üstünde. Alt bar zaten Ara/Yol Tarifi/WhatsApp taşıyor. */
+  mobileLimit?: number;
 }) {
   const resolved = actions
     .map((action) => ({ action, href: actionHref(action, business, locale) }))
@@ -26,7 +29,9 @@ export function ActionButtons({
         <a
           key={`${action.kind}-${index}`}
           href={href}
-          className={`btn btn-${action.style}`}
+          className={`btn btn-${action.style}${
+            mobileLimit !== undefined && index >= mobileLimit ? " btn-desktop-only" : ""
+          }`}
           {...(action.kind === "link" || action.kind === "whatsapp" || action.kind === "directions" || action.kind === "instagram"
             ? { target: "_blank", rel: "noopener noreferrer" }
             : {})}

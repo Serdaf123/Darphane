@@ -45,7 +45,16 @@ function WhatsappIcon() {
   );
 }
 
-export function StickyMobileBar({ business, locale = "tr" }: { business: Business; locale?: Locale }) {
+export function StickyMobileBar({
+  business,
+  locale = "tr",
+  whatsappMessage,
+}: {
+  business: Business;
+  locale?: Locale;
+  /** Hero'daki WhatsApp eyleminin hazır mesajı; her buton aynı şablonu göndersin */
+  whatsappMessage?: string;
+}) {
   const s = t(locale);
   const items = [
     business.phone && {
@@ -63,7 +72,7 @@ export function StickyMobileBar({ business, locale = "tr" }: { business: Busines
     (business.whatsapp ?? business.phone) && {
       href: whatsappUrl(
         (business.whatsapp ?? business.phone)!,
-        s.whatsappDefault(business.name)
+        whatsappMessage ?? s.whatsappDefault(business.name)
       ),
       label: s.bar.whatsapp,
       icon: <WhatsappIcon />,
