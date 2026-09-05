@@ -98,7 +98,7 @@ Durum: ✅ bitti · 🔧 sırada · ⏳ dış girdi bekliyor · 💡 fikir
 
 ### Dış girdi bekleyenler (Serkan)
 - ~~Serkan'ın WhatsApp numarası~~ ✅ girildi (2026-09-05)
-- Alan adı (önizleme linkleri) · Vercel hesabı + `VERCEL_TOKEN` / `VERCEL_PROJECT_ID`
+- Alan adı (önizleme linkleri) · Vercel: Serdaf123 hesabı, repo bağlanacak; sonra `VERCEL_TOKEN` / `VERCEL_PROJECT_ID`
 - PostHog anahtarı (eu.posthog.com) · `ANTHROPIC_API_KEY` (taslak üretici)
 - Fiyat kararı (şeritte 8.500 ₺ örnekten kalma)
 - Olympos: 2-3 Google yorumu, fotoğraf · Avukat: sicil no, fakülte, hafta içi saatleri, fotoğraf
@@ -115,3 +115,4 @@ Durum: ✅ bitti · 🔧 sırada · ⏳ dış girdi bekliyor · 💡 fikir
 - **2026-09-05** Avukat: ilk ekran gece kullanıcısı için numara-önce; WhatsApp'a iki kapı (acil / randevu).
 - **2026-09-05** Yol haritası bu dosyada tutulur; sohbet notu kaybolmaz.
 - **2026-09-05** Strateji: özellik geliştirme durdu; bugün yayın + akşam 2 teklif, hafta sonuna 10 teklif. Sonuç gelmeden yeni özellik yok. Seller numarası girildi; Olympos + avukat `pitched`, son gün 12 Eylül 21:00. Alan adı ilk satıştan sonra; şimdilik vercel.app.
+- **2026-09-05** Repo GitHub'da: `Serdaf123/Darphane` (private tutulacak). Bu Mac'ten ayrı SSH anahtarıyla (`github-serdaf` host takma adı) push edilir. Vercel Serdaf123 hesabından bağlanacak.
