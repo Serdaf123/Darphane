@@ -17,12 +17,21 @@ const display = Playfair_Display({
   display: "swap",
 });
 
+function siteUrl(): string {
+  const own = process.env.NEXT_PUBLIC_SITE_URL?.trim();
+  if (own) return own.startsWith("http") ? own : `https://${own}`;
+  const prod = process.env.VERCEL_PROJECT_PRODUCTION_URL?.trim();
+  if (prod) return `https://${prod}`;
+  const preview = process.env.VERCEL_URL?.trim();
+  if (preview) return `https://${preview}`;
+  return "http://localhost:3000";
+}
+
 export const metadata: Metadata = {
-  // og:image gibi bağıl adresler bununla mutlak olur; Vercel'de env'den gelir
-  metadataBase: new URL(
-    process.env.NEXT_PUBLIC_SITE_URL ??
-      (process.env.VERCEL_URL ? `https://${process.env.VERCEL_URL}` : "http://localhost:3000")
-  ),
+  // og:image gibi bağıl adresler bununla mutlak olur. Sıra: kendi alan adımız →
+  // Vercel'in kalıcı üretim adresi → önizleme adresi → localhost. Boş değer "yok" sayılır
+  // (Vercel .env.example'dan boş değişken ekleyebiliyor).
+  metadataBase: new URL(siteUrl()),
   title: "fourpear",
   // Varsayılan: her şey kapalı. Sadece satılan siteler bunu geçersiz kılar.
   robots: { index: false, follow: false, nocache: true },
