@@ -86,7 +86,7 @@ Durum: ✅ bitti · 🔧 sırada · ⏳ dış girdi bekliyor · 💡 fikir
 | 12 | Unsplash API ile sektör fotoğraf paketleri | 2 sa | ⏳ anahtar |
 
 ### Dış girdi bekleyenler (Serkan)
-- Serkan'ın WhatsApp numarası → `offer.seller.whatsapp` (placeholder 905550000000). **Bu olmadan hiçbir teklif çıkmaz.**
+- ~~Serkan'ın WhatsApp numarası~~ ✅ girildi (2026-09-05)
 - Alan adı (önizleme linkleri) · Vercel hesabı + `VERCEL_TOKEN` / `VERCEL_PROJECT_ID`
 - PostHog anahtarı (eu.posthog.com) · `ANTHROPIC_API_KEY` (taslak üretici)
 - Fiyat kararı (şeritte 8.500 ₺ örnekten kalma)
@@ -103,3 +103,4 @@ Durum: ✅ bitti · 🔧 sırada · ⏳ dış girdi bekliyor · 💡 fikir
 - **2026-09-04** Impeccable + ux-skill kuruldu; her yeni sitede critique koşulur.
 - **2026-09-05** Avukat: ilk ekran gece kullanıcısı için numara-önce; WhatsApp'a iki kapı (acil / randevu).
 - **2026-09-05** Yol haritası bu dosyada tutulur; sohbet notu kaybolmaz.
+- **2026-09-05** Strateji: özellik geliştirme durdu; bugün yayın + akşam 2 teklif, hafta sonuna 10 teklif. Sonuç gelmeden yeni özellik yok. Seller numarası girildi; Olympos + avukat `pitched`, son gün 12 Eylül 21:00. Alan adı ilk satıştan sonra; şimdilik vercel.app.
