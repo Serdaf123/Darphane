@@ -38,9 +38,6 @@ export function Hero({
     return (
       <section id={id} className="section section-surface">
         <div className="container flex flex-col gap-[var(--stack-gap)]">
-          <HeroItem order={0}>
-            <p className="eyebrow">{business.category}</p>
-          </HeroItem>
           <HeroItem order={1}>
             <h1 style={{ fontSize: "var(--step-6)" }}>
               {section.headline}
@@ -161,9 +158,6 @@ export function Hero({
       <section id={id} className="section">
         <div className="container grid items-center gap-10 md:grid-cols-2">
           <div className="flex flex-col gap-[var(--stack-gap)]">
-            <HeroItem order={0}>
-              <p className="eyebrow">{business.category}</p>
-            </HeroItem>
             <HeroItem order={1}>
               <h1 style={{ fontSize: "var(--step-5)" }}>
                 {section.headline}
@@ -217,11 +211,6 @@ export function Hero({
       />
       <div className="on-image container pb-14 pt-28 text-white">
         <div className="flex max-w-3xl flex-col gap-[var(--stack-gap)]">
-          <HeroItem order={0}>
-            <p className="eyebrow" style={{ color: "rgba(255,255,255,.85)" }}>
-              {business.category}
-            </p>
-          </HeroItem>
           <HeroItem order={1}>
             <h1
               style={{
