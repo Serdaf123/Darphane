@@ -10,18 +10,53 @@
     "address": "Bağdat Caddesi No 118, Kat 3",
     "district": "Kadıköy",
     "city": "İstanbul",
-    "coords": { "lat": 40.9819, "lng": 29.0578 },
-    "social": { "instagram": "@dtelifyarar" },
+    "coords": {
+      "lat": 40.9819,
+      "lng": 29.0578
+    },
+    "social": {
+      "instagram": "@dtelifyarar"
+    },
     "hours": {
       "timezone": "Europe/Istanbul",
       "note": "Acil durumlar için hafta sonu telefonla ulaşabilirsiniz.",
       "days": {
-        "mon": [{ "open": "09:00", "close": "18:30" }],
-        "tue": [{ "open": "09:00", "close": "18:30" }],
-        "wed": [{ "open": "09:00", "close": "18:30" }],
-        "thu": [{ "open": "09:00", "close": "18:30" }],
-        "fri": [{ "open": "09:00", "close": "18:30" }],
-        "sat": [{ "open": "10:00", "close": "15:00" }],
+        "mon": [
+          {
+            "open": "09:00",
+            "close": "18:30"
+          }
+        ],
+        "tue": [
+          {
+            "open": "09:00",
+            "close": "18:30"
+          }
+        ],
+        "wed": [
+          {
+            "open": "09:00",
+            "close": "18:30"
+          }
+        ],
+        "thu": [
+          {
+            "open": "09:00",
+            "close": "18:30"
+          }
+        ],
+        "fri": [
+          {
+            "open": "09:00",
+            "close": "18:30"
+          }
+        ],
+        "sat": [
+          {
+            "open": "10:00",
+            "close": "15:00"
+          }
+        ],
         "sun": []
       }
     }
@@ -33,7 +68,11 @@
     "radius": "lg",
     "density": "airy",
     "header": "solid",
-    "motion": { "hero": "reveal", "scroll": "fade" }
+    "motion": {
+      "hero": "reveal",
+      "scroll": "fade",
+      "smooth": true
+    }
   },
   "sections": [
     {
@@ -43,13 +82,26 @@
       "headline": "Diş hekimine gitmeyi erteliyorsanız, sorun sizde değil",
       "subline": "Her işlemi önce anlatıyoruz, sonra yapıyoruz. Ne olacağını bilmek, ağrının yarısını alıyor.",
       "image": {
-        "src": "https://picsum.photos/seed/klinik-hero/1200/1200",
-        "alt": "Dt. Elif Yarar kliniğinin muayene odası"
+        "src": "https://images.unsplash.com/photo-1606811841689-23dfddce3e95?w=1400&q=80&auto=format&fit=crop",
+        "alt": "Klinikte muayene"
       },
-      "badges": ["14 yıl deneyim", "Dijital görüntüleme", "Anlaşmalı sigortalar"],
+      "badges": [
+        "14 yıl deneyim",
+        "Dijital görüntüleme",
+        "Anlaşmalı sigortalar"
+      ],
       "actions": [
-        { "label": "Randevu Al", "kind": "whatsapp", "style": "primary" },
-        { "label": "Hizmetler", "kind": "scroll", "value": "hizmetler", "style": "ghost" }
+        {
+          "label": "Randevu Al",
+          "kind": "whatsapp",
+          "style": "primary"
+        },
+        {
+          "label": "Hizmetler",
+          "kind": "scroll",
+          "value": "hizmetler",
+          "style": "ghost"
+        }
       ]
     },
     {
@@ -58,9 +110,18 @@
       "title": "Acele etmeyen bir klinik",
       "body": "Dt. Elif Yarar, Marmara Üniversitesi Diş Hekimliği Fakültesi mezunu. 14 yıldır Kadıköy'de çalışıyor.\n\nBurada randevular üst üste dizilmez. Her hastaya, işlemi anlatmaya ve sorularını bitirmeye yeten süre ayrılır. Çocuk hastalarda ilk seans hiçbir işlem yapılmadan sadece tanışmaya geçer.",
       "highlights": [
-        { "label": "Deneyim", "value": "14 yıl" },
-        { "label": "Hasta", "value": "6.000+" },
-        { "label": "Randevu süresi", "value": "45 dk" }
+        {
+          "label": "Deneyim",
+          "value": "14 yıl"
+        },
+        {
+          "label": "Hasta",
+          "value": "6.000+"
+        },
+        {
+          "label": "Randevu süresi",
+          "value": "45 dk"
+        }
       ]
     },
     {
@@ -106,7 +167,11 @@
       "type": "reviews",
       "id": "yorumlar",
       "title": "Hastalarımız ne diyor?",
-      "summary": { "rating": 4.9, "count": 238, "source": "Google" },
+      "summary": {
+        "rating": 4.9,
+        "count": 238,
+        "source": "Google"
+      },
       "items": [
         {
           "author": "Ayşe D.",
@@ -151,7 +216,11 @@
         }
       ]
     },
-    { "type": "hours", "id": "saatler", "title": "Çalışma Saatleri" },
+    {
+      "type": "hours",
+      "id": "saatler",
+      "title": "Çalışma Saatleri"
+    },
     {
       "type": "contact",
       "id": "randevu",
@@ -161,8 +230,18 @@
         "enabled": true,
         "submitLabel": "WhatsApp'tan Randevu İste",
         "fields": [
-          { "name": "isim", "label": "Adınız", "type": "text", "required": true },
-          { "name": "telefon", "label": "Telefon", "type": "tel", "required": true },
+          {
+            "name": "isim",
+            "label": "Adınız",
+            "type": "text",
+            "required": true
+          },
+          {
+            "name": "telefon",
+            "label": "Telefon",
+            "type": "tel",
+            "required": true
+          },
           {
             "name": "konu",
             "label": "Hangi konuda?",
@@ -178,8 +257,18 @@
               "Çocuk diş hekimliği"
             ]
           },
-          { "name": "tarih", "label": "Tercih ettiğiniz tarih", "type": "date", "required": false },
-          { "name": "not", "label": "Eklemek istediğiniz bir şey", "type": "textarea", "required": false }
+          {
+            "name": "tarih",
+            "label": "Tercih ettiğiniz tarih",
+            "type": "date",
+            "required": false
+          },
+          {
+            "name": "not",
+            "label": "Eklemek istediğiniz bir şey",
+            "type": "textarea",
+            "required": false
+          }
         ]
       }
     },

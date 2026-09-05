@@ -9,18 +9,53 @@
     "address": "Kordon Caddesi No 42",
     "district": "Alsancak",
     "city": "İzmir",
-    "coords": { "lat": 38.4362, "lng": 27.1414 },
-    "social": { "instagram": "@ocakbasisahin" },
+    "coords": {
+      "lat": 38.4362,
+      "lng": 27.1414
+    },
+    "social": {
+      "instagram": "@ocakbasisahin"
+    },
     "hours": {
       "timezone": "Europe/Istanbul",
       "note": "Cuma ve Cumartesi gece 01:00'e kadar açığız.",
       "days": {
-        "mon": [{ "open": "12:00", "close": "23:00" }],
-        "tue": [{ "open": "12:00", "close": "23:00" }],
-        "wed": [{ "open": "12:00", "close": "23:00" }],
-        "thu": [{ "open": "12:00", "close": "23:00" }],
-        "fri": [{ "open": "12:00", "close": "01:00" }],
-        "sat": [{ "open": "12:00", "close": "01:00" }],
+        "mon": [
+          {
+            "open": "12:00",
+            "close": "23:00"
+          }
+        ],
+        "tue": [
+          {
+            "open": "12:00",
+            "close": "23:00"
+          }
+        ],
+        "wed": [
+          {
+            "open": "12:00",
+            "close": "23:00"
+          }
+        ],
+        "thu": [
+          {
+            "open": "12:00",
+            "close": "23:00"
+          }
+        ],
+        "fri": [
+          {
+            "open": "12:00",
+            "close": "01:00"
+          }
+        ],
+        "sat": [
+          {
+            "open": "12:00",
+            "close": "01:00"
+          }
+        ],
         "sun": []
       }
     }
@@ -32,7 +67,13 @@
     "radius": "sm",
     "density": "normal",
     "header": "glass",
-    "motion": { "hero": "zoom", "scroll": "rise", "smooth": true, "parallax": true }
+    "motion": {
+      "hero": "zoom",
+      "scroll": "rise",
+      "smooth": true,
+      "parallax": true
+    },
+    "photos": "color"
   },
   "sections": [
     {
@@ -42,14 +83,31 @@
       "headline": "Ateşin başında geçen otuz yıl",
       "subline": "Alsancak'ın en eski ocakbaşısı. Eti biz seçiyoruz, şişi biz diziyoruz, ateşi biz yakıyoruz.",
       "image": {
-        "src": "https://picsum.photos/seed/ocakbasi-hero/1800/1200",
-        "alt": "Ocakbaşı Şahin'de kömür ateşinde pişen kebaplar"
+        "src": "https://images.unsplash.com/photo-1603360946369-dc9bb6258143?w=1800&q=80&auto=format&fit=crop",
+        "alt": "Közde pişmiş şişler, domates ve patates"
       },
-      "badges": ["1994'ten beri", "Odun ateşi", "Açık mutfak"],
+      "badges": [
+        "1994'ten beri",
+        "Odun ateşi",
+        "Açık mutfak"
+      ],
       "actions": [
-        { "label": "Masa Ayırt", "kind": "whatsapp", "style": "primary" },
-        { "label": "Menüyü Gör", "kind": "scroll", "value": "menu", "style": "secondary" },
-        { "label": "Yol Tarifi", "kind": "directions", "style": "ghost" }
+        {
+          "label": "Masa Ayırt",
+          "kind": "whatsapp",
+          "style": "primary"
+        },
+        {
+          "label": "Menüyü Gör",
+          "kind": "scroll",
+          "value": "menu",
+          "style": "secondary"
+        },
+        {
+          "label": "Yol Tarifi",
+          "kind": "directions",
+          "style": "ghost"
+        }
       ]
     },
     {
@@ -58,13 +116,22 @@
       "title": "Mangalın başındaki aynı el",
       "body": "Şahin Usta 1994'te Kordon'da tek ocakla başladı. Bugün aynı ocak, aynı tarif ve aynı kasap anlaşmasıyla devam ediyoruz.\n\nEtimiz her sabah geliyor, kıymamızı gün içinde iki kez çekiyoruz. Menümüzde dondurulmuş hiçbir ürün yok — bu yüzden bazı akşamlar bazı şişler biter, kusura bakmayın.",
       "image": {
-        "src": "https://picsum.photos/seed/ocakbasi-usta/1200/900",
-        "alt": "Şahin Usta ocağın başında"
+        "src": "https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=1200&q=80&auto=format&fit=crop",
+        "alt": "Restoranın iç mekânı"
       },
       "highlights": [
-        { "label": "Kuruluş", "value": "1994" },
-        { "label": "Günlük et", "value": "Taze" },
-        { "label": "Kapasite", "value": "80 kişi" }
+        {
+          "label": "Kuruluş",
+          "value": "1994"
+        },
+        {
+          "label": "Günlük et",
+          "value": "Taze"
+        },
+        {
+          "label": "Kapasite",
+          "value": "80 kişi"
+        }
       ]
     },
     {
@@ -76,35 +143,86 @@
         {
           "name": "Ocaktan",
           "items": [
-            { "name": "Adana Kebap", "description": "Zırh ile çekilmiş kuzu kıyma, acılı", "price": "340 ₺" },
-            { "name": "Urfa Kebap", "description": "Acısız, tereyağlı", "price": "340 ₺" },
-            { "name": "Kuzu Şiş", "description": "Kuzu sırtından, kuşbaşı", "price": "420 ₺" },
-            { "name": "Kanat", "description": "Altı adet, sumaklı soğan ile", "price": "260 ₺" },
-            { "name": "Ciğer Şiş", "description": "Kuyruk yağı arası, tandır ekmeği ile", "price": "310 ₺" }
+            {
+              "name": "Adana Kebap",
+              "description": "Zırh ile çekilmiş kuzu kıyma, acılı",
+              "price": "340 ₺"
+            },
+            {
+              "name": "Urfa Kebap",
+              "description": "Acısız, tereyağlı",
+              "price": "340 ₺"
+            },
+            {
+              "name": "Kuzu Şiş",
+              "description": "Kuzu sırtından, kuşbaşı",
+              "price": "420 ₺"
+            },
+            {
+              "name": "Kanat",
+              "description": "Altı adet, sumaklı soğan ile",
+              "price": "260 ₺"
+            },
+            {
+              "name": "Ciğer Şiş",
+              "description": "Kuyruk yağı arası, tandır ekmeği ile",
+              "price": "310 ₺"
+            }
           ]
         },
         {
           "name": "Başlangıçlar",
           "items": [
-            { "name": "Ezme", "description": "Taş havanda, günlük", "price": "90 ₺" },
-            { "name": "Haydari", "price": "85 ₺" },
-            { "name": "İçli Köfte", "description": "İki adet, el yapımı", "price": "120 ₺" },
-            { "name": "Zeytinyağlı Yaprak Sarma", "price": "110 ₺" }
+            {
+              "name": "Ezme",
+              "description": "Taş havanda, günlük",
+              "price": "90 ₺"
+            },
+            {
+              "name": "Haydari",
+              "price": "85 ₺"
+            },
+            {
+              "name": "İçli Köfte",
+              "description": "İki adet, el yapımı",
+              "price": "120 ₺"
+            },
+            {
+              "name": "Zeytinyağlı Yaprak Sarma",
+              "price": "110 ₺"
+            }
           ]
         },
         {
           "name": "Tatlı",
           "items": [
-            { "name": "Fıstıklı Künefe", "description": "Sipariş üzerine hazırlanır, 15 dk", "price": "160 ₺" },
-            { "name": "Kazandibi", "price": "95 ₺" }
+            {
+              "name": "Fıstıklı Künefe",
+              "description": "Sipariş üzerine hazırlanır, 15 dk",
+              "price": "160 ₺"
+            },
+            {
+              "name": "Kazandibi",
+              "price": "95 ₺"
+            }
           ]
         },
         {
           "name": "İçecek",
           "items": [
-            { "name": "Şalgam", "price": "45 ₺" },
-            { "name": "Ayran", "description": "Ev yapımı, yayık", "price": "40 ₺" },
-            { "name": "Türk Kahvesi", "price": "55 ₺" }
+            {
+              "name": "Şalgam",
+              "price": "45 ₺"
+            },
+            {
+              "name": "Ayran",
+              "description": "Ev yapımı, yayık",
+              "price": "40 ₺"
+            },
+            {
+              "name": "Türk Kahvesi",
+              "price": "55 ₺"
+            }
           ]
         }
       ]
@@ -115,11 +233,26 @@
       "title": "Ocaktan",
       "layout": "strip",
       "images": [
-        { "src": "https://picsum.photos/seed/ocak-1/900/1200", "alt": "Ateşte pişen kebaplar" },
-        { "src": "https://picsum.photos/seed/ocak-2/900/1200", "alt": "Ezme ve mezeler" },
-        { "src": "https://picsum.photos/seed/ocak-3/900/1200", "alt": "Restoranın iç mekanı" },
-        { "src": "https://picsum.photos/seed/ocak-4/900/1200", "alt": "Servise hazır tabak" },
-        { "src": "https://picsum.photos/seed/ocak-5/900/1200", "alt": "Künefe" }
+        {
+          "src": "https://images.unsplash.com/photo-1555939594-58d7cb561ad1?w=1200&q=80&auto=format&fit=crop",
+          "alt": "Şişler ve közlenmiş sebzeler"
+        },
+        {
+          "src": "https://images.unsplash.com/photo-1529193591184-b1d58069ecdd?w=1200&q=80&auto=format&fit=crop",
+          "alt": "Közde et"
+        },
+        {
+          "src": "https://images.unsplash.com/photo-1544025162-d76694265947?w=1200&q=80&auto=format&fit=crop",
+          "alt": "Kesme tahtasında ızgara"
+        },
+        {
+          "src": "https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=1200&q=80&auto=format&fit=crop",
+          "alt": "Masada tabaklar"
+        },
+        {
+          "src": "https://images.unsplash.com/photo-1552566626-52f8b828add9?w=1200&q=80&auto=format&fit=crop",
+          "alt": "Akşam servisi"
+        }
       ]
     },
     {
@@ -127,7 +260,11 @@
       "id": "yorumlar",
       "title": "Müşterilerimiz ne diyor?",
       "layout": "marquee",
-      "summary": { "rating": 4.7, "count": 612, "source": "Google" },
+      "summary": {
+        "rating": 4.7,
+        "count": 612,
+        "source": "Google"
+      },
       "items": [
         {
           "author": "Mehmet A.",
@@ -149,7 +286,11 @@
         }
       ]
     },
-    { "type": "hours", "id": "saatler", "title": "Çalışma Saatleri" },
+    {
+      "type": "hours",
+      "id": "saatler",
+      "title": "Çalışma Saatleri"
+    },
     {
       "type": "location",
       "id": "konum",
@@ -163,8 +304,16 @@
       "headline": "Masanızı WhatsApp'tan ayırtın",
       "subline": "Kaç kişi, hangi saat — yazın, biz onaylayalım.",
       "actions": [
-        { "label": "WhatsApp'tan Yaz", "kind": "whatsapp", "style": "primary" },
-        { "label": "Telefonla Ara", "kind": "call", "style": "ghost" }
+        {
+          "label": "WhatsApp'tan Yaz",
+          "kind": "whatsapp",
+          "style": "primary"
+        },
+        {
+          "label": "Telefonla Ara",
+          "kind": "call",
+          "style": "ghost"
+        }
       ]
     }
   ],

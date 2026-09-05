@@ -4,15 +4,28 @@ import type { Section } from "@/lib/schema";
 
 type ReviewsData = Extract<Section, { type: "reviews" }>;
 
+/** Beş çizili yıldız; dolu olanlar vurgu renginde, boşlar soluk. Glif değil ikon. */
 function Stars({ rating, locale = "tr" }: { rating: number; locale?: Locale }) {
   const rounded = Math.round(rating);
   return (
     <span
+      role="img"
       aria-label={t(locale).reviews.ratingAria(rating)}
-      style={{ color: "var(--c-accent)", letterSpacing: "0.1em" }}
+      className="inline-flex items-center gap-0.5"
     >
-      {"★".repeat(rounded)}
-      <span className="muted">{"★".repeat(5 - rounded)}</span>
+      {Array.from({ length: 5 }, (_, i) => (
+        <svg
+          key={i}
+          aria-hidden
+          width="14"
+          height="14"
+          viewBox="0 0 24 24"
+          fill="currentColor"
+          style={{ color: i < rounded ? "var(--c-accent)" : "var(--c-border)" }}
+        >
+          <path d="M12 2.6l2.9 6.1 6.7.8-4.9 4.6 1.3 6.6L12 17.4l-6 3.3 1.3-6.6L2.4 9.5l6.7-.8L12 2.6z" />
+        </svg>
+      ))}
     </span>
   );
 }

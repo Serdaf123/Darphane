@@ -215,6 +215,23 @@ body {
 
 /* ------------------------------ Erişilebilirlik --------------------------- */
 
+/* Tarayıcının çizdiği yüzeyler de temanın parçası: seçim, imleç, kaydırma çubuğu, alt çizgi */
+.site-root ::selection {
+  background: color-mix(in srgb, var(--c-accent) 28%, transparent);
+  color: var(--c-text);
+}
+
+.site-root {
+  caret-color: var(--c-accent);
+  accent-color: var(--c-accent);
+  scrollbar-color: color-mix(in srgb, var(--c-text) 28%, transparent) transparent;
+}
+
+.site-root a {
+  text-underline-offset: 0.18em;
+  text-decoration-thickness: 1px;
+}
+
 .site-root a:focus-visible,
 .site-root button:focus-visible,
 .site-root input:focus-visible,
