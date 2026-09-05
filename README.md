@@ -75,7 +75,7 @@ npm run check:palettes               # tüm siteler ve presetler; eşik altı va
 
 **Fotoğraf tonu** (`theme.photos`): `color` · `mono` — tüm fotoğraflar tek ton, üzerine gelince renklenir. Referans avukat/mimar sitelerinin dili; fotoğraflar birbirine uymuyorsa da kurtarır.
 
-**İletişim düzeni** (`theme.contact`): `both` (varsayılan) mobilde alt bar + masaüstünde sağ altta yüzen WhatsApp butonu (dokununca yay efektiyle WhatsApp / Ara açılır) · `bar` yalnız alt bar · `fab` her ekranda yüzen buton.
+**İletişim düzeni** (`theme.contact`): `both` (varsayılan) mobilde alt bar + masaüstünde sağ altta yüzen WhatsApp butonu · `bar` yalnız alt bar · `fab` her ekranda yüzen buton. Butonun açılışı `theme.fabStyle`: `dial` yukarı açılan hızlı arama (yeşil) · `pill` yana uzayan hap, tema vurgu renginde (editoryal dünyalar). A/B tasarımlarında farklı stil vererek iki dünyayı bu ayrıntıda da ayırın.
 
 **Koyu panel** (`services.tone: "dark"`): bölüm mürekkep zeminli olur; sayfaya koyu/açık ritmi verir (Roy Black'in altın paneli gibi).
 

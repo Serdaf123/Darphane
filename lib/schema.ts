@@ -176,6 +176,8 @@ const themeSchema = z.object({
   photos: z.enum(["color", "mono"]).default("color"),
   /** bar: mobilde alt bar · fab: yüzen WhatsApp/Ara butonu (her ekran) · both: mobilde bar + masaüstünde fab */
   contact: z.enum(["bar", "fab", "both"]).default("both"),
+  /** dial: yukarı açılan hızlı arama (yeşil) · pill: yana uzayan hap, tema vurgu renginde (editoryal) */
+  fabStyle: z.enum(["dial", "pill"]).default("dial"),
   motion: motionSchema.prefault({}),
 });
 export type Theme = z.infer<typeof themeSchema>;

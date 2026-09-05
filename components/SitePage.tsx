@@ -94,6 +94,7 @@ export function SitePage({
                 locale={locale}
                 whatsappMessage={heroWhatsapp}
                 className={theme.contact === "both" ? "contact-fab-desktop" : ""}
+                style={theme.fabStyle}
               />
             ) : null}
 

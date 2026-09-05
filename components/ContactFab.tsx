@@ -22,11 +22,14 @@ export function ContactFab({
   locale = "tr",
   whatsappMessage,
   className = "",
+  style = "dial",
 }: {
   business: Business;
   locale?: Locale;
   whatsappMessage?: string;
   className?: string;
+  /** dial: yukarı açılan hızlı arama · pill: yana uzayan hap (tema rengi) */
+  style?: "dial" | "pill";
 }) {
   const [open, setOpen] = useState(false);
   const { reduced } = useSiteMotion();
@@ -69,6 +72,63 @@ export function ContactFab({
       >
         {items[0].icon}
       </a>
+    );
+  }
+
+  if (style === "pill") {
+    // Hap: ikon dokununca sola doğru uzar, içinde iki eylem belirir
+    return (
+      <div className={`contact-fab contact-fab-pill-wrap ${className}`}>
+        <motion.div
+          className="contact-fab-pill"
+          initial={false}
+          animate={{ width: open ? "auto" : "3.75rem" }}
+          transition={reduced ? { duration: 0 } : SPRING}
+        >
+          <AnimatePresence initial={false}>
+            {open ? (
+              <motion.div
+                key="acts"
+                className="contact-fab-pill-actions"
+                role="menu"
+                initial={reduced ? false : { opacity: 0, x: 16 }}
+                animate={{ opacity: 1, x: 0, transition: { delay: 0.08, ...SPRING } }}
+                exit={{ opacity: 0, x: 12, transition: { duration: 0.12 } }}
+              >
+                {items.map((item) => (
+                  <a
+                    key={item.label}
+                    href={item.href}
+                    role="menuitem"
+                    className="contact-fab-pill-item"
+                    onClick={() => setOpen(false)}
+                    {...(item.external ? { target: "_blank", rel: "noopener noreferrer" } : {})}
+                  >
+                    {item.icon}
+                    <span>{item.label}</span>
+                  </a>
+                ))}
+              </motion.div>
+            ) : null}
+          </AnimatePresence>
+          <motion.button
+            type="button"
+            className="contact-fab-pill-main"
+            aria-expanded={open}
+            aria-haspopup="menu"
+            aria-label={open ? "Kapat" : `${s.bar.whatsapp} / ${s.bar.call}`}
+            onClick={() => setOpen((v) => !v)}
+            whileTap={reduced ? undefined : { scale: 0.94 }}
+          >
+            <motion.span className="contact-fab-icon" initial={false} animate={{ opacity: open ? 0 : 1, rotate: open ? 90 : 0 }} transition={{ duration: 0.18 }}>
+              <WhatsappIcon />
+            </motion.span>
+            <motion.span className="contact-fab-icon" initial={false} animate={{ opacity: open ? 1 : 0, rotate: open ? 0 : -90 }} transition={{ duration: 0.18 }} aria-hidden>
+              <CloseIcon />
+            </motion.span>
+          </motion.button>
+        </motion.div>
+      </div>
     );
   }
 

@@ -13,7 +13,8 @@
       "scroll": "fade",
       "smooth": true,
       "parallax": true
-    }
+    },
+    "fabStyle": "pill"
   },
   "sections": [
     {
