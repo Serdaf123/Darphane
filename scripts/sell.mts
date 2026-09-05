@@ -8,7 +8,7 @@
  *   1. data/sites/<slug>.json: status → sold, expiresAt silinir, business.domain yazılır
  *   2. git commit + push → Vercel yeniden deploy eder; robots/noindex kalkar,
  *      LocalBusiness JSON-LD ve hreflang açılır, alan adı yönlendirmesi devreye girer
- *   3. VERCEL_TOKEN + VERCEL_PROJECT_ID varsa alan adını (ve www'sini) Vercel projesine ekler
+ *   3. DARPHANE_VERCEL_TOKEN + DARPHANE_VERCEL_PROJECT_ID varsa alan adını (ve www'sini) Vercel projesine ekler
  *   4. İşletmeye/registrar'a verilecek DNS kayıtlarını yazdırır
  *
  * --dry: dosyayı değiştirmeden ne yapacağını gösterir.
@@ -74,11 +74,11 @@ try {
 
 /* 3. Vercel alan adı */
 if (domain) {
-  const token = process.env.VERCEL_TOKEN;
-  const project = process.env.VERCEL_PROJECT_ID;
-  const team = process.env.VERCEL_TEAM_ID;
+  const token = process.env.DARPHANE_VERCEL_TOKEN;
+  const project = process.env.DARPHANE_VERCEL_PROJECT_ID;
+  const team = process.env.DARPHANE_VERCEL_TEAM_ID;
   if (!token || !project) {
-    console.log("\nVERCEL_TOKEN / VERCEL_PROJECT_ID yok: alan adını Vercel panelinden ekle (Project → Settings → Domains).");
+    console.log("\nDARPHANE_VERCEL_TOKEN / DARPHANE_VERCEL_PROJECT_ID yok: alan adını Vercel panelinden ekle (Project → Settings → Domains).");
   } else {
     for (const name of [domain, `www.${domain}`]) {
       const res = await fetch(

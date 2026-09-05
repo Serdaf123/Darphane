@@ -98,7 +98,7 @@ Durum: ✅ bitti · 🔧 sırada · ⏳ dış girdi bekliyor · 💡 fikir
 
 ### Dış girdi bekleyenler (Serkan)
 - ~~Serkan'ın WhatsApp numarası~~ ✅ girildi (2026-09-05)
-- Alan adı (önizleme linkleri) · Vercel: Serdaf123 hesabı, repo bağlanacak; sonra `VERCEL_TOKEN` / `VERCEL_PROJECT_ID`
+- Alan adı (önizleme linkleri) · Vercel: Serdaf123 hesabı, repo bağlanacak; sonra `DARPHANE_VERCEL_TOKEN` / `DARPHANE_VERCEL_PROJECT_ID`
 - PostHog anahtarı (eu.posthog.com) · `ANTHROPIC_API_KEY` (taslak üretici)
 - Fiyat kararı (şeritte 8.500 ₺ örnekten kalma)
 - Olympos: 2-3 Google yorumu, fotoğraf · Avukat: sicil no, fakülte, hafta içi saatleri, fotoğraf

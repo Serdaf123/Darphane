@@ -111,7 +111,7 @@ Telefondan da aç: alttaki Ara / Yol Tarifi / WhatsApp barı çalışıyor mu.
 npm run sell -- kuafor-nese --domain kuafornese.com
 ```
 
-`status: sold` yazar, süreyi siler, commit + push eder (Vercel deploy eder; noindex kalkar, JSON-LD ve hreflang açılır), `VERCEL_TOKEN` varsa alan adını ve `www`'yi projeye ekler, işletmeye verilecek DNS kayıtlarını yazdırır. `ornek.com/` otomatik olarak `/<slug>`'a, `ornek.com/en` de `/<slug>/en`'e gider (next.config host yönlendirmesi). `--dry` ile önce bak.
+`status: sold` yazar, süreyi siler, commit + push eder (Vercel deploy eder; noindex kalkar, JSON-LD ve hreflang açılır), `DARPHANE_VERCEL_TOKEN` varsa alan adını ve `www`'yi projeye ekler, işletmeye verilecek DNS kayıtlarını yazdırır. `ornek.com/` otomatik olarak `/<slug>`'a, `ornek.com/en` de `/<slug>/en`'e gider (next.config host yönlendirmesi). `--dry` ile önce bak.
 
 **Ödeme linki.** iyzico (iyzilink) ya da PayTR panelinden tek seferlik ödeme linki oluşturup JSON'da `offer.paymentUrl`'a yaz: şeritteki ana buton "Ödemeye Geç" olur, WhatsApp "Soru Sor"a düşer. Ödeme gelince `npm run sell`.
 
