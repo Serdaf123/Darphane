@@ -776,3 +776,111 @@ a.hero-urgent-note:hover {
     filter: grayscale(0) contrast(1);
   }
 }
+
+/* ----------------------------- Yüzen iletişim ------------------------------ */
+
+.contact-fab {
+  position: fixed;
+  right: max(1.25rem, env(safe-area-inset-right));
+  bottom: max(1.25rem, env(safe-area-inset-bottom));
+  z-index: 45;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 0.75rem;
+}
+
+/* both: telefonda alt bar var, buton yalnız masaüstünde */
+.contact-fab-desktop {
+  display: none;
+}
+
+@media (min-width: 768px) {
+  .contact-fab-desktop {
+    display: flex;
+  }
+}
+
+.contact-fab-main {
+  position: relative;
+  display: grid;
+  place-items: center;
+  width: 3.75rem;
+  height: 3.75rem;
+  border-radius: 999px;
+  border: 0;
+  background: #22c55e;
+  color: #fff;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.28), 0 2px 6px rgba(0, 0, 0, 0.2);
+  cursor: pointer;
+  touch-action: manipulation;
+}
+
+.contact-fab-main:hover {
+  filter: brightness(1.06);
+}
+
+.contact-fab-icon {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+}
+
+/* Tek seferlik dikkat halkası */
+.contact-fab-pulse {
+  position: absolute;
+  inset: 0;
+  border-radius: 999px;
+  border: 2px solid #22c55e;
+  animation: fab-pulse 2.4s ease-out 1.2s 3;
+  pointer-events: none;
+}
+
+@keyframes fab-pulse {
+  0% { transform: scale(1); opacity: 0.8; }
+  100% { transform: scale(1.7); opacity: 0; }
+}
+
+.contact-fab-menu {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 0.625rem;
+}
+
+.contact-fab-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.625rem;
+  text-decoration: none;
+  color: var(--c-text);
+}
+
+.contact-fab-label {
+  padding: 0.4rem 0.75rem;
+  border-radius: 999px;
+  background: var(--c-bg);
+  border: 1px solid var(--c-border);
+  font-size: 0.875rem;
+  font-weight: 600;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.16);
+}
+
+.contact-fab-circle {
+  display: grid;
+  place-items: center;
+  width: 3rem;
+  height: 3rem;
+  border-radius: 999px;
+  box-shadow: 0 8px 22px rgba(0, 0, 0, 0.24);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .contact-fab-pulse {
+    animation: none;
+  }
+}

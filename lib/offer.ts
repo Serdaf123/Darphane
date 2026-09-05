@@ -9,13 +9,13 @@ export function formatPrice(offer: Offer): string | null {
   return `${offer.price.toLocaleString("tr-TR")} ${currency}`;
 }
 
-export function purchaseUrl(offer: Offer, businessName: string): string | undefined {
+export function purchaseUrl(offer: Offer, businessName: string, variant?: "a" | "b"): string | undefined {
   if (!offer.seller) return undefined;
   const price = formatPrice(offer);
   return whatsappUrl(
     offer.seller.whatsapp,
     `Merhaba, ${businessName} için hazırladığınız web sitesini satın almak istiyorum${
       price ? ` (${price})` : ""
-    }.`
+    }.${variant ? ` Tasarım ${variant.toUpperCase()}'yi istiyorum.` : ""}`
   );
 }

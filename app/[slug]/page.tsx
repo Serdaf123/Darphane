@@ -2,7 +2,7 @@ import type { Metadata, Viewport } from "next";
 import { notFound } from "next/navigation";
 import { SitePage } from "@/components/SitePage";
 import { siteMetadata } from "@/lib/site-metadata";
-import { getSite, listSiteSlugs, siteLocales } from "@/lib/sites";
+import { getSite, listSiteSlugs, siteLocales, siteVariants } from "@/lib/sites";
 import { resolvePalette } from "@/lib/theme";
 
 // Bilinmeyen slug'lar 404 döner — sadece data/sites'taki dosyalar yayınlanır.
@@ -33,5 +33,5 @@ export default async function TurkishSitePage({ params }: PageProps<"/[slug]">) 
   const { slug } = await params;
   const site = getSite(slug, "tr");
   if (!site) notFound();
-  return <SitePage site={site} locale="tr" locales={siteLocales(slug)} />;
+  return <SitePage site={site} locale="tr" locales={siteLocales(slug)} variant="a" variants={siteVariants(slug)} />;
 }

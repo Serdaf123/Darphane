@@ -31,6 +31,7 @@ Bu dosya makinenin hafızası: kurallar, yol haritası, kararlar. README "nasıl
 
 ### Satış / operasyon
 - Önce görsel, sonra link (WhatsApp'ta telefon çerçeveli görsel → OG kartı → mesaj).
+- **İki tasarım sun:** `<slug>.b.json` + `/slug/b`; şeritte A · B geçişi; `npm run duo` ile çift telefon görseli. "Hangisi?" sorusu "beğendiniz mi?"den iyi (2026-09-05).
 - Gönderim elle, kişisel WhatsApp'tan; her mesajda ret cümlesi (ticari iletişim mevzuatı, ban riski).
 - Link açıldı = sıcak lead = aynı gün takip. PostHog oturum kaydı "nasıl baktı"yı gösterir.
 - Teklif şeridi Türkçe kalır, işletme sahibine hitap eder; İngilizce sayfada bile.

@@ -13,12 +13,12 @@ import { useEffect } from "react";
  * Kayıt (session replay) PostHogProvider'da açık; buradakiler kaydın
  * yanına etiket düşer, listede filtrelenir.
  */
-export function SiteAnalytics({ slug, status }: { slug: string; status: string }) {
+export function SiteAnalytics({ slug, status, variant = "a" }: { slug: string; status: string; variant?: string }) {
   useEffect(() => {
     if (!posthog.__loaded) return;
 
     posthog.group("site", slug);
-    posthog.capture("site_viewed", { slug, offer_status: status });
+    posthog.capture("site_viewed", { slug, offer_status: status, variant });
 
     // Kaydırma derinliği
     const marks = new Set<number>();
@@ -63,7 +63,7 @@ export function SiteAnalytics({ slug, status }: { slug: string; status: string }
       document.removeEventListener("click", onClick, true);
       window.clearTimeout(timer);
     };
-  }, [slug, status]);
+  }, [slug, status, variant]);
 
   return null;
 }

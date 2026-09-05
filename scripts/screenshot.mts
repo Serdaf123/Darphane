@@ -25,8 +25,9 @@ if (!slug) {
 const outDir = path.join(process.cwd(), "shots");
 fs.mkdirSync(outDir, { recursive: true });
 
-const rawPath = path.join(outDir, `${slug}-mobil.png`);
-const framedPath = path.join(outDir, `${slug}-telefon.png`);
+const fileBase = slug.replace(/\//g, "-");
+const rawPath = path.join(outDir, `${fileBase}-mobil.png`);
+const framedPath = path.join(outDir, `${fileBase}-telefon.png`);
 
 // macOS 13'te Playwright'ın kendi Chromium'u yok; kurulu Google Chrome kullanılır.
 const browser = await chromium.launch({ channel: "chrome" });

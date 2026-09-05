@@ -32,18 +32,48 @@ function remaining(deadline: number, now: number) {
   };
 }
 
+type VariantLinks = { a: string; b: string };
+
+/** "Tasarım A · B" — işletme sahibi tek linkten iki dünyayı gezer; seçim mesaja yazılır */
+function VariantSwitch({ variant, links }: { variant: "a" | "b"; links: VariantLinks }) {
+  return (
+    <span className="inline-flex items-center gap-1 text-xs" aria-label="Tasarım seçenekleri">
+      <span style={{ color: "rgba(245,246,247,.6)" }}>Tasarım</span>
+      {(["a", "b"] as const).map((v) => (
+        <a
+          key={v}
+          href={links[v]}
+          aria-current={v === variant ? "page" : undefined}
+          className="rounded px-1.5 py-0.5 font-semibold"
+          style={{
+            color: v === variant ? "#07130b" : BAR_TEXT,
+            background: v === variant ? "#22c55e" : "rgba(245,246,247,.12)",
+            textDecoration: "none",
+          }}
+        >
+          {v.toUpperCase()}
+        </a>
+      ))}
+    </span>
+  );
+}
+
 function CountdownBar({
   offer,
   businessName,
   now,
+  variant,
+  variantLinks,
 }: {
   offer: Offer;
   businessName: string;
   now: number | null;
+  variant: "a" | "b";
+  variantLinks?: VariantLinks;
 }) {
   const deadline = offer.expiresAt ? new Date(offer.expiresAt).getTime() : null;
   const left = deadline !== null && now !== null ? remaining(deadline, now) : null;
-  const href = purchaseUrl(offer, businessName);
+  const href = purchaseUrl(offer, businessName, variantLinks ? variant : undefined);
   const price = formatPrice(offer);
 
   return (
@@ -91,6 +121,7 @@ function CountdownBar({
         </div>
 
         <div className="flex shrink-0 items-center gap-2">
+          {variantLinks ? <VariantSwitch variant={variant} links={variantLinks} /> : null}
           {/* Ödeme linki varsa karar anında ödeme; WhatsApp soru için kalır */}
           {offer.paymentUrl ? (
             <a
@@ -140,7 +171,15 @@ function CountdownBar({
   );
 }
 
-function DraftBar({ businessName }: { businessName: string }) {
+function DraftBar({
+  businessName,
+  variant,
+  variantLinks,
+}: {
+  businessName: string;
+  variant: "a" | "b";
+  variantLinks?: VariantLinks;
+}) {
   return (
     <div
       data-offer-bar
@@ -148,8 +187,9 @@ function DraftBar({ businessName }: { businessName: string }) {
       role="region"
       aria-label="İç önizleme"
     >
-      <div className="container py-2 text-sm font-semibold">
-        TASLAK · {businessName} · henüz gönderilmedi, teklif şeridi kapalı
+      <div className="container flex items-center justify-between gap-3 py-2 text-sm font-semibold">
+        <span>TASLAK · {businessName} · henüz gönderilmedi, teklif şeridi kapalı</span>
+        {variantLinks ? <VariantSwitch variant={variant} links={variantLinks} /> : null}
       </div>
     </div>
   );
@@ -159,10 +199,15 @@ export function OfferLayer({
   offer,
   businessName,
   children,
+  variant = "a",
+  variantLinks,
 }: {
   offer: Offer;
   businessName: string;
   children: ReactNode;
+  variant?: "a" | "b";
+  /** İki tasarım varsa şeritte A · B geçişi */
+  variantLinks?: VariantLinks;
 }) {
   const now = useNow();
   const deadline =
@@ -190,9 +235,15 @@ export function OfferLayer({
 
   const bar =
     offer.status === "draft" ? (
-      <DraftBar businessName={businessName} />
+      <DraftBar businessName={businessName} variant={variant} variantLinks={variantLinks} />
     ) : offer.status === "pitched" ? (
-      <CountdownBar offer={offer} businessName={businessName} now={now} />
+      <CountdownBar
+        offer={offer}
+        businessName={businessName}
+        now={now}
+        variant={variant}
+        variantLinks={variantLinks}
+      />
     ) : null;
 
   return (

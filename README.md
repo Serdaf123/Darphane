@@ -75,6 +75,8 @@ npm run check:palettes               # tüm siteler ve presetler; eşik altı va
 
 **Fotoğraf tonu** (`theme.photos`): `color` · `mono` — tüm fotoğraflar tek ton, üzerine gelince renklenir. Referans avukat/mimar sitelerinin dili; fotoğraflar birbirine uymuyorsa da kurtarır.
 
+**İletişim düzeni** (`theme.contact`): `both` (varsayılan) mobilde alt bar + masaüstünde sağ altta yüzen WhatsApp butonu (dokununca yay efektiyle WhatsApp / Ara açılır) · `bar` yalnız alt bar · `fab` her ekranda yüzen buton.
+
 **Koyu panel** (`services.tone: "dark"`): bölüm mürekkep zeminli olur; sayfaya koyu/açık ritmi verir (Roy Black'in altın paneli gibi).
 
 **Kutusuz düzenler:** `services.layout: "grid"` (iki sütun, kart yok), `reviews.layout: "quotes"` (büyük alıntı, az yorumda kartlardan iyi), `reviews.layout: "marquee"` (akan şerit, 4+ yorumda; üzerine gelince durur). Her şeyi karta koymak "şablon" hissi verir; her sitede en az bir bölümü kutusuz bırak.
@@ -181,6 +183,16 @@ lib/nav.ts                header menüsü ve butonu
 content/pitch/            teklif mesajları
 scripts/new-site.mts      iskelet üretici
 ```
+
+## İki tasarım sunmak (A · B)
+
+`data/sites/<slug>.b.json` (tema + hero farkı, kısmi) varsa `/<slug>/b` açılır; teklif şeridinde **Tasarım A · B** geçişi çıkar, "Sitemi Satın Al" mesajına seçilen harf yazılır, PostHog `site_viewed.variant` ile hangisine bakıldığı görülür. Satışta kazanan katman ana dosyaya taşınır.
+
+```bash
+npm run duo -- <slug>     # shots/<slug>-ab.png — iki telefon yan yana, WhatsApp'a
+```
+
+Neden: "beğendiniz mi?" evet/hayır sorusudur; "hangisi?" seçim sorusudur — cevap vermek satın alma yolunun ilk adımı olur.
 
 ## İngilizce sürüm
 

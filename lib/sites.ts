@@ -36,7 +36,7 @@ export function listSiteSlugs(): string[] {
   if (!fs.existsSync(SITES_DIR)) return [];
   return fs
     .readdirSync(SITES_DIR)
-    // <slug>.json — dil katmanları (<slug>.en.json) ayrı sayılır
+    // <slug>.json — dil ve varyant katmanları (<slug>.en.json, <slug>.b.json) ayrı sayılır
     .filter((file) => /^[a-z0-9-]+\.json$/.test(file))
     .map((file) => file.replace(/\.json$/, ""))
     .sort();
@@ -50,17 +50,27 @@ export function siteLocales(slug: string): Locale[] {
 }
 
 /**
+ * Tasarım varyantları: <slug>.b.json varsa işletmeye iki tasarım sunulur
+ * ("hangisi?" sorusu "evet/hayır"dan iyi). "a" her zaman ana dosya.
+ */
+export type Variant = "a" | "b";
+export function siteVariants(slug: string): Variant[] {
+  return fs.existsSync(path.join(SITES_DIR, `${slug}.b.json`)) ? ["a", "b"] : ["a"];
+}
+
+/**
  * Dil katmanı: <slug>.en.json kısmi bir site JSON'udur; business/seo alanları
  * ve id'si eşleşen bölümler TR'nin üstüne biner. Tema ve teklif değişmez.
  * Sonuç yine tam şemadan geçer — yarım çeviri build'de yakalanır.
  */
-function applyLocale(site: Site, slug: string, locale: Locale): Site {
-  if (locale === DEFAULT_LOCALE) return site;
-  const file = path.join(SITES_DIR, `${slug}.${locale}.json`);
+/** Kısmi JSON katmanını (dil ya da tasarım varyantı) sitenin üstüne bindirir; sonuç tam şemadan geçer. */
+function applyOverlay(site: Site, slug: string, suffix: string): Site {
+  const file = path.join(SITES_DIR, `${slug}.${suffix}.json`);
   if (!fs.existsSync(file)) return site;
   const overlay = JSON.parse(fs.readFileSync(file, "utf8")) as {
     business?: Partial<Site["business"]>;
     seo?: Partial<Site["seo"]>;
+    theme?: Partial<Site["theme"]>;
     sections?: Array<Partial<Section> & { id: string }>;
   };
 
@@ -74,19 +84,24 @@ function applyLocale(site: Site, slug: string, locale: Locale): Site {
     ...site,
     business: { ...site.business, ...overlay.business },
     seo: { ...site.seo, ...overlay.seo },
+    // Varyant katmanı temayı bütünüyle değiştirir (accent vs preset karışmasın)
+    theme: overlay.theme ? { ...overlay.theme } : site.theme,
     sections,
   };
   const parsed = siteSchema.safeParse(merged);
   if (!parsed.success) {
     const issues = parsed.error.issues.map((i) => `  · ${i.path.join(".")}: ${i.message}`).join("\n");
-    throw new Error(`Geçersiz dil katmanı: data/sites/${slug}.${locale}.json\n${issues}`);
+    throw new Error(`Geçersiz katman: data/sites/${slug}.${suffix}.json\n${issues}`);
   }
   return parsed.data;
 }
 
-export function getSite(slug: string, locale: Locale = DEFAULT_LOCALE): Site | null {
+export function getSite(slug: string, locale: Locale = DEFAULT_LOCALE, variant: Variant = "a"): Site | null {
   if (!listSiteSlugs().includes(slug)) return null;
-  return applyLocale(readSiteFile(slug), slug, locale);
+  let site = readSiteFile(slug);
+  if (variant !== "a") site = applyOverlay(site, slug, variant);
+  if (locale !== DEFAULT_LOCALE) site = applyOverlay(site, slug, locale);
+  return site;
 }
 
 export function getAllSites(): Site[] {

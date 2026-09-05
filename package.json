@@ -14,7 +14,8 @@
     "draft": "node --env-file-if-exists=.env.local scripts/draft-site.mts",
     "sell": "node --env-file-if-exists=.env.local scripts/sell.mts",
     "palette": "node scripts/palette-from-photo.mts",
-    "check:palettes": "node scripts/check-palettes.mts"
+    "check:palettes": "node scripts/check-palettes.mts",
+    "duo": "node scripts/duo.mts"
   },
   "dependencies": {
     "@anthropic-ai/sdk": "^0.123.0",

@@ -3,6 +3,7 @@ import { MotionProvider } from "@/components/motion/MotionProvider";
 import { SmoothScroll } from "@/components/motion/SmoothScroll";
 import { OfferExpired } from "@/components/OfferExpired";
 import { OfferLayer } from "@/components/OfferLayer";
+import { ContactFab } from "@/components/ContactFab";
 import { SiteFooter } from "@/components/SiteFooter";
 import { SiteHeader } from "@/components/SiteHeader";
 import { Sections } from "@/components/sections";
@@ -11,7 +12,7 @@ import { sectionId } from "@/lib/actions";
 import { t, type Locale } from "@/lib/i18n";
 import { navCta, navItems } from "@/lib/nav";
 import type { Site } from "@/lib/schema";
-import { isOfferExpired, isPubliclyIndexable } from "@/lib/sites";
+import { isOfferExpired, isPubliclyIndexable, type Variant } from "@/lib/sites";
 import { isDarkTheme, themeFontClass, themeStyle } from "@/lib/theme";
 
 /**
@@ -22,11 +23,16 @@ export function SitePage({
   site,
   locale,
   locales,
+  variant = "a",
+  variants = ["a"],
 }: {
   site: Site;
   locale: Locale;
   /** Bu sitenin sayfası olan diller; ikiden fazlaysa header'da geçiş çıkar */
   locales: Locale[];
+  /** Tasarım varyantı: a ana, b <slug>.b.json katmanı */
+  variant?: Variant;
+  variants?: Variant[];
 }) {
   const { slug, business, theme, sections, offer } = site;
 
@@ -55,7 +61,12 @@ export function SitePage({
     >
       <MotionProvider motion={theme.motion}>
         <SmoothScroll>
-          <OfferLayer offer={offer} businessName={business.name}>
+          <OfferLayer
+            offer={offer}
+            businessName={business.name}
+            variant={variant}
+            variantLinks={variants.length > 1 ? { a: `/${slug}`, b: `/${slug}/b` } : undefined}
+          >
             <a href="#icerik" className="skip-link">
               {t(locale).skipToContent}
             </a>
@@ -74,10 +85,20 @@ export function SitePage({
               <Sections sections={sections} business={business} locale={locale} />
             </main>
             <SiteFooter business={business} locale={locale} />
-            <StickyMobileBar business={business} locale={locale} whatsappMessage={heroWhatsapp} />
+            {theme.contact !== "fab" ? (
+              <StickyMobileBar business={business} locale={locale} whatsappMessage={heroWhatsapp} />
+            ) : null}
+            {theme.contact !== "bar" ? (
+              <ContactFab
+                business={business}
+                locale={locale}
+                whatsappMessage={heroWhatsapp}
+                className={theme.contact === "both" ? "contact-fab-desktop" : ""}
+              />
+            ) : null}
 
             {isPubliclyIndexable(site) ? <LocalBusinessJsonLd site={site} /> : null}
-            <SiteAnalytics slug={slug} status={offer.status} />
+            <SiteAnalytics slug={slug} status={offer.status} variant={variant} />
           </OfferLayer>
         </SmoothScroll>
       </MotionProvider>

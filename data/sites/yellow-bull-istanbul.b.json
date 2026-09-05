@@ -1,0 +1,30 @@
+{
+  "theme": {
+    "preset": "bosphorus",
+    "fonts": "hospitality",
+    "headingFont": "display",
+    "radius": "none",
+    "density": "airy",
+    "header": "glass",
+    "photos": "mono",
+    "typeScale": "display",
+    "motion": {
+      "hero": "split",
+      "scroll": "fade",
+      "smooth": true,
+      "parallax": true
+    }
+  },
+  "sections": [
+    {
+      "id": "ust",
+      "variant": "statement",
+      "headline": "Yellow Bull",
+      "subline": "Kumkapı'da on odalı bir otel. Sultanahmet ve Kapalıçarşı yürüme mesafesinde; resepsiyon 24 saat açık, kahvaltı var.",
+      "image": {
+        "src": "https://images.unsplash.com/photo-1527838832700-5059252407fa?w=1800&q=80&auto=format&fit=crop",
+        "alt": "Ayasofya, alacakaranlık"
+      }
+    }
+  ]
+}

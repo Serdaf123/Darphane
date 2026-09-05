@@ -174,6 +174,8 @@ const themeSchema = z.object({
   header: z.enum(HEADER_STYLES).default("glass"),
   /** mono: fotoğraflar tek ton, üzerine gelince renklenir (avukat, mimar, editoryal) */
   photos: z.enum(["color", "mono"]).default("color"),
+  /** bar: mobilde alt bar · fab: yüzen WhatsApp/Ara butonu (her ekran) · both: mobilde bar + masaüstünde fab */
+  contact: z.enum(["bar", "fab", "both"]).default("both"),
   motion: motionSchema.prefault({}),
 });
 export type Theme = z.infer<typeof themeSchema>;
