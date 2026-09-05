@@ -152,13 +152,13 @@
     }
   ],
   "offer": {
-    "status": "draft",
-    "expiresAt": "2026-09-11T21:00:00+03:00",
+    "status": "pitched",
+    "expiresAt": "2026-09-12T21:00:00+03:00",
     "price": 8500,
     "currency": "TRY",
     "seller": {
       "name": "fourpear",
-      "whatsapp": "905550000000"
+      "whatsapp": "905078463929"
     }
   },
   "seo": {
