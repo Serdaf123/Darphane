@@ -37,8 +37,10 @@ type VariantLinks = { a: string; b: string };
 /** "Tasarım A · B" — işletme sahibi tek linkten iki dünyayı gezer; seçim mesaja yazılır */
 function VariantSwitch({ variant, links }: { variant: "a" | "b"; links: VariantLinks }) {
   return (
-    <span className="inline-flex items-center gap-1 text-xs" aria-label="Tasarım seçenekleri">
-      <span style={{ color: "rgba(245,246,247,.6)" }}>Tasarım</span>
+    <span className="inline-flex shrink-0 items-center gap-1 text-xs" aria-label="Tasarım seçenekleri">
+      <span className="hidden sm:inline" style={{ color: "rgba(245,246,247,.6)" }}>
+        Tasarım
+      </span>
       {(["a", "b"] as const).map((v) => (
         <a
           key={v}
@@ -188,7 +190,7 @@ function DraftBar({
       aria-label="İç önizleme"
     >
       <div className="container flex items-center justify-between gap-3 py-2 text-sm font-semibold">
-        <span>TASLAK · {businessName} · henüz gönderilmedi, teklif şeridi kapalı</span>
+        <span className="min-w-0">TASLAK · {businessName} · henüz gönderilmedi, teklif şeridi kapalı</span>
         {variantLinks ? <VariantSwitch variant={variant} links={variantLinks} /> : null}
       </div>
     </div>

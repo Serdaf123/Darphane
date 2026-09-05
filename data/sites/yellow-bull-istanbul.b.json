@@ -14,7 +14,8 @@
       "smooth": true,
       "parallax": true
     },
-    "fabStyle": "pill"
+    "fabStyle": "pill",
+    "contact": "fab"
   },
   "sections": [
     {
