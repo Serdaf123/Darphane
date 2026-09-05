@@ -116,3 +116,4 @@ Durum: ✅ bitti · 🔧 sırada · ⏳ dış girdi bekliyor · 💡 fikir
 - **2026-09-05** Yol haritası bu dosyada tutulur; sohbet notu kaybolmaz.
 - **2026-09-05** Strateji: özellik geliştirme durdu; bugün yayın + akşam 2 teklif, hafta sonuna 10 teklif. Sonuç gelmeden yeni özellik yok. Seller numarası girildi; Olympos + avukat `pitched`, son gün 12 Eylül 21:00. Alan adı ilk satıştan sonra; şimdilik vercel.app.
 - **2026-09-05** Repo GitHub'da: `Serdaf123/Darphane` (private tutulacak). Bu Mac'ten ayrı SSH anahtarıyla (`github-serdaf` host takma adı) push edilir. Vercel Serdaf123 hesabından bağlanacak.
+- **2026-09-05** Canlı: https://darphane-74qr.vercel.app (Vercel, Serdaf123). robots/noindex/OG canlıda doğrulandı. Kök sayfa Basic Auth (kullanıcı fourpear, parola Vercel env `DARPHANE_ADMIN_PASSWORD`).

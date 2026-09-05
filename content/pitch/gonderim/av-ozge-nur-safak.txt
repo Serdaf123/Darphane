@@ -2,7 +2,7 @@ Merhaba, Av. Özge Nur Şafak Hukuk Bürosu için bir şey hazırladım.
 
 Sitenizin olmadığını fark ettim, ben de bir tane kurdum. Çalışma alanı, büro adresi, randevu ve acil durum yönlendirmesi; Barolar Birliği reklam yasağına uygun, yorum ve başarı iddiası içermiyor. Şu an canlı, telefonunuzdan açabilirsiniz:
 
-https://darphane.vercel.app/av-ozge-nur-safak
+https://darphane-74qr.vercel.app/av-ozge-nur-safak
 
 Bu bir teklif sunumu değil, bitmiş bir iş. Beğenirseniz 8.500 ₺ karşılığında sizin oluyor, alan adını da ben ayarlarım. Beğenmezseniz 12 Eylül Cuma tarihinde siteyi kaldırıyorum, kimsenin bir yükümlülüğü olmuyor.
 
