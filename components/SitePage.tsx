@@ -12,7 +12,7 @@ import { t, type Locale } from "@/lib/i18n";
 import { navCta, navItems } from "@/lib/nav";
 import type { Site } from "@/lib/schema";
 import { isOfferExpired, isPubliclyIndexable } from "@/lib/sites";
-import { isDarkPreset, themeFontClass, themeStyle } from "@/lib/theme";
+import { isDarkTheme, themeFontClass, themeStyle } from "@/lib/theme";
 
 /**
  * Bir işletme sitesinin gövdesi. /[slug] (TR) ve /[slug]/en aynı bileşeni
@@ -51,7 +51,7 @@ export function SitePage({
     <div
       lang={t(locale).lang}
       className={`site-root ${themeFontClass(theme)}${theme.photos === "mono" ? " photos-mono" : ""}`}
-      style={{ ...themeStyle(theme), colorScheme: isDarkPreset(theme.preset) ? "dark" : "light" }}
+      style={{ ...themeStyle(theme), colorScheme: isDarkTheme(theme) ? "dark" : "light" }}
     >
       <MotionProvider motion={theme.motion}>
         <SmoothScroll>

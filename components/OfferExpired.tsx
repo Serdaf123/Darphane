@@ -29,7 +29,7 @@ export function OfferExpired({
         </p>
         <h1
           style={{
-            fontSize: "clamp(1.75rem, 1.2rem + 2.5vw, 2.75rem)",
+            fontSize: "var(--step-4)",
             lineHeight: 1.15,
             margin: 0,
           }}

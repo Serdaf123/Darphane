@@ -42,6 +42,15 @@ Bu dosya makinenin hafızası: kurallar, yol haritası, kararlar. README "nasıl
 - **PostHog oturum kaydı** için KVKK çerez onayı gerekir (yapılacak #7).
 - Google Maps scraping ToS ihlali; Places API resmi yol (anahtar gerek).
 
+### Tipografi ve renk (2026-09-05 araştırması)
+- **Renk uyumu hesaptır:** OKLCH'de aynı L aynı kontrast demek; nötrleri vurgu tonuna c≈0.01 boyayınca palet tek aileden çıkar (saf gri yasak). `lib/palette.ts` tek renkten tam palet üretir, WCAG eşiklerini zorlar, APCA Lc raporlar. Referans: LogRocket OKLCH, Design Tokens Color Module 2025.10.
+- **Fotoğraf → palet:** `npm run palette` hero fotoğrafının renkli piksellerinden en kalabalık 30°'lik ton dilimini alır (baskın renk gece fotoğrafında siyah döner, işe yaramaz). Sitenin rengi fotoğrafıyla akraba olur.
+- **Kontrast standardı:** hukuken WCAG 2.2 AA (4.5:1 / 3:1); tasarım için APCA (Lc 60+ gövde, 75+ küçük). İkisini de ölçüyoruz; AA kapı, APCA bilgi.
+- **Tip ölçeği:** Utopia akışkan ölçek (`utopia-core`), 360→1440 px, 1.2→1.333; roller `--step-n`. Elle clamp yok. Uyarı: clamp zoom'u kısıtlayabilir; rem tabanlı olduğu için kullanıcı font ayarına saygılı.
+- **İzleme (tracking):** display ≥ step-4 −0.02em, antet −0.03em; küçük metin +0.01em. Koyu zeminde açık yazıya bir adım ağırlık + biraz satır aralığı.
+- **Font eşleme kuralı:** iki aile yeter; ya süper aile (Plex Serif+Sans, Noto) ya da net zıtlık (Garamond+Plex, Cormorant+Manrope). Türkçe için latin-ext şart; Noto en güvenli. Kaynaklar: Typewolf lookbook'ları, Fontpair.
+- Sırada değerlendirilecek: Fraunces/Source Serif 4 `opsz` optik boyut, Radix Colors tarzı 12 adımlı skala, Color Thief v3 (OKLCH kümeleme) ile çoklu renk çıkarma, Leonardo (Adobe) kontrast-öncelikli skala.
+
 ### Teknik
 - macOS 13: Playwright'ın Chromium/ffmpeg'i yok → `channel: "chrome"`; video için WebCodecs (planlı).
 - next/font: seçenekler literal olmalı (spread yok); tüm çiftler `preload: false`.
@@ -64,6 +73,7 @@ Durum: ✅ bitti · 🔧 sırada · ⏳ dış girdi bekliyor · 💡 fikir
 - ✅ Claude ile taslak (`draft`), İngilizce katman (`/en`), satış scripti (`sell`), ödeme linki, alan adı yönlendirmesi
 - ✅ Slop kontrolü: Impeccable critique/audit, ux-skill lint
 - ✅ Statement hero (fotoğraflı, acil bloklu), mono fotoğraf, koyu panel
+- ✅ OKLCH palet motoru (`theme.accent`), fotoğraftan palet, kontrast denetimi, Utopia tip ölçeği, plex/noto çiftleri
 
 ### Sırada — para getirenler
 | # | İş | Neden | Süre | Durum |

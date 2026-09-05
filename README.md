@@ -41,6 +41,18 @@ Oluşan `data/sites/kuafor-nese.json` dosyasını doldur. `offer.seller.whatsapp
 
 **Palet** (`theme.preset`): `porcelain` nötr · `ember` sıcak koyu · `sage` yumuşak yeşil · `midnight` lacivert+altın · `cobalt` güven mavisi · `sand` bej+ceviz · `bosphorus` taş+Boğaz yeşili · `graphite` kurşuni+buz mavisi · `ink` kâğıt+mürekkep+bordo (avukat, noter, muhasebe)
 
+**Fotoğraftan palet** (`theme.accent`): preset seçmek yerine tek vurgu rengi ver, gerisi OKLCH'de üretilir — nötrler bile o renge boyanır (saf gri yok), kontrast garantili (metin 7:1, ikincil 4.5:1, vurgu 3:1). Rengi hero fotoğrafından çıkarmak için:
+
+```bash
+npm run palette -- <slug>            # öneri + kontrast raporu (WCAG ve APCA)
+npm run palette -- <slug> --dark --apply   # koyu dünya, JSON'a yaz
+npm run check:palettes               # tüm siteler ve presetler; eşik altı varsa çıkış 1
+```
+
+`mode` açık/koyu, `neutralTint` nötrlerin boyanma derecesi (0 gri, 0.35 varsayılan).
+
+**Tip ölçeği** (`theme.typeScale`): `compact` · `normal` · `display` — Utopia akışkan ölçeği, 360→1440 px arası 1.2→1.333 oranı. Bileşenler `--step-n2 … --step-6` değişkenlerini kullanır; elle `clamp()` yazılmaz. h2 = step 4, h1 = step 5–6, gövde = step 0.
+
 **Font çifti** (`theme.fonts`) — sayfanın kişiliğini en çok bu belirler:
 
 | Çift | Fontlar | Kime |
@@ -52,6 +64,8 @@ Oluşan `data/sites/kuafor-nese.json` dosyasını doldur. `offer.seller.whatsapp
 | `soft` | DM Sans + Fraunces | fırın, kafe, spa, çiçekçi |
 | `bold` | Space Grotesk | berber, dövme, oto servis, spor |
 | `editorial` | EB Garamond + IBM Plex Sans | avukat, muhasebe, mimar, danışman — antetli kâğıt |
+| `plex` | IBM Plex Serif + IBM Plex Sans | süper aile; gazete/editoryal, danışmanlık |
+| `noto` | Noto Serif + Noto Sans | en geniş Türkçe kapsama; ı/İ/ş/ğ sorunsuz, güvenli |
 
 `headingFont: "display"` başlıkları çiftin display yüzüyle, `"sans"` gövde yüzüyle yazar. Fontlar `preload: false` — yalnızca sitenin seçtiği çift indirilir.
 

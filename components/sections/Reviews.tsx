@@ -103,7 +103,7 @@ export function Reviews({
                   className="m-0"
                   style={{
                     fontFamily: "var(--font-heading)",
-                    fontSize: "clamp(1.25rem, 1rem + 1vw, 1.75rem)",
+                    fontSize: "var(--step-2)",
                     lineHeight: 1.35,
                     textWrap: "pretty",
                   }}

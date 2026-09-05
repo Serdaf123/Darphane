@@ -1,6 +1,6 @@
 import { ImageResponse } from "next/og";
 import { getSite } from "@/lib/sites";
-import { PALETTES } from "@/lib/theme";
+import { resolvePalette } from "@/lib/theme";
 
 /**
  * Link önizleme görseli (WhatsApp, iMessage, Twitter). Teklif mesajında
@@ -31,7 +31,7 @@ export default async function Image({ params }: { params: Promise<{ slug: string
   if (!site) return new Response("Not found", { status: 404 });
 
   const { business, sections, theme } = site;
-  const palette = PALETTES[theme.preset];
+  const palette = resolvePalette(theme);
   const hero = sections.find((s) => s.type === "hero");
   const image = hero?.type === "hero" ? hero.image?.src : undefined;
   const place = [business.district, business.city].filter(Boolean).join(", ");

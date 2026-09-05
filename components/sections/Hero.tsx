@@ -42,7 +42,7 @@ export function Hero({
             <p className="eyebrow">{business.category}</p>
           </HeroItem>
           <HeroItem order={1}>
-            <h1 style={{ fontSize: "clamp(2.25rem, 1.5rem + 4vw, 4.5rem)" }}>
+            <h1 style={{ fontSize: "var(--step-6)" }}>
               {section.headline}
             </h1>
           </HeroItem>
@@ -165,7 +165,7 @@ export function Hero({
               <p className="eyebrow">{business.category}</p>
             </HeroItem>
             <HeroItem order={1}>
-              <h1 style={{ fontSize: "clamp(2rem, 1.4rem + 3vw, 3.5rem)" }}>
+              <h1 style={{ fontSize: "var(--step-5)" }}>
                 {section.headline}
               </h1>
             </HeroItem>
@@ -225,7 +225,7 @@ export function Hero({
           <HeroItem order={1}>
             <h1
               style={{
-                fontSize: "clamp(2.25rem, 1.5rem + 4vw, 4rem)",
+                fontSize: "var(--step-6)",
                 color: "#fff",
                 textShadow: "0 2px 24px rgba(0,0,0,.35)",
               }}

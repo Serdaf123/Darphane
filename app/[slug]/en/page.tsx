@@ -3,7 +3,7 @@ import { notFound } from "next/navigation";
 import { SitePage } from "@/components/SitePage";
 import { siteMetadata } from "@/lib/site-metadata";
 import { getSite, listSiteSlugs, siteLocales } from "@/lib/sites";
-import { PALETTES } from "@/lib/theme";
+import { resolvePalette } from "@/lib/theme";
 
 /**
  * İngilizce sürüm: yalnızca data/sites/<slug>.en.json olan siteler.
@@ -31,7 +31,7 @@ export async function generateMetadata({ params }: EnPageProps): Promise<Metadat
 export async function generateViewport({ params }: EnPageProps): Promise<Viewport> {
   const { slug } = await params;
   const site = getSite(slug);
-  return { themeColor: site ? PALETTES[site.theme.preset].bg : undefined };
+  return { themeColor: site ? resolvePalette(site.theme).bg : undefined };
 }
 
 export default async function EnglishSitePage({ params }: EnPageProps) {

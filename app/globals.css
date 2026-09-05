@@ -114,15 +114,17 @@ body {
   background: var(--c-surface);
 }
 
+/* Roller Utopia ölçeğinden: gövde 0 · giriş 0 · h2 4 · h1 5–6 (lib/typescale.ts) */
 .section-title {
-  font-size: clamp(1.6rem, 1.1rem + 2vw, 2.5rem);
+  font-size: var(--step-4);
+  letter-spacing: -0.02em;
 }
 
 .section-intro {
   color: var(--c-muted);
   /* 17px'te ~70 karakter: dedektörün ölçtüğü 87 karakterlik satırlar okumayı yoruyordu */
   max-width: 40rem;
-  font-size: 1.0625rem;
+  font-size: var(--step-0);
   line-height: 1.65;
 }
 
@@ -638,7 +640,8 @@ main:focus {
 
 /* Referanslardaki gibi hafif ağırlıkta, büyük serif: otorite ağırlıktan değil boyuttan gelir */
 .hero-statement-title {
-  font-size: clamp(3rem, 1.5rem + 6.5vw, 7rem);
+  /* Ölçeğin en üstünün 1.4 katı: antet ismi sayfanın tek "bağıran" öğesi */
+  font-size: calc(var(--step-6) * 1.4);
   font-weight: 400;
   line-height: 0.96;
   letter-spacing: -0.025em;
@@ -663,7 +666,7 @@ main:focus {
 .hero-urgent-phone {
   font-family: var(--font-heading);
   font-weight: 500;
-  font-size: clamp(2.25rem, 1.25rem + 4vw, 4rem);
+  font-size: var(--step-5);
   line-height: 1.05;
   letter-spacing: -0.01em;
   color: var(--c-bg);
@@ -691,7 +694,7 @@ a.hero-urgent-note:hover {
 
 /* Acil blok varsa isim ikinci plan: küçük ama hâlâ serif ve büyük */
 .hero-statement-title-secondary {
-  font-size: clamp(2rem, 1rem + 3.5vw, 4rem);
+  font-size: var(--step-5);
 }
 
 /* Koyu zeminde odak halkası bordoyla kayboluyordu (1.78:1); açık renge geç */

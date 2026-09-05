@@ -3,7 +3,7 @@ import { notFound } from "next/navigation";
 import { SitePage } from "@/components/SitePage";
 import { siteMetadata } from "@/lib/site-metadata";
 import { getSite, listSiteSlugs, siteLocales } from "@/lib/sites";
-import { PALETTES } from "@/lib/theme";
+import { resolvePalette } from "@/lib/theme";
 
 // Bilinmeyen slug'lar 404 döner — sadece data/sites'taki dosyalar yayınlanır.
 export const dynamicParams = false;
@@ -26,7 +26,7 @@ export async function generateMetadata({ params }: PageProps<"/[slug]">): Promis
 export async function generateViewport({ params }: PageProps<"/[slug]">): Promise<Viewport> {
   const { slug } = await params;
   const site = getSite(slug);
-  return { themeColor: site ? PALETTES[site.theme.preset].bg : undefined };
+  return { themeColor: site ? resolvePalette(site.theme).bg : undefined };
 }
 
 export default async function TurkishSitePage({ params }: PageProps<"/[slug]">) {

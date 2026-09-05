@@ -73,7 +73,10 @@
       "smooth": true,
       "parallax": true
     },
-    "photos": "color"
+    "photos": "color",
+    "accent": "#8f3700",
+    "mode": "dark",
+    "neutralTint": 0.35
   },
   "sections": [
     {

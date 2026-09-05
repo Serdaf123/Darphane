@@ -12,12 +12,16 @@
     "find-leads": "node --env-file-if-exists=.env.local scripts/find-leads.mts",
     "screenshot": "node scripts/screenshot.mts",
     "draft": "node --env-file-if-exists=.env.local scripts/draft-site.mts",
-    "sell": "node --env-file-if-exists=.env.local scripts/sell.mts"
+    "sell": "node --env-file-if-exists=.env.local scripts/sell.mts",
+    "palette": "node scripts/palette-from-photo.mts",
+    "check:palettes": "node scripts/check-palettes.mts"
   },
   "dependencies": {
     "@anthropic-ai/sdk": "^0.123.0",
     "@gsap/react": "^2.1.2",
     "@vercel/analytics": "^2.0.1",
+    "apca-w3": "^0.1.9",
+    "culori": "^4.0.2",
     "gsap": "^3.15.0",
     "lenis": "^1.3.26",
     "lucide-react": "^1.40.0",
@@ -26,11 +30,13 @@
     "posthog-js": "^1.427.1",
     "react": "19.2.8",
     "react-dom": "19.2.8",
+    "utopia-core": "^1.6.0",
     "zod": "^4.5.4"
   },
   "devDependencies": {
     "@playwright/test": "^1.62.1",
     "@tailwindcss/postcss": "^4",
+    "@types/culori": "^4.0.1",
     "@types/node": "^20",
     "@types/react": "^19",
     "@types/react-dom": "^19",

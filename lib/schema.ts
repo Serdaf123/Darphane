@@ -108,7 +108,7 @@ export const THEME_PRESETS = [
 ] as const;
 
 /** Font çiftleri — tanımlar lib/fonts.ts'te */
-export const FONT_PAIRINGS = ["classic", "hospitality", "clean", "craft", "soft", "bold", "editorial"] as const;
+export const FONT_PAIRINGS = ["classic", "hospitality", "clean", "craft", "soft", "bold", "editorial", "plex", "noto"] as const;
 export type ThemePreset = (typeof THEME_PRESETS)[number];
 
 export const HERO_MOTIONS = ["rise", "reveal", "blur", "curtain", "zoom", "split", "none"] as const;
@@ -138,6 +138,18 @@ export type Motion = z.infer<typeof motionSchema>;
 const themeSchema = z.object({
   preset: z.enum(THEME_PRESETS).default("porcelain"),
   /**
+   * Verilirse preset yerine bu vurgu renginden OKLCH ile tam palet üretilir
+   * (nötrler de bu renge boyanır, kontrast garanti). Fotoğraftan çıkarmak için:
+   * npm run palette -- <slug> [--apply]
+   */
+  accent: z.string().regex(/^#[0-9a-fA-F]{6}$/, "accent #rrggbb olmalı").optional(),
+  /** accent ile birlikte: açık mı koyu mu dünya */
+  mode: z.enum(["light", "dark"]).default("light"),
+  /** Nötrlerin vurgu rengine boyanma derecesi 0–1 (0 saf gri) */
+  neutralTint: z.number().min(0).max(1).default(0.35),
+  /** Akışkan tip ölçeği: compact 1.15→1.25 · normal 1.2→1.333 · display 1.25→1.414 */
+  typeScale: z.enum(["compact", "normal", "display"]).default("normal"),
+  /**
    * classic     Inter + Playfair · nötr
    * hospitality Manrope + Cormorant · otel, restoran
    * clean       Figtree · klinik, teknik servis
@@ -145,6 +157,8 @@ const themeSchema = z.object({
    * soft        DM Sans + Fraunces · fırın, kafe, spa
    * bold        Space Grotesk · berber, oto, spor
    * editorial   EB Garamond + IBM Plex Sans · avukat, muhasebe, mimar, danışman
+   * plex        IBM Plex Serif + Sans · gazete/editoryal, muhasebe, danışmanlık
+   * noto        Noto Serif + Noto Sans · en geniş Türkçe/çok dilli destek, güvenli
    */
   fonts: z.enum(FONT_PAIRINGS).default("classic"),
   /** Başlıklar çiftin display yüzünü mü, gövde yüzünü mü kullansın */

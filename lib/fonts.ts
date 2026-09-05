@@ -6,7 +6,10 @@ import {
   Figtree,
   Fraunces,
   IBM_Plex_Sans,
+  IBM_Plex_Serif,
   Inter,
+  Noto_Sans,
+  Noto_Serif,
   Manrope,
   Playfair_Display,
   Source_Serif_4,
@@ -47,6 +50,16 @@ const ebGaramond = EB_Garamond({
   display: "swap",
   preload: false,
 });
+const plexSerif = IBM_Plex_Serif({
+  subsets: ["latin", "latin-ext"],
+  weight: ["400", "500", "600"],
+  style: ["normal", "italic"],
+  variable: "--f-plexserif",
+  display: "swap",
+  preload: false,
+});
+const notoSans = Noto_Sans({ subsets: ["latin", "latin-ext"], variable: "--f-notosans", display: "swap", preload: false });
+const notoSerif = Noto_Serif({ subsets: ["latin", "latin-ext"], variable: "--f-notoserif", display: "swap", preload: false });
 const plexSans = IBM_Plex_Sans({
   subsets: ["latin", "latin-ext"],
   weight: ["400", "500", "600"],
@@ -70,6 +83,10 @@ export const FONT_PAIRINGS = {
   bold: { className: spaceGrotesk.variable, sans: "var(--f-spacegrotesk)", display: "var(--f-spacegrotesk)", note: "Space Grotesk" },
   /** Avukat, muhasebe, mimar, danışman: antetli kâğıt — Garamond başlık, Plex gövde. */
   editorial: { className: `${ebGaramond.variable} ${plexSans.variable}`, sans: "var(--f-plexsans)", display: "var(--f-ebgaramond)", note: "EB Garamond + IBM Plex Sans" },
+  /** Süper aile: aynı iskeletten serif + sans. Gazete/editoryal, muhasebe, danışmanlık (Pitta & Baione dünyası). */
+  plex: { className: `${plexSerif.variable} ${plexSans.variable}`, sans: "var(--f-plexsans)", display: "var(--f-plexserif)", note: "IBM Plex Serif + IBM Plex Sans" },
+  /** En geniş Türkçe ve çok dilli kapsama; ı/İ/ş/ğ sorunsuz. Güvenli, nötr. */
+  noto: { className: `${notoSerif.variable} ${notoSans.variable}`, sans: "var(--f-notosans)", display: "var(--f-notoserif)", note: "Noto Serif + Noto Sans" },
 } as const;
 
 export type FontPairing = keyof typeof FONT_PAIRINGS;
