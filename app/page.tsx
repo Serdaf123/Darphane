@@ -41,7 +41,12 @@ export default function HomePage() {
         color: "#17171b",
       }}
     >
-      <h1 style={{ fontSize: "2rem", margin: 0, letterSpacing: "-0.02em" }}>darphane</h1>
+      <div style={{ display: "flex", alignItems: "baseline", justifyContent: "space-between", gap: "1rem" }}>
+        <h1 style={{ fontSize: "2rem", margin: 0, letterSpacing: "-0.02em" }}>darphane</h1>
+        <a href="/api/cikis" style={{ fontSize: "0.875rem", color: "inherit", opacity: 0.7 }}>
+          Çıkış
+        </a>
+      </div>
       <p style={{ color: "#6c6c78", marginTop: "0.5rem" }}>
         {sites.length} site ·{" "}
         {Object.entries(counts)

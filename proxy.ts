@@ -1,30 +1,26 @@
 import { NextResponse, type NextRequest } from "next/server";
+import { ADMIN_COOKIE, isValidAdminToken } from "@/lib/admin-auth";
 
 /**
  * Kök sayfa (/) fourpear'ın iç listesi: hangi site hangi aşamada, fiyatlar,
- * süreler. Dışarıya kapalı olmalı — HTTP Basic Auth ile korunur.
+ * süreler. Dışarıya kapalı: geçerli oturum çerezi yoksa /giris'e yönlendirir.
  * İşletme sayfaları (/<slug>, /<slug>/en, /<slug>/b) açık kalır; onlar teklif.
- *
- * Parola: Vercel → Settings → Environment Variables → DARPHANE_ADMIN_PASSWORD
- * (kullanıcı adı: fourpear). Yerelde (next dev) sorulmaz.
+ * Yerelde (next dev) sorulmaz.
  */
 export const config = {
   matcher: ["/"],
 };
 
-export function proxy(request: NextRequest) {
+export async function proxy(request: NextRequest) {
   if (process.env.NODE_ENV === "development") return NextResponse.next();
 
-  const expected = process.env.DARPHANE_ADMIN_PASSWORD?.trim();
-  const header = request.headers.get("authorization") ?? "";
-  if (expected && header.startsWith("Basic ")) {
-    const decoded = Buffer.from(header.slice(6), "base64").toString("utf8");
-    const [user, ...rest] = decoded.split(":");
-    if (user === "fourpear" && rest.join(":") === expected) return NextResponse.next();
-  }
+  const ok = await isValidAdminToken(
+    request.cookies.get(ADMIN_COOKIE)?.value,
+    process.env.DARPHANE_ADMIN_PASSWORD?.trim()
+  );
+  if (ok) return NextResponse.next();
 
-  return new NextResponse(expected ? "Giriş gerekli" : "DARPHANE_ADMIN_PASSWORD tanımlı değil", {
-    status: 401,
-    headers: { "WWW-Authenticate": 'Basic realm="darphane", charset="UTF-8"' },
-  });
+  const url = request.nextUrl.clone();
+  url.pathname = "/giris";
+  return NextResponse.redirect(url);
 }

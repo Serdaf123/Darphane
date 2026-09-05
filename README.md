@@ -186,7 +186,7 @@ scripts/new-site.mts      iskelet üretici
 
 ## Canlı ve iç sayfa
 
-Canlı: `https://darphane-74qr.vercel.app` (Vercel, her `main` push'unda otomatik deploy). Kök sayfa `/` fourpear'ın iç listesidir; canlıda **Basic Auth** ister (kullanıcı `fourpear`, parola Vercel env `DARPHANE_ADMIN_PASSWORD`). İşletme sayfaları açıktır. Env/redeploy/log için Vercel CLI bu makinede oturum açık: `npx vercel env ls`, `npx vercel redeploy <url>`, `npx vercel logs <url>`.
+Canlı: `https://darphane-74qr.vercel.app` (Vercel, her `main` push'unda otomatik deploy). Kök sayfa `/` fourpear'ın iç listesidir; canlıda giriş ister: `/giris` sayfası, parola Vercel env `DARPHANE_ADMIN_PASSWORD`, 30 günlük imzalı çerez, `/api/cikis` ile çıkış (`proxy.ts` + `lib/admin-auth.ts`). Parola değişince eski oturumlar düşer. İşletme sayfaları açıktır. Yerelde (`next dev`) sorulmaz. Env/redeploy/log için Vercel CLI bu makinede oturum açık: `npx vercel env ls`, `npx vercel redeploy <url>`, `npx vercel logs <url>`.
 
 ## İki tasarım sunmak (A · B)
 
