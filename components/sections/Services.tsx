@@ -24,7 +24,7 @@ export function Services({ section, id }: { section: ServicesData; id: string })
                 <div className="flex-1" style={{ minWidth: "14rem" }}>
                   <p className="font-semibold">{item.name}</p>
                   {item.description ? (
-                    <p className="muted mt-1 text-sm leading-relaxed">{item.description}</p>
+                    <p className="muted mt-1 max-w-[38rem] text-sm leading-relaxed">{item.description}</p>
                   ) : null}
                 </div>
                 {item.price ? (

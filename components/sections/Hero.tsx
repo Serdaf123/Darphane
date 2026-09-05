@@ -2,6 +2,7 @@ import { ActionButtons } from "@/components/ActionButtons";
 import { HeroItem, HeroMedia } from "@/components/motion/HeroMotion";
 import { OpenBadge } from "@/components/OpenBadge";
 import { SiteImage } from "@/components/SiteImage";
+import { normalizePhone, whatsappUrl } from "@/lib/actions";
 import type { Locale } from "@/lib/i18n";
 import type { Business, Section } from "@/lib/schema";
 
@@ -64,16 +65,18 @@ export function Hero({
   // statement: koyu antet — büyük isim, ince çizgi, arka planda monogram.
   // Fotoğrafı olmayan meslekler (avukat, muhasebe, mimar) için "kartvizit" hissi.
   if (section.variant === "statement") {
-    const monogram = business.name
-      .split(/\s+/)
-      .filter((w) => !/^(av|dr|dt|op|prof|doç)\.?$/i.test(w))
-      .map((w) => w[0]?.toLocaleUpperCase("tr-TR") ?? "")
-      .join("")
-      .slice(0, 3)
-      // Ö/Ş/Ç'nin noktaları ve çengelleri dev boyutta harften kopuk durur
-      .normalize("NFD")
-      .replace(/\p{M}/gu, "")
-      .replace("I", "I");
+    // JSON'da verilmişse olduğu gibi (Ş gibi tek harf); yoksa isimden türet ve
+    // Ö/Ş/Ç işaretlerini at — dev boyutta harften kopuk duruyorlardı
+    const monogram =
+      section.monogram ??
+      business.name
+        .split(/\s+/)
+        .filter((w) => !/^(av|dr|dt|op|prof|doç)\.?$/i.test(w))
+        .map((w) => w[0]?.toLocaleUpperCase("tr-TR") ?? "")
+        .join("")
+        .slice(0, 3)
+        .normalize("NFD")
+        .replace(/\p{M}/gu, "");
 
     return (
       <section id={id} className="hero-statement relative isolate overflow-hidden">
@@ -95,10 +98,36 @@ export function Hero({
         <span aria-hidden className="hero-statement-monogram">
           {monogram}
         </span>
-        <div className="on-image container relative pb-16 pt-32 md:pb-24 md:pt-44">
+        <div className="on-image container relative pb-16 pt-28 md:pb-24 md:pt-36">
           <div className="flex max-w-4xl flex-col gap-[var(--stack-gap)]">
+            {section.urgent && business.phone ? (
+              <HeroItem order={0}>
+                <div className="hero-urgent">
+                  <p className="hero-urgent-title">{section.urgent.title}</p>
+                  <a href={`tel:${normalizePhone(business.phone)}`} className="hero-urgent-phone">
+                    {business.phone}
+                  </a>
+                  {section.urgent.note ? (
+                    section.urgent.whatsappMessage && (business.whatsapp ?? business.phone) ? (
+                      <a
+                        href={whatsappUrl((business.whatsapp ?? business.phone)!, section.urgent.whatsappMessage)}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="hero-urgent-note"
+                      >
+                        {section.urgent.note}
+                      </a>
+                    ) : (
+                      <p className="hero-urgent-note">{section.urgent.note}</p>
+                    )
+                  ) : null}
+                </div>
+              </HeroItem>
+            ) : null}
             <HeroItem order={1}>
-              <h1 className="hero-statement-title">{section.headline}</h1>
+              <h1 className={`hero-statement-title${section.urgent ? " hero-statement-title-secondary" : ""}`}>
+                {section.headline}
+              </h1>
             </HeroItem>
             <HeroItem order={2}>
               <hr className="hero-statement-rule" />
@@ -112,7 +141,14 @@ export function Hero({
               <div className="flex flex-wrap gap-2">{badges}</div>
             </HeroItem>
             <HeroItem order={5}>
-              <ActionButtons actions={section.actions} business={business} className="mt-3" locale={locale} mobileLimit={2} />
+              {/* Acil blok varsa telefonda numara birincil: tek buton yeter */}
+              <ActionButtons
+                actions={section.actions}
+                business={business}
+                className="mt-3"
+                locale={locale}
+                mobileLimit={section.urgent ? 1 : 2}
+              />
             </HeroItem>
           </div>
         </div>

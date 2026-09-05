@@ -186,6 +186,23 @@ const heroSection = z.object({
   actions: z.array(actionSchema).default([]),
   /** "20 yıllık tecrübe" gibi kısa güven işaretleri */
   badges: z.array(z.string()).default([]),
+  /**
+   * Gece 02:00 kullanıcısı için: statement hero'da ismin ÜSTÜNDE büyük telefon
+   * numarası + tek satır yönlendirme. Avukat, veteriner, çilingir, tesisatçı gibi
+   * "şimdi lazım" mesleklerde ilk ekran numaradır.
+   */
+  urgent: z
+    .object({
+      /** "Gözaltı veya tutuklama mı var?" */
+      title: z.string(),
+      /** Numaranın altındaki satır: "Ulaşamazsanız WhatsApp'a 'acil' yazın" */
+      note: z.string().optional(),
+      /** Acil WhatsApp kapısının hazır mesajı; verilirse note bir wa.me bağlantısı olur */
+      whatsappMessage: z.string().optional(),
+    })
+    .optional(),
+  /** Statement hero'daki arka plan monogramı; verilmezse isimden türer */
+  monogram: z.string().optional(),
 });
 
 const aboutSection = z.object({

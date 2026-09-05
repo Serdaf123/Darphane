@@ -375,11 +375,11 @@ main:focus {
 }
 
 .site-header-solid {
-  background: color-mix(in srgb, var(--c-bg) 86%, transparent);
+  background: color-mix(in srgb, var(--c-bg) 94%, transparent);
   color: var(--c-text);
   border-bottom: 1px solid var(--c-border);
-  backdrop-filter: saturate(160%) blur(14px);
-  -webkit-backdrop-filter: saturate(160%) blur(14px);
+  backdrop-filter: saturate(140%) blur(10px);
+  -webkit-backdrop-filter: saturate(140%) blur(10px);
 }
 
 .site-header-brand {
@@ -644,6 +644,60 @@ main:focus {
   letter-spacing: -0.025em;
   color: var(--c-bg);
   text-wrap: balance;
+}
+
+/* Acil blok: numara sayfanın en büyük ikinci öğesi, tek dokunuşla arama */
+.hero-urgent {
+  display: flex;
+  flex-direction: column;
+  gap: 0.375rem;
+  padding-bottom: 0.5rem;
+}
+
+.hero-urgent-title {
+  font-size: 1.0625rem;
+  font-weight: 500;
+  color: color-mix(in srgb, var(--c-bg) 80%, transparent);
+}
+
+.hero-urgent-phone {
+  font-family: var(--font-heading);
+  font-weight: 500;
+  font-size: clamp(2.25rem, 1.25rem + 4vw, 4rem);
+  line-height: 1.05;
+  letter-spacing: -0.01em;
+  color: var(--c-bg);
+  text-decoration: none;
+  font-variant-numeric: tabular-nums;
+  width: fit-content;
+}
+
+.hero-urgent-phone:hover {
+  color: color-mix(in srgb, var(--c-bg) 80%, var(--c-accent));
+}
+
+.hero-urgent-note {
+  font-size: 0.9375rem;
+  color: color-mix(in srgb, var(--c-bg) 78%, transparent);
+  text-decoration: underline;
+  text-underline-offset: 0.2em;
+  text-decoration-color: color-mix(in srgb, var(--c-bg) 35%, transparent);
+  width: fit-content;
+}
+
+a.hero-urgent-note:hover {
+  color: var(--c-bg);
+}
+
+/* Acil blok varsa isim ikinci plan: küçük ama hâlâ serif ve büyük */
+.hero-statement-title-secondary {
+  font-size: clamp(2rem, 1rem + 3.5vw, 4rem);
+}
+
+/* Koyu zeminde odak halkası bordoyla kayboluyordu (1.78:1); açık renge geç */
+.hero-statement :focus-visible,
+.section-dark :focus-visible {
+  outline-color: var(--c-bg) !important;
 }
 
 .hero-statement-rule {
