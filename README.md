@@ -184,6 +184,10 @@ content/pitch/            teklif mesajları
 scripts/new-site.mts      iskelet üretici
 ```
 
+## Canlı ve iç sayfa
+
+Canlı: `https://darphane-74qr.vercel.app` (Vercel, her `main` push'unda otomatik deploy). Kök sayfa `/` fourpear'ın iç listesidir; canlıda **Basic Auth** ister (kullanıcı `fourpear`, parola Vercel env `DARPHANE_ADMIN_PASSWORD`). İşletme sayfaları açıktır. Env/redeploy/log için Vercel CLI bu makinede oturum açık: `npx vercel env ls`, `npx vercel redeploy <url>`, `npx vercel logs <url>`.
+
 ## İki tasarım sunmak (A · B)
 
 `data/sites/<slug>.b.json` (tema + hero farkı, kısmi) varsa `/<slug>/b` açılır; teklif şeridinde **Tasarım A · B** geçişi çıkar, "Sitemi Satın Al" mesajına seçilen harf yazılır, PostHog `site_viewed.variant` ile hangisine bakıldığı görülür. Satışta kazanan katman ana dosyaya taşınır.
