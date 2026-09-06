@@ -112,12 +112,16 @@ export function SerkanSite({ year }: { year: number }) {
       const words = Array.from(track.children) as HTMLElement[];
       const fit = (i: number, animate: boolean) =>
         animate ? gsap.to(win, { width: words[i].offsetWidth, duration: 0.5, ease: "power3.inOut" }) : gsap.set(win, { width: words[i].offsetWidth });
+      let current = 0;
       fit(0, false);
-      document.fonts?.ready.then(() => fit(Math.round(-(gsap.getProperty(track, "yPercent") as number) / (100 / CYCLE.length)) % CYCLE.length, false));
+      const refit = () => fit(current, false);
+      document.fonts?.ready.then(() => { refit(); setTimeout(refit, 400); });
+      window.addEventListener("load", refit);
+      window.addEventListener("resize", refit);
       const cycle = gsap.timeline({ repeat: -1 });
       [...CYCLE.keys(), 0].forEach((i, k) => {
         if (k === 0) return;
-        cycle.to(track, { yPercent: (-100 / CYCLE.length) * i, duration: 0.7, ease: "power3.inOut" }, "+=1.8").add(() => fit(i, true), "<");
+        cycle.to(track, { yPercent: (-100 / CYCLE.length) * i, duration: 0.7, ease: "power3.inOut" }, "+=1.8").add(() => { current = i; fit(i, true); }, "<");
       });
 
       /* Manifesto: kelimeler kaydırdıkça dolar (durağan hâl: tam görünür) */
@@ -175,6 +179,8 @@ export function SerkanSite({ year }: { year: number }) {
 
       return () => {
         window.removeEventListener("pointermove", onMove);
+        window.removeEventListener("load", refit);
+        window.removeEventListener("resize", refit);
         split.revert();
         endSplit.revert();
         mm.revert();

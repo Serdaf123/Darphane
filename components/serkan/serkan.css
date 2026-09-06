@@ -73,7 +73,7 @@
 .so-hero-bottom { display: grid; gap: 1.5rem; margin-top: 2rem; }
 @media (min-width: 60rem) { .so-hero-bottom { grid-template-columns: minmax(0, 44rem); padding-right: 32vw; gap: 1.75rem; } }
 .so-cycle { font-family: var(--display); font-weight: 500; font-size: clamp(1.5rem, 3.2vw, 2.4rem); letter-spacing: -0.02em; line-height: 1.15; margin: 0; }
-.so-cycle-win { display: inline-block; vertical-align: bottom; height: 1.15em; overflow: hidden; color: var(--accent-2); white-space: nowrap; }
+.so-cycle-win { display: inline-block; vertical-align: bottom; height: 1.15em; overflow: visible; clip-path: inset(0 -0.35em 0 0); color: var(--accent-2); white-space: nowrap; }
 .so-cycle-track { display: block; }
 .so-cycle-track span { display: block; width: max-content; height: 1.15em; white-space: nowrap; }
 .so-hero-aside { color: var(--fg); font-size: 1.05rem; display: flex; gap: 1rem; align-items: center; margin: 0; }
