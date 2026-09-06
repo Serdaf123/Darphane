@@ -13,16 +13,20 @@ export function siteMetadata(site: Site, locale: Locale): Metadata {
 
   const indexable = isPubliclyIndexable(site);
   const locales = siteLocales(slug);
-  const languages =
-    locales.length > 1
-      ? Object.fromEntries(locales.map((l) => [l, l === "tr" ? `/${slug}` : `/${slug}/${l}`]))
-      : undefined;
+  // Satılan site kendi alan adına bağlıysa kanonik adres o alan adıdır; yoksa /slug yolu.
+  const pathFor = (l: Locale) =>
+    indexable && business.domain
+      ? `https://${business.domain}${l === "tr" ? "/" : `/${l}`}`
+      : l === "tr"
+        ? `/${slug}`
+        : `/${slug}/${l}`;
+  const languages = locales.length > 1 ? Object.fromEntries(locales.map((l) => [l, pathFor(l)])) : undefined;
 
   return {
     title,
     description,
     robots: indexable ? { index: true, follow: true } : { index: false, follow: false, nocache: true },
-    alternates: { canonical: locale === "tr" ? `/${slug}` : `/${slug}/${locale}`, languages },
+    alternates: { canonical: pathFor(locale), languages },
     openGraph: {
       title,
       description,

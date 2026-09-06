@@ -55,6 +55,8 @@ function domainRewrites() {
       const hosts = [site.domain!, `www.${site.domain!}`];
       return hosts.flatMap((host) => [
         { source: "/", has: [{ type: "host" as const, value: host }], destination: `/${site.slug}` },
+        // Kendi alan adında robots.txt açık olmalı (genel robots.txt her şeyi kapatır)
+        { source: "/robots.txt", has: [{ type: "host" as const, value: host }], destination: "/robots-open" },
         ...(site.hasEn
           ? [{ source: "/en", has: [{ type: "host" as const, value: host }], destination: `/${site.slug}/en` }]
           : []),
@@ -81,11 +83,15 @@ const nextConfig: NextConfig = {
   async rewrites() {
     const host = process.env.NEXT_PUBLIC_POSTHOG_INGEST ?? "https://eu.i.posthog.com";
     const assets = host.replace("://eu.i.", "://eu-assets.i.").replace("://us.i.", "://us-assets.i.");
-    return [
-      { source: "/ingest/static/:path*", destination: `${assets}/static/:path*` },
-      { source: "/ingest/:path*", destination: `${host}/:path*` },
-      ...domainRewrites(),
-    ];
+    return {
+      // Alan adı yönlendirmeleri dosya sisteminden ÖNCE çalışmalı: "/" sayfası
+      // (panel yönlendirmesi) yoksa satılan sitenin kökünü yutar.
+      beforeFiles: domainRewrites(),
+      afterFiles: [
+        { source: "/ingest/static/:path*", destination: `${assets}/static/:path*` },
+        { source: "/ingest/:path*", destination: `${host}/:path*` },
+      ],
+    };
   },
   // PostHog'un /ingest/… yolları sondaki eğik çizgiyle çalışır
   skipTrailingSlashRedirect: true,

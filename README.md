@@ -194,6 +194,10 @@ Site listesi (durum, kalan süre, fiyat, A/B ve EN işaretleri) ve site başına
 
 Kayıt nereye gider (`lib/store.ts`): `DARPHANE_GITHUB_TOKEN` varsa GitHub Contents API ile `data/sites/<slug>.json` commit'lenir (yazar Serdaf123) ve Vercel 1–2 dk'da yayınlar; panel de dosyayı GitHub'dan okuduğu için değişiklik anında görünür. Token yoksa (yerel) dosyaya yazar; commit + push sana kalır. Canlıda token yoksa yazma işe yaramaz (Vercel dosya sistemi kalıcı değil), o yüzden token Vercel env'inde olmalı: GitHub → Settings → Developer settings → Fine-grained tokens → yalnız `Serdaf123/Darphane`, Contents: Read and write.
 
+### Serkan'ın kişisel sitesi
+
+`serkanoral.com.tr` aynı projeden çıkar: `data/sites/serkan-oral.json` satılmış bir site gibi (status `sold`, `business.domain`). Alan adında `/` bu siteye rewrite edilir, `/panel` yine panel; alan adındaki `robots.txt` açık sürümdür (`app/robots-open/route.ts`). Vercel'de alan adı ekli; DNS kayıt şirketinde: NS `ns1/ns2.vercel-dns.com` ya da `A @ 76.76.21.21`. DNS gelince `NEXT_PUBLIC_SITE_URL` bu alan adı yapılmamalı (o Darphane'nin OG adresi), sadece bekle.
+
 ## İki tasarım sunmak (A · B)
 
 `data/sites/<slug>.b.json` (tema + hero farkı, kısmi) varsa `/<slug>/b` açılır; teklif şeridinde **Tasarım A · B** geçişi çıkar, "Sitemi Satın Al" mesajına seçilen harf yazılır, PostHog `site_viewed.variant` ile hangisine bakıldığı görülür. Satışta kazanan katman ana dosyaya taşınır.
@@ -217,6 +221,8 @@ Turistik işletmelerde (otel, restoran, tur) `data/sites/<slug>.en.json` eklenin
 Her site için `app/[slug]/opengraph-image.tsx` otomatik kart üretir: hero görseli + işletme adı + telefon, 600×315, ~400 KB. WhatsApp'a link atıldığında çıkan kart budur; `seo.ogImage` verilirse onun yerine o kullanılır. Canlıda mutlak URL için `NEXT_PUBLIC_SITE_URL` (Vercel'de `VERCEL_URL` otomatik).
 
 ## Görseller
+
+`public/` altındaki görseller WebP olmalı: `npm run webp` PNG/JPG'leri sharp ile çevirir, orijinali siler ve data/components içindeki yolları `.webp` yapar (`--keep` orijinali bırakır). `shots/` PNG kalır; WhatsApp WebP'yi çıkartma olarak gönderiyor.
 
 Teklif aşamasında işletmenin kendi Instagram/Google fotoğraflarını kullanmak telif açısından gri alan. Şimdilik Unsplash (ticari kullanıma açık) veya üretilmiş görsel; satıştan sonra işletmenin kendi fotoğraflarına geçilir. Örnek sitelerdeki `picsum.photos` görselleri yer tutucudur.
 

@@ -1,0 +1,217 @@
+{
+  "slug": "serkan-oral",
+  "business": {
+    "name": "Serkan Oral",
+    "category": "Web sitesi tasarımı",
+    "tagline": "Web sitesi olmayan işletmeler için siteyi önce yapıp sonra gösteriyorum.",
+    "phone": "0507 846 39 29",
+    "whatsapp": "905078463929",
+    "social": {},
+    "domain": "serkanoral.com.tr"
+  },
+  "theme": {
+    "preset": "porcelain",
+    "fonts": "craft",
+    "headingFont": "display",
+    "typeScale": "display",
+    "radius": "sm",
+    "density": "normal",
+    "header": "glass",
+    "contact": "fab",
+    "fabStyle": "pill",
+    "motion": {
+      "hero": "reveal",
+      "scroll": "fade",
+      "smooth": true,
+      "parallax": false
+    },
+    "accent": "#2f6fed",
+    "mode": "light",
+    "neutralTint": 0.25
+  },
+  "sections": [
+    {
+      "type": "hero",
+      "id": "ust",
+      "variant": "statement",
+      "headline": "Serkan Oral",
+      "subline": "İşletmenizin web sitesini siz istemeden yapıyorum. Linki gönderiyorum; beğenirseniz tek seferlik ücretle sizin oluyor, beğenmezseniz kaldırıyorum.",
+      "badges": [],
+      "actions": [
+        {
+          "label": "Bana Yazın",
+          "kind": "whatsapp",
+          "value": "Merhaba Serkan, işletmem için site istiyorum.\nİşletme adı: \nŞehir: ",
+          "style": "primary"
+        },
+        {
+          "label": "Örnek çalışmalar",
+          "kind": "scroll",
+          "value": "isler",
+          "style": "ghost"
+        }
+      ],
+      "monogram": "S"
+    },
+    {
+      "type": "about",
+      "id": "nasil",
+      "navLabel": "Nasıl çalışıyorum",
+      "title": "Nasıl çalışıyorum",
+      "body": "Google Haritalar'da web sitesi olmayan işletmeleri buluyorum. Oradaki gerçek bilgilerle (telefon, adres, çalışma saatleri, yorumlar) tek sayfalık bir site kuruyorum ve linkini WhatsApp'tan gönderiyorum.\n\nSite o an canlıdır; telefonunuzdan açıp bakarsınız. Beğenirseniz tek seferlik ücret ödersiniz, alan adını ben bağlarım ve site arama motorlarına açılır. Beğenmezseniz belirttiğim tarihte kaldırırım; hiçbir yükümlülük doğmaz.\n\nAylık ödeme, paket, sözleşme yok. Satıştan sonra telefon ya da çalışma saati gibi bilgiler değişirse yazın, güncellerim.",
+      "highlights": [
+        {
+          "label": "Ücret",
+          "value": "Tek seferlik"
+        },
+        {
+          "label": "Teslim",
+          "value": "Site hazır gelir"
+        },
+        {
+          "label": "Alan adı",
+          "value": "Kurulum dahil"
+        }
+      ]
+    },
+    {
+      "type": "services",
+      "id": "icerik",
+      "navLabel": "Her sitede olanlar",
+      "title": "Her sitede olanlar",
+      "layout": "grid",
+      "tone": "dark",
+      "items": [
+        {
+          "name": "Önce telefon",
+          "description": "Müşterileriniz sizi telefondan buluyor; site önce telefon ekranı için tasarlanır ve hızlı açılır."
+        },
+        {
+          "name": "Ara · WhatsApp · Yol tarifi",
+          "description": "Ekranın altında her zaman duran üç düğme. Form doldurmak yok; mesaj doğrudan WhatsApp'ınıza düşer."
+        },
+        {
+          "name": "Google yorumlarınız ve puanınız",
+          "description": "Haritalar'daki yorumlarınız siteye taşınır; açık/kapalı durumu çalışma saatlerinize göre canlı görünür."
+        },
+        {
+          "name": "İngilizce sürüm",
+          "description": "Turist müşterisi olan işletmeler için aynı sitenin İngilizcesi ayrı bir adreste."
+        },
+        {
+          "name": "Alan adı ve SSL",
+          "description": "ornek.com sizin adınıza alınır ve bağlanır; kilit simgesi ve WhatsApp'ta link önizleme görseli hazır gelir."
+        },
+        {
+          "name": "Arama motorlarına kayıt",
+          "description": "Satıştan sonra site Google'a açılır; işletme bilgileriniz Google'ın anladığı biçimde işaretlenir."
+        }
+      ]
+    },
+    {
+      "type": "gallery",
+      "id": "isler",
+      "navLabel": "Örnekler",
+      "title": "Örnek çalışmalar",
+      "layout": "strip",
+      "images": [
+        {
+          "src": "/sites/serkan-oral/ocakbasi-sahin.webp",
+          "alt": "Örnek: bir ocakbaşı restoranı için hazırlanan sitenin telefon görünümü"
+        },
+        {
+          "src": "/sites/serkan-oral/dishekimi-elif-yarar.webp",
+          "alt": "Örnek: bir diş kliniği için hazırlanan sitenin telefon görünümü"
+        }
+      ]
+    },
+    {
+      "type": "faq",
+      "id": "sss",
+      "navLabel": "Sorular",
+      "title": "Sık sorulan sorular",
+      "items": [
+        {
+          "q": "Ücret ne kadar?",
+          "a": "Tek seferlik. Rakam, size gönderdiğim teklif mesajında yazar; aylık ödeme yoktur."
+        },
+        {
+          "q": "Ben istemeden neden site yaptınız?",
+          "a": "Anlatmak yerine göstermek daha dürüst. Bitmiş siteyi görürsünüz; beğenmezseniz kaldırırım, size bir maliyeti olmaz."
+        },
+        {
+          "q": "Siteyi beğendim ama bazı yerleri değiştirmek istiyorum.",
+          "a": "Satın almadan önce de değişiklik isteyebilirsiniz; yazın, düzeltip aynı linkten gösteririm."
+        },
+        {
+          "q": "Alan adı kimin üzerine olur?",
+          "a": "Sizin. Alan adı sizin adınıza alınır; siteyi ileride başka yere taşımak isterseniz engel yok."
+        },
+        {
+          "q": "Kendi fotoğraflarımı kullanabilir misiniz?",
+          "a": "Teklif aşamasında telifsiz görsellerle çalışırım. Satıştan sonra kendi fotoğraflarınızı gönderirsiniz, onları koyarım."
+        },
+        {
+          "q": "Örnekler gerçek müşteri mi?",
+          "a": "Örnek çalışmalar bölümündeki iki site tanıtım amaçlı hazırlanmış demolardır. Gerçek işletmelerin siteleri satışa kadar yalnızca sahiplerine gösterilir."
+        }
+      ]
+    },
+    {
+      "type": "contact",
+      "id": "iletisim",
+      "navLabel": "İletişim",
+      "title": "Sitenizi görmek ister misiniz?",
+      "intro": "İşletmenizin adını ve şehrini yazın; siteyi hazırlayıp linkini WhatsApp'tan gönderirim.",
+      "form": {
+        "enabled": true,
+        "submitLabel": "WhatsApp'tan Gönder",
+        "fields": [
+          {
+            "name": "isletme",
+            "label": "İşletme adı",
+            "type": "text",
+            "required": true
+          },
+          {
+            "name": "sehir",
+            "label": "Şehir / ilçe",
+            "type": "text"
+          },
+          {
+            "name": "telefon",
+            "label": "Telefonunuz",
+            "type": "tel"
+          }
+        ]
+      }
+    },
+    {
+      "type": "cta",
+      "id": "yaz",
+      "headline": "Bir mesaj yeter.",
+      "subline": "0507 846 39 29 — WhatsApp'tan yazın; siteyi hazırlayıp linki gönderirim.",
+      "actions": [
+        {
+          "label": "WhatsApp'tan Yazın",
+          "kind": "whatsapp",
+          "value": "Merhaba Serkan, işletmem için site istiyorum.\nİşletme adı: \nŞehir: ",
+          "style": "primary"
+        },
+        {
+          "label": "0507 846 39 29",
+          "kind": "call",
+          "style": "ghost"
+        }
+      ]
+    }
+  ],
+  "offer": {
+    "status": "sold",
+    "currency": "TRY"
+  },
+  "seo": {
+    "title": "Serkan Oral — İşletmeler için web sitesi",
+    "description": "Web sitesi olmayan işletmeler için siteyi önce yapıp sonra gösteriyorum. Beğenirseniz tek seferlik ücretle sizin; alan adı kurulumu dahil."
+  }
+}
