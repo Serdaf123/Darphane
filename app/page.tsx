@@ -1,6 +1,5 @@
-import { redirect } from "next/navigation";
-
-/** Kök adres iç panele gider; kimlik kontrolü proxy.ts'te. */
-export default function HomePage() {
-  redirect("/panel");
-}
+/**
+ * Ana sayfa = Serkan'ın tanıtım sitesi (serkanoral.com.tr ile aynı içerik).
+ * Panel /panel'de, kimlik kontrolü proxy.ts'te.
+ */
+export { default, metadata } from "./serkan-oral/page";

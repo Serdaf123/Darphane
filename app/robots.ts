@@ -12,7 +12,8 @@ export default function robots(): MetadataRoute.Robots {
   return {
     rules: {
       userAgent: "*",
-      allow: sold.length > 0 ? sold : undefined,
+      // "/$" yalnız kök sayfa (Serkan'ın sitesi); satılan siteler kendi yolundan
+      allow: ["/$", ...sold],
       disallow: "/",
     },
   };

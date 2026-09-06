@@ -103,8 +103,7 @@ const nextConfig: NextConfig = {
     };
 
     return [
-      // fourpear iç paneli
-      { source: "/", headers: [noindex] },
+      // fourpear iç paneli (kök artık açık tanıtım sitesi)
       { source: "/panel/:path*", headers: [noindex] },
       { source: "/giris", headers: [noindex] },
       // Satılmamış her işletme sitesi
