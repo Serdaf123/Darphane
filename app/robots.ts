@@ -7,7 +7,8 @@ import { getAllSites, isPubliclyIndexable } from "@/lib/sites";
  * genel Disallow'u geçersiz kılar.
  */
 export default function robots(): MetadataRoute.Robots {
-  const sold = getAllSites().filter(isPubliclyIndexable).map((site) => `/${site.slug}`);
+  // serkan-oral kökte yayınlanır (/); kendi yolu noindex
+  const sold = getAllSites().filter(isPubliclyIndexable).filter((s) => s.slug !== "serkan-oral").map((site) => `/${site.slug}`);
 
   return {
     rules: {

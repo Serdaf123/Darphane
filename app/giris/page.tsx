@@ -68,7 +68,7 @@ export default async function LoginPage({
 
         {hata ? (
           <p role="alert" style={{ margin: 0, fontSize: "0.875rem", color: "#f87171" }}>
-            Parola yanlış. Vercel'deki DARPHANE_ADMIN_PASSWORD ile aynı olmalı.
+            Parola yanlış. Vercel’deki DARPHANE_ADMIN_PASSWORD ile aynı olmalı.
           </p>
         ) : null}
 
@@ -89,7 +89,7 @@ export default async function LoginPage({
         </button>
 
         <p style={{ margin: 0, fontSize: "0.75rem", color: "#6b7280" }}>
-          Bu sayfa fourpear'ın iç panelidir. İşletme siteleri parolasız açılır.
+          Bu sayfa fourpear’ın iç panelidir. İşletme siteleri parolasız açılır.
         </p>
       </form>
     </main>

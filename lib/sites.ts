@@ -118,7 +118,7 @@ export function isPubliclyIndexable(site: Site): boolean {
  * canlı geri sayım istemci tarafında ayrıca çalışır.
  */
 export function isOfferExpired(site: Site, now: Date = new Date()): boolean {
-  if (site.offer.status === "sold") return false;
+  if (site.offer.status === "sold" || site.offer.status === "demo") return false;
   if (site.offer.status === "expired") return true;
   if (!site.offer.expiresAt) return false;
   return new Date(site.offer.expiresAt).getTime() <= now.getTime();

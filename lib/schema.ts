@@ -373,8 +373,9 @@ export type SectionType = Section["type"];
  * pitched → teklif gönderildi, geri sayım işliyor
  * sold    → satıldı: geri sayım kalkar, arama motorlarına açılır
  * expired → süre doldu, elle kapatıldı
+ * demo    → bizim örnek sitemiz: şerit yok, süre yok, indeks kapalı (kişisel sitede gösterilir)
  */
-export const OFFER_STATUSES = ["draft", "pitched", "sold", "expired"] as const;
+export const OFFER_STATUSES = ["draft", "pitched", "sold", "expired", "demo"] as const;
 
 const offerSchema = z.object({
   status: z.enum(OFFER_STATUSES).default("draft"),
