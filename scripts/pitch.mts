@@ -48,17 +48,15 @@ if (fs.existsSync(txt)) {
   const deadline = site.offer?.expiresAt
     ? new Date(site.offer.expiresAt).toLocaleDateString("tr-TR", { day: "numeric", month: "long", weekday: "long" })
     : "belirttiğim gün";
-  message = `Merhaba, ${site.business.name} için bir şey hazırladım.
+  message = `Merhaba, ben Serkan Oral (fourpear). ${site.business.name} için bir şey hazırladım.
 
-Sitenizin olmadığını fark ettim, ben de bir tane kurdum. Google'daki bilgilerinizle (telefon, adres, saatler, yorumlar) tek sayfalık bir site; WhatsApp'tan doğrudan mesaj alıyor. Şu an canlı, telefonunuzdan açabilirsiniz:
+Google Haritalar'da sitenizin olmadığını fark ettim, oradaki bilgilerinizle (telefon, adres, saatler, yorumlar) tek sayfalık bir site kurdum; WhatsApp'tan doğrudan mesaj alıyor. Şu an canlı, telefonunuzdan açabilirsiniz:
 
 ${pageUrl}
 
-Bu bir teklif sunumu değil, bitmiş bir iş. Beğenirseniz ${price} karşılığında sizin oluyor, alan adını da ben ayarlarım. Beğenmezseniz ${deadline} siteyi kaldırıyorum, kimsenin bir yükümlülüğü olmuyor.
+Bu bir teklif sunumu değil, bitmiş bir iş. Beğenirseniz ${price} karşılığında sizin oluyor, alan adını da sizin adınıza ben alırım. Beğenmezseniz ${deadline} siteyi kaldırıyorum; hiçbir borç ya da yükümlülük yok.
 
-İlgilenmiyorsanız "çıkar" yazmanız yeterli, bir daha yazmam.
-
-Serkan — fourpear`;
+Numaranızı Haritalar kaydınızdan aldım. İstemezseniz "hayır" yazmanız yeterli: siteyi kaldırır, bilgilerinizi siler, bir daha yazmam.`;
   fs.mkdirSync(path.dirname(txt), { recursive: true });
   fs.writeFileSync(txt, message);
   console.log(`Metin şablondan üretildi: ${txt} (düzenleyip tekrar çalıştırabilirsin)`);
@@ -72,4 +70,4 @@ try {
 
 /* 4. klasörü aç */
 try { execSync("open shots"); } catch { /* macOS dışı */ }
-console.log(`\nSıra: 1) shots/${slug}-telefon.png gönder  2) metni yapıştır  3) panelde "Teklif gönderildi" → ${base}/panel/${slug}`);
+console.log(`\nSıra: 0) önce ara, "WhatsApp'a atayım mı?" de  1) shots/${slug}-telefon.png gönder  2) metni yapıştır  3) panelde "Teklif gönderildi" → ${base}/panel/${slug}`);

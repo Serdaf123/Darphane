@@ -72,7 +72,10 @@ export function OfferPage({ site, domains, variant }: { site: Site; domains: Dom
           </h1>
           <p style={{ color: MUTED, marginTop: "1rem", fontSize: "1.05rem" }}>
             Site şu an canlı. Beğenirseniz tek seferlik ücretle sizin olur, alan adı ve kurulum dahil.
-            {deadline ? ` Beğenmezseniz ${deadline.date} günü yayından kaldırıyorum; kimsenin bir yükümlülüğü olmaz.` : ""}
+            {deadline ? ` Beğenmezseniz ${deadline.date} günü yayından kaldırıyorum.` : ""}
+          </p>
+          <p style={{ color: MUTED, marginTop: "0.75rem", fontSize: "0.9375rem" }}>
+            Bu önizleme talep edilmeden, Google Haritalar’daki açık işletme bilgilerinizle hazırlandı; hiçbir borç ya da yükümlülük doğurmaz. İstemezseniz WhatsApp’tan “hayır” yazmanız yeterli: site kaldırılır, bilgileriniz silinir, bir daha yazılmaz.
           </p>
 
           <div style={{ marginTop: "1.5rem", display: "grid", gap: "1rem", gridTemplateColumns: "repeat(auto-fit, minmax(10rem, 1fr))" }}>
@@ -181,6 +184,14 @@ export function OfferPage({ site, domains, variant }: { site: Site; domains: Dom
               Siteyi tekrar aç
             </Link>
           </div>
+          <dl style={{ margin: "1.25rem 0 0", display: "grid", gridTemplateColumns: "max-content 1fr", gap: "0.25rem 1rem", fontSize: "0.8125rem", color: MUTED }}>
+            <dt>Gönderen</dt>
+            <dd style={{ margin: 0 }}>Serkan Oral · {offer.seller?.name ?? "fourpear"}</dd>
+            <dt>Telefon</dt>
+            <dd style={{ margin: 0 }}>{offer.seller?.whatsapp ? `+${offer.seller.whatsapp}` : "—"}</dd>
+            <dt>Web</dt>
+            <dd style={{ margin: 0 }}>serkanoral.com.tr</dd>
+          </dl>
         </section>
       </div>
     </main>
