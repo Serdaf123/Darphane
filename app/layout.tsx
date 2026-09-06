@@ -10,12 +10,15 @@ const sans = Inter({
   variable: "--font-sans",
   subsets: ["latin", "latin-ext"],
   display: "swap",
+  // İşletme siteleri kendi font çiftini yükler; kökteki çift ön yüklenmesin (2 × ~70 KB)
+  preload: false,
 });
 
 const display = Playfair_Display({
   variable: "--font-display",
   subsets: ["latin", "latin-ext"],
   display: "swap",
+  preload: false,
 });
 
 export const metadata: Metadata = {

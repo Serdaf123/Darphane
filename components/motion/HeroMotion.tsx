@@ -1,70 +1,18 @@
 "use client";
 
-import { motion, type TargetAndTransition, type Transition, type Variants } from "motion/react";
-import { useRef, type CSSProperties, type ReactNode } from "react";
-import { gsap } from "gsap";
-import { useGSAP } from "@gsap/react";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { SplitText } from "gsap/SplitText";
+import { useEffect, useRef, type CSSProperties, type ReactNode } from "react";
 import { useSiteMotion } from "./MotionProvider";
-
-gsap.registerPlugin(useGSAP, ScrollTrigger, SplitText);
 
 /**
  * Hero giriş animasyonu. Sayfa açılır açılmaz bir kez oynar.
  *   <HeroItem order={n}>  metin blokları — order sırayla gecikme verir
  *   <HeroMedia>           görsel katmanı — preset'e göre yaklaşır / açılır / netleşir
  *
+ * CSS ile çalışır (app/globals.css: .hero-item-*, .hero-media-*): sunucu HTML'i
+ * görünür gelir, animasyon ilk boyamada başlar, JS beklemez → LCP gecikmez.
+ * Yalnız "split" (harf harf) ve parallax GSAP ister; o da gerektiğinde yüklenir.
  * Stil theme.motion.hero'dan gelir. "none" veya "hareketi azalt" → düz çizim.
  */
-
-const EASE = [0.22, 1, 0.36, 1] as const;
-const STEP = 0.09;
-
-const ITEM: Record<string, Variants> = {
-  rise: {
-    hidden: { opacity: 0, y: 26 },
-    show: (i: number) => ({
-      opacity: 1,
-      y: 0,
-      transition: { duration: 0.8, ease: EASE, delay: 0.15 + i * STEP },
-    }),
-  },
-  reveal: {
-    // Dış sarmalayıcı overflow:hidden; içerik alttan perde arkasından çıkar
-    hidden: { y: "110%" },
-    show: (i: number) => ({
-      y: "0%",
-      transition: { duration: 0.9, ease: EASE, delay: 0.25 + i * STEP },
-    }),
-  },
-  blur: {
-    hidden: { opacity: 0, filter: "blur(14px)", scale: 1.02 },
-    show: (i: number) => ({
-      opacity: 1,
-      filter: "blur(0px)",
-      scale: 1,
-      transition: { duration: 1, ease: "easeOut", delay: 0.1 + i * STEP },
-    }),
-  },
-  curtain: {
-    hidden: { opacity: 0, y: 18 },
-    show: (i: number) => ({
-      opacity: 1,
-      y: 0,
-      // Perde 0.9 sn'de kalkar, metinler onun ardından gelir
-      transition: { duration: 0.7, ease: EASE, delay: 0.75 + i * STEP },
-    }),
-  },
-  zoom: {
-    hidden: { opacity: 0, scale: 0.96 },
-    show: (i: number) => ({
-      opacity: 1,
-      scale: 1,
-      transition: { duration: 1, ease: EASE, delay: 0.3 + i * STEP },
-    }),
-  },
-};
 
 export function HeroItem({
   children,
@@ -95,33 +43,30 @@ export function HeroItem({
     );
   }
 
-  const inner = (
-    <motion.div
-      className={hero === "reveal" ? undefined : className}
-      style={hero === "reveal" ? undefined : style}
-      custom={order}
-      variants={ITEM[hero]}
-      initial="hidden"
-      animate="show"
-    >
-      {children}
-    </motion.div>
-  );
+  const vars = { "--i": order } as CSSProperties;
 
   // reveal: maske, iç blok maskeden yukarı kayar
-  return hero === "reveal" ? (
-    <div className={className} style={{ ...style, overflow: "hidden", paddingBottom: "0.1em" }}>
-      {inner}
+  if (hero === "reveal") {
+    return (
+      <div className={className} style={{ ...style, overflow: "hidden", paddingBottom: "0.1em" }}>
+        <div className="hero-item hero-item-reveal" style={vars}>
+          {children}
+        </div>
+      </div>
+    );
+  }
+
+  return (
+    <div className={`hero-item hero-item-${hero}${className ? ` ${className}` : ""}`} style={{ ...style, ...vars }}>
+      {children}
     </div>
-  ) : (
-    inner
   );
 }
 
 /**
  * split: başlıklar harf harf, maskeli satırlardan yükselir; diğer bloklar
- * kelime kelime. SplitText fontlar yüklenince böler (autoSplit), yeniden
- * boyutlanınca kendini onarır.
+ * kelime kelime. GSAP + SplitText gerektiğinde yüklenir; hidrasyon geç
+ * geldiyse (yavaş bağlantı) okunmuş içeriği yeniden oynatmaz.
  */
 function SplitItem({
   children,
@@ -136,16 +81,21 @@ function SplitItem({
 }) {
   const ref = useRef<HTMLDivElement>(null);
 
-  useGSAP(
-    () => {
-      const el = ref.current;
-      if (!el) return;
+  useEffect(() => {
+    const el = ref.current;
+    if (!el || performance.now() > 2500) return;
+    let cancelled = false;
+    let cleanup: (() => void) | undefined;
+
+    Promise.all([import("gsap"), import("gsap/SplitText")]).then(([{ gsap }, { SplitText }]) => {
+      if (cancelled) return;
+      gsap.registerPlugin(SplitText);
       const heading = el.querySelector("h1, h2");
       const target = heading ?? el.querySelector("p") ?? null;
 
       if (target) {
         const isHeading = target === heading;
-        SplitText.create(target, {
+        const split = SplitText.create(target, {
           type: isHeading ? "lines,words,chars" : "lines,words",
           mask: "lines",
           autoSplit: true,
@@ -159,13 +109,18 @@ function SplitItem({
               delay: 0.15 + order * 0.12,
             }),
         });
+        cleanup = () => split.revert();
       } else {
-        // rozetler, butonlar: blok olarak yükselir
-        gsap.from(el, { y: 24, opacity: 0, duration: 0.8, ease: "power3.out", delay: 0.35 + order * 0.12 });
+        const tween = gsap.from(el, { y: 24, opacity: 0, duration: 0.8, ease: "power3.out", delay: 0.35 + order * 0.12 });
+        cleanup = () => tween.kill();
       }
-    },
-    { scope: ref }
-  );
+    });
+
+    return () => {
+      cancelled = true;
+      cleanup?.();
+    };
+  }, [order]);
 
   return (
     <div ref={ref} className={className} style={style}>
@@ -186,23 +141,34 @@ export function HeroMedia({
   const { hero, reduced, parallax } = useSiteMotion();
   const parallaxRef = useRef<HTMLDivElement>(null);
 
-  // Görsel kaydırırken içerikten yavaş gider: derinlik hissi, layout etkisi yok
-  useGSAP(
-    () => {
-      const el = parallaxRef.current;
-      if (!el || !parallax || reduced) return;
+  // Görsel kaydırırken içerikten yavaş gider: derinlik hissi, layout etkisi yok.
+  // GSAP yalnız parallax açıksa ve ilk boyamadan sonra yüklenir.
+  useEffect(() => {
+    const el = parallaxRef.current;
+    if (!el || !parallax || reduced) return;
+    let cancelled = false;
+    let cleanup: (() => void) | undefined;
+    Promise.all([import("gsap"), import("gsap/ScrollTrigger")]).then(([{ gsap }, { ScrollTrigger }]) => {
+      if (cancelled) return;
+      gsap.registerPlugin(ScrollTrigger);
       const section = el.closest("section") ?? el.parentElement;
-      gsap.to(el, {
+      const tween = gsap.to(el, {
         yPercent: 18,
         ease: "none",
         scrollTrigger: { trigger: section, start: "top top", end: "bottom top", scrub: true },
       });
-    },
-    { dependencies: [parallax, reduced] }
-  );
+      cleanup = () => {
+        tween.scrollTrigger?.kill();
+        tween.kill();
+      };
+    });
+    return () => {
+      cancelled = true;
+      cleanup?.();
+    };
+  }, [parallax, reduced]);
 
-  // Parallax (GSAP) dış katmanda, giriş animasyonu (motion) iç katmanda:
-  // ikisi aynı elemanın transform'unu yazarsa birbirini ezer.
+  // Parallax dış katmanda, giriş animasyonu iç katmanda: aynı transform'u yazmasınlar.
   if (hero === "none" || reduced) {
     return (
       <div ref={parallaxRef} className={className} style={style}>
@@ -211,46 +177,13 @@ export function HeroMedia({
     );
   }
 
-  const media: Record<
-    string,
-    { initial: TargetAndTransition; animate: TargetAndTransition; transition: Transition }
-  > = {
-    rise: { initial: { scale: 1.06 }, animate: { scale: 1 }, transition: { duration: 1.6, ease: EASE } },
-    reveal: {
-      initial: { clipPath: "inset(0 100% 0 0)" },
-      animate: { clipPath: "inset(0 0% 0 0)" },
-      transition: { duration: 1.1, ease: EASE },
-    },
-    blur: {
-      initial: { filter: "blur(10px)", scale: 1.04 },
-      animate: { filter: "blur(0px)", scale: 1 },
-      transition: { duration: 1.3, ease: "easeOut" },
-    },
-    curtain: { initial: { scale: 1.04 }, animate: { scale: 1 }, transition: { duration: 1.6, ease: EASE } },
-    zoom: { initial: { scale: 1.28 }, animate: { scale: 1 }, transition: { duration: 1.8, ease: EASE } },
-  };
-  // split preset'inde görsel için zoom hissi
-  const m = media[hero] ?? media.zoom;
-
+  const preset = hero === "split" ? "zoom" : hero;
   return (
     <div ref={parallaxRef} className={className} style={style}>
-      <motion.div
-        style={{ position: "absolute", inset: 0, willChange: "transform" }}
-        initial={m.initial}
-        animate={m.animate}
-        transition={m.transition}
-      >
+      <div className={`hero-media hero-media-${preset}`} style={{ position: "absolute", inset: 0 }}>
         {children}
-      </motion.div>
-      {hero === "curtain" ? (
-        <motion.div
-          aria-hidden
-          style={{ position: "absolute", inset: 0, background: "var(--c-bg)", transformOrigin: "top", zIndex: 2 }}
-          initial={{ scaleY: 1 }}
-          animate={{ scaleY: 0 }}
-          transition={{ duration: 0.9, ease: EASE, delay: 0.1 }}
-        />
-      ) : null}
+      </div>
+      {hero === "curtain" ? <div aria-hidden className="hero-curtain" /> : null}
     </div>
   );
 }

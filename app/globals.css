@@ -957,3 +957,27 @@ a.hero-urgent-note:hover {
 /* Video hero */
 .hero-video { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
 @media (prefers-reduced-motion: reduce) { .hero-video { display: none; } }
+
+/* Hero giriş animasyonları (HeroMotion.tsx). CSS: sunucu HTML'i görünür, JS beklemez. */
+.hero-item { --i: 0; animation-duration: 0.9s; animation-timing-function: cubic-bezier(0.22, 1, 0.36, 1); animation-fill-mode: both; animation-delay: calc(0.12s + var(--i) * 0.09s); }
+.hero-item-rise { animation-name: hero-rise; }
+.hero-item-reveal { animation-name: hero-reveal; animation-delay: calc(0.22s + var(--i) * 0.09s); }
+.hero-item-blur { animation-name: hero-blur; animation-duration: 1s; animation-timing-function: ease-out; }
+.hero-item-curtain { animation-name: hero-rise; animation-duration: 0.7s; animation-delay: calc(0.7s + var(--i) * 0.09s); }
+.hero-item-zoom { animation-name: hero-zoom; animation-duration: 1s; animation-delay: calc(0.28s + var(--i) * 0.09s); }
+@keyframes hero-rise { from { opacity: 0; transform: translateY(26px); } to { opacity: 1; transform: none; } }
+@keyframes hero-reveal { from { transform: translateY(110%); } to { transform: none; } }
+@keyframes hero-blur { from { opacity: 0; filter: blur(14px); transform: scale(1.02); } to { opacity: 1; filter: blur(0); transform: none; } }
+@keyframes hero-zoom { from { opacity: 0; transform: scale(0.96); } to { opacity: 1; transform: none; } }
+/* Görsel: hiçbir preset görseli gizlemez (LCP); yalnız ölçek/netlik değişir */
+.hero-media { animation-fill-mode: both; animation-timing-function: cubic-bezier(0.22, 1, 0.36, 1); will-change: transform; }
+.hero-media-rise, .hero-media-curtain { animation: hero-media-scale 1.6s cubic-bezier(0.22, 1, 0.36, 1) both; }
+.hero-media-reveal { animation: hero-media-scale 1.4s cubic-bezier(0.22, 1, 0.36, 1) both; }
+.hero-media-blur { animation: hero-media-blur 1.3s ease-out both; }
+.hero-media-zoom { animation: hero-media-zoom 1.8s cubic-bezier(0.22, 1, 0.36, 1) both; }
+@keyframes hero-media-scale { from { transform: scale(1.06); } to { transform: scale(1); } }
+@keyframes hero-media-blur { from { filter: blur(10px); transform: scale(1.04); } to { filter: blur(0); transform: scale(1); } }
+@keyframes hero-media-zoom { from { transform: scale(1.22); } to { transform: scale(1); } }
+.hero-curtain { position: absolute; inset: 0; background: var(--c-bg); transform-origin: top; z-index: 2; animation: hero-curtain 0.9s cubic-bezier(0.22, 1, 0.36, 1) 0.1s both; pointer-events: none; }
+@keyframes hero-curtain { from { transform: scaleY(1); } to { transform: scaleY(0); } }
+@media (prefers-reduced-motion: reduce) { .hero-item, .hero-media, .hero-curtain { animation: none; } .hero-curtain { display: none; } }

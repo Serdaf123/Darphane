@@ -2,11 +2,7 @@
 
 import { ReactLenis, useLenis } from "lenis/react";
 import { useEffect, type ReactNode } from "react";
-import { gsap } from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useSiteMotion } from "./MotionProvider";
-
-gsap.registerPlugin(ScrollTrigger);
 
 /**
  * Lenis yumuşak kaydırma (theme.motion.smooth). Doğal scroll'un üstünde
@@ -31,8 +27,12 @@ function LenisBridge() {
 
   useEffect(() => {
     if (!lenis) return;
-    const update = () => ScrollTrigger.update();
-    lenis.on("scroll", update);
+    // ScrollTrigger yalnız yüklüyse güncellenir; yoksa (parallax kapalı) hiç indirilmez
+    let update: (() => void) | undefined;
+    import("gsap/ScrollTrigger").then(({ ScrollTrigger }) => {
+      update = () => ScrollTrigger.update();
+      lenis.on("scroll", update);
+    });
 
     const onClick = (event: MouseEvent) => {
       const link = (event.target as HTMLElement).closest<HTMLAnchorElement>('a[href^="#"]');
@@ -49,7 +49,7 @@ function LenisBridge() {
     document.addEventListener("click", onClick);
 
     return () => {
-      lenis.off("scroll", update);
+      if (update) lenis.off("scroll", update);
       document.removeEventListener("click", onClick);
     };
   }, [lenis]);
