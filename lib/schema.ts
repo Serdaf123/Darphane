@@ -201,6 +201,8 @@ const heroSection = z.object({
   headline: z.string(),
   subline: z.string().optional(),
   image: imageSchema.optional(),
+  /** image hero'da sessiz döngü video (mp4/webm); image poster olarak kalır. "Hareketi azalt" → yalnız poster. */
+  video: z.object({ src: z.string(), type: z.string().default("video/mp4") }).optional(),
   actions: z.array(actionSchema).default([]),
   /** "20 yıllık tecrübe" gibi kısa güven işaretleri */
   badges: z.array(z.string()).default([]),
@@ -342,6 +344,67 @@ const faqSection = z.object({
   items: z.array(z.object({ q: z.string(), a: z.string() })),
 });
 
+/** Fiyat tablosu: kuaför, spor salonu, klinik paketleri. En fazla 4 plan. */
+const pricingSection = z.object({
+  ...sectionBase,
+  type: z.literal("pricing"),
+  title: z.string().default("Fiyatlar"),
+  intro: z.string().optional(),
+  /** "Fiyatlar KDV dahildir" gibi dipnot */
+  note: z.string().optional(),
+  plans: z
+    .array(
+      z.object({
+        name: z.string(),
+        price: z.string(),
+        /** "/ ay", "/ seans" */
+        period: z.string().optional(),
+        description: z.string().optional(),
+        features: z.array(z.string()).default([]),
+        /** Öne çıkan plan vurgu renginde çerçeve alır */
+        featured: z.boolean().optional(),
+        action: actionSchema.optional(),
+      })
+    )
+    .min(1)
+    .max(4),
+});
+
+/** Ekip: klinik, büro, salon. Fotoğraf yoksa baş harf rozeti. */
+const teamSection = z.object({
+  ...sectionBase,
+  type: z.literal("team"),
+  title: z.string().default("Ekip"),
+  intro: z.string().optional(),
+  members: z
+    .array(
+      z.object({
+        name: z.string(),
+        role: z.string().optional(),
+        bio: z.string().optional(),
+        image: imageSchema.optional(),
+      })
+    )
+    .min(1),
+});
+
+/** Önce / sonra: klinik, kuaför, tadilat, detailing. Kaydırmalı karşılaştırma. */
+const beforeAfterSection = z.object({
+  ...sectionBase,
+  type: z.literal("beforeAfter"),
+  title: z.string().default("Önce / Sonra"),
+  intro: z.string().optional(),
+  pairs: z
+    .array(
+      z.object({
+        label: z.string().optional(),
+        before: imageSchema,
+        after: imageSchema,
+      })
+    )
+    .min(1),
+});
+
 const ctaSection = z.object({
   ...sectionBase,
   type: z.literal("cta"),
@@ -361,6 +424,9 @@ export const sectionSchema = z.discriminatedUnion("type", [
   locationSection,
   contactSection,
   faqSection,
+  pricingSection,
+  teamSection,
+  beforeAfterSection,
   ctaSection,
 ]);
 export type Section = z.infer<typeof sectionSchema>;

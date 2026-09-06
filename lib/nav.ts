@@ -17,18 +17,24 @@ const NAV_TYPES = new Set<Section["type"]>([
   "location",
   "contact",
   "faq",
+  "pricing",
+  "team",
+  "beforeAfter",
 ]);
 
 /** Menüde en çok işe yarayanlar önce; sonra sayfa sırasına dizilir. */
 const PRIORITY: Section["type"][] = [
   "menu",
   "services",
+  "pricing",
+  "beforeAfter",
   "gallery",
   "reviews",
   "contact",
   "location",
   "about",
   "hours",
+  "team",
   "faq",
 ];
 

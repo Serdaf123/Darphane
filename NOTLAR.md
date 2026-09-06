@@ -90,8 +90,8 @@ Durum: ✅ bitti · 🔧 sırada · ⏳ dış girdi bekliyor · 💡 fikir
 ### Sırada — siteyi güçlendirenler
 | # | İş | Süre | Durum |
 |---|---|---|---|
-| 8 | Video hero (sessiz mp4 döngü) — restoran, kafe, spor | 2 sa | 💡 |
-| 9 | Yeni bölümler: fiyat tablosu, ekip, önce/sonra, fotoğraflı menü | 2 sa/bölüm | 💡 talebe göre |
+| 8 | Video hero (sessiz mp4 döngü) — restoran, kafe, spor | 2 sa | ✅ 07.09 (`hero.video`) |
+| 9 | Yeni bölümler: fiyat tablosu, ekip, önce/sonra, fotoğraflı menü | 2 sa/bölüm | ✅ 07.09 pricing/team/beforeAfter (`salon-ada` demosu); fotoğraflı menü 💡 |
 | 10 | Places API ile gerçek yorum + fotoğraf çekme | 2 sa | ⏳ anahtar |
 | 11 | Lighthouse + axe her build'de | 1 sa | 💡 |
 | 12 | Unsplash API ile sektör fotoğraf paketleri | 2 sa | ⏳ anahtar |
@@ -131,3 +131,4 @@ Durum: ✅ bitti · 🔧 sırada · ⏳ dış girdi bekliyor · 💡 fikir
 - **2026-09-07** Metinleri Manus yazacak (Serkan Manus'u bağlıyor); görseller ChatGPT, kod Codex. Portre (`public/sites/serkan-oral/serkan.webp`, Serkan'ın verdiği kesik fotoğraf) açılışa eklendi: masaüstünde sağda büyük, mobilde metin yanında yuvarlak.
 - **2026-09-07** Manus köprüsü: `scripts/manus.mts` (`npm run manus`), resmi API (api.manus.ai v2: task.create → task.detail → task.listMessages; başlık `x-manus-api-key`). Manus'un kendi MCP'si yok (Manus'taki 'MCP connectors' onun başka araçlara bağlanması). Serkan'dan `MANUS_API_KEY` bekleniyor. Codex bu Mac'te kurulu; ayrı worktree `~/Desktop/darphane-codex` (dal `codex/serkan-design-b`) verildi.
 - **2026-09-07 gece** Kişisel site kritik turu (Impeccable + SEO + Lighthouse): mobil alt çubuk (WhatsApp/Ara), sabit telefon kısa ekranda sabitlenmez, kontrastlı accent (#2f5be6), focus halkası, başlık sırası (h2 'Nasıl çalışıyor'), kartlar mobilde bölünmüş liste, örnekler demo sitelere link, kurgusal işletme notu, kök OG görseli, JSON-LD (Person + ProfessionalService), sitemap.ts, güvenlik başlıkları, /serkan-oral noindex (kanonik kök). Yeni teklif durumu `demo`: şerit yok, süre yok, indeks kapalı; ocakbaşı ve diş demoları buna alındı.
+- **2026-09-07 gece** Motor: `pricing`, `team`, `beforeAfter` bölümleri + `hero.video`; kuaför demosu `salon-ada` (status demo). Demo önce/sonra görselleri Unsplash yer tutucu, gerçek çiftle değiştirilecek. Araştırma raporları: `docs/arastirma-satis-2026-09-07.md`, `docs/arastirma-teknik-2026-09-07.md` (özet sabah raporunda).
