@@ -229,6 +229,18 @@ Neden: "beğendiniz mi?" evet/hayır sorusudur; "hangisi?" seçim sorusudur — 
 
 Turistik işletmelerde (otel, restoran, tur) `data/sites/<slug>.en.json` eklenince `/<slug>/en` sayfası açılır, header'da TR ⇄ EN geçişi çıkar, `hreflang` alternatifleri yazılır. Dosya **kısmi**dir: `business` alanları, `seo` ve `id`'si eşleşen bölümler TR'nin üstüne biner; tema ve teklif değişmez. Arayüz metinleri (Ara / Directions, gün adları, "şu an açık") `lib/i18n.ts`'ten gelir. Teklif şeridi Türkçe kalır — o işletme sahibine hitap ediyor. Örnek: `olympos-garden-hotel.en.json`.
 
+## Teklif paketi tek komutta
+
+`npm run pitch -- <slug>` → temiz telefon görüntüsü (`shots/<slug>-telefon.png`), OG kartı (`shots/<slug>-og.png`), gönderim metni panoya (yoksa `content/pitch/gonderim/<slug>.txt` şablondan üretilir), Finder'da shots/ açılır. `--b` B tasarımı, `--url` başka adres. WhatsApp sırası: önce görsel, sonra metin.
+
+## KVKK çerez onayı
+
+PostHog anahtarı varsa her sayfada onay bandı çıkar (`components/analytics/ConsentBanner.tsx`); kayıt ve olaylar yalnız "Kabul" sonrası başlar, karar 6 ay `localStorage`'da. "Reddet" → hiçbir istatistik çerezi yok. Aydınlatma metni `/gizlilik` (taslak; veri sorumlusu bilgisi ve hukuki gözden geçirme bekliyor). Anahtar yoksa posthog-js paketi hiç indirilmez.
+
+## Lighthouse CI
+
+`.github/workflows/lighthouse.yml` her PR ve main push'unda `/`, `/salon-ada`, `/olympos-garden-hotel` sayfalarını mobil Lighthouse ile ölçer (`.lighthouserc.json`): erişilebilirlik ≥ 93 zorunlu, performans ≥ 80 uyarı. Rapor linki iş günlüğünde.
+
 ## Satış sinyalleri (PostHog)
 
 `NEXT_PUBLIC_POSTHOG_KEY` verilince her işletme sitesinde oturum kaydı ve şu olaylar açılır: `site_viewed` (slug, teklif durumu), `scroll_depth` (25/50/75/100), `cta_click` (call / whatsapp / directions / email / buy), `engaged` (30 sn). Form alanları kayda maskelenmiş girer. İstekler `/ingest` üzerinden kendi alan adımızdan geçer (reklam engelleyici takılmaz). AB sunucusu.
