@@ -241,6 +241,10 @@ PostHog anahtarı varsa her sayfada onay bandı çıkar (`components/analytics/C
 
 `.github/workflows/lighthouse.yml` her PR ve main push'unda `/`, `/salon-ada`, `/olympos-garden-hotel` sayfalarını mobil Lighthouse ile ölçer (`.lighthouserc.json`): erişilebilirlik ≥ 93 zorunlu, performans ≥ 80 uyarı. Rapor linki iş günlüğünde.
 
+## Telegram uyarısı
+
+`/api/uyari` PostHog webhook'unu Telegram mesajına çevirir: "👀 açtı — olympos-garden-hotel · Mobile · İstanbul", "👆 bastı → whatsapp". Kurulum: BotFather'dan bot (`TELEGRAM_BOT_TOKEN`), kendi chat id'n (`TELEGRAM_CHAT_ID`), rastgele `DARPHANE_WEBHOOK_SECRET`; PostHog → Data pipeline → Destinations → Webhook → URL `https://<site>/api/uyari?s=<secret>`, olaylar `site_viewed`, `cta_click`, `engaged`.
+
 ## Satış sinyalleri (PostHog)
 
 `NEXT_PUBLIC_POSTHOG_KEY` verilince her işletme sitesinde oturum kaydı ve şu olaylar açılır: `site_viewed` (slug, teklif durumu), `scroll_depth` (25/50/75/100), `cta_click` (call / whatsapp / directions / email / buy), `engaged` (30 sn). Form alanları kayda maskelenmiş girer. İstekler `/ingest` üzerinden kendi alan adımızdan geçer (reklam engelleyici takılmaz). AB sunucusu.

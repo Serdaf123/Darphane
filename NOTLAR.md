@@ -80,7 +80,7 @@ Durum: ✅ bitti · 🔧 sırada · ⏳ dış girdi bekliyor · 💡 fikir
 | # | İş | Neden | Süre | Durum |
 |---|---|---|---|---|
 | 7 | KVKK çerez onayı bandı (PostHog için zorunlu) | Kayıt onaysız başlamasın | 2 sa | ✅ 07.09 (+ /gizlilik taslağı) |
-| 1 | PostHog → Telegram anlık uyarı ("X açtı, 52 sn, fiyata 2 kez döndü") | Sinyal panelde kalmasın, o dakika ara | 2 sa | 🔧 |
+| 1 | PostHog → Telegram anlık uyarı ("X açtı, 52 sn, fiyata 2 kez döndü") | Sinyal panelde kalmasın, o dakika ara | 2 sa | ✅ 07.09 köprü hazır (`/api/uyari`); bot token + PostHog anahtarı bekliyor |
 | 2 | Teklif sayfası `/<slug>/teklif` — ne dahil, süreç, fiyat, esnaf SSS'si, ödeme linki | "Peki ne alıyorum?" cevabı; karar orada verilir | 3 sa | ✅ 07.09 |
 | 3 | `npm run pitch` — görsel + OG + mesaj (pano) + 15 sn MP4 (WebCodecs) tek komut | Video görselden çok açılır; üç işi bire indir | 3 sa | ✅ 07.09 (MP4 hariç) |
 | 4 | Alan adı önerici (RDAP, anahtarsız) — teklif sayfasında "ornek.com müsait" | Somutlaştırır, karar hızlanır | 1 sa | ✅ 07.09 |
