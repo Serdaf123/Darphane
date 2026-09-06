@@ -81,9 +81,9 @@ Durum: ✅ bitti · 🔧 sırada · ⏳ dış girdi bekliyor · 💡 fikir
 |---|---|---|---|---|
 | 7 | KVKK çerez onayı bandı (PostHog için zorunlu) | Kayıt onaysız başlamasın | 2 sa | 🔧 |
 | 1 | PostHog → Telegram anlık uyarı ("X açtı, 52 sn, fiyata 2 kez döndü") | Sinyal panelde kalmasın, o dakika ara | 2 sa | 🔧 |
-| 2 | Teklif sayfası `/<slug>/teklif` — ne dahil, süreç, fiyat, esnaf SSS'si, ödeme linki | "Peki ne alıyorum?" cevabı; karar orada verilir | 3 sa | 🔧 |
+| 2 | Teklif sayfası `/<slug>/teklif` — ne dahil, süreç, fiyat, esnaf SSS'si, ödeme linki | "Peki ne alıyorum?" cevabı; karar orada verilir | 3 sa | ✅ 07.09 |
 | 3 | `npm run pitch` — görsel + OG + mesaj (pano) + 15 sn MP4 (WebCodecs) tek komut | Video görselden çok açılır; üç işi bire indir | 3 sa | 🔧 |
-| 4 | Alan adı önerici (RDAP, anahtarsız) — teklif sayfasında "ornek.com müsait" | Somutlaştırır, karar hızlanır | 1 sa | 🔧 |
+| 4 | Alan adı önerici (RDAP, anahtarsız) — teklif sayfasında "ornek.com müsait" | Somutlaştırır, karar hızlanır | 1 sa | ✅ 07.09 |
 | 5 | İki paket: Site / Site + Google İşletme Profili + 1 yıl bakım | "Hangisi" sorusu "evet/hayır"dan iyi | 1 sa | 💡 |
 | 6 | Notion pipeline: aday → gönderildi → açtı → konuştu → satıldı | 10 adaydan sonra kafada tutulmaz | 1 sa | 💡 |
 

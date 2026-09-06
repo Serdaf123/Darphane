@@ -63,12 +63,14 @@ function VariantSwitch({ variant, links }: { variant: "a" | "b"; links: VariantL
 function CountdownBar({
   offer,
   businessName,
+  slug,
   now,
   variant,
   variantLinks,
 }: {
   offer: Offer;
   businessName: string;
+  slug: string;
   now: number | null;
   variant: "a" | "b";
   variantLinks?: VariantLinks;
@@ -109,6 +111,10 @@ function CountdownBar({
                   {String(left.seconds).padStart(2, "0")}
                 </span>{" "}
                 kaldı
+                {" · "}
+                <a href={`/${slug}/teklif${variant === "b" ? "?tasarim=b" : ""}`} className="font-semibold underline underline-offset-2" style={{ color: BAR_TEXT }}>
+                  Detaylar
+                </a>
               </>
             ) : deadline !== null ? (
               <>
@@ -124,6 +130,7 @@ function CountdownBar({
 
         <div className="flex shrink-0 items-center gap-2">
           {variantLinks ? <VariantSwitch variant={variant} links={variantLinks} /> : null}
+
           {/* Ödeme linki varsa karar anında ödeme; WhatsApp soru için kalır */}
           {offer.paymentUrl ? (
             <a
@@ -200,12 +207,15 @@ function DraftBar({
 export function OfferLayer({
   offer,
   businessName,
+  slug,
   children,
   variant = "a",
   variantLinks,
 }: {
   offer: Offer;
   businessName: string;
+  /** /[slug]/teklif bağlantısı için */
+  slug: string;
   children: ReactNode;
   variant?: "a" | "b";
   /** İki tasarım varsa şeritte A · B geçişi */
@@ -242,6 +252,7 @@ export function OfferLayer({
       <CountdownBar
         offer={offer}
         businessName={businessName}
+        slug={slug}
         now={now}
         variant={variant}
         variantLinks={variantLinks}

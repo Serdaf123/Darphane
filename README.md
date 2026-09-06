@@ -202,6 +202,10 @@ Kayıt nereye gider (`lib/store.ts`): `DARPHANE_GITHUB_TOKEN` varsa GitHub Conte
 
 `npm run manus -- briefs/01-metinler.md --out content/serkan/copy.md` brifi Manus'a gönderir, görev bitene kadar bekler (10 sn'de bir durum), cevabı dosyaya yazar. `--profile max` daha güçlü ajan, `--dry` göndermeden gösterir. Anahtar: manus.im → Settings → Integrations → API → Create API Key → `.env.local` içine `MANUS_API_KEY=`. Görev linki çıktıda yazılır; Manus'ta da izlenebilir.
 
+## Teklif sayfası (`/<slug>/teklif`)
+
+Şeritteki "Detaylar" linki buraya gelir: fiyat, son gün, ne dahil, alan adı adayları (RDAP ile .com müsaitliği; `lib/domains.ts`), 3 adım, esnaf SSS'si, ödeme/WhatsApp. Satılan sitede 404, her zaman noindex. B tasarımından `?tasarim=b` ile açılır ve WhatsApp mesajına tasarım yazılır.
+
 ## İki tasarım sunmak (A · B)
 
 `data/sites/<slug>.b.json` (tema + hero farkı, kısmi) varsa `/<slug>/b` açılır; teklif şeridinde **Tasarım A · B** geçişi çıkar, "Sitemi Satın Al" mesajına seçilen harf yazılır, PostHog `site_viewed.variant` ile hangisine bakıldığı görülür. Satışta kazanan katman ana dosyaya taşınır.
