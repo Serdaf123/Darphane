@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 
 /**
  * Kişisel sayfanın B tasarımı — Codex'in alanı (bkz. AGENTS.md).
@@ -14,7 +15,7 @@ export default function SerkanOralB() {
   return (
     <main style={{ minHeight: "100dvh", display: "grid", placeItems: "center", background: "#111", color: "#eee", fontFamily: "system-ui, sans-serif" }}>
       <p>
-        Tasarım B henüz yok. Kaynak: <code>app/serkan-oral/b/page.tsx</code> + <code>components/serkan-b/</code>. Tasarım A: <a href="/serkan-oral" style={{ color: "#9db4ff" }}>/serkan-oral</a>
+        Tasarım B henüz yok. Kaynak: <code>app/serkan-oral/b/page.tsx</code> + <code>components/serkan-b/</code>. Tasarım A: <Link href="/serkan-oral" style={{ color: "#9db4ff" }}>/serkan-oral</Link>
       </p>
     </main>
   );
