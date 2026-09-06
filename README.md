@@ -186,7 +186,13 @@ scripts/new-site.mts      iskelet üretici
 
 ## Canlı ve iç sayfa
 
-Canlı: `https://darphane-74qr.vercel.app` (Vercel, her `main` push'unda otomatik deploy). Kök sayfa `/` fourpear'ın iç listesidir; canlıda giriş ister: `/giris` sayfası, parola Vercel env `DARPHANE_ADMIN_PASSWORD`, 30 günlük imzalı çerez, `/api/cikis` ile çıkış (`proxy.ts` + `lib/admin-auth.ts`). Parola değişince eski oturumlar düşer. İşletme sayfaları açıktır. Yerelde (`next dev`) sorulmaz. Env/redeploy/log için Vercel CLI bu makinede oturum açık: `npx vercel env ls`, `npx vercel redeploy <url>`, `npx vercel logs <url>`.
+Canlı: `https://darphane-74qr.vercel.app` (Vercel, her `main` push'unda otomatik deploy; commit yazarı Serdaf123 olmalı, yoksa Vercel Hobby deploy'u sessizce bloklar). `/` ve `/panel` fourpear'ın iç panelidir; canlıda giriş ister: `/giris` sayfası, parola Vercel env `DARPHANE_ADMIN_PASSWORD`, 30 günlük imzalı çerez, `/api/cikis` ile çıkış (`proxy.ts` + `lib/admin-auth.ts`). Parola değişince eski oturumlar düşer. İşletme sayfaları açıktır. Yerelde (`next dev`) sorulmaz. Env/redeploy/log için Vercel CLI bu makinede oturum açık: `npx vercel env ls`, `npx vercel logs <url>`.
+
+### Panel (`/panel`)
+
+Site listesi (durum, kalan süre, fiyat, A/B ve EN işaretleri) ve site başına detay: teklif alanları (durum, son gün, fiyat, ödeme linki, satıcı WhatsApp, alan adı), hızlı işlemler (teklif gönderildi +7 gün, 3 gün uzat, satıldı, yayından kaldır, taslağa al), linkler (A/B/EN/OG, işletmeye WhatsApp), gönderim metni kopyalama (`content/pitch/gonderim/<slug>.txt`).
+
+Kayıt nereye gider (`lib/store.ts`): `DARPHANE_GITHUB_TOKEN` varsa GitHub Contents API ile `data/sites/<slug>.json` commit'lenir (yazar Serdaf123) ve Vercel 1–2 dk'da yayınlar; panel de dosyayı GitHub'dan okuduğu için değişiklik anında görünür. Token yoksa (yerel) dosyaya yazar; commit + push sana kalır. Canlıda token yoksa yazma işe yaramaz (Vercel dosya sistemi kalıcı değil), o yüzden token Vercel env'inde olmalı: GitHub → Settings → Developer settings → Fine-grained tokens → yalnız `Serdaf123/Darphane`, Contents: Read and write.
 
 ## İki tasarım sunmak (A · B)
 

@@ -63,6 +63,11 @@ function domainRewrites() {
 }
 
 const nextConfig: NextConfig = {
+  // Panel çalışma anında bu dosyaları okur; Vercel paketine dahil olsunlar.
+  outputFileTracingIncludes: {
+    "/panel": ["./data/sites/**", "./content/pitch/gonderim/**"],
+    "/panel/[slug]": ["./data/sites/**", "./content/pitch/gonderim/**"],
+  },
   images: {
     remotePatterns: [
       // Unsplash: ticari kullanıma açık, teklif aşamasında telif riski yok.
@@ -92,8 +97,10 @@ const nextConfig: NextConfig = {
     };
 
     return [
-      // fourpear iç sayfası
+      // fourpear iç paneli
       { source: "/", headers: [noindex] },
+      { source: "/panel/:path*", headers: [noindex] },
+      { source: "/giris", headers: [noindex] },
       // Satılmamış her işletme sitesi
       ...unsoldSlugs().map((slug) => ({
         source: `/${slug}`,

@@ -2,13 +2,13 @@ import { NextResponse, type NextRequest } from "next/server";
 import { ADMIN_COOKIE, isValidAdminToken } from "@/lib/admin-auth";
 
 /**
- * Kök sayfa (/) fourpear'ın iç listesi: hangi site hangi aşamada, fiyatlar,
- * süreler. Dışarıya kapalı: geçerli oturum çerezi yoksa /giris'e yönlendirir.
+ * Kök sayfa (/) ve /panel fourpear'ın iç paneli: hangi site hangi aşamada,
+ * fiyatlar, süreler, durum değişiklikleri. Dışarıya kapalı: geçerli oturum çerezi yoksa /giris'e yönlendirir.
  * İşletme sayfaları (/<slug>, /<slug>/en, /<slug>/b) açık kalır; onlar teklif.
  * Yerelde (next dev) sorulmaz.
  */
 export const config = {
-  matcher: ["/"],
+  matcher: ["/", "/panel", "/panel/:path*"],
 };
 
 export async function proxy(request: NextRequest) {
