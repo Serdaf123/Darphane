@@ -16,7 +16,8 @@
     "palette": "node scripts/palette-from-photo.mts",
     "check:palettes": "node scripts/check-palettes.mts",
     "duo": "node scripts/duo.mts",
-    "webp": "node scripts/webp.mts"
+    "webp": "node scripts/webp.mts",
+    "manus": "node --env-file-if-exists=.env.local scripts/manus.mts"
   },
   "dependencies": {
     "@anthropic-ai/sdk": "^0.123.0",

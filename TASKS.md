@@ -18,7 +18,7 @@ Durum: 🔧 üzerinde çalışılıyor · 🕐 sırada · ✅ bitti · ⛔ blokl
 ## Manus (metin)
 | Durum | İş | Brif | Teslim |
 |---|---|---|---|
-| 🕐 | Kişisel site metinleri | `briefs/01-metinler.md` | `content/serkan/copy.md` |
+| ⛔ | Kişisel site metinleri (`npm run manus -- briefs/01-metinler.md --out content/serkan/copy.md`) | `briefs/01-metinler.md` | `content/serkan/copy.md` · MANUS_API_KEY bekliyor |
 
 ## ChatGPT (görsel)
 | Durum | İş | Brif | Teslim |
