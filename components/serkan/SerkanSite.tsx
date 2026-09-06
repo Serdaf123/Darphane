@@ -72,6 +72,10 @@ export function SerkanSite() {
       const split = SplitText.create(title, { type: "lines,chars", linesClass: "line", charsClass: "char" });
       gsap.from(split.chars, { yPercent: 110, rotate: 4, duration: 1.1, ease: "power4.out", stagger: 0.035, delay: 0.1 });
       gsap.from(q(".so-hero-bottom > *, .so-scrollcue"), { y: 24, opacity: 0, duration: 0.9, ease: "power3.out", stagger: 0.1, delay: 0.7 });
+      /* Portre: yükselerek gelir, kaydırdıkça hafif geride kalır */
+      const portrait = q(".so-portrait-desktop")[0];
+      gsap.from(portrait, { y: 60, opacity: 0, duration: 1.3, ease: "power3.out", delay: 0.35 });
+      gsap.to(portrait, { yPercent: 12, ease: "none", scrollTrigger: { trigger: q(".so-hero")[0], start: "top top", end: "bottom top", scrub: true } });
 
       /* Işık: fareyi izler (masaüstü) */
       const glow = q(".so-glow")[0];
@@ -188,6 +192,9 @@ export function SerkanSite() {
       <section id="ust" className="so-hero">
         <div className="so-hero-grid" aria-hidden />
         <div className="so-glow" aria-hidden style={{ left: "20%", top: "10%" }} />
+        <div className="so-portrait so-portrait-desktop">
+          <Image src="/sites/serkan-oral/serkan.webp" alt="Serkan Oral" width={900} height={900} priority sizes="30vw" />
+        </div>
         <div className="so-wrap">
           <h1 className="so-hero-title">
             Serkan
@@ -213,9 +220,14 @@ export function SerkanSite() {
                 <a href="#surec" className="so-pill so-pill-ghost so-pill-lg">Nasıl çalışıyor?</a>
               </div>
             </div>
-            <p className="so-hero-aside">
-              Web sitesi olmayan işletmeler için siteyi önce yapıyor, sonra gösteriyorum. Beğenirseniz tek seferlik ücretle sizin; alan adı kurulumu dahil.
-            </p>
+            <div className="so-hero-aside">
+              <div className="so-portrait so-portrait-mobile">
+                <Image src="/sites/serkan-oral/serkan.webp" alt="Serkan Oral" width={900} height={900} sizes="6rem" />
+              </div>
+              <p>
+                Web sitesi olmayan işletmeler için siteyi önce yapıyor, sonra gösteriyorum. Beğenirseniz tek seferlik ücretle sizin; alan adı kurulumu dahil.
+              </p>
+            </div>
           </div>
           <div className="so-scrollcue" aria-hidden>
             <i /> Kaydırın

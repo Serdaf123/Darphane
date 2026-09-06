@@ -7,7 +7,7 @@ Durum: 🔧 üzerinde çalışılıyor · 🕐 sırada · ✅ bitti · ⛔ blokl
 ## Claude (Serkan'ın Mac'i)
 | Durum | İş | Not |
 |---|---|---|
-| ✅ | Kişisel site Tasarım A (`app/serkan-oral`, `components/serkan`) | canlı: `/` ve `/serkan-oral` |
+| ✅ | Kişisel site Tasarım A (`app/serkan-oral`, `components/serkan`) | canlı: `/` ve `/serkan-oral`; portre eklendi |
 | 🕐 | ChatGPT metin/görselleri Tasarım A'ya entegre etme | `content/serkan/copy.md` dolunca |
 | 🕐 | A ve B karşılaştırma raporu | B PR'ı gelince |
 | ✅ | Panel (`/panel`), GitHub'a yazan kayıt katmanı | token bekliyor |
@@ -15,10 +15,14 @@ Durum: 🔧 üzerinde çalışılıyor · 🕐 sırada · ✅ bitti · ⛔ blokl
 | 🕐 | Yellow Bull teklif paketi | A/B kararı + yorum sayısı bekliyor |
 | ⛔ | serkanoral.com.tr DNS | Turhost glue IP düzeltmesi (TRABİS) |
 
-## ChatGPT (metin + görsel)
+## Manus (metin)
 | Durum | İş | Brif | Teslim |
 |---|---|---|---|
 | 🕐 | Kişisel site metinleri | `briefs/01-metinler.md` | `content/serkan/copy.md` |
+
+## ChatGPT (görsel)
+| Durum | İş | Brif | Teslim |
+|---|---|---|---|
 | 🕐 | Kişisel site görselleri | `briefs/02-gorseller.md` | `public/sites/serkan-oral/*.webp` |
 
 ## Codex (GitHub)
