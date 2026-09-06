@@ -8,15 +8,23 @@ Durum: 🔧 üzerinde çalışılıyor · 🕐 sırada · ✅ bitti · ⛔ blokl
 | Durum | İş | Not |
 |---|---|---|
 | ✅ | Kişisel site Tasarım A (`app/serkan-oral`, `components/serkan`) | canlı: `/` ve `/serkan-oral` |
+| 🕐 | ChatGPT metin/görselleri Tasarım A'ya entegre etme | `content/serkan/copy.md` dolunca |
+| 🕐 | A ve B karşılaştırma raporu | B PR'ı gelince |
 | ✅ | Panel (`/panel`), GitHub'a yazan kayıt katmanı | token bekliyor |
 | 🕐 | KVKK çerez bandı + PostHog açılışı | anahtar gelince |
 | 🕐 | Yellow Bull teklif paketi | A/B kararı + yorum sayısı bekliyor |
 | ⛔ | serkanoral.com.tr DNS | Turhost glue IP düzeltmesi (TRABİS) |
 
+## ChatGPT (metin + görsel)
+| Durum | İş | Brif | Teslim |
+|---|---|---|---|
+| 🕐 | Kişisel site metinleri | `briefs/01-metinler.md` | `content/serkan/copy.md` |
+| 🕐 | Kişisel site görselleri | `briefs/02-gorseller.md` | `public/sites/serkan-oral/*.webp` |
+
 ## Codex (GitHub)
 | Durum | İş | Not |
 |---|---|---|
-| 🕐 | Kişisel site Tasarım B (`app/serkan-oral/b`, `components/serkan-b`) | Tasarım A'nın olgularını kullan, yeni iddia yok; PR ile |
+| 🕐 | Kişisel site Tasarım B (`app/serkan-oral/b`, `components/serkan-b`) | brif: `briefs/03-tasarim-b.md`; metin gelince başla; PR ile |
 | 🕐 | (B onaylanırsa) Tasarım B'yi köke taşıma | Serkan seçer |
 
 ## Karşılaştırma ölçütleri (A vs B)
