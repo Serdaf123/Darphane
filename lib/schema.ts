@@ -451,6 +451,22 @@ const offerSchema = z.object({
   currency: z.string().default("TRY"),
   /** Ödeme linki (iyzico iyzilink / PayTR link). Varsa şeritteki ana buton buraya gider, WhatsApp ikinci buton olur. */
   paymentUrl: z.string().url().optional(),
+  /**
+   * İki paket sunmak için (teklif sayfasında): "hangisi?" sorusu "evet/hayır"dan iyi.
+   * Verilmezse tek fiyat (price) gösterilir. price yine şeritte kalır (ilk paketin fiyatı olmalı).
+   */
+  packages: z
+    .array(
+      z.object({
+        name: z.string(),
+        price: z.number(),
+        includes: z.array(z.string()).min(1),
+        featured: z.boolean().optional(),
+        paymentUrl: z.string().url().optional(),
+      })
+    )
+    .max(3)
+    .optional(),
   /** Teklifi gönderen bizim taraf — geri sayım şeridindeki butonlar buraya gider */
   seller: z
     .object({

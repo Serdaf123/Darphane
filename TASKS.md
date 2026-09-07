@@ -15,7 +15,7 @@ Durum: 🔧 üzerinde çalışılıyor · 🕐 sırada · ✅ bitti · ⛔ blokl
 | ✅ | Teklif sayfası, pricing/team/beforeAfter, performans turu, `npm run pitch`, Lighthouse CI | 07.09 gece |
 | 🕐 | Yellow Bull teklif paketi | A/B kararı + yorum sayısı bekliyor |
 | 🕐 | Avukat teklifi: arama-önce yaklaşımı (KVKK 2022/861) | Serkan arayacak |
-| 🕐 | Fiyat merdiveni kararı → teklif sayfasına iki paket | Serkan karar verecek |
+| 🕐 | Fiyat merdiveni kararı | teknik hazır: `offer.packages`, örnek `/yellow-bull-istanbul/teklif` |
 | ⛔ | serkanoral.com.tr DNS | Turhost glue IP düzeltmesi (TRABİS) |
 
 ## Manus (metin)

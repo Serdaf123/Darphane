@@ -109,6 +109,49 @@ export function OfferPage({ site, domains, variant }: { site: Site; domains: Dom
           </div>
         </section>
 
+        {offer.packages && offer.packages.length > 0 ? (
+          <section style={{ marginTop: "3rem" }}>
+            <h2 style={{ fontSize: "1.25rem", margin: "0 0 1rem" }}>Paketler</h2>
+            <div style={{ display: "grid", gap: "1rem", gridTemplateColumns: `repeat(auto-fit, minmax(14rem, 1fr))` }}>
+              {offer.packages.map((pk) => {
+                const pay = pk.paymentUrl ?? offer.paymentUrl;
+                const waPk = offer.seller
+                  ? `https://wa.me/${offer.seller.whatsapp}?text=${encodeURIComponent(`Merhaba, ${business.name} için "${pk.name}" paketini istiyorum (${pk.price.toLocaleString("tr-TR")} ₺).`)}`
+                  : undefined;
+                return (
+                  <div key={pk.name} style={{ background: CARD, border: `1px solid ${pk.featured ? GREEN : LINE}`, borderRadius: "14px", padding: "1.1rem 1.25rem", display: "flex", flexDirection: "column", gap: "0.75rem" }}>
+                    <div>
+                      <div style={{ fontWeight: 700 }}>{pk.name}</div>
+                      <div style={{ fontSize: "1.75rem", fontWeight: 700, letterSpacing: "-0.02em", lineHeight: 1.1 }}>{pk.price.toLocaleString("tr-TR")} ₺</div>
+                      <div style={{ fontSize: "0.8125rem", color: MUTED }}>tek seferlik</div>
+                    </div>
+                    <ul style={{ margin: 0, padding: 0, listStyle: "none", display: "grid", gap: "0.35rem", fontSize: "0.9375rem" }}>
+                      {pk.includes.map((i) => (
+                        <li key={i} style={{ display: "flex", gap: "0.5rem" }}>
+                          <span aria-hidden style={{ color: GREEN }}>✓</span>
+                          <span>{i}</span>
+                        </li>
+                      ))}
+                    </ul>
+                    <div style={{ marginTop: "auto", display: "flex", gap: "0.5rem", flexWrap: "wrap" }}>
+                      {pay ? (
+                        <a href={pay} target="_blank" rel="noopener noreferrer" className="btn" style={{ background: GREEN, color: "#07130b", fontWeight: 700, padding: "0.6rem 1rem", fontSize: "0.9rem" }}>
+                          Ödemeye Geç
+                        </a>
+                      ) : null}
+                      {waPk ? (
+                        <a href={waPk} target="_blank" rel="noopener noreferrer" className="btn" style={{ background: pay ? "transparent" : GREEN, color: pay ? FG : "#07130b", border: pay ? `1px solid ${LINE}` : undefined, fontWeight: 700, padding: "0.6rem 1rem", fontSize: "0.9rem" }}>
+                          {pay ? "Sor" : "Bu paketi istiyorum"}
+                        </a>
+                      ) : null}
+                    </div>
+                  </div>
+                );
+              })}
+            </div>
+          </section>
+        ) : null}
+
         <section style={{ marginTop: "3rem" }}>
           <h2 style={{ fontSize: "1.25rem", margin: "0 0 1rem" }}>Ne dahil</h2>
           <ul style={{ listStyle: "none", padding: 0, margin: 0, display: "grid", gap: "0.75rem" }}>

@@ -192,6 +192,8 @@ Canlı: `https://darphane-74qr.vercel.app` (Vercel, her `main` push'unda otomati
 
 Site listesi (durum, kalan süre, fiyat, A/B ve EN işaretleri) ve site başına detay: teklif alanları (durum, son gün, fiyat, ödeme linki, satıcı WhatsApp, alan adı), hızlı işlemler (teklif gönderildi +7 gün, 3 gün uzat, satıldı, yayından kaldır, taslağa al), linkler (A/B/EN/OG, işletmeye WhatsApp), gönderim metni kopyalama (`content/pitch/gonderim/<slug>.txt`).
 
+Panelde "Reddetti → kaydı sil": slug'ı yazıp onaylayınca JSON ve B/EN katmanları silinir (mesajdaki "bilgilerinizi silerim" sözü); GitHub modunda her dosya ayrı commit. Giriş sonrası `/panel`'e düşülür.
+
 Kayıt nereye gider (`lib/store.ts`): `DARPHANE_GITHUB_TOKEN` varsa GitHub Contents API ile `data/sites/<slug>.json` commit'lenir (yazar Serdaf123) ve Vercel 1–2 dk'da yayınlar; panel de dosyayı GitHub'dan okuduğu için değişiklik anında görünür. Token yoksa (yerel) dosyaya yazar; commit + push sana kalır. Canlıda token yoksa yazma işe yaramaz (Vercel dosya sistemi kalıcı değil), o yüzden token Vercel env'inde olmalı: GitHub → Settings → Developer settings → Fine-grained tokens → yalnız `Serdaf123/Darphane`, Contents: Read and write.
 
 ### Serkan'ın kişisel sitesi
@@ -213,7 +215,7 @@ Kayıt nereye gider (`lib/store.ts`): `DARPHANE_GITHUB_TOKEN` varsa GitHub Conte
 
 ## Teklif sayfası (`/<slug>/teklif`)
 
-Şeritteki "Detaylar" linki buraya gelir: fiyat, son gün, ne dahil, alan adı adayları (RDAP ile .com müsaitliği; `lib/domains.ts`), 3 adım, esnaf SSS'si, ödeme/WhatsApp. Satılan sitede 404, her zaman noindex. B tasarımından `?tasarim=b` ile açılır ve WhatsApp mesajına tasarım yazılır.
+Şeritteki "Detaylar" linki buraya gelir: fiyat, son gün, ne dahil, alan adı adayları (RDAP ile .com müsaitliği; `lib/domains.ts`), 3 adım, esnaf SSS'si, ödeme/WhatsApp. Satılan sitede 404, her zaman noindex. B tasarımından `?tasarim=b` ile açılır ve WhatsApp mesajına tasarım yazılır. `offer.packages` (en fazla 3) verilirse "Paketler" bölümü çıkar (örnek: `yellow-bull-istanbul.json`, 7.900 / 9.900); yoksa tek fiyat. Sayfada gönderen künyesi ve "talep edilmeden hazırlandı, yükümlülük doğurmaz" notu var (6563 / KVKK).
 
 ## İki tasarım sunmak (A · B)
 

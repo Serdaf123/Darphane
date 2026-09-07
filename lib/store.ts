@@ -127,3 +127,31 @@ export async function writeSite(slug: string, raw: RawSite, message: string, sha
   fs.writeFileSync(path.join(SITES_DIR, `${slug}.json`), text);
   return { mode: "fs" };
 }
+
+/**
+ * Siteyi tamamen kaldırır (JSON + varyant/dil katmanları). Ret gelince söz verdiğimiz
+ * "bilgileriniz silinir" bununla yerine gelir. GitHub'da her dosya ayrı commit.
+ */
+export async function deleteSite(slug: string, message: string): Promise<SaveResult & { removed: string[] }> {
+  if (!/^[a-z0-9-]+$/.test(slug)) throw new Error("Geçersiz slug");
+  const files = (await listAllFiles()).filter((f) => f === `${slug}.json` || f.startsWith(`${slug}.`));
+  if (files.length === 0) throw new Error("Site bulunamadı");
+
+  if (storeMode === "github") {
+    let last: { html_url: string; sha: string } | undefined;
+    for (const f of files) {
+      const meta = await gh(`data/sites/${f}?ref=${BRANCH}`);
+      if (meta.status === 404) continue;
+      const { sha } = (await meta.json()) as GhFile;
+      const res = await gh(`data/sites/${f}`, {
+        method: "DELETE",
+        body: JSON.stringify({ message: `${message} (${f})\n\nPanelden. Co-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>`, sha, branch: BRANCH, committer: AUTHOR, author: AUTHOR }),
+      });
+      const body = (await res.json()) as { commit?: { sha: string; html_url: string } };
+      if (body.commit) last = body.commit;
+    }
+    return { mode: "github", commitUrl: last?.html_url, sha: last?.sha?.slice(0, 7), removed: files };
+  }
+  for (const f of files) fs.unlinkSync(path.join(SITES_DIR, f));
+  return { mode: "fs", removed: files };
+}

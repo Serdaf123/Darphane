@@ -268,7 +268,30 @@
     "seller": {
       "name": "fourpear",
       "whatsapp": "905078463929"
-    }
+    },
+    "packages": [
+      {
+        "name": "Site",
+        "price": 7900,
+        "includes": [
+          "Tek sayfa site, telefonda önce",
+          "Alan adı sizin adınıza + 1 yıl yayın",
+          "WhatsApp rezervasyon, Google yorumları",
+          "3 düzeltme hakkı"
+        ]
+      },
+      {
+        "name": "Site + Google",
+        "price": 9900,
+        "featured": true,
+        "includes": [
+          "Site paketindeki her şey",
+          "İngilizce sayfa (/en)",
+          "Google İşletme Profili düzenleme + site linki",
+          "1 yıl boyunca ayda 1 değişiklik"
+        ]
+      }
+    ]
   },
   "seo": {
     "title": "Yellow Bull İstanbul Hotel — Kumkapı, Sultanahmet",

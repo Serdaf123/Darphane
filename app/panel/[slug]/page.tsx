@@ -4,7 +4,7 @@ import { readSite, listAllFiles, storeMode } from "@/lib/store";
 import { OFFER_STATUSES } from "@/lib/schema";
 import { STATUS_META, effectiveStatus, formatPriceNumber, formatTr, pitchText, timeLeft, toLocalInput } from "@/lib/panel";
 import { purchaseUrl } from "@/lib/offer";
-import { saveOffer, quickAction } from "./actions";
+import { saveOffer, quickAction, declineAndDelete } from "./actions";
 import { CopyButton } from "./CopyButton";
 
 export const dynamic = "force-dynamic";
@@ -195,6 +195,20 @@ export default async function SitePanelPage({ params, searchParams }: Props) {
           </section>
         </div>
       </div>
+
+      {st !== "sold" ? (
+        <section className="card" style={{ marginTop: "1rem", borderColor: "var(--expired-bg)" }}>
+          <h3>Reddetti → kaydı sil</h3>
+          <p style={{ margin: "0 0 0.75rem", color: "var(--muted)", fontSize: "0.875rem" }}>
+            Mesajdaki söz: &ldquo;siteyi kaldırır, bilgilerinizi siler&rdquo;. Bu işlem JSON’u ve varsa B/EN katmanlarını tamamen siler; geri alınamaz (git geçmişinde kalır). Onay için slug’ı yaz.
+          </p>
+          <form action={declineAndDelete} style={{ display: "flex", gap: "0.5rem", flexWrap: "wrap" }}>
+            <input type="hidden" name="slug" value={slug} />
+            <input name="onay" placeholder={slug} className="" style={{ font: "inherit", padding: "0.5rem 0.7rem", border: "1px solid var(--line)", borderRadius: "8px", minWidth: "14rem" }} />
+            <button type="submit" className="btn btn-danger">Sil</button>
+          </form>
+        </section>
+      ) : null}
 
       <section className="card" style={{ marginTop: "1rem" }}>
         <h3 style={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
