@@ -115,17 +115,28 @@ export async function writeSite(slug: string, raw: RawSite, message: string, sha
   const text = JSON.stringify(raw, null, 2) + "\n";
 
   if (storeMode === "github") {
-    const res = await gh(`data/sites/${slug}.json`, {
-      method: "PUT",
-      body: JSON.stringify({
-        message: `${message}\n\nPanelden. Co-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>`,
-        content: Buffer.from(text, "utf8").toString("base64"),
-        branch: BRANCH,
-        sha,
-        committer: AUTHOR,
-        author: AUTHOR,
-      }),
-    });
+    const put = (fileSha?: string) =>
+      fetch(`https://api.github.com/repos/${REPO}/contents/data/sites/${slug}.json`, {
+        method: "PUT",
+        cache: "no-store",
+        headers: { Authorization: `Bearer ${TOKEN}`, Accept: "application/vnd.github+json", "X-GitHub-Api-Version": "2022-11-28" },
+        body: JSON.stringify({
+          message: `${message}\n\nPanelden. Co-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>`,
+          content: Buffer.from(text, "utf8").toString("base64"),
+          branch: BRANCH,
+          sha: fileSha,
+          committer: AUTHOR,
+          author: AUTHOR,
+        }),
+      });
+    let res = await put(sha);
+    if (res.status === 409 || res.status === 422) {
+      // Aynı dosyaya art arda iki kayıt (çift tık, iki sekme): güncel sha'yı alıp bir kez daha dene
+      const fresh = await gh(`data/sites/${slug}.json?ref=${BRANCH}`);
+      const freshSha = fresh.status === 200 ? ((await fresh.json()) as GhFile).sha : undefined;
+      res = await put(freshSha);
+    }
+    if (!res.ok) throw new Error(`GitHub ${res.status}: ${(await res.text()).slice(0, 200)}`);
     const body = (await res.json()) as { commit?: { sha: string; html_url: string } };
     return { mode: "github", commitUrl: body.commit?.html_url, sha: body.commit?.sha?.slice(0, 7) };
   }
