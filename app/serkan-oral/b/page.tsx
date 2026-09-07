@@ -1,22 +1,13 @@
 import type { Metadata } from "next";
-import Link from "next/link";
+import { FONT_PAIRINGS } from "@/lib/fonts";
+import { Concepts } from "@/components/serkan-b/Concepts";
+import "@/components/serkan-b/concepts.css";
 
-/**
- * Kişisel sayfanın B tasarımı — Codex'in alanı (bkz. AGENTS.md).
- * Bu dosya ve components/serkan-b/** Codex tarafından doldurulur.
- * Seçilen tasarım sonra köke (/serkan-oral) taşınır. Seçilene kadar noindex.
- */
 export const metadata: Metadata = {
-  title: "Serkan Oral — Tasarım B",
+  title: "Serkan Oral — Üç tasarım yönü",
   robots: { index: false, follow: false, nocache: true },
 };
 
 export default function SerkanOralB() {
-  return (
-    <main style={{ minHeight: "100dvh", display: "grid", placeItems: "center", background: "#111", color: "#eee", fontFamily: "system-ui, sans-serif" }}>
-      <p>
-        Tasarım B henüz yok. Kaynak: <code>app/serkan-oral/b/page.tsx</code> + <code>components/serkan-b/</code>. Tasarım A: <Link href="/serkan-oral" style={{ color: "#9db4ff" }}>/serkan-oral</Link>
-      </p>
-    </main>
-  );
+  return <div className={FONT_PAIRINGS.craft.className}><Concepts /></div>;
 }
