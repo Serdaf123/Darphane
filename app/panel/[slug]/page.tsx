@@ -82,6 +82,11 @@ export default async function SitePanelPage({ params, searchParams }: Props) {
         <a href={`/${slug}/opengraph-image`} target="_blank" rel="noreferrer">
           OG görseli
         </a>
+        {st !== "sold" && st !== "demo" ? (
+          <a href={`/${slug}/teklif`} target="_blank" rel="noreferrer">
+            Teklif sayfası
+          </a>
+        ) : null}
         {site.business.whatsapp || site.business.phone ? (
           <a
             href={`https://wa.me/${(site.business.whatsapp ?? site.business.phone ?? "").replace(/\D/g, "")}`}

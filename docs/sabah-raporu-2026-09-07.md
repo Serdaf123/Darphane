@@ -15,7 +15,7 @@ Her şey `main`'de ve canlıda: https://darphane-74qr.vercel.app · Panel: /pane
 - Yellow Bull için A/B teklif metni ve görseller hazır (`content/pitch/gonderim/yellow-bull-istanbul.txt`, `shots/yellow-bull-istanbul-telefon.png`, `-b-telefon.png`, `-og.png`).
 - Yeni bölümler: **fiyat tablosu** (`pricing`), **ekip** (`team`), **önce/sonra kaydırıcı** (`beforeAfter`), **video hero** (`hero.video`). Kuaför demosu `/salon-ada` hepsini gösterir.
 - Yeni teklif durumu `demo`: şerit yok, süre yok, indeks kapalı. Ocakbaşı ve diş demoları bu durumda; kişisel siteden linkleniyor.
-- **Performans**: hero giriş animasyonları CSS'e taşındı (JS beklemeden başlar, LCP'yi bloklamaz), GSAP yalnız gerektiğinde iniyor, PostHog yalnız anahtarla, motion → LazyMotion, kök font ön yüklemesi kapalı. Canlı Lighthouse mobil (03:10): kişisel site performans 79→**99**, Olympos 75→**97** (SEO 69 noindex'ten, beklenen).
+- **Performans**: hero giriş animasyonları CSS'e taşındı (JS beklemeden başlar, LCP'yi bloklamaz), GSAP yalnız gerektiğinde iniyor, PostHog yalnız anahtarla, motion → LazyMotion, kök font ön yüklemesi kapalı. Canlı Lighthouse mobil (03:20): kişisel site performans 79→**98**, erişilebilirlik 93→**100**; Olympos 75→**97** (SEO 69 noindex'ten, beklenen).
 - Lighthouse CI GitHub Actions'ta (erişilebilirlik ≥ 93 zorunlu, performans ≥ 80 uyarı).
 
 ### Kişisel site (serkanoral.com.tr)
@@ -23,7 +23,7 @@ Impeccable kritik + SEO denetimi + Lighthouse sonrası: mobil alt çubuk (WhatsA
 
 ### Ajan düzeni
 - `briefs/04-chatgpt-gorevleri.md`: ChatGPT'nin üç işi ve kopyala-yapıştır istemleri (görseller, esnaf gözüyle A/B, mesaj denetimi).
-- Codex için ayrı klasör `~/Desktop/darphane-codex` (dal `codex/serkan-design-b`). Codex'i o klasörde aç.
+- Codex için ayrı klasör `~/Desktop/darphane-codex` (dal `codex/serkan-design-b`). Gece 03:15'te Codex orada `app/serkan-oral/b/page.tsx` üzerinde değişiklik yapmış görünüyor (commit yok); PR gelince karşılaştırırım.
 - Manus köprüsü hazır (`npm run manus`), anahtar bekliyor.
 
 ## Araştırma — karar isteyen bulgular

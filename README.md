@@ -209,6 +209,7 @@ Kayıt nereye gider (`lib/store.ts`): `DARPHANE_GITHUB_TOKEN` varsa GitHub Conte
 - `pricing`: fiyat tablosu, 1–4 plan, `featured` vurgulu plan, plan başına eylem (`action`), dipnot (`note`).
 - `team`: ekip kartları; `image` yoksa baş harf rozeti.
 - `beforeAfter`: önce/sonra çiftleri, kaydırmalı karşılaştırma (`CompareSlider`, klavye/ekran okuyucu uyumlu).
+- `menu`: `layout: "photos"` ile görseli olan ürünler kart olur (`items[].image`), görselsizler satır kalır.
 - Hero `video`: `{ src, type }` ile image hero'da sessiz döngü video; görsel poster olur, "hareketi azalt" açıkken video gizlenir.
 - Demo: `data/sites/salon-ada.json` (kuaför, `offer.status: demo`) hepsini gösterir.
 - `offer.status: demo`: şerit yok, süre yok, indeks kapalı; kişisel sitedeki örnekler bu durumda.
