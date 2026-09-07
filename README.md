@@ -210,6 +210,7 @@ Kayıt nereye gider (`lib/store.ts`): `DARPHANE_GITHUB_TOKEN` varsa GitHub Conte
 - `team`: ekip kartları; `image` yoksa baş harf rozeti.
 - `beforeAfter`: önce/sonra çiftleri, kaydırmalı karşılaştırma (`CompareSlider`, klavye/ekran okuyucu uyumlu).
 - `menu`: `layout: "photos"` ile görseli olan ürünler kart olur (`items[].image`), görselsizler satır kalır.
+- Görsellerde `focal: "50% 20%"` kırpma odağı (yüz üstteyse). Bölüm zeminleri hero'dan sonra otomatik dönüşümlü (düz/yüzey); `services.tone: dark` kendi zeminini korur. Eksik gün = kapalı; rozet "Bugün kapalı · Salı 10:00'da açılıyor" der.
 - Hero `video`: `{ src, type }` ile image hero'da sessiz döngü video; görsel poster olur, "hareketi azalt" açıkken video gizlenir.
 - Demo: `data/sites/salon-ada.json` (kuaför, `offer.status: demo`) hepsini gösterir.
 - `offer.status: demo`: şerit yok, süre yok, indeks kapalı; kişisel sitedeki örnekler bu durumda.
