@@ -21,14 +21,11 @@ export function About({ section, id }: { section: AboutData; id: string }) {
           ))}
 
           {section.highlights.length > 0 ? (
-            <dl className="mt-2 grid grid-cols-2 gap-6 sm:grid-cols-3">
+            <dl className="mt-2 flex flex-wrap gap-x-6 gap-y-2" style={{ margin: 0 }}>
               {section.highlights.map((highlight) => (
-                <div key={highlight.label}>
+                <div key={highlight.label} className="flex items-baseline gap-2" style={{ borderLeft: "2px solid var(--c-accent)", paddingLeft: "0.6rem" }}>
                   <dt className="muted text-sm">{highlight.label}</dt>
-                  <dd
-                    className="mt-1 text-2xl font-semibold"
-                    style={{ fontFamily: "var(--font-heading)" }}
-                  >
+                  <dd className="font-semibold" style={{ margin: 0 }}>
                     {highlight.value}
                   </dd>
                 </div>

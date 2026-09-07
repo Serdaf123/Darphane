@@ -1,6 +1,6 @@
 "use client";
 
-import { AnimatePresence, motion } from "motion/react";
+import { AnimatePresence, m } from "motion/react";
 import { useEffect, useState } from "react";
 import { normalizePhone, whatsappUrl } from "@/lib/actions";
 import { t, type Locale } from "@/lib/i18n";
@@ -79,7 +79,7 @@ export function ContactFab({
     // Hap: ikon dokununca sola doğru uzar, içinde iki eylem belirir
     return (
       <div className={`contact-fab contact-fab-pill-wrap ${className}`}>
-        <motion.div
+        <m.div
           className="contact-fab-pill"
           initial={false}
           animate={{ width: open ? "auto" : "3.75rem" }}
@@ -87,7 +87,7 @@ export function ContactFab({
         >
           <AnimatePresence initial={false}>
             {open ? (
-              <motion.div
+              <m.div
                 key="acts"
                 className="contact-fab-pill-actions"
                 role="menu"
@@ -108,10 +108,10 @@ export function ContactFab({
                     <span>{item.label}</span>
                   </a>
                 ))}
-              </motion.div>
+              </m.div>
             ) : null}
           </AnimatePresence>
-          <motion.button
+          <m.button
             type="button"
             className="contact-fab-pill-main"
             aria-expanded={open}
@@ -120,14 +120,14 @@ export function ContactFab({
             onClick={() => setOpen((v) => !v)}
             whileTap={reduced ? undefined : { scale: 0.94 }}
           >
-            <motion.span className="contact-fab-icon" initial={false} animate={{ opacity: open ? 0 : 1, rotate: open ? 90 : 0 }} transition={{ duration: 0.18 }}>
+            <m.span className="contact-fab-icon" initial={false} animate={{ opacity: open ? 0 : 1, rotate: open ? 90 : 0 }} transition={{ duration: 0.18 }}>
               <WhatsappIcon />
-            </motion.span>
-            <motion.span className="contact-fab-icon" initial={false} animate={{ opacity: open ? 1 : 0, rotate: open ? 0 : -90 }} transition={{ duration: 0.18 }} aria-hidden>
+            </m.span>
+            <m.span className="contact-fab-icon" initial={false} animate={{ opacity: open ? 1 : 0, rotate: open ? 0 : -90 }} transition={{ duration: 0.18 }} aria-hidden>
               <CloseIcon />
-            </motion.span>
-          </motion.button>
-        </motion.div>
+            </m.span>
+          </m.button>
+        </m.div>
       </div>
     );
   }
@@ -136,7 +136,7 @@ export function ContactFab({
     <div className={`contact-fab ${className}`}>
       <AnimatePresence>
         {open ? (
-          <motion.ul
+          <m.ul
             key="menu"
             className="contact-fab-menu"
             initial={reduced ? false : { opacity: 0 }}
@@ -145,7 +145,7 @@ export function ContactFab({
             role="menu"
           >
             {items.map((item, i) => (
-              <motion.li
+              <m.li
                 key={item.label}
                 role="none"
                 initial={reduced ? false : { opacity: 0, y: 16, scale: 0.6 }}
@@ -164,13 +164,13 @@ export function ContactFab({
                     {item.icon}
                   </span>
                 </a>
-              </motion.li>
+              </m.li>
             ))}
-          </motion.ul>
+          </m.ul>
         ) : null}
       </AnimatePresence>
 
-      <motion.button
+      <m.button
         type="button"
         className="contact-fab-main"
         aria-expanded={open}
@@ -181,15 +181,15 @@ export function ContactFab({
         animate={reduced ? undefined : { rotate: open ? 90 : 0 }}
         transition={SPRING}
       >
-        <motion.span
+        <m.span
           className="contact-fab-icon"
           initial={false}
           animate={{ opacity: open ? 0 : 1, scale: open ? 0.4 : 1 }}
           transition={{ duration: 0.18 }}
         >
           <WhatsappIcon />
-        </motion.span>
-        <motion.span
+        </m.span>
+        <m.span
           className="contact-fab-icon"
           initial={false}
           animate={{ opacity: open ? 1 : 0, scale: open ? 1 : 0.4, rotate: open ? -90 : 0 }}
@@ -197,10 +197,10 @@ export function ContactFab({
           aria-hidden
         >
           <CloseIcon />
-        </motion.span>
+        </m.span>
         {/* Kapalıyken dikkat çekmek için tek seferlik halka */}
         {!open && !reduced ? <span className="contact-fab-pulse" aria-hidden /> : null}
-      </motion.button>
+      </m.button>
     </div>
   );
 }

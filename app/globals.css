@@ -539,7 +539,9 @@ main:focus {
       border-color 0.25s ease;
   }
 
-  .card:hover {
+  /* Yalnız tıklanabilir kartlar (bağlantı) hover'da kalkar; bilgi kartları sabit durur */
+  a.card:hover,
+  .card:has(> a:only-child):hover {
     transform: translateY(-2px);
     border-color: color-mix(in srgb, var(--c-accent) 35%, var(--c-border));
   }
@@ -946,3 +948,68 @@ a.hero-urgent-note:hover {
     animation: none;
   }
 }
+
+/* Önce/sonra kaydırıcı */
+.compare-label { position: absolute; top: 0.75rem; padding: 0.2rem 0.55rem; border-radius: 999px; background: rgba(0,0,0,0.55); color: #fff; font-size: 0.75rem; font-weight: 600; letter-spacing: 0.02em; pointer-events: none; }
+.compare-handle { position: absolute; top: 0; bottom: 0; width: 2px; background: #fff; transform: translateX(-1px); pointer-events: none; box-shadow: 0 0 0 1px rgba(0,0,0,0.25); }
+.compare-knob { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 2.5rem; height: 2.5rem; border-radius: 50%; background: #fff; color: #111; display: grid; place-items: center; font-size: 1.1rem; box-shadow: 0 4px 14px rgba(0,0,0,0.3); }
+.compare-input { position: absolute; inset: 0; width: 100%; height: 100%; margin: 0; opacity: 0; cursor: ew-resize; touch-action: none; }
+.compare-input:focus-visible + .compare-handle, .compare:has(.compare-input:focus-visible) .compare-handle { background: var(--c-accent); }
+
+/* Video hero */
+.hero-video { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+@media (prefers-reduced-motion: reduce) { .hero-video { display: none; } }
+
+/* Hero giriş animasyonları (HeroMotion.tsx). CSS: sunucu HTML'i görünür, JS beklemez. */
+.hero-item { --i: 0; animation-duration: 0.9s; animation-timing-function: cubic-bezier(0.22, 1, 0.36, 1); animation-fill-mode: both; animation-delay: calc(0.12s + var(--i) * 0.09s); }
+.hero-item-rise { animation-name: hero-rise; }
+.hero-item-reveal { animation-name: hero-reveal; animation-delay: calc(0.22s + var(--i) * 0.09s); }
+.hero-item-blur { animation-name: hero-blur; animation-duration: 1s; animation-timing-function: ease-out; }
+.hero-item-curtain { animation-name: hero-rise; animation-duration: 0.7s; animation-delay: calc(0.7s + var(--i) * 0.09s); }
+.hero-item-zoom { animation-name: hero-zoom; animation-duration: 1s; animation-delay: calc(0.28s + var(--i) * 0.09s); }
+@keyframes hero-rise { from { opacity: 0; transform: translateY(26px); } to { opacity: 1; transform: none; } }
+@keyframes hero-reveal { from { transform: translateY(110%); } to { transform: none; } }
+@keyframes hero-blur { from { opacity: 0; filter: blur(14px); transform: scale(1.02); } to { opacity: 1; filter: blur(0); transform: none; } }
+@keyframes hero-zoom { from { opacity: 0; transform: scale(0.96); } to { opacity: 1; transform: none; } }
+/* Görsel: hiçbir preset görseli gizlemez (LCP); yalnız ölçek/netlik değişir */
+.hero-media { animation-fill-mode: both; animation-timing-function: cubic-bezier(0.22, 1, 0.36, 1); will-change: transform; }
+.hero-media-rise, .hero-media-curtain { animation: hero-media-scale 1.6s cubic-bezier(0.22, 1, 0.36, 1) both; }
+.hero-media-reveal { animation: hero-media-scale 1.4s cubic-bezier(0.22, 1, 0.36, 1) both; }
+.hero-media-blur { animation: hero-media-blur 1.3s ease-out both; }
+.hero-media-zoom { animation: hero-media-zoom 1.8s cubic-bezier(0.22, 1, 0.36, 1) both; }
+@keyframes hero-media-scale { from { transform: scale(1.06); } to { transform: scale(1); } }
+@keyframes hero-media-blur { from { filter: blur(10px); transform: scale(1.04); } to { filter: blur(0); transform: scale(1); } }
+@keyframes hero-media-zoom { from { transform: scale(1.22); } to { transform: scale(1); } }
+.hero-curtain { position: absolute; inset: 0; background: var(--c-bg); transform-origin: top; z-index: 2; animation: hero-curtain 0.9s cubic-bezier(0.22, 1, 0.36, 1) 0.1s both; pointer-events: none; }
+@keyframes hero-curtain { from { transform: scaleY(1); } to { transform: scaleY(0); } }
+@media (prefers-reduced-motion: reduce) { .hero-item, .hero-media, .hero-curtain { animation: none; } .hero-curtain { display: none; } }
+
+/* Bölüm zemin ritmi: hero sonrası bölümler dönüşümlü (düz / yüzey); koyu ton kendi zeminini korur */
+main > .section:nth-child(even of .section):not(.section-dark):not(.cta-band) { background: var(--c-surface); }
+
+/* Telefon: header aşağı inerken saklanır (SiteHeader data-hidden) */
+@media (max-width: 767px) {
+  .site-header { transition: transform 0.25s ease, background-color 0.35s ease, color 0.35s ease; }
+  .site-header[data-hidden] { transform: translateY(-100%); }
+}
+
+/* Telefon: görselli hero'da ilk ekranda buton görünsün — başlık bir kademe küçük, rozetler butonların altında */
+@media (max-width: 639px) {
+  .hero-image h1 { font-size: var(--step-5) !important; }
+  .hero-image .hero-badges { order: 2; }
+  .hero-image .hero-actions { order: 1; }
+  .hero-image .hero-badges .pill:nth-child(n + 3) { display: none; }
+  /* Teklif şeridi: metin üstte, butonlar altta tam genişlik */
+  .offer-bar-inner { flex-wrap: wrap; }
+  .offer-bar-inner > .flex-1 { flex-basis: 100%; }
+  .offer-bar-actions { width: 100%; }
+  .offer-bar-actions .btn { flex: 1; }
+}
+
+/* Yardımcı bölümler (saatler, konum, SSS, iletişim) anlatı bölümlerinden bir kademe küçük başlık taşır */
+.section-title-sm { font-size: var(--step-3); }
+
+/* Form: kullanıcı dokunduktan sonra geçersiz alan vurgu renginde çerçeve alır (tarayıcı baloncuğuna ek) */
+.field input:user-invalid,
+.field textarea:user-invalid,
+.field select:user-invalid { border-color: var(--c-accent); box-shadow: 0 0 0 3px color-mix(in srgb, var(--c-accent) 18%, transparent); }

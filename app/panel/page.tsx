@@ -5,21 +5,27 @@ import { STATUS_META, effectiveStatus, formatPriceNumber, timeLeft } from "@/lib
 export const dynamic = "force-dynamic";
 
 /** Site listesi: durum, süre, fiyat. Satır → detay sayfası. */
-export default async function PanelPage() {
+export default async function PanelPage({ searchParams }: { searchParams: Promise<{ silindi?: string; dosya?: string; url?: string }> }) {
+  const { silindi, dosya, url } = await searchParams;
   const [sites, files] = await Promise.all([readAllSites(), listAllFiles()]);
   const counts: Record<string, number> = {};
   for (const s of sites) counts[effectiveStatus(s)] = (counts[effectiveStatus(s)] ?? 0) + 1;
 
-  const order = { pitched: 0, draft: 1, sold: 2, expired: 3 } as const;
+  const order = { pitched: 0, draft: 1, sold: 2, demo: 3, expired: 4 } as const;
   const sorted = [...sites].sort((a, b) => order[effectiveStatus(a)] - order[effectiveStatus(b)]);
 
   return (
     <main>
+      {silindi ? (
+        <p className="notice notice-warn">
+          {silindi} silindi ({dosya} dosya).{url ? <> <a href={url}>commit</a></> : null}
+        </p>
+      ) : null}
       <ul className="panel-summary">
         <li>
           <strong>{sites.length}</strong> site
         </li>
-        {(["pitched", "draft", "sold", "expired"] as const).map((k) =>
+        {(["pitched", "draft", "sold", "demo", "expired"] as const).map((k) =>
           counts[k] ? (
             <li key={k}>
               <strong>{counts[k]}</strong> {STATUS_META[k].label.toLowerCase()}

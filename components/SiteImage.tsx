@@ -36,8 +36,9 @@ export function SiteImage({
       fill
       sizes={sizes}
       priority={priority}
+      fetchPriority={priority ? "high" : undefined}
       className={className}
-      style={{ objectFit: "cover" }}
+      style={{ objectFit: "cover", objectPosition: image.focal ?? "center" }}
     />
   );
 }

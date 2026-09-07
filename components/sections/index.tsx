@@ -12,6 +12,9 @@ import { Location } from "./Location";
 import { Menu } from "./Menu";
 import { Reviews } from "./Reviews";
 import { Services } from "./Services";
+import { Pricing } from "./Pricing";
+import { Team } from "./Team";
+import { BeforeAfter } from "./BeforeAfter";
 
 /**
  * JSON'daki sections dizisi sayfayı belirler.
@@ -46,13 +49,19 @@ export function Sections({
           case "reviews":
             return <Reviews key={key} section={section} id={id} locale={locale} />;
           case "hours":
-            return <HoursSection key={key} section={section} business={business} id={id} locale={locale} />;
+            return <HoursSection key={key} section={section} business={business} id={id} locale={locale} serverNow={Date.now()} />;
           case "location":
             return <Location key={key} section={section} business={business} id={id} locale={locale} />;
           case "contact":
             return <Contact key={key} section={section} business={business} id={id} locale={locale} />;
           case "faq":
             return <Faq key={key} section={section} id={id} />;
+          case "pricing":
+            return <Pricing key={key} section={section} business={business} id={id} locale={locale} />;
+          case "team":
+            return <Team key={key} section={section} id={id} />;
+          case "beforeAfter":
+            return <BeforeAfter key={key} section={section} id={id} locale={locale} />;
           case "cta":
             return <Cta key={key} section={section} business={business} id={id} locale={locale} />;
         }

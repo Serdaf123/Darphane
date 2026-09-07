@@ -9,10 +9,11 @@ export const STATUS_META: Record<Site["offer"]["status"], { label: string; tone:
   pitched: { label: "Teklifte", tone: "pitched" },
   sold: { label: "Satıldı", tone: "sold" },
   expired: { label: "Süre doldu", tone: "expired" },
+  demo: { label: "Demo", tone: "sold" },
 };
 
 export function effectiveStatus(site: Site, now = Date.now()): Site["offer"]["status"] {
-  if (site.offer.status === "sold") return "sold";
+  if (site.offer.status === "sold" || site.offer.status === "demo") return site.offer.status;
   if (site.offer.status === "expired") return "expired";
   if (site.offer.expiresAt && new Date(site.offer.expiresAt).getTime() <= now) return "expired";
   return site.offer.status;

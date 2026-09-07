@@ -1,3 +1,7 @@
+/**
+ * preload: false — next/font yalnız sayfada kullanılan çiftin dosyalarını ön yükler (18 fontu değil).
+ * Ön yükleme olmadan display fontu geç geliyor, hero metni yer değiştiriyordu (Fraunces'ta CLS 0.06).
+ */
 import {
   Bricolage_Grotesque,
   Cormorant_Garamond,

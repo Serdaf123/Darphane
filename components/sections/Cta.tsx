@@ -17,16 +17,9 @@ export function Cta({
   locale?: Locale;
 }) {
   return (
-    <section id={id} className="section">
+    <section id={id} className="section cta-band" style={{ background: "var(--c-accent-soft)" }}>
       <div className="container">
-        <Reveal
-          className="flex flex-col items-start gap-[var(--stack-gap)] p-8 md:items-center md:p-14 md:text-center"
-          style={{
-            background: "var(--c-accent-soft)",
-            border: "1px solid var(--c-border)",
-            borderRadius: "var(--radius)",
-          }}
-        >
+        <Reveal className="flex flex-col items-start gap-[var(--stack-gap)] md:items-center md:text-center">
           <h2 className="section-title">{section.headline}</h2>
           {section.subline ? <p className="section-intro">{section.subline}</p> : null}
           <ActionButtons

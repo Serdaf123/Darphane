@@ -1,6 +1,6 @@
 "use client";
 
-import { motion, type Variants } from "motion/react";
+import { m, type Variants } from "motion/react";
 import type { CSSProperties, ReactNode } from "react";
 import { useSiteMotion } from "./MotionProvider";
 
@@ -60,7 +60,7 @@ export function Reveal({
     );
   }
 
-  const MotionTag = motion[Tag];
+  const MotionTag = m[Tag];
   return (
     <MotionTag
       className={className}
@@ -101,7 +101,7 @@ export function Stagger({
     );
   }
 
-  const MotionTag = motion[Tag];
+  const MotionTag = m[Tag];
   return (
     <MotionTag
       className={className}
@@ -139,7 +139,7 @@ export function Item({
     );
   }
 
-  const MotionTag = motion[Tag];
+  const MotionTag = m[Tag];
   return (
     <MotionTag className={className} style={style} variants={VARIANTS[scroll]}>
       {children}

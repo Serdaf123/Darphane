@@ -3,29 +3,23 @@ import { Inter, Playfair_Display } from "next/font/google";
 import { Analytics } from "@vercel/analytics/next";
 import { PostHogProvider } from "@/components/analytics/PostHogProvider";
 import "./globals.css";
+import { siteUrl } from "@/lib/site-url";
 
 // latin-ext Türkçe karakterler (ı ş ğ ç ö ü) için gerekli.
 const sans = Inter({
   variable: "--font-sans",
   subsets: ["latin", "latin-ext"],
   display: "swap",
+  // İşletme siteleri kendi font çiftini yükler; kökteki çift ön yüklenmesin (2 × ~70 KB)
+  preload: false,
 });
 
 const display = Playfair_Display({
   variable: "--font-display",
   subsets: ["latin", "latin-ext"],
   display: "swap",
+  preload: false,
 });
-
-function siteUrl(): string {
-  const own = process.env.NEXT_PUBLIC_SITE_URL?.trim();
-  if (own) return own.startsWith("http") ? own : `https://${own}`;
-  const prod = process.env.VERCEL_PROJECT_PRODUCTION_URL?.trim();
-  if (prod) return `https://${prod}`;
-  const preview = process.env.VERCEL_URL?.trim();
-  if (preview) return `https://${preview}`;
-  return "http://localhost:3000";
-}
 
 export const metadata: Metadata = {
   // og:image gibi bağıl adresler bununla mutlak olur. Sıra: kendi alan adımız →

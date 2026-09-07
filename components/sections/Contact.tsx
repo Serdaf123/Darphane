@@ -49,7 +49,7 @@ export function Contact({
     <section id={id} className="section">
       <Reveal className="container grid gap-10 md:grid-cols-2">
         <div className="flex flex-col gap-[var(--stack-gap)]">
-          <h2 className="section-title">{section.title}</h2>
+          <h2 className="section-title section-title-sm">{section.title}</h2>
           {section.intro ? <p className="section-intro">{section.intro}</p> : null}
 
           <dl className="flex flex-col gap-3 text-[0.9375rem]">

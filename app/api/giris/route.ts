@@ -12,7 +12,7 @@ export async function POST(request: Request) {
     return NextResponse.redirect(new URL("/giris?hata=1", base), { status: 303 });
   }
 
-  const res = NextResponse.redirect(new URL("/", base), { status: 303 });
+  const res = NextResponse.redirect(new URL("/panel", base), { status: 303 });
   res.cookies.set(ADMIN_COOKIE, await adminToken(expected), {
     httpOnly: true,
     secure: base.protocol === "https:",

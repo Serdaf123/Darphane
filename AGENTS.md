@@ -10,6 +10,8 @@ This block is written and re-added by `next dev` — verify at `node_modules/nex
 
 # Darphane — bu repoda çalışan her ajan için kurallar
 
+**İlk kural:** işe başlamadan `DARPHANE.md`'yi oku; bitirince yaptığını oradaki **İş günlüğü**'ne (en alt) tarih · ajan · ne · commit biçiminde ekle. Günlüğe yazılmamış iş yapılmamış sayılır.
+
 Bu repo iki ajan tarafından geliştiriliyor: Claude Code (Serkan'ın Mac'inde) ve Codex (GitHub üzerinden). Aynı dosyalara dokunmamak için aşağıdaki bölüşüm geçerlidir.
 
 ## Repo nedir

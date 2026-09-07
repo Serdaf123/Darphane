@@ -9,21 +9,25 @@ Değişkenler: `{isletme}` `{link}` `{fiyat}` `{gun}` `{tarih}`
 3. "Kampanya", "fırsat", "size özel indirim" gibi kelimeler yok. Bunlar mesajı reklama benzetir, reklam silinir.
 4. Karar vericiye ulaş. İşletme numarasında çalışan varsa "sahibiyle mi görüşüyorum" diye sor.
 5. Mesajı **akşam 19:00-21:00 arası** gönder — esnaf o saatte telefonuna bakar.
-6. **Önce görsel, sonra mesaj.** `npm run screenshot -- <slug> https://alanadi.com --clean` ile üretilen telefon görselini (`shots/<slug>-telefon.png`) ilk mesajdan hemen önce gönder. Link tıklanmadan site görülür; "bu benim dükkânım" hissi mesajın kalanını okutur.
+6. **Önce 30 saniyelik arama, sonra WhatsApp.** Haritalardaki numarayı ara: "Merhaba, ben Serkan Oral. İşletmeniz için bir tanıtım sayfası hazırladım, WhatsApp'a atayım mı, hangi numaraya?" Evet → mesaj. Hayır → teşekkür, kaydı sil. Bu hem Meta'nın opt-in şartını karşılar hem yanıt oranını katlar (araştırma: `docs/arastirma-satis-2026-09-07.md`).
+7. **Avukat, doktor, diş hekimi, mimar gibi serbest meslek sahiplerine soğuk mesaj yok.** Bunlar "tacir/esnaf" sayılmıyor; KVKK Kurulu 2022/861 emsalinde 150.000 ₺ ceza var. Yalnızca arama ile izin ya da tanıdık referansı.
+8. **Her mesajda üç zorunlu satır:** kimlik (ad soyad + fourpear), veri kaynağı cümlesi ("numaranızı Google Haritalar kaydınızdan aldım"), ret cümlesi. Ret gelince aynı gün panelde "Yayından kaldır" ve kaydı sil.
+9. **Günde en fazla 10–15 yeni numara**, saat 10:00–12:00 ve 18:00–20:30 arası; her mesajda işletmeye özgü ilk cümle. Engelleyene bir daha yazma.
+10. **Önce görsel, sonra mesaj.** `npm run screenshot -- <slug> https://alanadi.com --clean` ile üretilen telefon görselini (`shots/<slug>-telefon.png`) ilk mesajdan hemen önce gönder. Link tıklanmadan site görülür; "bu benim dükkânım" hissi mesajın kalanını okutur.
 
 ---
 
 ## 1. İlk mesaj (WhatsApp)
 
-> Merhaba, {isletme} için bir şey hazırladım.
+> Merhaba, ben Serkan Oral (fourpear). {isletme} için bir şey hazırladım.
 >
-> Sitenizin olmadığını fark ettim, ben de bir tane kurdum. Menünüz, konumunuz, çalışma saatleriniz, Google yorumlarınız — hepsi içinde. Şu an canlı, telefonunuzdan açabilirsiniz:
+> Google Haritalar'da sitenizin olmadığını fark ettim, oradaki bilgilerinizle (telefon, adres, saatler, yorumlar) bir tane kurdum. Şu an canlı, telefonunuzdan açabilirsiniz:
 >
 > {link}
 >
-> Bu bir teklif sunumu değil, bitmiş bir iş. Beğenirseniz {fiyat} karşılığında sizin oluyor, alan adını da ben ayarlarım. Beğenmezseniz {tarih} tarihinde siteyi kaldırıyorum, kimsenin bir yükümlülüğü olmuyor.
+> Bu bir teklif sunumu değil, bitmiş bir iş. Beğenirseniz {fiyat} karşılığında sizin oluyor, alan adını da sizin adınıza ben alırım. Beğenmezseniz {tarih} tarihinde siteyi kaldırıyorum; hiçbir borç ya da yükümlülük yok.
 >
-> İlgilenmiyorsanız "çıkar" yazmanız yeterli, bir daha yazmam.
+> Numaranızı Haritalar kaydınızdan aldım. İstemezseniz "hayır" yazmanız yeterli: siteyi kaldırır, bilgilerinizi siler, bir daha yazmam.
 
 **Neden böyle:** İlk cümle işletmenin adını söylüyor, şablon mesaj olmadığını belli ediyor. İkinci paragraf ürünü gösteriyor, anlatmıyor. Üçüncüsü baskıyı kaldırıyor — baskıyı kaldırmak dönüşümü artırıyor, çünkü karşı taraf savunmaya geçmiyor. Son satır hem yasal hem de ban kalkanı.
 

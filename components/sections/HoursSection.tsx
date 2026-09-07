@@ -18,11 +18,13 @@ export function HoursSection({
   business,
   id,
   locale = "tr",
+  serverNow,
 }: {
   section: HoursData;
   business: Business;
   id: string;
   locale?: Locale;
+  serverNow?: number;
 }) {
   const now = useNow();
   const hours = business.hours;
@@ -38,8 +40,8 @@ export function HoursSection({
     <section id={id} className="section">
       <Reveal className="container flex flex-col gap-[var(--stack-gap)]">
         <div className="flex flex-wrap items-center justify-between gap-4">
-          <h2 className="section-title">{section.title}</h2>
-          <OpenBadge hours={hours} locale={locale} />
+          <h2 className="section-title section-title-sm">{section.title}</h2>
+          <OpenBadge hours={hours} locale={locale} serverNow={serverNow} />
         </div>
 
         <table

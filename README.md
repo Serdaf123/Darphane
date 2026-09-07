@@ -1,5 +1,7 @@
 # darphane
 
+> Projenin tek dosyalık ana kaydı ve ajan günlüğü: **DARPHANE.md** (her ajan yaptığını oraya işler).
+
 Web sitesi olmayan işletmeler için hazır landing page üretip süreli teklifle satan sistem. fourpear.
 
 ## Nasıl çalışır
@@ -192,11 +194,32 @@ Canlı: `https://darphane-74qr.vercel.app` (Vercel, her `main` push'unda otomati
 
 Site listesi (durum, kalan süre, fiyat, A/B ve EN işaretleri) ve site başına detay: teklif alanları (durum, son gün, fiyat, ödeme linki, satıcı WhatsApp, alan adı), hızlı işlemler (teklif gönderildi +7 gün, 3 gün uzat, satıldı, yayından kaldır, taslağa al), linkler (A/B/EN/OG, işletmeye WhatsApp), gönderim metni kopyalama (`content/pitch/gonderim/<slug>.txt`).
 
+Panelde "Reddetti → kaydı sil": slug'ı yazıp onaylayınca JSON ve B/EN katmanları silinir (mesajdaki "bilgilerinizi silerim" sözü); GitHub modunda her dosya ayrı commit. Giriş sonrası `/panel`'e düşülür.
+
 Kayıt nereye gider (`lib/store.ts`): `DARPHANE_GITHUB_TOKEN` varsa GitHub Contents API ile `data/sites/<slug>.json` commit'lenir (yazar Serdaf123) ve Vercel 1–2 dk'da yayınlar; panel de dosyayı GitHub'dan okuduğu için değişiklik anında görünür. Token yoksa (yerel) dosyaya yazar; commit + push sana kalır. Canlıda token yoksa yazma işe yaramaz (Vercel dosya sistemi kalıcı değil), o yüzden token Vercel env'inde olmalı: GitHub → Settings → Developer settings → Fine-grained tokens → yalnız `Serdaf123/Darphane`, Contents: Read and write.
 
 ### Serkan'ın kişisel sitesi
 
 `serkanoral.com.tr` aynı projeden çıkar: `data/sites/serkan-oral.json` satılmış bir site gibi (status `sold`, `business.domain`). Alan adında `/` bu siteye rewrite edilir, `/panel` yine panel; alan adındaki `robots.txt` açık sürümdür (`app/robots-open/route.ts`). Vercel'de alan adı ekli; DNS kayıt şirketinde: NS `ns1/ns2.vercel-dns.com` ya da `A @ 76.76.21.21`. DNS gelince `NEXT_PUBLIC_SITE_URL` bu alan adı yapılmamalı (o Darphane'nin OG adresi), sadece bekle.
+
+### Manus'a görev vermek
+
+`npm run manus -- briefs/01-metinler.md --out content/serkan/copy.md` brifi Manus'a gönderir, görev bitene kadar bekler (10 sn'de bir durum), cevabı dosyaya yazar. `--profile max` daha güçlü ajan, `--dry` göndermeden gösterir. Anahtar: manus.im → Settings → Integrations → API → Create API Key → `.env.local` içine `MANUS_API_KEY=`. Görev linki çıktıda yazılır; Manus'ta da izlenebilir.
+
+## Yeni bölümler (07.09)
+
+- `pricing`: fiyat tablosu, 1–4 plan, `featured` vurgulu plan, plan başına eylem (`action`), dipnot (`note`).
+- `team`: ekip kartları; `image` yoksa baş harf rozeti.
+- `beforeAfter`: önce/sonra çiftleri, kaydırmalı karşılaştırma (`CompareSlider`, klavye/ekran okuyucu uyumlu).
+- `menu`: `layout: "photos"` ile görseli olan ürünler kart olur (`items[].image`), görselsizler satır kalır.
+- Görsellerde `focal: "50% 20%"` kırpma odağı (yüz üstteyse). Bölüm zeminleri hero'dan sonra otomatik dönüşümlü (düz/yüzey); `services.tone: dark` kendi zeminini korur. Eksik gün = kapalı; rozet "Bugün kapalı · Salı 10:00'da açılıyor" der.
+- Hero `video`: `{ src, type }` ile image hero'da sessiz döngü video; görsel poster olur, "hareketi azalt" açıkken video gizlenir.
+- Demo: `data/sites/salon-ada.json` (kuaför, `offer.status: demo`) hepsini gösterir.
+- `offer.status: demo`: şerit yok, süre yok, indeks kapalı; kişisel sitedeki örnekler bu durumda.
+
+## Teklif sayfası (`/<slug>/teklif`)
+
+Şeritteki "Detaylar" linki buraya gelir: fiyat, son gün, ne dahil, alan adı adayları (RDAP ile .com müsaitliği; `lib/domains.ts`), 3 adım, esnaf SSS'si, ödeme/WhatsApp. Satılan sitede 404, her zaman noindex. B tasarımından `?tasarim=b` ile açılır ve WhatsApp mesajına tasarım yazılır. `offer.packages` (en fazla 3) verilirse "Paketler" bölümü çıkar (örnek: `yellow-bull-istanbul.json`, 7.900 / 9.900); yoksa tek fiyat. Sayfada gönderen künyesi ve "talep edilmeden hazırlandı, yükümlülük doğurmaz" notu var (6563 / KVKK).
 
 ## İki tasarım sunmak (A · B)
 
@@ -211,6 +234,22 @@ Neden: "beğendiniz mi?" evet/hayır sorusudur; "hangisi?" seçim sorusudur — 
 ## İngilizce sürüm
 
 Turistik işletmelerde (otel, restoran, tur) `data/sites/<slug>.en.json` eklenince `/<slug>/en` sayfası açılır, header'da TR ⇄ EN geçişi çıkar, `hreflang` alternatifleri yazılır. Dosya **kısmi**dir: `business` alanları, `seo` ve `id`'si eşleşen bölümler TR'nin üstüne biner; tema ve teklif değişmez. Arayüz metinleri (Ara / Directions, gün adları, "şu an açık") `lib/i18n.ts`'ten gelir. Teklif şeridi Türkçe kalır — o işletme sahibine hitap ediyor. Örnek: `olympos-garden-hotel.en.json`.
+
+## Teklif paketi tek komutta
+
+`npm run pitch -- <slug>` → temiz telefon görüntüsü (`shots/<slug>-telefon.png`), OG kartı (`shots/<slug>-og.png`), gönderim metni panoya (yoksa `content/pitch/gonderim/<slug>.txt` şablondan üretilir), Finder'da shots/ açılır. `--b` B tasarımı, `--url` başka adres. WhatsApp sırası: önce görsel, sonra metin.
+
+## KVKK çerez onayı
+
+PostHog anahtarı varsa her sayfada onay bandı çıkar (`components/analytics/ConsentBanner.tsx`); kayıt ve olaylar yalnız "Kabul" sonrası başlar, karar 6 ay `localStorage`'da. "Reddet" → hiçbir istatistik çerezi yok. Aydınlatma metni `/gizlilik` (taslak; veri sorumlusu bilgisi ve hukuki gözden geçirme bekliyor). Anahtar yoksa posthog-js paketi hiç indirilmez.
+
+## Lighthouse CI
+
+`.github/workflows/lighthouse.yml` her PR ve main push'unda `/`, `/salon-ada`, `/olympos-garden-hotel` sayfalarını mobil Lighthouse ile ölçer (`.lighthouserc.json`): erişilebilirlik ≥ 93 zorunlu, performans ≥ 80 uyarı. Rapor linki iş günlüğünde.
+
+## Telegram uyarısı
+
+`/api/uyari` PostHog webhook'unu Telegram mesajına çevirir: "👀 açtı — olympos-garden-hotel · Mobile · İstanbul", "👆 bastı → whatsapp". Kurulum: BotFather'dan bot (`TELEGRAM_BOT_TOKEN`), kendi chat id'n (`TELEGRAM_CHAT_ID`), rastgele `DARPHANE_WEBHOOK_SECRET`; PostHog → Data pipeline → Destinations → Webhook → URL `https://<site>/api/uyari?s=<secret>`, olaylar `site_viewed`, `cta_click`, `engaged`.
 
 ## Satış sinyalleri (PostHog)
 

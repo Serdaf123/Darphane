@@ -5,7 +5,7 @@ type ServicesData = Extract<Section, { type: "services" }>;
 
 export function Services({ section, id }: { section: ServicesData; id: string }) {
   return (
-    <section id={id} className={`section ${section.tone === "dark" ? "section-dark" : "section-surface"}`}>
+    <section id={id} className={`section${section.tone === "dark" ? " section-dark" : ""}`}>
       <div className="container flex flex-col gap-[var(--stack-gap)]">
         <Reveal className="flex flex-col gap-[var(--stack-gap)]">
           <h2 className="section-title">{section.title}</h2>

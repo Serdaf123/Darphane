@@ -9,7 +9,7 @@ export function Faq({ section, id }: { section: FaqData; id: string }) {
     <section id={id} className="section">
       <div className="container flex flex-col gap-[var(--stack-gap)]">
         <Reveal>
-          <h2 className="section-title">{section.title}</h2>
+          <h2 className="section-title section-title-sm">{section.title}</h2>
         </Reveal>
         <Stagger step={0.06} className="max-w-3xl">
           {section.items.map((item, index) => (

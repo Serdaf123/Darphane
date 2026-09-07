@@ -63,6 +63,7 @@ export function SitePage({
         <SmoothScroll>
           <OfferLayer
             offer={offer}
+            slug={slug}
             businessName={business.name}
             variant={variant}
             variantLinks={variants.length > 1 ? { a: `/${slug}`, b: `/${slug}/b` } : undefined}

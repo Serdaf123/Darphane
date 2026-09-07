@@ -2,7 +2,7 @@
 
 import { revalidatePath } from "next/cache";
 import { redirect } from "next/navigation";
-import { readSite, writeSite, type RawSite } from "@/lib/store";
+import { deleteSite, readSite, writeSite, type RawSite } from "@/lib/store";
 import { at21, daysFromNowAt21, fromLocalInput } from "@/lib/panel";
 import { OFFER_STATUSES } from "@/lib/schema";
 
@@ -113,4 +113,21 @@ export async function quickAction(formData: FormData) {
     return fail(slug, e);
   }
   return done(slug, result, label);
+}
+
+/** "Hayır" dedi: siteyi ve tüm verisini sil (mesajdaki sözümüz), listeye dön. */
+export async function declineAndDelete(formData: FormData) {
+  const slug = String(formData.get("slug") ?? "");
+  if (String(formData.get("onay") ?? "") !== slug) return fail(slug, "Silmek için kutuya slug'ı yaz");
+  let result;
+  try {
+    result = await deleteSite(slug, `Ret: ${slug} kaldırıldı, veriler silindi`);
+  } catch (e) {
+    return fail(slug, e);
+  }
+  revalidatePath("/panel");
+  revalidatePath(`/${slug}`);
+  const q = new URLSearchParams({ silindi: slug, dosya: String(result.removed.length) });
+  if (result.commitUrl) q.set("url", result.commitUrl);
+  redirect(`/panel?${q}`);
 }

@@ -79,21 +79,21 @@ Durum: ✅ bitti · 🔧 sırada · ⏳ dış girdi bekliyor · 💡 fikir
 ### Sırada — para getirenler
 | # | İş | Neden | Süre | Durum |
 |---|---|---|---|---|
-| 7 | KVKK çerez onayı bandı (PostHog için zorunlu) | Kayıt onaysız başlamasın | 2 sa | 🔧 |
-| 1 | PostHog → Telegram anlık uyarı ("X açtı, 52 sn, fiyata 2 kez döndü") | Sinyal panelde kalmasın, o dakika ara | 2 sa | 🔧 |
-| 2 | Teklif sayfası `/<slug>/teklif` — ne dahil, süreç, fiyat, esnaf SSS'si, ödeme linki | "Peki ne alıyorum?" cevabı; karar orada verilir | 3 sa | 🔧 |
-| 3 | `npm run pitch` — görsel + OG + mesaj (pano) + 15 sn MP4 (WebCodecs) tek komut | Video görselden çok açılır; üç işi bire indir | 3 sa | 🔧 |
-| 4 | Alan adı önerici (RDAP, anahtarsız) — teklif sayfasında "ornek.com müsait" | Somutlaştırır, karar hızlanır | 1 sa | 🔧 |
+| 7 | KVKK çerez onayı bandı (PostHog için zorunlu) | Kayıt onaysız başlamasın | 2 sa | ✅ 07.09 (+ /gizlilik taslağı) |
+| 1 | PostHog → Telegram anlık uyarı ("X açtı, 52 sn, fiyata 2 kez döndü") | Sinyal panelde kalmasın, o dakika ara | 2 sa | ✅ 07.09 köprü hazır (`/api/uyari`); bot token + PostHog anahtarı bekliyor |
+| 2 | Teklif sayfası `/<slug>/teklif` — ne dahil, süreç, fiyat, esnaf SSS'si, ödeme linki | "Peki ne alıyorum?" cevabı; karar orada verilir | 3 sa | ✅ 07.09 |
+| 3 | `npm run pitch` — görsel + OG + mesaj (pano) + 15 sn MP4 (WebCodecs) tek komut | Video görselden çok açılır; üç işi bire indir | 3 sa | ✅ 07.09 (MP4 hariç) |
+| 4 | Alan adı önerici (RDAP, anahtarsız) — teklif sayfasında "ornek.com müsait" | Somutlaştırır, karar hızlanır | 1 sa | ✅ 07.09 |
 | 5 | İki paket: Site / Site + Google İşletme Profili + 1 yıl bakım | "Hangisi" sorusu "evet/hayır"dan iyi | 1 sa | 💡 |
 | 6 | Notion pipeline: aday → gönderildi → açtı → konuştu → satıldı | 10 adaydan sonra kafada tutulmaz | 1 sa | 💡 |
 
 ### Sırada — siteyi güçlendirenler
 | # | İş | Süre | Durum |
 |---|---|---|---|
-| 8 | Video hero (sessiz mp4 döngü) — restoran, kafe, spor | 2 sa | 💡 |
-| 9 | Yeni bölümler: fiyat tablosu, ekip, önce/sonra, fotoğraflı menü | 2 sa/bölüm | 💡 talebe göre |
+| 8 | Video hero (sessiz mp4 döngü) — restoran, kafe, spor | 2 sa | ✅ 07.09 (`hero.video`) |
+| 9 | Yeni bölümler: fiyat tablosu, ekip, önce/sonra, fotoğraflı menü | 2 sa/bölüm | ✅ 07.09 pricing/team/beforeAfter (`salon-ada` demosu); fotoğraflı menü 💡 |
 | 10 | Places API ile gerçek yorum + fotoğraf çekme | 2 sa | ⏳ anahtar |
-| 11 | Lighthouse + axe her build'de | 1 sa | 💡 |
+| 11 | Lighthouse + axe her build'de | 1 sa | ✅ 07.09 Lighthouse CI (a11y ≥ 93 zorunlu) |
 | 12 | Unsplash API ile sektör fotoğraf paketleri | 2 sa | ⏳ anahtar |
 
 ### Dış girdi bekleyenler (Serkan)
@@ -128,3 +128,14 @@ Durum: ✅ bitti · 🔧 sırada · ⏳ dış girdi bekliyor · 💡 fikir
 - **2026-09-06** Codex GitHub'a bağlanıyor: kişisel sayfada Tasarım A = Claude (`app/serkan-oral`, `components/serkan`), Tasarım B = Codex (`app/serkan-oral/b`, `components/serkan-b`). Bölüşüm ve dokunulmayacak dosyalar AGENTS.md'de. Codex'in commit yazarı Serdaf123 olmalı (Vercel Hobby kuralı); branch + PR ile çalışmalı. Seçim sonrası kazanan köke taşınır.
 - **2026-09-07** Kök `/` artık Serkan'ın tanıtım sitesi (panel yönlendirmesi kalktı; `/panel` korumalı, robots kökü `/$` ile açar). Codex ortaklığı: `TASKS.md` görev panosu, `.github/workflows/ci.yml` (typecheck+lint+build+WebP denetimi her PR'da), PR şablonu. DNS (Turhost glue IP) şimdilik es geçildi.
 - **2026-09-07** Rol dağılımı (Serkan): metin ve görselleri ChatGPT yazar, bir tasarım Claude bir tasarım ChatGPT/Codex, orkestra şefi Claude. Brifler `briefs/` altında (01 metin, 02 görsel, 03 tasarım B), teslim yolları belli; görev panosu `TASKS.md`.
+- **2026-09-07** Metinleri Manus yazacak (Serkan Manus'u bağlıyor); görseller ChatGPT, kod Codex. Portre (`public/sites/serkan-oral/serkan.webp`, Serkan'ın verdiği kesik fotoğraf) açılışa eklendi: masaüstünde sağda büyük, mobilde metin yanında yuvarlak.
+- **2026-09-07** Manus köprüsü: `scripts/manus.mts` (`npm run manus`), resmi API (api.manus.ai v2: task.create → task.detail → task.listMessages; başlık `x-manus-api-key`). Manus'un kendi MCP'si yok (Manus'taki 'MCP connectors' onun başka araçlara bağlanması). Serkan'dan `MANUS_API_KEY` bekleniyor. Codex bu Mac'te kurulu; ayrı worktree `~/Desktop/darphane-codex` (dal `codex/serkan-design-b`) verildi.
+- **2026-09-07 gece** Kişisel site kritik turu (Impeccable + SEO + Lighthouse): mobil alt çubuk (WhatsApp/Ara), sabit telefon kısa ekranda sabitlenmez, kontrastlı accent (#2f5be6), focus halkası, başlık sırası (h2 'Nasıl çalışıyor'), kartlar mobilde bölünmüş liste, örnekler demo sitelere link, kurgusal işletme notu, kök OG görseli, JSON-LD (Person + ProfessionalService), sitemap.ts, güvenlik başlıkları, /serkan-oral noindex (kanonik kök). Yeni teklif durumu `demo`: şerit yok, süre yok, indeks kapalı; ocakbaşı ve diş demoları buna alındı.
+- **2026-09-07 gece** Motor: `pricing`, `team`, `beforeAfter` bölümleri + `hero.video`; kuaför demosu `salon-ada` (status demo). Demo önce/sonra görselleri Unsplash yer tutucu, gerçek çiftle değiştirilecek. Araştırma raporları: `docs/arastirma-satis-2026-09-07.md`, `docs/arastirma-teknik-2026-09-07.md` (özet sabah raporunda).
+- **2026-09-07 gece** Performans turu: hero giriş animasyonları CSS'e taşındı (sunucu HTML'i görünür, LCP JS beklemez; GSAP yalnız split/parallax için dinamik), posthog-js anahtar yoksa hiç inmiyor (~90 KB), motion → LazyMotion (`m.*`, `strict`), kök fontları preload kapalı, LCP görseline fetchpriority=high. Yerel Lighthouse mobil: Olympos 75→87, avukat 71→80 (avukatta Google Maps embed ve EB Garamond ağır).
+- **2026-09-07 03:00** Gece vardiyası raporu: `docs/sabah-raporu-2026-09-07.md`. Araştırmadan kritik kural: avukat/doktor gibi serbest meslek sahiplerine soğuk WhatsApp yok (KVKK 2022/861); esnafa önce 30 sn arama sonra WhatsApp; günde ≤10–15 yeni numara; teklif aşamasında işletmenin fotoğrafını kullanma; Vercel Hobby ticari kullanıma kapalı → ilk satışta Pro.
+- **2026-09-07 03:30** Teklif mesajı şablonu üç zorunlu satırla güncellendi (kimlik, veri kaynağı, ret+silme); avukat gönderim dosyasına 'önce ara' notu. `offer.packages` ile iki paket desteği (yellow-bull taslağında 7.900/9.900 örneği, karar Serkan'ın). Panelde 'Reddetti → kaydı sil' (deleteSite). Giriş → /panel.
+- **2026-09-07 03:15** Canlı Lighthouse mobil: kök 99 perf / 95 a11y, Olympos 97 perf. Menü `layout: photos` + ürün görseli eklendi. Yellow Bull A/B pitch paketi hazır (metin + görseller).
+- **2026-09-07 04:00** Motor kritik turu (Impeccable, 3 demo): telefonda görselli hero'da başlık küçük + butonlar rozetlerin üstünde (ilk ekranda CTA), header aşağı inerken saklanır, kapalı gün → 'Bugün kapalı · Salı 10:00'da açılıyor' (eksik gün = kapalı), şerit butonları 44px+ ve telefonda alt satır, bölüm zeminleri dönüşümlü (CSS nth-child of), ✓/⇔ glifleri SVG, fotoğrafsız ekip liste düzeni, puan 'tr-TR' biçimi, adres tam renk, saat eki ünlü uyumu. Kalan orta/düşük maddeler raporda (`docs/`).
+- **2026-09-07 04:30** Açık/kapalı rozeti ilk çizimde sunucu saatiyle (ISR ≤5 dk) doğru durumu verir; hidrasyonda etiket değişip satır atlamıyor (CLS). Ders: `npx next build | grep` zinciri hata verse de commit/push devam etti (4fe407c bozuk build) — build kontrolünü `npx next build >/dev/null || exit` gibi zincire bağla.
+- **2026-09-07 04:50** Font preload denemesi geri alındı: tüm çiftler tek modülde olduğu için preload her sayfaya 44 dosya ekliyor. Kuaför demosundaki CLS 0.058 (Fraunces geç yüklenmesi) 'iyi' sınırının altında, kabul edildi. Başka pairing'lerde CLS ≈ 0.

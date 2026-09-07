@@ -40,14 +40,14 @@ export function Reviews({
   locale?: Locale;
 }) {
   return (
-    <section id={id} className="section section-surface">
+    <section id={id} className="section">
       <div className="container flex flex-col gap-[var(--stack-gap)]">
         <Reveal className="flex flex-wrap items-end justify-between gap-4">
           <h2 className="section-title">{section.title}</h2>
           {section.summary ? (
             <p className="pill">
               <Stars rating={section.summary.rating} locale={locale} />
-              <strong>{section.summary.rating.toFixed(1)}</strong>
+              <strong>{new Intl.NumberFormat(locale === "tr" ? "tr-TR" : "en-GB", { minimumFractionDigits: 1, maximumFractionDigits: 1 }).format(section.summary.rating)}</strong>{" "}
               <span className="muted">
                 {t(locale).reviews.summary(section.summary.count, section.summary.source)}
               </span>

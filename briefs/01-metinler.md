@@ -1,4 +1,4 @@
-# Brif 01 — serkanoral.com.tr metinleri (ChatGPT)
+# Brif 01 — serkanoral.com.tr metinleri (Manus)
 
 ## Bağlam
 Serkan Oral, web sitesi olmayan yerel işletmeler (restoran, klinik, otel, büro, kuaför…) için siteyi **önce yapıp sonra gösteren** bir hizmet veriyor. İşletme sahibi WhatsApp'tan linki alır, beğenirse **tek seferlik ücret** öder, alan adı kurulumu dahildir; beğenmezse belirtilen tarihte site kaldırılır. Aylık ödeme, paket, sözleşme yok. Marka: fourpear (Serkan'ın ekibi).

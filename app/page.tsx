@@ -1,5 +1,6 @@
-/**
- * Ana sayfa = Serkan'ın tanıtım sitesi (serkanoral.com.tr ile aynı içerik).
- * Panel /panel'de, kimlik kontrolü proxy.ts'te.
- */
-export { default, metadata } from "./serkan-oral/page";
+import type { Metadata } from "next";
+import { SerkanOralPage, serkanMetadata } from "./serkan-oral/page";
+
+/** Ana sayfa = Serkan'ın tanıtım sitesi; kanonik ve indekslenen sürüm budur. Panel /panel'de. */
+export const metadata: Metadata = serkanMetadata(true);
+export default SerkanOralPage;

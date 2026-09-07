@@ -44,8 +44,18 @@ export function SiteHeader({
   const [scrolled, setScrolled] = useState(false);
   const [active, setActive] = useState<string | null>(null);
 
+  const [hidden, setHidden] = useState(false);
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 24);
+    let last = window.scrollY;
+    const onScroll = () => {
+      const y = window.scrollY;
+      setScrolled(y > 24);
+      // Telefonda header aşağı inerken saklanır, yukarı çıkarken gelir (CSS yalnız dar ekranda uygular)
+      if (Math.abs(y - last) > 8) {
+        setHidden(y > last && y > 160);
+        last = y;
+      }
+    };
     onScroll();
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
@@ -82,6 +92,7 @@ export function SiteHeader({
     <header
       className={`site-header ${transparent ? "site-header-transparent" : "site-header-solid"} ${overImage ? "site-header-over" : ""}`}
       data-scrolled={scrolled || undefined}
+      data-hidden={hidden || undefined}
     >
       <div className="container flex items-center justify-between gap-4">
         <a href={topHref} className="site-header-brand" aria-label={`${business.name} — ${s.backToTop}`}>

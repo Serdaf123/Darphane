@@ -1,0 +1,268 @@
+{
+  "slug": "salon-ada",
+  "business": {
+    "name": "Salon Ada",
+    "category": "Kuaför",
+    "tagline": "Kadıköy Moda'da kadın kuaförü. Kesim, renk, bakım; randevu WhatsApp'tan.",
+    "phone": "0555 000 00 03",
+    "whatsapp": "905550000003",
+    "address": "Moda Cd. No: 48",
+    "district": "Kadıköy",
+    "city": "İstanbul",
+    "coords": {
+      "lat": 40.9838,
+      "lng": 29.0272
+    },
+    "social": {
+      "instagram": "salonada"
+    },
+    "hours": {
+      "timezone": "Europe/Istanbul",
+      "note": "Pazartesi kapalıyız.",
+      "days": {
+        "tue": [
+          {
+            "open": "10:00",
+            "close": "20:00"
+          }
+        ],
+        "wed": [
+          {
+            "open": "10:00",
+            "close": "20:00"
+          }
+        ],
+        "thu": [
+          {
+            "open": "10:00",
+            "close": "20:00"
+          }
+        ],
+        "fri": [
+          {
+            "open": "10:00",
+            "close": "20:00"
+          }
+        ],
+        "sat": [
+          {
+            "open": "09:00",
+            "close": "20:00"
+          }
+        ],
+        "sun": [
+          {
+            "open": "11:00",
+            "close": "18:00"
+          }
+        ]
+      }
+    }
+  },
+  "theme": {
+    "preset": "porcelain",
+    "accent": "#b5485d",
+    "mode": "light",
+    "fonts": "soft",
+    "headingFont": "display",
+    "radius": "lg",
+    "density": "normal",
+    "header": "glass",
+    "motion": {
+      "hero": "reveal",
+      "scroll": "fade",
+      "smooth": true,
+      "parallax": true
+    }
+  },
+  "sections": [
+    {
+      "type": "hero",
+      "id": "ust",
+      "variant": "image",
+      "headline": "Saçınızı bilen bir salon",
+      "subline": "Moda'da, sokağın köşesinde. Kesim ve renkte randevu; bakım için uğramanız yeterli.",
+      "badges": [
+        "Salı–Pazar açık",
+        "Randevu WhatsApp'tan"
+      ],
+      "actions": [
+        {
+          "label": "Randevu Al",
+          "kind": "whatsapp",
+          "value": "Merhaba, Salon Ada için randevu almak istiyorum.\nİşlem: \nGün ve saat: ",
+          "style": "primary"
+        },
+        {
+          "label": "Fiyatlar",
+          "kind": "scroll",
+          "value": "fiyatlar",
+          "style": "ghost"
+        }
+      ],
+      "image": {
+        "src": "https://images.unsplash.com/photo-1560066984-138dadb4c035?w=1800&q=80&auto=format&fit=crop",
+        "alt": "Salonda saç kesimi"
+      }
+    },
+    {
+      "type": "pricing",
+      "id": "fiyatlar",
+      "title": "Fiyatlar",
+      "intro": "Saç uzunluğuna göre küçük farklar olabilir; net fiyatı randevuda söyleriz.",
+      "note": "Fiyatlara KDV dahildir. Gelin paketleri için yazın.",
+      "plans": [
+        {
+          "name": "Kesim",
+          "price": "900 ₺",
+          "description": "Yıkama, kesim, fön.",
+          "features": [
+            "Yıkama ve bakım kremi",
+            "Kesim",
+            "Fön"
+          ],
+          "action": {
+            "label": "Randevu Al",
+            "kind": "whatsapp",
+            "value": "Merhaba, kesim için randevu almak istiyorum.",
+            "style": "secondary"
+          }
+        },
+        {
+          "name": "Renk",
+          "price": "2.400 ₺",
+          "period": "başlangıç",
+          "description": "Dip boya ya da tek ton renk.",
+          "features": [
+            "Renk danışmanlığı",
+            "Boya",
+            "Yıkama ve fön"
+          ],
+          "featured": true,
+          "action": {
+            "label": "Randevu Al",
+            "kind": "whatsapp",
+            "value": "Merhaba, renk için randevu almak istiyorum.",
+            "style": "primary"
+          }
+        },
+        {
+          "name": "Bakım",
+          "price": "1.200 ₺",
+          "description": "Keratin ya da protein bakımı.",
+          "features": [
+            "Saç analizi",
+            "Bakım uygulaması",
+            "Fön"
+          ],
+          "action": {
+            "label": "Randevu Al",
+            "kind": "whatsapp",
+            "value": "Merhaba, bakım için randevu almak istiyorum.",
+            "style": "secondary"
+          }
+        }
+      ]
+    },
+    {
+      "type": "beforeAfter",
+      "id": "once-sonra",
+      "title": "Önce / Sonra",
+      "intro": "Kaydırarak karşılaştırın.",
+      "pairs": [
+        {
+          "label": "Renk yenileme ve katlı kesim",
+          "before": {
+            "src": "https://images.unsplash.com/photo-1522337660859-02fbefca4702?w=1200&q=80&auto=format&fit=crop",
+            "alt": "Önce: düz, mat saç"
+          },
+          "after": {
+            "src": "https://images.unsplash.com/photo-1562322140-8baeececf3df?w=1200&q=80&auto=format&fit=crop",
+            "alt": "Sonra: parlak, katlı kesim"
+          }
+        }
+      ]
+    },
+    {
+      "type": "team",
+      "id": "ekip",
+      "title": "Ekip",
+      "intro": "Üç kişilik küçük bir ekibiz; kimin çalışacağını randevuda seçebilirsiniz.",
+      "members": [
+        {
+          "name": "Ada Yılmaz",
+          "role": "Kurucu · kesim ve renk",
+          "bio": "2011'den beri kuaför. Kısa kesim ve balyaj."
+        },
+        {
+          "name": "Selin Kaya",
+          "role": "Renk uzmanı",
+          "bio": "Sarı tonlar ve renk düzeltme."
+        },
+        {
+          "name": "Merve Aslan",
+          "role": "Bakım ve fön"
+        }
+      ]
+    },
+    {
+      "type": "gallery",
+      "id": "galeri",
+      "title": "Salondan",
+      "layout": "grid",
+      "images": [
+        {
+          "src": "https://images.unsplash.com/photo-1521590832167-7bcbfaa6381f?w=1200&q=80&auto=format&fit=crop",
+          "alt": "Salon içi"
+        },
+        {
+          "src": "https://images.unsplash.com/photo-1519699047748-de8e457a634e?w=1200&q=80&auto=format&fit=crop",
+          "alt": "Fön"
+        },
+        {
+          "src": "https://images.unsplash.com/photo-1595476108010-b4d1f102b1b1?w=1200&q=80&auto=format&fit=crop",
+          "alt": "Ürünler"
+        }
+      ]
+    },
+    {
+      "type": "hours",
+      "id": "saatler",
+      "title": "Çalışma saatleri"
+    },
+    {
+      "type": "location",
+      "id": "konum",
+      "title": "Salon",
+      "showMap": true,
+      "note": "Moda Caddesi üzerinde, Kadıköy iskelesine yürüme mesafesi."
+    },
+    {
+      "type": "cta",
+      "id": "randevu",
+      "headline": "Randevu için yazın",
+      "subline": "İşlemi ve size uygun günü WhatsApp'tan yazın; aynı gün teyit veririz.",
+      "actions": [
+        {
+          "label": "WhatsApp'tan Randevu",
+          "kind": "whatsapp",
+          "value": "Merhaba, Salon Ada için randevu almak istiyorum.\nİşlem: \nGün ve saat: ",
+          "style": "primary"
+        },
+        {
+          "label": "0555 000 00 03",
+          "kind": "call",
+          "style": "ghost"
+        }
+      ]
+    }
+  ],
+  "offer": {
+    "status": "demo",
+    "currency": "TRY"
+  },
+  "seo": {
+    "title": "Salon Ada — Kadıköy Moda kadın kuaförü",
+    "description": "Kesim, renk ve bakım. Salı–Pazar açık; randevu WhatsApp'tan."
+  }
+}
