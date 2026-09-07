@@ -1,3 +1,4 @@
+import { getServerTime } from "@/lib/server-time";
 import { ActionButtons } from "@/components/ActionButtons";
 import { HeroItem, HeroMedia } from "@/components/motion/HeroMotion";
 import { OpenBadge } from "@/components/OpenBadge";
@@ -25,7 +26,7 @@ export function Hero({
 }) {
   const badges = (
     <>
-      {business.hours ? <OpenBadge hours={business.hours} locale={locale} serverNow={Date.now()} /> : null}
+      {business.hours ? <OpenBadge hours={business.hours} locale={locale} serverNow={getServerTime()} /> : null}
       {section.badges.map((badge) => (
         <span key={badge} className="pill">
           {badge}

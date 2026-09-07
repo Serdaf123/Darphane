@@ -1,0 +1,83 @@
+[
+  {
+    "slug": "portre",
+    "device": "desktop",
+    "width": 1440,
+    "status": 200,
+    "overflow": 0,
+    "images": true,
+    "consoleErrors": 0
+  },
+  {
+    "slug": "portre",
+    "device": "mobile",
+    "width": 390,
+    "status": 200,
+    "overflow": 0,
+    "images": true,
+    "consoleErrors": 0
+  },
+  {
+    "slug": "portre",
+    "device": "reduced",
+    "width": 320,
+    "status": 200,
+    "overflow": 0,
+    "images": true,
+    "consoleErrors": 0
+  },
+  {
+    "slug": "galeri",
+    "device": "desktop",
+    "width": 1440,
+    "status": 200,
+    "overflow": 0,
+    "images": true,
+    "consoleErrors": 0
+  },
+  {
+    "slug": "galeri",
+    "device": "mobile",
+    "width": 390,
+    "status": 200,
+    "overflow": 0,
+    "images": true,
+    "consoleErrors": 0
+  },
+  {
+    "slug": "galeri",
+    "device": "reduced",
+    "width": 320,
+    "status": 200,
+    "overflow": 0,
+    "images": true,
+    "consoleErrors": 0
+  },
+  {
+    "slug": "afis",
+    "device": "desktop",
+    "width": 1440,
+    "status": 200,
+    "overflow": 0,
+    "images": true,
+    "consoleErrors": 0
+  },
+  {
+    "slug": "afis",
+    "device": "mobile",
+    "width": 390,
+    "status": 200,
+    "overflow": 0,
+    "images": true,
+    "consoleErrors": 0
+  },
+  {
+    "slug": "afis",
+    "device": "reduced",
+    "width": 320,
+    "status": 200,
+    "overflow": 0,
+    "images": true,
+    "consoleErrors": 0
+  }
+]
