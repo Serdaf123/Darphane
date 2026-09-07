@@ -259,7 +259,8 @@
   ],
   "offer": {
     "status": "demo",
-    "currency": "TRY"
+    "currency": "TRY",
+    "price": 12000
   },
   "seo": {
     "title": "Salon Ada — Kadıköy Moda kadın kuaförü",
