@@ -257,6 +257,8 @@ const menuSection = z.object({
   type: z.literal("menu"),
   title: z.string().default("Menü"),
   intro: z.string().optional(),
+  /** list: fiyat listesi satırları · photos: fotoğraflı kartlar (görseli olan ürünler) */
+  layout: z.enum(["list", "photos"]).default("list"),
   groups: z.array(
     z.object({
       name: z.string(),
@@ -265,6 +267,7 @@ const menuSection = z.object({
           name: z.string(),
           description: z.string().optional(),
           price: z.string().optional(),
+          image: imageSchema.optional(),
         })
       ),
     })

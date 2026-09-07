@@ -125,10 +125,17 @@ export function SerkanSite({ year }: { year: number }) {
       });
 
       /* Manifesto: kelimeler kaydırdıkça dolar (durağan hâl: tam görünür) */
+      /* Renk üzerinden (opaklık değil): sönük hâl de 6:1 kontrastı korur */
+      const manifestoWords = q<HTMLElement>(".so-manifesto .w");
       gsap.fromTo(
-        q(".so-manifesto .w"),
-        { opacity: 0.16 },
-        { opacity: 1, stagger: 0.08, ease: "none", scrollTrigger: { trigger: q(".so-manifesto")[0], start: "top 70%", end: "bottom 60%", scrub: 0.4 } }
+        manifestoWords,
+        { color: "#98a0b3" },
+        {
+          color: (i, el) => ((el as HTMLElement).classList.contains("hi") ? "#9db4ff" : "#f2f4f8"),
+          stagger: 0.08,
+          ease: "none",
+          scrollTrigger: { trigger: q(".so-manifesto")[0], start: "top 70%", end: "bottom 60%", scrub: 0.4 },
+        }
       );
 
       /* Süreç: sabit telefon, üç adım. Kısa/yatay ekranda sabitleme yok, adımlar alt alta. */

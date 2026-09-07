@@ -11,9 +11,11 @@ Her şey `main`'de ve canlıda: https://darphane-74qr.vercel.app · Panel: /pane
 - **PostHog → Telegram köprüsü** `/api/uyari`: "👀 açtı — olympos · Mobile · İstanbul", "👆 bastı → whatsapp". Bot token + PostHog anahtarı gelince açılır.
 
 ### Site yapma motoru
+- Menü bölümüne fotoğraflı düzen (`layout: "photos"`, ürün başına `image`); grup başlıkları büyük harfli eyebrow'dan normal başlığa çevrildi.
+- Yellow Bull için A/B teklif metni ve görseller hazır (`content/pitch/gonderim/yellow-bull-istanbul.txt`, `shots/yellow-bull-istanbul-telefon.png`, `-b-telefon.png`, `-og.png`).
 - Yeni bölümler: **fiyat tablosu** (`pricing`), **ekip** (`team`), **önce/sonra kaydırıcı** (`beforeAfter`), **video hero** (`hero.video`). Kuaför demosu `/salon-ada` hepsini gösterir.
 - Yeni teklif durumu `demo`: şerit yok, süre yok, indeks kapalı. Ocakbaşı ve diş demoları bu durumda; kişisel siteden linkleniyor.
-- **Performans**: hero giriş animasyonları CSS'e taşındı (JS beklemeden başlar, LCP'yi bloklamaz), GSAP yalnız gerektiğinde iniyor, PostHog yalnız anahtarla, motion → LazyMotion, kök font ön yüklemesi kapalı. Yerel Lighthouse mobil: Olympos 75→87, avukat 71→80.
+- **Performans**: hero giriş animasyonları CSS'e taşındı (JS beklemeden başlar, LCP'yi bloklamaz), GSAP yalnız gerektiğinde iniyor, PostHog yalnız anahtarla, motion → LazyMotion, kök font ön yüklemesi kapalı. Canlı Lighthouse mobil (03:10): kişisel site performans 79→**99**, Olympos 75→**97** (SEO 69 noindex'ten, beklenen).
 - Lighthouse CI GitHub Actions'ta (erişilebilirlik ≥ 93 zorunlu, performans ≥ 80 uyarı).
 
 ### Kişisel site (serkanoral.com.tr)
