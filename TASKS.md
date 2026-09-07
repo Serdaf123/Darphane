@@ -31,7 +31,7 @@ Durum: 🔧 üzerinde çalışılıyor · 🕐 sırada · ✅ bitti · ⛔ blokl
 ## Codex (GitHub)
 | Durum | İş | Not |
 |---|---|---|
-| 🕐 | Kişisel site Tasarım B (`app/serkan-oral/b`, `components/serkan-b`) | brif: `briefs/03-tasarim-b.md`; metin gelince başla; PR ile |
+| 🔧 | Kişisel site Tasarım B (`app/serkan-oral/b`, `components/serkan-b`) | başladı (Portre/Galeri/Afiş konseptleri); sonraki adım `darphane-codex/CODEX-GOREV.md`; PR ile |
 | 🕐 | (B onaylanırsa) Tasarım B'yi köke taşıma | Serkan seçer |
 
 ## Karşılaştırma ölçütleri (A vs B)

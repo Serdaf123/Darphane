@@ -17,3 +17,6 @@
 
 ## Teslim
 PR açıklamasında: masaüstü + mobil ekran görüntüsü, kullanılan font/renk kararı 3 satır, dokunulan dosya listesi. Şablon otomatik gelir.
+
+## Sonraki adım (07.09)
+Codex'in worktree'sine `CODEX-GOREV.md` bırakıldı: üç konsept (Portre / Galeri / Afiş) geçişli tek sayfa değil, üç ayrı tam route olacak (`/serkan-oral/b`, `/b/galeri`, `/b/afis`); `lucide-react` yerine satır içi SVG, portre `/sites/serkan-oral/serkan.webp`, `preload` → `priority`, `main` merge, CI yeşil, PR.
