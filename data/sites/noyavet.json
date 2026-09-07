@@ -215,7 +215,7 @@
     }
   ],
   "offer": {
-    "status": "draft",
+    "status": "pitched",
     "expiresAt": "2026-09-14T21:00:00+03:00",
     "price": 17999,
     "currency": "TRY",
