@@ -19,8 +19,10 @@ export function OpenBadge({ hours, locale = "tr" }: { hours: Hours; locale?: Loc
   const isOpen = state?.status === "open";
   const label = state === null ? t(locale).hours.schedule : state.label;
 
+  // Etiket hidrasyonda değişir ("Çalışma saatleri" → "Şu an kapalı"); genişlik sabit kalsın ki
+  // yanındaki rozetler satır atlamasın (CLS).
   return (
-    <span className="pill">
+    <span className="pill" style={{ minWidth: "8.75rem", justifyContent: "center" }}>
       <span
         aria-hidden
         style={{

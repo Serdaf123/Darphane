@@ -95,9 +95,17 @@ function SplitItem({
 
       if (target) {
         const isHeading = target === heading;
+        // <p> üzerinde aria-label yasak (ARIA): paragraf için metni gizli kopyada bırak, parçaları gizle
+        if (!isHeading) {
+          const sr = document.createElement("span");
+          sr.className = "sr-only";
+          sr.textContent = target.textContent;
+          target.parentElement?.insertBefore(sr, target);
+        }
         const split = SplitText.create(target, {
           type: isHeading ? "lines,words,chars" : "lines,words",
           mask: "lines",
+          aria: isHeading ? "auto" : "hidden",
           autoSplit: true,
           onSplit: (self) =>
             gsap.from(isHeading ? self.chars : self.words, {
