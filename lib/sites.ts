@@ -53,9 +53,12 @@ export function siteLocales(slug: string): Locale[] {
  * Tasarım varyantları: <slug>.b.json varsa işletmeye iki tasarım sunulur
  * ("hangisi?" sorusu "evet/hayır"dan iyi). "a" her zaman ana dosya.
  */
-export type Variant = "a" | "b";
+export type Variant = "a" | "b" | "c";
 export function siteVariants(slug: string): Variant[] {
-  return fs.existsSync(path.join(SITES_DIR, `${slug}.b.json`)) ? ["a", "b"] : ["a"];
+  const variants: Variant[] = ["a"];
+  if (fs.existsSync(path.join(SITES_DIR, `${slug}.b.json`))) variants.push("b");
+  if (fs.existsSync(path.join(SITES_DIR, `${slug}.c.json`))) variants.push("c");
+  return variants;
 }
 
 /**

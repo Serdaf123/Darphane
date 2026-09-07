@@ -15,7 +15,7 @@ import path from "node:path";
 const args = process.argv.slice(2);
 const slug = args.find((a) => !a.startsWith("--") && args[args.indexOf(a) - 1] !== "--url");
 const flag = (n: string) => { const i = args.indexOf(n); return i >= 0 ? args[i + 1] : undefined; };
-const base = (flag("--url") ?? "https://darphane-74qr.vercel.app").replace(/\/$/, "");
+const base = (flag("--url") ?? "https://fourpear.vercel.app").replace(/\/$/, "");
 const variantB = args.includes("--b");
 
 if (!slug) {

@@ -3,8 +3,8 @@ Merhaba, ben Serkan Oral (fourpear). Noyavet 7/24 Nöbetçi Veteriner Kliniği i
 Google Haritalar'da sitenizin olmadığını fark ettim, oradaki bilgilerinizle (telefon, adres, saatler, yorumlar) tek sayfalık bir site kurdum; WhatsApp'tan doğrudan mesaj alıyor. Şu an canlı, telefonunuzdan açabilirsiniz:
 
 İki ayrı tasarım var, ikisi de canlı:
-Tasarım A: https://darphane-74qr.vercel.app/noyavet
-Tasarım B: https://darphane-74qr.vercel.app/noyavet/b
+Tasarım A: https://fourpear.vercel.app/noyavet
+Tasarım B: https://fourpear.vercel.app/noyavet/b
 
 Bu bir teklif sunumu değil, bitmiş bir iş. Beğendiğiniz tasarım 8.500 ₺ karşılığında sizin oluyor, alan adını da sizin adınıza ben alırım. Beğenmezseniz 14 Eylül Pazartesi siteyi kaldırıyorum; hiçbir borç ya da yükümlülük yok.
 

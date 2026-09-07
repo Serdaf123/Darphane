@@ -2,7 +2,7 @@
 
 > Bu dosya projenin **ana kaydıdır**. Repoya bağlanan her ajan (Claude, Codex, Manus, ChatGPT, insan) önce bunu okur; yaptığı her işi en alttaki **İş günlüğü**'ne tarih, ajan adı, ne yapıldığı ve commit'iyle işler. Kural: günlüğe işlenmemiş iş yapılmamış sayılır.
 
-Son güncelleme: 2026-09-07 08:40 · Canlı: https://darphane-74qr.vercel.app · Panel: /panel · Repo: `Serdaf123/Darphane` (private)
+Son güncelleme: 2026-09-07 08:40 · Canlı: https://fourpear.vercel.app · Panel: /panel · Repo: `Serdaf123/Darphane` (private)
 
 ---
 
@@ -100,3 +100,5 @@ Biçim: `- **tarih saat · ajan** — ne yapıldı (dosya/rota) · commit · var
 - **2026-09-03 → 09-07 08:40 · Claude** — Yukarıdaki §6'daki her şey; son commit `6b1108f`. Açık: Codex PR'ı bekleniyor; Serkan'ın anahtar/kararları §7.
 - **2026-09-07 (gece) · Codex** — `codex/serkan-design-b` dalında `components/serkan-b/Concepts.tsx` + `concepts.css` (Portre/Galeri/Afiş konseptleri), henüz commit yok; sonraki adım `darphane-codex/CODEX-GOREV.md`. *(Claude tarafından gözlemden yazıldı; Codex kendi satırını eklesin.)*
 - **2026-09-07 09:30 · Claude** — Noyavet 7/24 veteriner sitesi (`/noyavet`, taslak, acil blok; 24 saat açık desteği `00:00–00:00`), teklif metni `content/pitch/gonderim/noyavet.txt`. Kişisel site **Tasarım B (Claude)**: `/serkan-oral/b` — açık kâğıt zemin, Fraunces + DM Sans, telefon vitrini, yeşil bant, JS yok (`components/serkan-b/SerkanB.tsx`, `b.css`). Codex'in üç konsepti kendi dalında (`origin/codex/serkan-design-b`: Portre `/b`, Galeri `/b/galeri`, Afiş `/b/afis`; ayrıca `Hero.tsx`, `sections/index.tsx`, `package.json`, `lib/server-time.ts` gibi ortak dosyalara dokunmuş — PR'da incelenecek). Birleştirmede Codex'in Portre'si `/b/portre`'ye taşınır. Commit: bu.
+- **2026-09-07 10:30 · Codex (ana klasörde, gözlemden)** — Üçüncü tasarım varyantı: `app/[slug]/c/page.tsx`, `siteVariants` a/b/c, şeritte A·B·C geçişi, `lib/server-time.ts` ile tek sunucu saati. *Not: bu değişiklikler Codex'in kendi worktree'si yerine ana klasörde yapıldı; Claude eksik `lib/server-time.ts`'i tamamlayıp build doğruladı ve push etti.*
+- **2026-09-07 10:35 · Claude** — Vercel projesi `fourpear` adına alındı; yeni adres **https://fourpear.vercel.app** (eski adres de çalışır). Teklif metinleri, README, CI ve pitch varsayılanı yeni adrese geçti. Noyavet A/B canlı.

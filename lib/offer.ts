@@ -9,7 +9,7 @@ export function formatPrice(offer: Offer): string | null {
   return `${offer.price.toLocaleString("tr-TR")} ${currency}`;
 }
 
-export function purchaseUrl(offer: Offer, businessName: string, variant?: "a" | "b"): string | undefined {
+export function purchaseUrl(offer: Offer, businessName: string, variant?: "a" | "b" | "c"): string | undefined {
   if (!offer.seller) return undefined;
   const price = formatPrice(offer);
   return whatsappUrl(

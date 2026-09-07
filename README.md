@@ -188,7 +188,7 @@ scripts/new-site.mts      iskelet üretici
 
 ## Canlı ve iç sayfa
 
-Canlı: `https://darphane-74qr.vercel.app` (Vercel, her `main` push'unda otomatik deploy; commit yazarı Serdaf123 olmalı, yoksa Vercel Hobby deploy'u sessizce bloklar). `/` ve `/panel` fourpear'ın iç panelidir; canlıda giriş ister: `/giris` sayfası, parola Vercel env `DARPHANE_ADMIN_PASSWORD`, 30 günlük imzalı çerez, `/api/cikis` ile çıkış (`proxy.ts` + `lib/admin-auth.ts`). Parola değişince eski oturumlar düşer. İşletme sayfaları açıktır. Yerelde (`next dev`) sorulmaz. Env/redeploy/log için Vercel CLI bu makinede oturum açık: `npx vercel env ls`, `npx vercel logs <url>`.
+Canlı: `https://fourpear.vercel.app` (eski `darphane-74qr.vercel.app` da çalışır; Vercel projesi 07.09'da `fourpear` adına alındı; her `main` push'unda otomatik deploy; commit yazarı Serdaf123 olmalı, yoksa Vercel Hobby deploy'u sessizce bloklar). `/` ve `/panel` fourpear'ın iç panelidir; canlıda giriş ister: `/giris` sayfası, parola Vercel env `DARPHANE_ADMIN_PASSWORD`, 30 günlük imzalı çerez, `/api/cikis` ile çıkış (`proxy.ts` + `lib/admin-auth.ts`). Parola değişince eski oturumlar düşer. İşletme sayfaları açıktır. Yerelde (`next dev`) sorulmaz. Env/redeploy/log için Vercel CLI bu makinede oturum açık: `npx vercel env ls`, `npx vercel logs <url>`.
 
 ### Panel (`/panel`)
 
@@ -221,7 +221,9 @@ Kayıt nereye gider (`lib/store.ts`): `DARPHANE_GITHUB_TOKEN` varsa GitHub Conte
 
 Şeritteki "Detaylar" linki buraya gelir: fiyat, son gün, ne dahil, alan adı adayları (RDAP ile .com müsaitliği; `lib/domains.ts`), 3 adım, esnaf SSS'si, ödeme/WhatsApp. Satılan sitede 404, her zaman noindex. B tasarımından `?tasarim=b` ile açılır ve WhatsApp mesajına tasarım yazılır. `offer.packages` (en fazla 3) verilirse "Paketler" bölümü çıkar (örnek: `yellow-bull-istanbul.json`, 7.900 / 9.900); yoksa tek fiyat. Sayfada gönderen künyesi ve "talep edilmeden hazırlandı, yükümlülük doğurmaz" notu var (6563 / KVKK).
 
-## İki tasarım sunmak (A · B)
+## İki tasarım sunmak (A · B · C)
+
+`<slug>.c.json` varsa üçüncü tasarım `/<slug>/c`'de açılır; şeritteki geçiş A · B · C olur (Codex, 07.09).
 
 `data/sites/<slug>.b.json` (tema + hero farkı, kısmi) varsa `/<slug>/b` açılır; teklif şeridinde **Tasarım A · B** geçişi çıkar, "Sitemi Satın Al" mesajına seçilen harf yazılır, PostHog `site_viewed.variant` ile hangisine bakıldığı görülür. Satışta kazanan katman ana dosyaya taşınır.
 

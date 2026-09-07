@@ -1,4 +1,5 @@
 import { sectionId } from "@/lib/actions";
+import { getServerTime } from "@/lib/server-time";
 import type { Locale } from "@/lib/i18n";
 import type { Business, Section } from "@/lib/schema";
 import { About } from "./About";
@@ -49,7 +50,7 @@ export function Sections({
           case "reviews":
             return <Reviews key={key} section={section} id={id} locale={locale} />;
           case "hours":
-            return <HoursSection key={key} section={section} business={business} id={id} locale={locale} serverNow={Date.now()} />;
+            return <HoursSection key={key} section={section} business={business} id={id} locale={locale} serverNow={getServerTime()} />;
           case "location":
             return <Location key={key} section={section} business={business} id={id} locale={locale} />;
           case "contact":

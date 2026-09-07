@@ -66,7 +66,7 @@ export function SitePage({
             slug={slug}
             businessName={business.name}
             variant={variant}
-            variantLinks={variants.length > 1 ? { a: `/${slug}`, b: `/${slug}/b` } : undefined}
+            variantLinks={variants.length > 1 ? { a: `/${slug}`, b: `/${slug}/b`, ...(variants.includes("c") ? { c: `/${slug}/c` } : {}) } : undefined}
           >
             <a href="#icerik" className="skip-link">
               {t(locale).skipToContent}

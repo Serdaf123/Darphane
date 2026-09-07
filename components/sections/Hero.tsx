@@ -3,6 +3,7 @@ import { HeroItem, HeroMedia } from "@/components/motion/HeroMotion";
 import { OpenBadge } from "@/components/OpenBadge";
 import { SiteImage } from "@/components/SiteImage";
 import { normalizePhone, whatsappUrl } from "@/lib/actions";
+import { getServerTime } from "@/lib/server-time";
 import type { Locale } from "@/lib/i18n";
 import type { Business, Section } from "@/lib/schema";
 
@@ -25,7 +26,7 @@ export function Hero({
 }) {
   const badges = (
     <>
-      {business.hours ? <OpenBadge hours={business.hours} locale={locale} serverNow={Date.now()} /> : null}
+      {business.hours ? <OpenBadge hours={business.hours} locale={locale} serverNow={getServerTime()} /> : null}
       {section.badges.map((badge) => (
         <span key={badge} className="pill">
           {badge}

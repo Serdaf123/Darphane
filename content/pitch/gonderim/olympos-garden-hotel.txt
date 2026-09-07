@@ -2,7 +2,7 @@ Merhaba, ben Serkan Oral (fourpear). Olympos Garden Hotel için bir şey hazırl
 
 Google Haritalar'da sitenizin olmadığını fark ettim, oradaki bilgilerinizle bir tane kurdum. Odalar, konum, kahvaltı ve otopark bilgisi, Google puanınız; İngilizce sürümü de var, WhatsApp'tan doğrudan rezervasyon alıyor. Şu an canlı, telefonunuzdan açabilirsiniz:
 
-https://darphane-74qr.vercel.app/olympos-garden-hotel
+https://fourpear.vercel.app/olympos-garden-hotel
 
 Bu bir teklif sunumu değil, bitmiş bir iş. Beğenirseniz 8.500 ₺ karşılığında sizin oluyor, alan adını da sizin adınıza ben alırım. Beğenmezseniz 12 Eylül Cuma siteyi kaldırıyorum; hiçbir borç ya da yükümlülük yok.
 

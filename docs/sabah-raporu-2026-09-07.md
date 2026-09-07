@@ -1,6 +1,6 @@
 # Sabah raporu — 7 Eylül 2026 (02:00–03:00 gece vardiyası)
 
-Her şey `main`'de ve canlıda: https://darphane-74qr.vercel.app · Panel: /panel
+Her şey `main`'de ve canlıda: https://fourpear.vercel.app · Panel: /panel
 
 ## Bu gece ne yapıldı
 

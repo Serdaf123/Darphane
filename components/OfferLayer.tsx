@@ -32,19 +32,19 @@ function remaining(deadline: number, now: number) {
   };
 }
 
-type VariantLinks = { a: string; b: string };
+type VariantLinks = { a: string; b: string; c?: string };
 
 /** "Tasarım A · B" — işletme sahibi tek linkten iki dünyayı gezer; seçim mesaja yazılır */
-function VariantSwitch({ variant, links }: { variant: "a" | "b"; links: VariantLinks }) {
+function VariantSwitch({ variant, links }: { variant: "a" | "b" | "c"; links: VariantLinks }) {
   return (
     <span className="inline-flex shrink-0 items-center gap-1 text-xs" aria-label="Tasarım seçenekleri">
       <span className="hidden sm:inline" style={{ color: "rgba(245,246,247,.6)" }}>
         Tasarım
       </span>
-      {(["a", "b"] as const).map((v) => (
+      {(["a", "b", ...(links.c ? ["c"] : [])] as Array<"a" | "b" | "c">).map((v) => (
         <a
           key={v}
-          href={links[v]}
+          href={links[v] ?? links.a}
           aria-current={v === variant ? "page" : undefined}
           className="rounded px-1.5 py-0.5 font-semibold"
           style={{
@@ -72,7 +72,7 @@ function CountdownBar({
   businessName: string;
   slug: string;
   now: number | null;
-  variant: "a" | "b";
+  variant: "a" | "b" | "c";
   variantLinks?: VariantLinks;
 }) {
   const deadline = offer.expiresAt ? new Date(offer.expiresAt).getTime() : null;
@@ -190,7 +190,7 @@ function DraftBar({
   variantLinks,
 }: {
   businessName: string;
-  variant: "a" | "b";
+  variant: "a" | "b" | "c";
   variantLinks?: VariantLinks;
 }) {
   return (
@@ -221,7 +221,7 @@ export function OfferLayer({
   /** /[slug]/teklif bağlantısı için */
   slug: string;
   children: ReactNode;
-  variant?: "a" | "b";
+  variant?: "a" | "b" | "c";
   /** İki tasarım varsa şeritte A · B geçişi */
   variantLinks?: VariantLinks;
 }) {
