@@ -1,5 +1,7 @@
 # darphane
 
+> Projenin tek dosyalık ana kaydı ve ajan günlüğü: **DARPHANE.md** (her ajan yaptığını oraya işler).
+
 Web sitesi olmayan işletmeler için hazır landing page üretip süreli teklifle satan sistem. fourpear.
 
 ## Nasıl çalışır
