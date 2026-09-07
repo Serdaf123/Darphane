@@ -17,11 +17,15 @@ export function HoursSection({
   section,
   business,
   id,
-  locale = "tr",, serverNow }: {
+  locale = "tr",
+  serverNow,
+}: {
   section: HoursData;
   business: Business;
   id: string;
-  locale?: Locale;; serverNow?: number }) {
+  locale?: Locale;
+  serverNow?: number;
+}) {
   const now = useNow();
   const hours = business.hours;
   if (!hours) return null;
