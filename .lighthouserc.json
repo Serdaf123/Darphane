@@ -5,7 +5,7 @@
       "startServerReadyPattern": "Ready",
       "url": ["http://localhost:3010/", "http://localhost:3010/salon-ada", "http://localhost:3010/olympos-garden-hotel"],
       "numberOfRuns": 1,
-      "settings": { "preset": "mobile", "chromeFlags": "--no-sandbox --headless=new" }
+      "settings": { "chromeFlags": "--no-sandbox --headless=new" }
     },
     "assert": {
       "assertions": {
