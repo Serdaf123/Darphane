@@ -1,10 +1,11 @@
 import type { Metadata } from "next";
-import Link from "next/link";
+import { FONT_PAIRINGS } from "@/lib/fonts";
+import { SerkanB } from "@/components/serkan-b/SerkanB";
 
 /**
- * Kişisel sayfanın B tasarımı — Codex'in alanı (bkz. AGENTS.md).
- * Bu dosya ve components/serkan-b/** Codex tarafından doldurulur.
- * Seçilen tasarım sonra köke (/serkan-oral) taşınır. Seçilene kadar noindex.
+ * Kişisel sayfanın B tasarımı (Claude). Açık zemin, serif, telefon vitrini, JS yok.
+ * Seçilene kadar noindex; seçilirse köke taşınır. Codex'in konseptleri kendi dalında
+ * (/b/portre, /b/galeri, /b/afis) durur.
  */
 export const metadata: Metadata = {
   title: "Serkan Oral — Tasarım B",
@@ -13,10 +14,8 @@ export const metadata: Metadata = {
 
 export default function SerkanOralB() {
   return (
-    <main style={{ minHeight: "100dvh", display: "grid", placeItems: "center", background: "#111", color: "#eee", fontFamily: "system-ui, sans-serif" }}>
-      <p>
-        Tasarım B henüz yok. Kaynak: <code>app/serkan-oral/b/page.tsx</code> + <code>components/serkan-b/</code>. Tasarım A: <Link href="/serkan-oral" style={{ color: "#9db4ff" }}>/serkan-oral</Link>
-      </p>
+    <main className={FONT_PAIRINGS.soft.className} style={{ background: "#f2f4f0" }}>
+      <SerkanB year={new Date().getFullYear()} />
     </main>
   );
 }
