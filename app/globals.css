@@ -539,7 +539,9 @@ main:focus {
       border-color 0.25s ease;
   }
 
-  .card:hover {
+  /* Yalnız tıklanabilir kartlar (bağlantı) hover'da kalkar; bilgi kartları sabit durur */
+  a.card:hover,
+  .card:has(> a:only-child):hover {
     transform: translateY(-2px);
     border-color: color-mix(in srgb, var(--c-accent) 35%, var(--c-border));
   }
@@ -1006,3 +1008,8 @@ main > .section:nth-child(even of .section):not(.section-dark):not(.cta-band) { 
 
 /* Yardımcı bölümler (saatler, konum, SSS, iletişim) anlatı bölümlerinden bir kademe küçük başlık taşır */
 .section-title-sm { font-size: var(--step-3); }
+
+/* Form: kullanıcı dokunduktan sonra geçersiz alan vurgu renginde çerçeve alır (tarayıcı baloncuğuna ek) */
+.field input:user-invalid,
+.field textarea:user-invalid,
+.field select:user-invalid { border-color: var(--c-accent); box-shadow: 0 0 0 3px color-mix(in srgb, var(--c-accent) 18%, transparent); }
