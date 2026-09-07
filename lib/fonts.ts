@@ -1,3 +1,7 @@
+/**
+ * preload: true — next/font yalnız sayfada kullanılan çiftin dosyalarını ön yükler (18 fontu değil).
+ * Ön yükleme olmadan display fontu geç geliyor, hero metni yer değiştiriyordu (Fraunces'ta CLS 0.06).
+ */
 import {
   Bricolage_Grotesque,
   Cormorant_Garamond,
@@ -25,30 +29,30 @@ import {
  */
 
 
-const inter = Inter({ subsets: ["latin", "latin-ext"], variable: "--f-inter", display: "swap", preload: false });
-const playfair = Playfair_Display({ subsets: ["latin", "latin-ext"], variable: "--f-playfair", display: "swap", preload: false });
-const manrope = Manrope({ subsets: ["latin", "latin-ext"], variable: "--f-manrope", display: "swap", preload: false });
+const inter = Inter({ subsets: ["latin", "latin-ext"], variable: "--f-inter", display: "swap", preload: true });
+const playfair = Playfair_Display({ subsets: ["latin", "latin-ext"], variable: "--f-playfair", display: "swap", preload: true });
+const manrope = Manrope({ subsets: ["latin", "latin-ext"], variable: "--f-manrope", display: "swap", preload: true });
 const cormorant = Cormorant_Garamond({
   subsets: ["latin", "latin-ext"],
   weight: ["500", "600", "700"],
   style: ["normal", "italic"],
   variable: "--f-cormorant",
   display: "swap",
-  preload: false,
+  preload: true,
 });
-const figtree = Figtree({ subsets: ["latin", "latin-ext"], variable: "--f-figtree", display: "swap", preload: false });
-const bricolage = Bricolage_Grotesque({ subsets: ["latin", "latin-ext"], variable: "--f-bricolage", display: "swap", preload: false });
-const sourceSerif = Source_Serif_4({ subsets: ["latin", "latin-ext"], variable: "--f-sourceserif", display: "swap", preload: false });
-const fraunces = Fraunces({ subsets: ["latin", "latin-ext"], variable: "--f-fraunces", display: "swap", preload: false });
-const dmSans = DM_Sans({ subsets: ["latin", "latin-ext"], variable: "--f-dmsans", display: "swap", preload: false });
-const spaceGrotesk = Space_Grotesk({ subsets: ["latin", "latin-ext"], variable: "--f-spacegrotesk", display: "swap", preload: false });
+const figtree = Figtree({ subsets: ["latin", "latin-ext"], variable: "--f-figtree", display: "swap", preload: true });
+const bricolage = Bricolage_Grotesque({ subsets: ["latin", "latin-ext"], variable: "--f-bricolage", display: "swap", preload: true });
+const sourceSerif = Source_Serif_4({ subsets: ["latin", "latin-ext"], variable: "--f-sourceserif", display: "swap", preload: true });
+const fraunces = Fraunces({ subsets: ["latin", "latin-ext"], variable: "--f-fraunces", display: "swap", preload: true });
+const dmSans = DM_Sans({ subsets: ["latin", "latin-ext"], variable: "--f-dmsans", display: "swap", preload: true });
+const spaceGrotesk = Space_Grotesk({ subsets: ["latin", "latin-ext"], variable: "--f-spacegrotesk", display: "swap", preload: true });
 const ebGaramond = EB_Garamond({
   subsets: ["latin", "latin-ext"],
   weight: ["400", "500", "600"],
   style: ["normal", "italic"],
   variable: "--f-ebgaramond",
   display: "swap",
-  preload: false,
+  preload: true,
 });
 const plexSerif = IBM_Plex_Serif({
   subsets: ["latin", "latin-ext"],
@@ -56,16 +60,16 @@ const plexSerif = IBM_Plex_Serif({
   style: ["normal", "italic"],
   variable: "--f-plexserif",
   display: "swap",
-  preload: false,
+  preload: true,
 });
-const notoSans = Noto_Sans({ subsets: ["latin", "latin-ext"], variable: "--f-notosans", display: "swap", preload: false });
-const notoSerif = Noto_Serif({ subsets: ["latin", "latin-ext"], variable: "--f-notoserif", display: "swap", preload: false });
+const notoSans = Noto_Sans({ subsets: ["latin", "latin-ext"], variable: "--f-notosans", display: "swap", preload: true });
+const notoSerif = Noto_Serif({ subsets: ["latin", "latin-ext"], variable: "--f-notoserif", display: "swap", preload: true });
 const plexSans = IBM_Plex_Sans({
   subsets: ["latin", "latin-ext"],
   weight: ["400", "500", "600"],
   variable: "--f-plexsans",
   display: "swap",
-  preload: false,
+  preload: true,
 });
 
 export const FONT_PAIRINGS = {
