@@ -28,7 +28,7 @@ export function Location({
     <section id={id} className="section">
       <div className="container grid gap-8 md:grid-cols-2 md:items-center">
         <Reveal className="flex flex-col gap-[var(--stack-gap)]">
-          <h2 className="section-title">{section.title}</h2>
+          <h2 className="section-title section-title-sm">{section.title}</h2>
           {address ? <p className="text-lg" style={{ color: "var(--c-text)" }}>{address}</p> : null}
           {section.note ? <p className="muted text-sm leading-relaxed">{section.note}</p> : null}
 

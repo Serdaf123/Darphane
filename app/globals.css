@@ -1003,3 +1003,6 @@ main > .section:nth-child(even of .section):not(.section-dark) { background: var
   .offer-bar-actions { width: 100%; }
   .offer-bar-actions .btn { flex: 1; }
 }
+
+/* Yardımcı bölümler (saatler, konum, SSS, iletişim) anlatı bölümlerinden bir kademe küçük başlık taşır */
+.section-title-sm { font-size: var(--step-3); }

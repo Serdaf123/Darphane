@@ -50,7 +50,7 @@ export function Pricing({ section, business, id, locale = "tr" }: { section: Pri
                 {href && plan.action ? (
                   <a
                     href={href}
-                    className={`btn mt-auto ${plan.featured ? "btn-primary" : "btn-secondary"}`}
+                    className={`btn mt-auto ${plan.featured ? "btn-primary" : "btn-secondary btn-desktop-only"}`}
                     target={plan.action.kind === "call" ? undefined : "_blank"}
                     rel="noopener noreferrer"
                   >
