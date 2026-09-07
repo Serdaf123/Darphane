@@ -11,7 +11,7 @@ Durum: 🔧 üzerinde çalışılıyor · 🕐 sırada · ✅ bitti · ⛔ blokl
 | ✅ | Kişisel site Tasarım B (Claude) `/serkan-oral/b` | 07.09; Serkan A / B / Codex konseptleri arasında seçecek |
 | 🕐 | ChatGPT metin/görselleri Tasarım A'ya entegre etme | `content/serkan/copy.md` dolunca |
 | 🕐 | A ve B karşılaştırma raporu | B PR'ı gelince |
-| ✅ | Panel (`/panel`), GitHub'a yazan kayıt katmanı | token bekliyor |
+| ✅ | Panel (`/panel`), GitHub'a yazan kayıt katmanı | canlıda yazıyor (07.09 11:00) |
 | ✅ | KVKK çerez bandı + PostHog kapısı | anahtar gelince açılır |
 | ✅ | Teklif sayfası, pricing/team/beforeAfter, performans turu, `npm run pitch`, Lighthouse CI | 07.09 gece |
 | 🕐 | Yellow Bull teklif paketi | A/B kararı + yorum sayısı bekliyor |

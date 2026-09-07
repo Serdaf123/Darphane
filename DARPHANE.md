@@ -83,7 +83,7 @@ Env: `.env.example` (anahtarlar yalnız `.env.local` ve Vercel env'inde; repoya 
 
 **Siteler**: Olympos (pitched, 12.09), Av. Özge Nur Şafak (pitched — gönderimden önce telefonla izin!), Yellow Bull (draft, A/B, paket örneği), demolar: Ocakbaşı Şahin, Dt. Elif Yarar, Salon Ada; kişisel site (sold+domain).
 
-**Serkan'dan**: Manus API anahtarı · GitHub token (`DARPHANE_GITHUB_TOKEN`, panel kayıtları) · PostHog anahtarı + Telegram bot/chat id · Turhost DNS glue düzeltmesi (ns1/ns2.vercel-dns.com → 198.51.44.13 / 198.51.45.13) · ANTHROPIC_API_KEY · fiyat kararı (tek/çift paket) · iyzico Link başvurusu · Yellow Bull A/B seçimi + yorum sayısı + fotoğraflar · avukat için arama-önce.
+**Serkan'dan**: Manus API anahtarı · PostHog anahtarı + Telegram bot/chat id · Turhost DNS glue düzeltmesi (ns1/ns2.vercel-dns.com → 198.51.44.13 / 198.51.45.13) · ANTHROPIC_API_KEY · fiyat kararı (tek/çift paket) · iyzico Link başvurusu · Yellow Bull A/B seçimi + yorum sayısı + fotoğraflar · avukat için arama-önce.
 
 **Yol haritası**: NOTLAR.md §2 (Places yorum çekme, Pexels/Unsplash paketleri, Notion pipeline, 15 sn MP4, Vercel Pro).
 
@@ -102,3 +102,4 @@ Biçim: `- **tarih saat · ajan** — ne yapıldı (dosya/rota) · commit · var
 - **2026-09-07 09:30 · Claude** — Noyavet 7/24 veteriner sitesi (`/noyavet`, taslak, acil blok; 24 saat açık desteği `00:00–00:00`), teklif metni `content/pitch/gonderim/noyavet.txt`. Kişisel site **Tasarım B (Claude)**: `/serkan-oral/b` — açık kâğıt zemin, Fraunces + DM Sans, telefon vitrini, yeşil bant, JS yok (`components/serkan-b/SerkanB.tsx`, `b.css`). Codex'in üç konsepti kendi dalında (`origin/codex/serkan-design-b`: Portre `/b`, Galeri `/b/galeri`, Afiş `/b/afis`; ayrıca `Hero.tsx`, `sections/index.tsx`, `package.json`, `lib/server-time.ts` gibi ortak dosyalara dokunmuş — PR'da incelenecek). Birleştirmede Codex'in Portre'si `/b/portre`'ye taşınır. Commit: bu.
 - **2026-09-07 10:30 · Codex (ana klasörde, gözlemden)** — Üçüncü tasarım varyantı: `app/[slug]/c/page.tsx`, `siteVariants` a/b/c, şeritte A·B·C geçişi, `lib/server-time.ts` ile tek sunucu saati. *Not: bu değişiklikler Codex'in kendi worktree'si yerine ana klasörde yapıldı; Claude eksik `lib/server-time.ts`'i tamamlayıp build doğruladı ve push etti.*
 - **2026-09-07 10:35 · Claude** — Vercel projesi `fourpear` adına alındı; yeni adres **https://fourpear.vercel.app** (eski adres de çalışır). Teklif metinleri, README, CI ve pitch varsayılanı yeni adrese geçti. Noyavet A/B canlı.
+- **2026-09-07 11:00 · Claude** — `DARPHANE_GITHUB_TOKEN` Vercel'e girildi (prod+preview); panel canlıda GitHub'a commit ederek yazıyor (test: `f9614ab`). Token yalnız Vercel env'inde; repoda yok. Panel token yokken salt okunur uyarısı gösterir.
