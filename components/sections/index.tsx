@@ -49,7 +49,7 @@ export function Sections({
           case "reviews":
             return <Reviews key={key} section={section} id={id} locale={locale} />;
           case "hours":
-            return <HoursSection key={key} section={section} business={business} id={id} locale={locale} />;
+            return <HoursSection key={key} section={section} business={business} id={id} locale={locale} serverNow={Date.now()} />;
           case "location":
             return <Location key={key} section={section} business={business} id={id} locale={locale} />;
           case "contact":

@@ -25,7 +25,7 @@ export function Hero({
 }) {
   const badges = (
     <>
-      {business.hours ? <OpenBadge hours={business.hours} locale={locale} /> : null}
+      {business.hours ? <OpenBadge hours={business.hours} locale={locale} serverNow={Date.now()} /> : null}
       {section.badges.map((badge) => (
         <span key={badge} className="pill">
           {badge}

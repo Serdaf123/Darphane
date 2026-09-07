@@ -10,9 +10,12 @@ import { useNow } from "@/lib/useNow";
  * hidrasyonda belirip alttaki her şeyi itmesin — hero'da 0.2'lik CLS'nin
  * sebebi buydu. Gerçek durum hidrasyondan sonra yerine oturur.
  */
-export function OpenBadge({ hours, locale = "tr" }: { hours: Hours; locale?: Locale }) {
+export function OpenBadge({ hours, locale = "tr", serverNow }: { hours: Hours; locale?: Locale; serverNow?: number }) {
   const now = useNow();
-  const state = now === null ? null : getOpenState(hours, new Date(now), locale);
+  // Sunucu saati (ISR: en fazla 5 dk eski) ilk çizimde de gerçek durumu verir; hidrasyon sonrası canlı saat devralır.
+  // Böylece "Çalışma saatleri" → "Bugün kapalı · …" değişimi ve satır atlaması (CLS) olmaz.
+  const at = now ?? serverNow ?? null;
+  const state = at === null ? null : getOpenState(hours, new Date(at), locale);
 
   if (state?.status === "unknown") return null;
 
