@@ -131,6 +131,32 @@ const draftSchema = z.object({
     })
     .nullable()
     .describe("Sadece yeme-içme işletmeleri ve kaynakta gerçek menü bilgisi varsa"),
+  pricing: z
+    .object({
+      title: z.string(),
+      intro: z.string().nullable(),
+      note: z.string().nullable(),
+      plans: z.array(
+        z.object({
+          name: z.string(),
+          price: z.string(),
+          period: z.string().nullable(),
+          description: z.string().nullable(),
+          features: z.array(z.string()),
+          featured: z.boolean(),
+        })
+      ),
+    })
+    .nullable()
+    .describe("Yalnız kaynakta gerçek fiyatlar varsa (kuaför, spor salonu, klinik paketleri). Uydurma fiyat yok."),
+  team: z
+    .object({
+      title: z.string(),
+      intro: z.string().nullable(),
+      members: z.array(z.object({ name: z.string(), role: z.string().nullable(), bio: z.string().nullable() })),
+    })
+    .nullable()
+    .describe("Yalnız kaynakta ekip/hekim/usta isimleri geçiyorsa (klinik, büro, salon)."),
   reviews: z.object({
     title: z.string(),
     layout: z.enum(["cards", "quotes", "marquee"]),
@@ -158,7 +184,9 @@ YAZIM KURALLARI (en önemli kısım)
 - Hero başlığı: işletmenin en somut, doğrulanabilir üstünlüğü (konum, süre, dahil olanlar). Klişe değil, iddia değil.
 - CTA etiketleri ne alınacağını söyler: "WhatsApp'tan Fiyat Al", "Masa Ayırt", "Randevu Al", "Yol Tarifi". "Gönder", "İletişim" gibi belirsizler yok.
 - whatsappMessage: "Merhaba, {İşletme} için ... öğrenmek istiyorum.\\nTarih: \\nKişi: " gibi, doldurulacak boş alanlarla; işletmeye göre uyarla (randevu: tarih/saat; restoran: kişi/saat; otel: giriş/çıkış/kişi).
-- Bölüm sırası sabittir (kod belirler): hero → hakkında → yorumlar → hizmetler/menü → SSS → konum → CTA. Sen içerik verirsin.
+- Bölüm sırası sabittir (kod belirler): hero → hakkında → yorumlar → hizmetler/menü → fiyatlar → ekip → SSS → konum → CTA. Sen içerik verirsin.
+- pricing: yalnız kaynakta gerçek fiyat listesi varsa (kuaför, spor salonu, klinik, oto yıkama). En fazla 4 plan; biri featured. Fiyat yoksa null.
+- team: yalnız kaynakta isim geçiyorsa (yorumlarda "Dr. X", "Ahmet usta" gibi). İsim yoksa null; uydurma isim asla.
 - SSS: 4-6 soru, hepsi kaynaktan cevaplanabilir olmalı (saatler, otopark, ödeme, ulaşım, kahvaltı dahil mi gibi). Bilinmeyen şeyi "rezervasyonda bildiririz" gibi dürüst ifadeyle geçiştir.
 - Yorumlar düzeni: 0-2 yorum → "quotes", 3 → "cards", 4+ → "marquee".
 - Fiyat kaynakta varsa yaz ("340 ₺" biçimi); yoksa null.
@@ -291,6 +319,33 @@ draft.services.forEach((svc, i) => {
     items: svc.items.map((it) => ({ name: it.name, ...(it.description ? { description: it.description } : {}), ...(it.price ? { price: it.price } : {}) })),
   });
 });
+if (draft.pricing && draft.pricing.plans.length > 0) {
+  sections.push({
+    type: "pricing",
+    id: "fiyatlar",
+    title: draft.pricing.title,
+    ...(draft.pricing.intro ? { intro: draft.pricing.intro } : {}),
+    ...(draft.pricing.note ? { note: draft.pricing.note } : {}),
+    plans: draft.pricing.plans.slice(0, 4).map((pl) => ({
+      name: pl.name,
+      price: pl.price,
+      ...(pl.period ? { period: pl.period } : {}),
+      ...(pl.description ? { description: pl.description } : {}),
+      features: pl.features,
+      ...(pl.featured ? { featured: true } : {}),
+      action: { label: "Randevu Al", kind: "whatsapp", value: draft.whatsappMessage, style: pl.featured ? "primary" : "secondary" },
+    })),
+  });
+}
+if (draft.team && draft.team.members.length > 0) {
+  sections.push({
+    type: "team",
+    id: "ekip",
+    title: draft.team.title,
+    ...(draft.team.intro ? { intro: draft.team.intro } : {}),
+    members: draft.team.members.map((m) => ({ name: m.name, ...(m.role ? { role: m.role } : {}), ...(m.bio ? { bio: m.bio } : {}) })),
+  });
+}
 if (photos.length > 2) {
   sections.push({
     type: "gallery",
