@@ -58,8 +58,8 @@ export function getOpenState(
     }
   }
 
-  const today = hours.days[day];
-  if (!today) return { status: "unknown", label: "" };
+  // Eksik gün = kapalı (şemada gün yoksa işletme o gün açılmıyor demektir)
+  const today = hours.days[day] ?? [];
 
   for (const range of today) {
     const open = toMinutes(range.open);
@@ -76,13 +76,18 @@ export function getOpenState(
   if (nextOpen) {
     return { status: "closed", label: s.closedOpensAt(nextOpen), nextOpen };
   }
+  // Bugün açılış kalmadı: sonraki açık günü söyle ("Bugün kapalı · Salı 10:00'da açılıyor")
+  for (let i = 1; i <= 7; i++) {
+    const d = DAY_KEYS[(DAY_KEYS.indexOf(day) + i) % 7];
+    const r = hours.days[d]?.[0];
+    if (r) return { status: "closed", label: s.closedOpens(t(locale).days[d], r.open), nextOpen: r.open };
+  }
   return { status: "closed", label: s.closedNow };
 }
 
 /** "09:00 - 18:00" veya birden fazla aralıkta "09:00 - 13:00, 14:00 - 19:00" */
 export function formatRanges(ranges: TimeRange[] | undefined, locale: Locale = "tr"): string {
-  if (ranges === undefined) return t(locale).hours.unknown;
-  if (ranges.length === 0) return t(locale).hours.closed;
+  if (ranges === undefined || ranges.length === 0) return t(locale).hours.closed;
   return ranges.map((r) => `${r.open} - ${r.close}`).join(", ");
 }
 

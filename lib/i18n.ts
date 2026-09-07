@@ -6,6 +6,20 @@
  * + bu sözlük. Turistik işletmelerde (otel, restoran) EN sayfa /en altında.
  */
 
+/** "10:00'da", "18:00'de", "13:00'te": saat için Türkçe bulunma eki (ünlü uyumu + sertleşme) */
+function saatEki(hhmm: string): string {
+  const [h, m] = hhmm.split(":").map(Number);
+  const dk = m % 60;
+  if (dk) {
+    const birler = dk % 10, onlar = dk - birler;
+    const son = birler || onlar; // 30 → "otuz", 45 → "beş", 15 → "beş"
+    const map: Record<number, string> = { 1: "de", 2: "de", 3: "te", 4: "te", 5: "te", 6: "da", 7: "de", 8: "de", 9: "da", 10: "da", 20: "de", 30: "da", 40: "ta", 50: "de" };
+    return map[son] ?? "de";
+  }
+  const map: Record<number, string> = { 0: "da", 1: "de", 2: "de", 3: "te", 4: "te", 5: "te", 6: "da", 7: "de", 8: "de", 9: "da", 10: "da", 11: "de", 12: "de", 13: "te", 14: "te", 15: "te", 16: "da", 17: "de", 18: "de", 19: "da", 20: "de", 21: "de", 22: "de", 23: "te" };
+  return map[h % 24] ?? "de";
+}
+
 export const LOCALES = ["tr", "en"] as const;
 export type Locale = (typeof LOCALES)[number];
 export const DEFAULT_LOCALE: Locale = "tr";
@@ -38,7 +52,8 @@ const tr = {
     schedule: "Çalışma saatleri",
     openUntil: (until: string) => `Şu an açık · ${until}'ye kadar`,
     closedNow: "Şu an kapalı",
-    closedOpensAt: (at: string) => `Şu an kapalı · ${at}'de açılıyor`,
+    closedOpensAt: (at: string) => `Şu an kapalı · ${at}'${saatEki(at)} açılıyor`,
+    closedOpens: (day: string, at: string) => `Bugün kapalı · ${day} ${at}'${saatEki(at)} açılıyor`,
     caption: (name: string) => `${name} çalışma saatleri`,
   },
   reviews: {
@@ -86,6 +101,7 @@ const en: typeof tr = {
     openUntil: (until: string) => `Open now · until ${until}`,
     closedNow: "Closed now",
     closedOpensAt: (at: string) => `Closed now · opens at ${at}`,
+    closedOpens: (day: string, at: string) => `Closed today · opens ${day} at ${at}`,
     caption: (name: string) => `${name} opening hours`,
   },
   reviews: {

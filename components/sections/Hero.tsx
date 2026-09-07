@@ -195,7 +195,7 @@ export function Hero({
 
   // variant: image — tam genişlik görsel, üstünde katman
   return (
-    <section id={id} className="relative isolate flex min-h-[78svh] items-end overflow-hidden">
+    <section id={id} className="hero-image relative isolate flex min-h-[78svh] items-end overflow-hidden">
       <HeroMedia className="absolute inset-0 -z-20">
         <SiteImage
           image={section.image}
@@ -247,10 +247,10 @@ export function Hero({
               </p>
             </HeroItem>
           ) : null}
-          <HeroItem order={3}>
+          <HeroItem order={3} className="hero-badges">
             <div className="flex flex-wrap gap-2">{badges}</div>
           </HeroItem>
-          <HeroItem order={4}>
+          <HeroItem order={4} className="hero-actions">
             <ActionButtons actions={section.actions} business={business} className="mt-2" locale={locale} mobileLimit={2} />
           </HeroItem>
         </div>

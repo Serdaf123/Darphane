@@ -9,7 +9,7 @@ type BeforeAfterData = Extract<Section, { type: "beforeAfter" }>;
 export function BeforeAfter({ section, id, locale = "tr" }: { section: BeforeAfterData; id: string; locale?: Locale }) {
   const labels = locale === "tr" ? { before: "Önce", after: "Sonra", aria: "Önce/sonra karşılaştırma kaydırıcısı" } : { before: "Before", after: "After", aria: "Before/after comparison slider" };
   return (
-    <section id={id} className="section section-surface">
+    <section id={id} className="section">
       <div className="container flex flex-col gap-[var(--stack-gap)]">
         <Reveal className="flex flex-col gap-[var(--stack-gap)]">
           <h2 className="section-title">{section.title}</h2>

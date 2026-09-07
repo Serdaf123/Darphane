@@ -88,7 +88,7 @@ function CountdownBar({
       aria-label="Teklif bilgisi"
     >
       {/* Telefonda buton alta düşmesin: metin sütunu daralır, buton sabit kalır */}
-      <div className="container flex items-center justify-between gap-3 py-2.5">
+      <div className="offer-bar-inner container flex items-center justify-between gap-3 py-2.5">
         <div className="flex min-w-0 flex-1 flex-col">
           <p className="text-[0.9375rem] font-semibold leading-tight">
             <span className="hidden sm:inline">Bu site </span>
@@ -111,10 +111,6 @@ function CountdownBar({
                   {String(left.seconds).padStart(2, "0")}
                 </span>{" "}
                 kaldı
-                {" · "}
-                <a href={`/${slug}/teklif${variant === "b" ? "?tasarim=b" : ""}`} className="font-semibold underline underline-offset-2" style={{ color: BAR_TEXT }}>
-                  Detaylar
-                </a>
               </>
             ) : deadline !== null ? (
               <>
@@ -128,8 +124,16 @@ function CountdownBar({
           </p>
         </div>
 
-        <div className="flex shrink-0 items-center gap-2">
+        <div className="offer-bar-actions flex shrink-0 items-center gap-2">
           {variantLinks ? <VariantSwitch variant={variant} links={variantLinks} /> : null}
+          {/* "Ne alıyorum?" sayfası: fiyat, dahil olanlar, alan adı, süreç — parmakla tutulur buton */}
+          <a
+            href={`/${slug}/teklif${variant === "b" ? "?tasarim=b" : ""}`}
+            className="btn whitespace-nowrap"
+            style={{ background: "transparent", color: BAR_TEXT, border: "1px solid rgba(245,246,247,.35)", minHeight: "2.75rem", padding: "0.5rem 0.9rem", fontSize: "0.875rem" }}
+          >
+            Detaylar
+          </a>
 
           {/* Ödeme linki varsa karar anında ödeme; WhatsApp soru için kalır */}
           {offer.paymentUrl ? (
@@ -141,7 +145,7 @@ function CountdownBar({
               style={{
                 background: "#22c55e",
                 color: "#07130b",
-                minHeight: "2.5rem",
+                minHeight: "2.75rem",
                 padding: "0.5rem 1rem",
                 fontSize: "0.875rem",
               }}
@@ -159,7 +163,7 @@ function CountdownBar({
                 background: offer.paymentUrl ? "transparent" : "#22c55e",
                 color: offer.paymentUrl ? BAR_TEXT : "#07130b",
                 border: offer.paymentUrl ? "1px solid rgba(245,246,247,.35)" : undefined,
-                minHeight: "2.5rem",
+                minHeight: "2.75rem",
                 padding: "0.5rem 1rem",
                 fontSize: "0.875rem",
               }}

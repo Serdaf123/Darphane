@@ -16,6 +16,7 @@ Her şey `main`'de ve canlıda: https://darphane-74qr.vercel.app · Panel: /pane
 - Yeni bölümler: **fiyat tablosu** (`pricing`), **ekip** (`team`), **önce/sonra kaydırıcı** (`beforeAfter`), **video hero** (`hero.video`). Kuaför demosu `/salon-ada` hepsini gösterir.
 - Yeni teklif durumu `demo`: şerit yok, süre yok, indeks kapalı. Ocakbaşı ve diş demoları bu durumda; kişisel siteden linkleniyor.
 - **Performans**: hero giriş animasyonları CSS'e taşındı (JS beklemeden başlar, LCP'yi bloklamaz), GSAP yalnız gerektiğinde iniyor, PostHog yalnız anahtarla, motion → LazyMotion, kök font ön yüklemesi kapalı. Canlı Lighthouse mobil (03:20): kişisel site performans 79→**98**, erişilebilirlik 93→**100**; Olympos 75→**97** (SEO 69 noindex'ten, beklenen).
+- Motor kritik turu (3 demo site, Impeccable yöntemi): telefonda ilk ekranda buton, header otomatik gizlenme, kapalı günde "Bugün kapalı · Salı 10:00'da açılıyor", şerit butonları parmakla tutulur, bölüm zeminleri dönüşümlü, SVG ikonlar, fotoğrafsız ekip için liste düzeni. Canlı Lighthouse: kuaför demosu 99, avukat 98, otel 97, kişisel site 98 (a11y hepsinde 100).
 - Lighthouse CI GitHub Actions'ta (erişilebilirlik ≥ 93 zorunlu, performans ≥ 80 uyarı).
 
 ### Kişisel site (serkanoral.com.tr)

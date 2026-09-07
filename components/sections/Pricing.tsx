@@ -9,7 +9,7 @@ type PricingData = Extract<Section, { type: "pricing" }>;
 export function Pricing({ section, business, id, locale = "tr" }: { section: PricingData; business: Business; id: string; locale?: Locale }) {
   const cols = section.plans.length;
   return (
-    <section id={id} className="section section-surface">
+    <section id={id} className="section">
       <div className="container flex flex-col gap-[var(--stack-gap)]">
         <Reveal className="flex flex-col gap-[var(--stack-gap)]">
           <h2 className="section-title">{section.title}</h2>
@@ -23,7 +23,7 @@ export function Pricing({ section, business, id, locale = "tr" }: { section: Pri
               <Item
                 key={plan.name}
                 className={`card flex flex-col gap-3${plan.featured ? " pricing-featured" : ""}`}
-                style={plan.featured ? { borderColor: "var(--c-accent)", boxShadow: "0 0 0 1px var(--c-accent)" } : undefined}
+                style={plan.featured ? { borderColor: "var(--c-accent)", borderWidth: 2 } : undefined}
               >
                 <div>
                   <h3 className="text-lg font-semibold">{plan.name}</h3>
@@ -39,9 +39,9 @@ export function Pricing({ section, business, id, locale = "tr" }: { section: Pri
                   <ul className="flex flex-col gap-1.5 text-sm" style={{ listStyle: "none", padding: 0, margin: 0 }}>
                     {plan.features.map((f) => (
                       <li key={f} className="flex gap-2">
-                        <span aria-hidden style={{ color: "var(--c-accent)" }}>
-                          ✓
-                        </span>
+                        <svg aria-hidden width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--c-accent)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" style={{ flex: "none", marginTop: "0.2rem" }}>
+                          <path d="M5 12.5l4.5 4.5L19 7.5" />
+                        </svg>
                         <span>{f}</span>
                       </li>
                     ))}

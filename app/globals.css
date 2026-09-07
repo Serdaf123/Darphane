@@ -981,3 +981,25 @@ a.hero-urgent-note:hover {
 .hero-curtain { position: absolute; inset: 0; background: var(--c-bg); transform-origin: top; z-index: 2; animation: hero-curtain 0.9s cubic-bezier(0.22, 1, 0.36, 1) 0.1s both; pointer-events: none; }
 @keyframes hero-curtain { from { transform: scaleY(1); } to { transform: scaleY(0); } }
 @media (prefers-reduced-motion: reduce) { .hero-item, .hero-media, .hero-curtain { animation: none; } .hero-curtain { display: none; } }
+
+/* Bölüm zemin ritmi: hero sonrası bölümler dönüşümlü (düz / yüzey); koyu ton kendi zeminini korur */
+main > .section:nth-child(even of .section):not(.section-dark) { background: var(--c-surface); }
+
+/* Telefon: header aşağı inerken saklanır (SiteHeader data-hidden) */
+@media (max-width: 767px) {
+  .site-header { transition: transform 0.25s ease, background-color 0.35s ease, color 0.35s ease; }
+  .site-header[data-hidden] { transform: translateY(-100%); }
+}
+
+/* Telefon: görselli hero'da ilk ekranda buton görünsün — başlık bir kademe küçük, rozetler butonların altında */
+@media (max-width: 639px) {
+  .hero-image h1 { font-size: var(--step-5) !important; }
+  .hero-image .hero-badges { order: 2; }
+  .hero-image .hero-actions { order: 1; }
+  .hero-image .hero-badges .pill:nth-child(n + 3) { display: none; }
+  /* Teklif şeridi: metin üstte, butonlar altta tam genişlik */
+  .offer-bar-inner { flex-wrap: wrap; }
+  .offer-bar-inner > .flex-1 { flex-basis: 100%; }
+  .offer-bar-actions { width: 100%; }
+  .offer-bar-actions .btn { flex: 1; }
+}

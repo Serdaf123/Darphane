@@ -16,6 +16,38 @@ function initials(name: string) {
 /** Ekip kartları: fotoğraf varsa 4:5, yoksa baş harf rozeti. */
 export function Team({ section, id }: { section: TeamData; id: string }) {
   const n = section.members.length;
+  const anyPhoto = section.members.some((m) => m.image);
+  if (!anyPhoto) {
+    // Fotoğraf yoksa dev boş kutular yerine satır düzeni: baş harf rozeti + isim/rol
+    return (
+      <section id={id} className="section">
+        <div className="container flex flex-col gap-[var(--stack-gap)]">
+          <Reveal className="flex flex-col gap-[var(--stack-gap)]">
+            <h2 className="section-title">{section.title}</h2>
+            {section.intro ? <p className="section-intro">{section.intro}</p> : null}
+          </Reveal>
+          <Stagger as="ul" className="mt-2 flex max-w-3xl flex-col" style={{ listStyle: "none", padding: 0, margin: 0 }}>
+            {section.members.map((m) => (
+              <Item as="li" key={m.name} className="flex items-start gap-4 py-4" style={{ borderBottom: "1px solid var(--c-border)" }}>
+                <span
+                  aria-hidden
+                  className="grid shrink-0 place-items-center rounded-full font-semibold"
+                  style={{ width: "3rem", height: "3rem", background: "var(--c-surface-alt)", color: "var(--c-accent)", fontFamily: "var(--font-heading)" }}
+                >
+                  {initials(m.name)}
+                </span>
+                <div>
+                  <h3 className="text-lg font-semibold">{m.name}</h3>
+                  {m.role ? <p className="muted text-sm">{m.role}</p> : null}
+                  {m.bio ? <p className="mt-1 text-sm leading-relaxed">{m.bio}</p> : null}
+                </div>
+              </Item>
+            ))}
+          </Stagger>
+        </div>
+      </section>
+    );
+  }
   return (
     <section id={id} className="section">
       <div className="container flex flex-col gap-[var(--stack-gap)]">
