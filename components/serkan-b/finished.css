@@ -1,0 +1,109 @@
+/* Shared content, with layout variations that carry each hero through the page. */
+.concepts .concept-header { max-width: 1480px; margin-inline: auto; padding-inline: 4%; }
+.concept-page { scroll-margin-top: 24px; }
+.concepts section { scroll-margin-top: 28px; }
+.concepts h3 { margin: 0; font-family: inherit; font-weight: 500; }
+.finished-section { padding: 100px 7%; }
+.finished-heading h2 { font-size: clamp(2.2rem, 4.8vw, 4.8rem); line-height: 1.03; letter-spacing: -.055em; text-wrap: balance; }
+.finished-heading > p { max-width: 43ch; color: var(--muted); line-height: 1.7; margin-top: 26px; }
+.finished-process { display: grid; grid-template-columns: 1fr 1fr; gap: 10%; }
+.finished-steps { list-style: none; padding: 0; margin: 0; }
+.finished-steps li { display: grid; grid-template-columns: 38px 1fr; gap: 25px; border-top: 1px solid var(--line); padding: 28px 0; }
+.finished-steps li > span { color: var(--wine); font-size: 13px; padding-top: 6px; }
+.finished-steps h3 { font-size: 25px; letter-spacing: -.035em; }
+.finished-steps p { color: var(--muted); max-width: 42ch; margin-top: 12px; line-height: 1.65; }
+.finished-features { background: #e9e2d7; }
+.finished-feature-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 45px 6%; margin-top: 60px; }
+.finished-feature-grid article { border-top: 1px solid #c5b9ab; padding-top: 24px; }
+.finished-feature-grid h3 { font-size: 23px; line-height: 1.2; letter-spacing: -.03em; }
+.finished-feature-grid p { margin-top: 16px; color: var(--muted); line-height: 1.65; max-width: 36ch; }
+.finished-works .finished-heading { display: flex; align-items: end; justify-content: space-between; gap: 30px; margin-bottom: 50px; }
+.finished-works .finished-heading > p { max-width: 33ch; }
+.finished-work-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 6%; }
+.finished-work-image { height: 500px; position: relative; overflow: hidden; border-radius: 5px; }
+.finished-work-food { background: var(--wine); }
+.finished-work-clinic { background: #ddd3c4; }
+.finished-work-image img { width: 65%; height: auto; position: absolute; top: 40px; left: 17.5%; transform: rotate(-5deg); }
+.finished-work-clinic img { transform: rotate(5deg); }
+.finished-work-label { display: flex; align-items: center; justify-content: space-between; gap: 20px; padding: 24px 0; }
+.finished-work-label h3 { font-size: 25px; letter-spacing: -.04em; }
+.finished-work-label p { color: var(--muted); font-size: 13px; margin-top: 6px; }
+.finished-faq { display: grid; grid-template-columns: 1fr 1.25fr; gap: 9%; padding-top: 30px; }
+.finished-faq details { border-bottom: 1px solid var(--line); }
+.finished-faq summary { list-style: none; cursor: pointer; display: flex; justify-content: space-between; align-items: center; gap: 24px; padding: 25px 0; font-size: 19px; line-height: 1.4; }
+.finished-faq summary::-webkit-details-marker { display: none; }
+.finished-faq summary svg { color: var(--wine); }
+.finished-faq details[open] summary svg { transform: rotate(45deg); }
+.finished-faq details p { max-width: 48ch; color: var(--muted); line-height: 1.7; padding: 0 25px 26px 0; }
+.finished-closing { margin: 0 3% 45px; padding: 65px 5%; border-radius: 7px; background: var(--wine); color: var(--paper); display: grid; grid-template-columns: 1.35fr 1fr; gap: 10%; align-items: end; }
+.finished-closing h2 { font-size: clamp(4rem, 8.5vw, 9rem); letter-spacing: -.065em; line-height: .98; }
+.finished-closing p { line-height: 1.65; max-width: 36ch; margin-bottom: 20px; }
+.finished-closing .concept-contact { display: flex; justify-content: space-between; padding: 14px 20px; background: var(--paper); color: var(--wine); border-radius: 4px; max-width: 300px; font-weight: 500; }
+.finished-phone { display: inline-block; padding-top: 25px; }
+.finished-closing :focus-visible { outline-color: var(--paper); }
+.finished-dock { display: none; }
+/* The gallery uses a narrow text column, offset works and a compact feature list. */
+.direction-galeri .finished-process { grid-template-columns: .85fr 1.35fr; gap: 8%; }
+.direction-galeri .finished-features { display: grid; grid-template-columns: .85fr 1.35fr; gap: 8%; }
+.direction-galeri .finished-feature-grid { grid-template-columns: 1fr 1fr; gap: 30px; margin-top: 0; }
+.direction-galeri .finished-work-grid > a:last-child { margin-top: 90px; }
+/* The poster continues its large-scale typographic rhythm beyond the opening. */
+.direction-afis .finished-process { display: block; }
+.direction-afis .finished-process .finished-heading { display: flex; align-items: end; justify-content: space-between; gap: 40px; }
+.direction-afis .finished-steps { display: grid; grid-template-columns: repeat(3, 1fr); gap: 5%; margin-top: 60px; }
+.direction-afis .finished-steps li { display: block; }
+.direction-afis .finished-steps li > span { display: block; margin-bottom: 22px; }
+.direction-afis .finished-feature-grid { grid-template-columns: repeat(2, 1fr); gap: 40px 12%; }
+.direction-afis .finished-closing { margin-inline: 0; border-radius: 0; }
+@media (hover: hover) and (pointer: fine) and (prefers-reduced-motion: no-preference) {
+  .finished-work-image img { transition: transform .4s cubic-bezier(.22,1,.36,1); }
+  .finished-work-grid a:hover img { transform: rotate(0deg) translateY(-15px); }
+}
+@media (max-width: 1000px) {
+  .finished-section { padding-inline: 5%; }
+  .finished-work-image { height: 400px; }
+  .finished-feature-grid { grid-template-columns: 1fr 1fr; }
+  .finished-closing { gap: 7%; }
+}
+@media (max-width: 700px) {
+  .concepts { padding-bottom: calc(88px + env(safe-area-inset-bottom)); }
+  .concepts .concept-header { margin: 0; padding-inline: 4%; }
+  .finished-section { padding: 60px 5%; }
+  .finished-heading h2 { font-size: clamp(2.15rem, 9vw, 3.3rem); }
+  .finished-heading > p { font-size: 15px; margin-top: 20px; }
+  .finished-process, .finished-faq, .direction-galeri .finished-process, .direction-galeri .finished-features { display: block; }
+  .finished-steps { margin-top: 30px; }
+  .finished-steps li { padding: 24px 0; gap: 15px; grid-template-columns: 30px 1fr; }
+  .finished-steps h3 { font-size: 23px; }
+  .finished-steps p, .finished-feature-grid p { font-size: 15px; }
+  .finished-feature-grid, .direction-galeri .finished-feature-grid, .direction-afis .finished-feature-grid { grid-template-columns: 1fr; gap: 26px; margin-top: 30px; }
+  .finished-feature-grid article { padding-top: 23px; }
+  .finished-feature-grid h3 { font-size: 23px; }
+  .finished-works .finished-heading { display: block; margin-bottom: 32px; }
+  .finished-work-grid { grid-template-columns: 1fr; gap: 30px; }
+  .finished-work-image { height: 370px; }
+  .finished-work-image img { width: 66%; left: 17%; }
+  .finished-work-label { padding: 20px 0; }
+  .finished-work-label h3 { font-size: 23px; }
+  .direction-galeri .finished-work-grid > a:last-child { margin-top: 0; }
+  .finished-faq { padding-top: 5px; }
+  .finished-faq > div:last-child { margin-top: 25px; }
+  .finished-faq summary { font-size: 17px; padding: 23px 0; }
+  .finished-faq details p { font-size: 15px; }
+  .finished-closing { display: block; padding: 40px 7%; margin-bottom: 20px; }
+  .finished-closing h2 { font-size: clamp(4rem, 18vw, 6rem); }
+  .finished-closing > div { margin-top: 30px; }
+  .finished-closing p { font-size: 15px; }
+  .finished-dock { display: flex; align-items: stretch; gap: 12px; position: fixed; z-index: 10; bottom: 0; left: 0; right: 0; background: var(--paper); border-top: 1px solid var(--line); padding: 12px 4% calc(12px + env(safe-area-inset-bottom)); }
+  .finished-dock > .concept-contact { flex: 1; justify-content: center; min-height: 48px; gap: 15px; border-radius: 4px; background: var(--wine); color: var(--paper); font-size: 14px; }
+  .finished-dock > a:last-child { padding: 12px 18px; border: 1px solid var(--line); border-radius: 4px; display: grid; place-items: center; font-size: 14px; }
+  .direction-afis .finished-process .finished-heading { display: block; }
+  .direction-afis .finished-steps { display: block; margin-top: 30px; }
+  .direction-afis .finished-steps li { display: grid; }
+  .direction-afis .finished-steps li > span { margin-bottom: 0; }
+  .portrait-photo { height: 325px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .concept-entrance { animation: none !important; }
+  .concepts *, .concepts *::before, .concepts *::after { animation: none !important; transition: none !important; }
+}

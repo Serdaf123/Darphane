@@ -5,11 +5,11 @@ import "@/components/serkan-b/concepts.css";
 import "@/components/serkan-b/finished.css";
 
 export const metadata: Metadata = {
-  title: "Serkan Oral — Portre",
+  title: "Serkan Oral — Afiş",
   description: "İşletmeniz için web sitesi. Önce görün, sonra karar verin. Tek seferlik ücret; alan adı kurulumu dahil.",
   robots: { index: false, follow: false, nocache: true },
 };
 
 export default function Page() {
-  return <div className={FONT_PAIRINGS.craft.className}><Concepts variant="portre" /></div>;
+  return <div className={FONT_PAIRINGS.craft.className}><Concepts variant="afis" /></div>;
 }

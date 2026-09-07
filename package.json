@@ -8,7 +8,7 @@
     "start": "next start",
     "lint": "eslint",
     "new-site": "node scripts/new-site.mts",
-    "typecheck": "tsc --noEmit",
+    "typecheck": "next typegen && tsc --noEmit",
     "find-leads": "node --env-file-if-exists=.env.local scripts/find-leads.mts",
     "screenshot": "node scripts/screenshot.mts",
     "draft": "node --env-file-if-exists=.env.local scripts/draft-site.mts",

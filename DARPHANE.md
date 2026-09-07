@@ -99,3 +99,5 @@ Biçim: `- **tarih saat · ajan** — ne yapıldı (dosya/rota) · commit · var
 
 - **2026-09-03 → 09-07 08:40 · Claude** — Yukarıdaki §6'daki her şey; son commit `6b1108f`. Açık: Codex PR'ı bekleniyor; Serkan'ın anahtar/kararları §7.
 - **2026-09-07 (gece) · Codex** — `codex/serkan-design-b` dalında `components/serkan-b/Concepts.tsx` + `concepts.css` (Portre/Galeri/Afiş konseptleri), henüz commit yok; sonraki adım `darphane-codex/CODEX-GOREV.md`. *(Claude tarafından gözlemden yazıldı; Codex kendi satırını eklesin.)*
+
+- **2026-09-07 08:57 · Codex** — Main `6093472` dalıma alındı. Portre `/serkan-oral/b`, Galeri `/serkan-oral/b/galeri`, Afiş `/serkan-oral/b/afis`: tam içerik, noindex, sabit mobil WhatsApp, SVG ikonlar ve mevcut portre yolu. Typecheck/lint/standart Turbopack build temiz; 1440/390/320 px, azaltılmış hareket ve JS kapalı kontroller geçti. Altı ekran görüntüsü ve tekrarlanabilir kontrol `components/serkan-b/review` + `verify.mjs` içinde. Ortak saat için React cache ve temiz CI için next typegen eklendi. Uygulama commit: `d884e8d`. PR: Tasarım B: Portre / Galeri / Afiş.
