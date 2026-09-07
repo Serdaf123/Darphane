@@ -258,9 +258,10 @@
     }
   ],
   "offer": {
-    "status": "demo",
+    "status": "pitched",
     "currency": "TRY",
-    "price": 12000
+    "price": 12000,
+    "expiresAt": "2026-09-14T21:00:00+03:00"
   },
   "seo": {
     "title": "Salon Ada — Kadıköy Moda kadın kuaförü",
