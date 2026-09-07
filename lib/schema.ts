@@ -48,6 +48,8 @@ const imageSchema = z.object({
   alt: z.string(),
   /** Galeride öne çıkarmak için */
   featured: z.boolean().optional(),
+  /** Kırpmada korunacak nokta: "50% 20%" (yüz üstteyse), "center", "left top" */
+  focal: z.string().optional(),
 });
 export type SiteImage = z.infer<typeof imageSchema>;
 

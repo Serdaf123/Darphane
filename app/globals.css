@@ -983,7 +983,7 @@ a.hero-urgent-note:hover {
 @media (prefers-reduced-motion: reduce) { .hero-item, .hero-media, .hero-curtain { animation: none; } .hero-curtain { display: none; } }
 
 /* Bölüm zemin ritmi: hero sonrası bölümler dönüşümlü (düz / yüzey); koyu ton kendi zeminini korur */
-main > .section:nth-child(even of .section):not(.section-dark) { background: var(--c-surface); }
+main > .section:nth-child(even of .section):not(.section-dark):not(.cta-band) { background: var(--c-surface); }
 
 /* Telefon: header aşağı inerken saklanır (SiteHeader data-hidden) */
 @media (max-width: 767px) {
