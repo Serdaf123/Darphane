@@ -18,6 +18,8 @@ const AUTHOR = { name: "Serdaf123", email: "161323711+Serdaf123@users.noreply.gi
 
 export type StoreMode = "github" | "fs";
 export const storeMode: StoreMode = TOKEN ? "github" : "fs";
+/** Canlıda token yoksa panel salt okunur: dosya sistemi kalıcı değil (EROFS). */
+export const storeReadOnly = !TOKEN && Boolean(process.env.VERCEL);
 
 /** Şemadan geçmemiş ham JSON: dosyadaki alan sırası ve isteğe bağlı alanlar korunur. */
 export type RawSite = Record<string, unknown> & { slug: string };
@@ -100,7 +102,11 @@ export async function readAllSites(): Promise<Site[]> {
 export type SaveResult = { mode: StoreMode; commitUrl?: string; sha?: string };
 
 /** Ham JSON'u şemadan geçirip yazar. Dönüş: commit linki (github) ya da sadece mod (fs). */
+const ON_VERCEL = Boolean(process.env.VERCEL);
+const NO_TOKEN_MSG = "Canlıda kayıt için GitHub token gerekli: Vercel → Settings → Environment Variables → DARPHANE_GITHUB_TOKEN (fine-grained, yalnız Darphane repo, Contents: Read and write), sonra yeniden deploy. Ayrıntı README → Panel.";
+
 export async function writeSite(slug: string, raw: RawSite, message: string, sha?: string): Promise<SaveResult> {
+  if (storeMode === "fs" && ON_VERCEL) throw new Error(NO_TOKEN_MSG);
   const parsed = siteSchema.safeParse(raw);
   if (!parsed.success) {
     const issues = parsed.error.issues.map((i) => `${i.path.join(".")}: ${i.message}`).join("; ");
@@ -134,6 +140,7 @@ export async function writeSite(slug: string, raw: RawSite, message: string, sha
  */
 export async function deleteSite(slug: string, message: string): Promise<SaveResult & { removed: string[] }> {
   if (!/^[a-z0-9-]+$/.test(slug)) throw new Error("Geçersiz slug");
+  if (storeMode === "fs" && ON_VERCEL) throw new Error(NO_TOKEN_MSG);
   const files = (await listAllFiles()).filter((f) => f === `${slug}.json` || f.startsWith(`${slug}.`));
   if (files.length === 0) throw new Error("Site bulunamadı");
 

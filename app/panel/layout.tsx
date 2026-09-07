@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import "./panel.css";
-import { storeMode } from "@/lib/store";
+import { storeMode, storeReadOnly } from "@/lib/store";
 
 export const metadata: Metadata = {
   title: "Panel — Darphane",
@@ -28,6 +28,11 @@ export default function PanelLayout({ children }: { children: React.ReactNode })
             <a href="/api/cikis">Çıkış</a>
           </nav>
         </header>
+        {storeReadOnly ? (
+          <p className="notice notice-warn" style={{ marginTop: "1rem" }}>
+            Panel şu an <strong>salt okunur</strong>: canlıda kayıt için Vercel env&apos;ine <code>DARPHANE_GITHUB_TOKEN</code> girilmeli (GitHub → Settings → Developer settings → Fine-grained tokens → yalnız Darphane, Contents: Read and write), sonra yeniden deploy.
+          </p>
+        ) : null}
         {children}
       </div>
     </div>
