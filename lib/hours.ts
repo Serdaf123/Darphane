@@ -62,6 +62,8 @@ export function getOpenState(
   const today = hours.days[day] ?? [];
 
   for (const range of today) {
+    // 00:00–00:00 = bütün gün açık (24 saat nöbetçi klinik, benzin istasyonu)
+    if (range.open === "00:00" && range.close === "00:00") return { status: "open", label: s.open24, until: "24:00" };
     const open = toMinutes(range.open);
     const close = toMinutes(range.close);
     const isOpen = spansMidnight(range) ? minutes >= open : minutes >= open && minutes < close;
@@ -88,6 +90,7 @@ export function getOpenState(
 /** "09:00 - 18:00" veya birden fazla aralıkta "09:00 - 13:00, 14:00 - 19:00" */
 export function formatRanges(ranges: TimeRange[] | undefined, locale: Locale = "tr"): string {
   if (ranges === undefined || ranges.length === 0) return t(locale).hours.closed;
+  if (ranges.some((r) => r.open === "00:00" && r.close === "00:00")) return t(locale).hours.allDay;
   return ranges.map((r) => `${r.open} - ${r.close}`).join(", ");
 }
 

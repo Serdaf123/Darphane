@@ -1,0 +1,232 @@
+{
+  "slug": "noyavet",
+  "business": {
+    "name": "Noyavet 7/24 Nöbetçi Veteriner Kliniği",
+    "category": "Veteriner kliniği",
+    "tagline": "Maltepe Altıntepe'de 24 saat açık veteriner kliniği. Acil müdahale, muayene, aşı.",
+    "phone": "0501 124 66 92",
+    "whatsapp": "905011246692",
+    "address": "Altıntepe Mah., Tevfik Sağlam Cd. No:25/B",
+    "district": "Maltepe",
+    "city": "İstanbul",
+    "coords": {
+      "lat": 40.9525013,
+      "lng": 29.1039528
+    },
+    "social": {},
+    "hours": {
+      "timezone": "Europe/Istanbul",
+      "note": "Gece gündüz açığız; acil durumda önce arayın.",
+      "days": {
+        "mon": [
+          {
+            "open": "00:00",
+            "close": "00:00"
+          }
+        ],
+        "tue": [
+          {
+            "open": "00:00",
+            "close": "00:00"
+          }
+        ],
+        "wed": [
+          {
+            "open": "00:00",
+            "close": "00:00"
+          }
+        ],
+        "thu": [
+          {
+            "open": "00:00",
+            "close": "00:00"
+          }
+        ],
+        "fri": [
+          {
+            "open": "00:00",
+            "close": "00:00"
+          }
+        ],
+        "sat": [
+          {
+            "open": "00:00",
+            "close": "00:00"
+          }
+        ],
+        "sun": [
+          {
+            "open": "00:00",
+            "close": "00:00"
+          }
+        ]
+      }
+    }
+  },
+  "theme": {
+    "preset": "porcelain",
+    "accent": "#1f7a6d",
+    "mode": "light",
+    "neutralTint": 0.3,
+    "fonts": "plex",
+    "headingFont": "display",
+    "radius": "md",
+    "density": "normal",
+    "header": "glass",
+    "contact": "both",
+    "fabStyle": "dial",
+    "motion": {
+      "hero": "reveal",
+      "scroll": "fade",
+      "smooth": true,
+      "parallax": true
+    }
+  },
+  "sections": [
+    {
+      "type": "hero",
+      "id": "ust",
+      "variant": "statement",
+      "headline": "Noyavet",
+      "subline": "Maltepe Altıntepe'de, Tevfik Sağlam Caddesi üzerinde 24 saat açık veteriner kliniği. Acil müdahale, muayene ve aşı.",
+      "badges": [
+        "Google'da 4,8",
+        "24 saat açık"
+      ],
+      "actions": [
+        {
+          "label": "WhatsApp'tan Yazın",
+          "kind": "whatsapp",
+          "value": "Merhaba, Noyavet için yazıyorum.\nHayvan (tür/yaş): \nŞikâyet: ",
+          "style": "primary"
+        },
+        {
+          "label": "Yol Tarifi",
+          "kind": "directions",
+          "style": "ghost"
+        }
+      ],
+      "image": {
+        "src": "https://images.unsplash.com/photo-1583337130417-3346a1be7dee?w=1800&q=80&auto=format&fit=crop",
+        "alt": "Veteriner muayenesinde bir köpek",
+        "focal": "50% 30%"
+      },
+      "urgent": {
+        "title": "Hayvanınız acil mi? Gece gündüz arayın.",
+        "note": "Ulaşamazsanız WhatsApp'a \"acil\" yazın.",
+        "whatsappMessage": "ACİL — Noyavet\nHayvan (tür/yaş): \nDurum: \nNeredeyim: "
+      },
+      "monogram": "N"
+    },
+    {
+      "type": "about",
+      "id": "hakkinda",
+      "title": "Klinik hakkında",
+      "body": "Noyavet, Maltepe Altıntepe'de Tevfik Sağlam Caddesi üzerindedir ve haftanın yedi günü 24 saat açıktır.\n\nAcil müdahale, muayene ve aşı hizmeti verilir. Gece gelmeden önce aramanız, hazırlığın yapılmasını sağlar.",
+      "highlights": [
+        {
+          "label": "Google puanı",
+          "value": "4,8 / 5"
+        },
+        {
+          "label": "Çalışma",
+          "value": "7 gün 24 saat"
+        },
+        {
+          "label": "Konum",
+          "value": "Altıntepe, Maltepe"
+        }
+      ]
+    },
+    {
+      "type": "services",
+      "id": "hizmetler",
+      "title": "Hizmetler",
+      "intro": "Kliniğin Google kaydında yer alan hizmetler. Başka bir ihtiyaç için arayıp sorun.",
+      "layout": "grid",
+      "tone": "dark",
+      "items": [
+        {
+          "name": "Acil müdahale",
+          "description": "Gece gündüz, haftanın her günü. Gelmeden önce arayın; ekip hazır olsun."
+        },
+        {
+          "name": "Muayene",
+          "description": "Genel kontrol ve şikâyet muayenesi."
+        },
+        {
+          "name": "Aşı",
+          "description": "Kedi ve köpek aşı takvimi; kayıt için hayvanınızın karnesini getirin."
+        }
+      ]
+    },
+    {
+      "type": "faq",
+      "id": "sss",
+      "title": "Sık sorulan sorular",
+      "items": [
+        {
+          "q": "Gece de açık mısınız?",
+          "a": "Evet. Klinik haftanın yedi günü 24 saat açıktır."
+        },
+        {
+          "q": "Acil durumda ne yapmalıyım?",
+          "a": "Önce 0501 124 66 92'yi arayın ya da WhatsApp'a \"acil\" yazın; gelirken hayvanınızı sakin ve sıcak tutun."
+        },
+        {
+          "q": "Randevu gerekiyor mu?",
+          "a": "Acil durumda doğrudan gelebilirsiniz. Muayene ve aşı için WhatsApp'tan yazmanız sırayı kolaylaştırır."
+        },
+        {
+          "q": "Neredesiniz?",
+          "a": "Altıntepe Mahallesi, Tevfik Sağlam Caddesi No:25/B, Maltepe. Yol tarifi düğmesi haritayı açar."
+        }
+      ]
+    },
+    {
+      "type": "hours",
+      "id": "saatler",
+      "title": "Çalışma saatleri"
+    },
+    {
+      "type": "location",
+      "id": "konum",
+      "title": "Klinik",
+      "showMap": true,
+      "note": "Tevfik Sağlam Caddesi üzerinde, Altıntepe."
+    },
+    {
+      "type": "cta",
+      "id": "iletisim",
+      "headline": "Sorunuz varsa yazın, acilse arayın",
+      "subline": "Muayene ve aşı için WhatsApp'tan yazın; acil durumda telefon her saat açık.",
+      "actions": [
+        {
+          "label": "WhatsApp'tan Yazın",
+          "kind": "whatsapp",
+          "value": "Merhaba, Noyavet için yazıyorum.\nHayvan (tür/yaş): \nŞikâyet: ",
+          "style": "primary"
+        },
+        {
+          "label": "0501 124 66 92",
+          "kind": "call",
+          "style": "ghost"
+        }
+      ]
+    }
+  ],
+  "offer": {
+    "status": "draft",
+    "expiresAt": "2026-09-14T21:00:00+03:00",
+    "price": 8500,
+    "currency": "TRY",
+    "seller": {
+      "name": "fourpear",
+      "whatsapp": "905078463929"
+    }
+  },
+  "seo": {
+    "title": "Noyavet — Maltepe 7/24 nöbetçi veteriner kliniği",
+    "description": "Altıntepe, Tevfik Sağlam Caddesi'nde 24 saat açık veteriner kliniği. Acil müdahale, muayene, aşı. 0501 124 66 92."
+  }
+}
