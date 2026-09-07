@@ -1,0 +1,32 @@
+{
+  "theme": {
+    "preset": "sand",
+    "accent": "#c2410c",
+    "mode": "light",
+    "neutralTint": 0.35,
+    "fonts": "craft",
+    "headingFont": "display",
+    "typeScale": "normal",
+    "radius": "lg",
+    "density": "normal",
+    "header": "glass",
+    "contact": "fab",
+    "fabStyle": "pill",
+    "motion": { "hero": "rise", "scroll": "rise", "smooth": true, "parallax": true }
+  },
+  "sections": [
+    {
+      "id": "ust",
+      "variant": "image",
+      "headline": "Gece gündüz açık veteriner",
+      "subline": "Maltepe Altıntepe'de, Tevfik Sağlam Caddesi üzerinde. Acil müdahale, muayene ve aşı; haftanın yedi günü 24 saat.",
+      "badges": ["Google'da 4,8", "Acil için önce arayın"],
+      "actions": [
+        { "label": "Hemen Ara", "kind": "call", "style": "primary" },
+        { "label": "WhatsApp'tan Yazın", "kind": "whatsapp", "value": "Merhaba, Noyavet için yazıyorum.\nHayvan (tür/yaş): \nŞikâyet: ", "style": "ghost" }
+      ],
+      "image": { "src": "https://images.unsplash.com/photo-1628009368231-7bb7cfcb0def?w=1800&q=80&auto=format&fit=crop", "alt": "Veteriner muayenesinde bir kedi", "focal": "50% 35%" }
+    },
+    { "id": "hizmetler", "layout": "cards", "tone": "light" }
+  ]
+}
