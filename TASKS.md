@@ -14,15 +14,14 @@ Durum: 🔧 üzerinde çalışılıyor · 🕐 sırada · ✅ bitti · ⛔ blokl
 | ✅ | Panel (`/panel`), GitHub'a yazan kayıt katmanı | canlıda yazıyor (07.09 11:00) |
 | ✅ | KVKK çerez bandı + PostHog kapısı | anahtar gelince açılır |
 | ✅ | Teklif sayfası, pricing/team/beforeAfter, performans turu, `npm run pitch`, Lighthouse CI | 07.09 gece |
-| 🕐 | Yellow Bull teklif paketi | A/B kararı + yorum sayısı bekliyor |
-| 🕐 | Avukat teklifi: arama-önce yaklaşımı (KVKK 2022/861) | Serkan arayacak |
-| 🕐 | Fiyat merdiveni kararı | teknik hazır: `offer.packages`, örnek `/yellow-bull-istanbul/teklif` |
+| ✅ | Site temizliği (08.09): Olympos, avukat, Yellow Bull, Salon Ada, av-varyantlar silindi | kalan: noyavet (A/B/C), Ocakbaşı ve Diş demoları, kişisel site |
+| 🕐 | Fiyat merdiveni kararı | teknik hazır: `offer.packages`, örnek silindi, `offer.packages` şemada duruyor |
 | ⛔ | serkanoral.com.tr DNS | Turhost glue IP düzeltmesi (TRABİS) |
 
 ## Manus (metin)
 | Durum | İş | Brif | Teslim |
 |---|---|---|---|
-| ⛔ | Kişisel site metinleri (`npm run manus -- briefs/01-metinler.md --out content/serkan/copy.md`) | `briefs/01-metinler.md` | `content/serkan/copy.md` · MANUS_API_KEY bekliyor |
+| ⛔ | Kişisel site metinleri (`npm run manus -- briefs/01-metinler.md --out content/serkan/copy.md`) | `briefs/01-metinler.md` | `content/serkan/copy.md` · anahtar girildi (08.09), Manus kredisi bitti → kredi yüklenince `npm run manus` tekrar |
 
 ## ChatGPT (görsel)
 | Durum | İş | Brif | Teslim |

@@ -81,7 +81,7 @@ Env: `.env.example` (anahtarlar yalnız `.env.local` ve Vercel env'inde; repoya 
 
 ## 7. Durum ve bekleyenler
 
-**Siteler**: Olympos (pitched, 12.09), Av. Özge Nur Şafak (pitched — gönderimden önce telefonla izin!), Yellow Bull (draft, A/B, paket örneği), demolar: Ocakbaşı Şahin, Dt. Elif Yarar, Salon Ada; kişisel site (sold+domain).
+**Siteler**: Noyavet (pitched, 14.09, A/B/C), demolar: Ocakbaşı Şahin, Dt. Elif Yarar; kişisel site (sold+domain). 08.09 temizliği: Olympos, Av. Özge Nur Şafak, Yellow Bull, Salon Ada ve av-varyantlar silindi (git geçmişinde duruyor).
 
 **Serkan'dan**: Manus API anahtarı · PostHog anahtarı + Telegram bot/chat id · Turhost DNS glue düzeltmesi (ns1/ns2.vercel-dns.com → 198.51.44.13 / 198.51.45.13) · ANTHROPIC_API_KEY · fiyat kararı (tek/çift paket) · iyzico Link başvurusu · Yellow Bull A/B seçimi + yorum sayısı + fotoğraflar · avukat için arama-önce.
 
