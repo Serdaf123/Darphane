@@ -1,7 +1,7 @@
 /**
  * Manus'a görev verir, bitmesini bekler, cevabı dosyaya yazar.
  *
- *   npm run manus -- briefs/01-metinler.md --out content/serkan/copy.md
+ *   npm run manus -- briefs/01-metinler.md --out content/serkan/copy.md --profile lite   # günlük kredi lite ile yetiyor
  *   npm run manus -- briefs/01-metinler.md --out content/serkan/copy.md --profile max --dry
  *
  * Gerekli: .env.local içinde MANUS_API_KEY (manus.im → Settings → Integrations → API → Create API Key).

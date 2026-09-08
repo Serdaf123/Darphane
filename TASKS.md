@@ -21,7 +21,7 @@ Durum: 🔧 üzerinde çalışılıyor · 🕐 sırada · ✅ bitti · ⛔ blokl
 ## Manus (metin)
 | Durum | İş | Brif | Teslim |
 |---|---|---|---|
-| ⛔ | Kişisel site metinleri (`npm run manus -- briefs/01-metinler.md --out content/serkan/copy.md`) | `briefs/01-metinler.md` | `content/serkan/copy.md` · anahtar girildi (08.09), Manus kredisi bitti → kredi yüklenince `npm run manus` tekrar |
+| ✅ | Kişisel site metinleri | `briefs/01-metinler.md` | `content/serkan/copy.md` · 08.09 `--profile lite` ile geldi; Claude denetledi, entegrasyon Serkan'ın kararını bekliyor |
 
 ## ChatGPT (görsel)
 | Durum | İş | Brif | Teslim |
