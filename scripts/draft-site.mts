@@ -207,8 +207,8 @@ GÖRSELLER
 NOTES
 - Serkan'ın teyit etmesi gerekenleri madde madde yaz: giriş saati, fiyatlar, sahibin adı, eksik yorumlar, olanaklarda şüpheli olanlar.`;
 
-const example = fs.existsSync(path.join(process.cwd(), "data/sites/olympos-garden-hotel.json"))
-  ? fs.readFileSync(path.join(process.cwd(), "data/sites/olympos-garden-hotel.json"), "utf8")
+const example = fs.existsSync(path.join(process.cwd(), "data/sites/noyavet.json"))
+  ? fs.readFileSync(path.join(process.cwd(), "data/sites/noyavet.json"), "utf8")
   : "";
 
 const userPrompt = `İşletme için site içeriği üret.

@@ -3,7 +3,7 @@
     "collect": {
       "startServerCommand": "npm run start -- -p 3010",
       "startServerReadyPattern": "Ready",
-      "url": ["http://localhost:3010/", "http://localhost:3010/salon-ada", "http://localhost:3010/olympos-garden-hotel"],
+      "url": ["http://localhost:3010/", "http://localhost:3010/ocakbasi-sahin", "http://localhost:3010/noyavet"],
       "numberOfRuns": 1,
       "settings": { "chromeFlags": "--no-sandbox --headless=new" }
     },

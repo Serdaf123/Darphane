@@ -2,7 +2,7 @@
  * Satış: siteyi "sold" yapar, alan adını bağlar, yayına alır.
  *
  *   npm run sell -- <slug> [--domain ornek.com] [--payment-url https://…] [--dry] [--no-push]
- *   npm run sell -- olympos-garden-hotel --domain olymposgardenhotel.com
+ *   npm run sell -- noyavet --domain ornek.com
  *
  * Yaptıkları, sırayla:
  *   1. data/sites/<slug>.json: status → sold, expiresAt silinir, business.domain yazılır

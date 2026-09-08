@@ -214,7 +214,7 @@ Kayıt nereye gider (`lib/store.ts`): `DARPHANE_GITHUB_TOKEN` varsa GitHub Conte
 - `menu`: `layout: "photos"` ile görseli olan ürünler kart olur (`items[].image`), görselsizler satır kalır.
 - Görsellerde `focal: "50% 20%"` kırpma odağı (yüz üstteyse). Bölüm zeminleri hero'dan sonra otomatik dönüşümlü (düz/yüzey); `services.tone: dark` kendi zeminini korur. Eksik gün = kapalı; rozet "Bugün kapalı · Salı 10:00'da açılıyor" der.
 - Hero `video`: `{ src, type }` ile image hero'da sessiz döngü video; görsel poster olur, "hareketi azalt" açıkken video gizlenir.
-- Demo: `data/sites/salon-ada.json` (kuaför, `offer.status: demo`) hepsini gösterir.
+- Demo: `data/sites/ocakbasi-sahin.json` ve `dishekimi-elif-yarar.json` (`offer.status: demo`).
 - `offer.status: demo`: şerit yok, süre yok, indeks kapalı; kişisel sitedeki örnekler bu durumda.
 
 ## Teklif sayfası (`/<slug>/teklif`)
@@ -247,11 +247,11 @@ PostHog anahtarı varsa her sayfada onay bandı çıkar (`components/analytics/C
 
 ## Lighthouse CI
 
-`.github/workflows/lighthouse.yml` her PR ve main push'unda `/`, `/salon-ada`, `/olympos-garden-hotel` sayfalarını mobil Lighthouse ile ölçer (`.lighthouserc.json`): erişilebilirlik ≥ 93 zorunlu, performans ≥ 80 uyarı. Rapor linki iş günlüğünde.
+`.github/workflows/lighthouse.yml` her PR ve main push'unda `/`, `/ocakbasi-sahin`, `/noyavet` sayfalarını mobil Lighthouse ile ölçer (`.lighthouserc.json`): erişilebilirlik ≥ 93 zorunlu, performans ≥ 80 uyarı. Rapor linki iş günlüğünde.
 
 ## Telegram uyarısı
 
-`/api/uyari` PostHog webhook'unu Telegram mesajına çevirir: "👀 açtı — olympos-garden-hotel · Mobile · İstanbul", "👆 bastı → whatsapp". Kurulum: BotFather'dan bot (`TELEGRAM_BOT_TOKEN`), kendi chat id'n (`TELEGRAM_CHAT_ID`), rastgele `DARPHANE_WEBHOOK_SECRET`; PostHog → Data pipeline → Destinations → Webhook → URL `https://<site>/api/uyari?s=<secret>`, olaylar `site_viewed`, `cta_click`, `engaged`.
+`/api/uyari` PostHog webhook'unu Telegram mesajına çevirir: "👀 açtı — noyavet · Mobile · İstanbul", "👆 bastı → whatsapp". Kurulum: BotFather'dan bot (`TELEGRAM_BOT_TOKEN`), kendi chat id'n (`TELEGRAM_CHAT_ID`), rastgele `DARPHANE_WEBHOOK_SECRET`; PostHog → Data pipeline → Destinations → Webhook → URL `https://<site>/api/uyari?s=<secret>`, olaylar `site_viewed`, `cta_click`, `engaged`.
 
 ## Satış sinyalleri (PostHog)
 
