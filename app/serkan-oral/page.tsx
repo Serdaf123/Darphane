@@ -10,8 +10,8 @@ import { SerkanSite } from "@/components/serkan/SerkanSite";
  * yalnız alan adı / robots ayarlarını taşır.
  */
 
-const TITLE = "Serkan Oral — İşletmeler için web sitesi";
-const DESC = "Web sitesi olmayan işletmeler için siteyi önce yapıp sonra gösteriyorum. Beğenirseniz tek seferlik ücretle sizin; alan adı kurulumu dahil.";
+const TITLE = "Serkan Oral | İşletmeniz için hazır site";
+const DESC = "Serkan Oral, işletmeniz için siteyi önce hazırlar. Beğenirseniz tek seferlik ücretle yayınlar; alan adı kurulumu dahildir.";
 
 export function serkanMetadata(indexable: boolean): Metadata {
   const base = siteUrl();

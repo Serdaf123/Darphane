@@ -21,29 +21,30 @@ gsap.registerPlugin(useGSAP, ScrollTrigger, SplitText);
 const WHATSAPP = "905078463929";
 const PHONE = "0507 846 39 29";
 const MSG = "Merhaba Serkan, işletmem için site istiyorum.\nİşletme adı: \nŞehir: ";
-const CYCLE = ["Restoranınız", "Kliniğiniz", "Oteliniz", "Büronuz", "Salonunuz", "Atölyeniz"];
+/* Metinler: content/serkan/copy.md (Manus, brif 01, 2026-09-08) — olduğu gibi. */
+const CYCLE = ["Restoranınız", "Kliniğiniz", "Oteliniz", "Büronuz", "Kuaförünüz", "Kafeniz", "Atölyeniz", "Mağazanız"];
 
 const CARDS = [
-  { t: "Önce telefon", d: "Müşteriniz sizi telefondan buluyor. Site önce telefon ekranı için tasarlanır ve hızlı açılır." },
-  { t: "Ara · WhatsApp · Yol tarifi", d: "Ekranın altında her zaman duran üç düğme. Form yok; mesaj doğrudan WhatsApp'ınıza düşer." },
-  { t: "Google yorumlarınız", d: "Haritalar'daki yorumlarınız ve puanınız siteye taşınır; açık/kapalı durumu saatlerinize göre canlı görünür." },
-  { t: "İngilizce sürüm", d: "Turist müşterisi olan işletmeler için aynı sitenin İngilizcesi ayrı bir adreste." },
-  { t: "Alan adı ve kilit simgesi", d: "ornek.com sizin adınıza alınır ve bağlanır. Tarayıcıda kilit, WhatsApp'ta link önizleme görseli hazır gelir." },
-  { t: "Google'a kayıt", d: "Satıştan sonra site arama motorlarına açılır; işletme bilgileriniz Google'ın anladığı biçimde işaretlenir." },
+  { t: "Telefon için tasarım", d: "Site önce telefonda rahat okunacak ve kullanılacak şekilde hazırlanır." },
+  { t: "Ara düğmesi", d: "Ziyaretçi işletmenizi tek dokunuşla arayabilir." },
+  { t: "WhatsApp düğmesi", d: "Ziyaretçi WhatsApp'tan size kolayca yazabilir." },
+  { t: "Yol tarifi", d: "Ziyaretçi işletmenize yol tarifi alabilir." },
+  { t: "Güncel bilgiler", d: "Google yorumları ile açık ve kapalı durumu siteye taşınır." },
+  { t: "Güvenli bağlantı", d: "Site SSL ile hazırlanır." },
 ];
 
 const FAQ = [
-  ["Ücret ne kadar?", "Tek seferlik. Rakamı işletmenize göre belirler, WhatsApp'tan yazarım; aylık ödeme yoktur."],
-  ["Ben istemeden neden site yaptınız?", "Anlatmak yerine göstermek daha dürüst. Bitmiş siteyi görürsünüz; beğenmezseniz kaldırırım, size bir maliyeti olmaz."],
-  ["Bazı yerleri değiştirmek istiyorum.", "Satın almadan önce de değişiklik isteyebilirsiniz; yazın, düzeltip aynı linkten gösteririm."],
-  ["Alan adı kimin üzerine olur?", "Sizin. Alan adı sizin adınıza alınır; siteyi ileride başka yere taşımak isterseniz engel yok."],
-  ["Kendi fotoğraflarımı kullanabilir misiniz?", "Teklif aşamasında telifsiz görsellerle çalışırım. Satıştan sonra kendi fotoğraflarınızı gönderirsiniz, onları koyarım."],
-  ["Örnekler gerçek müşteri mi?", "Örneklerdeki iki site tanıtım amaçlı hazırlanmış demolardır. Gerçek işletmelerin siteleri satışa kadar yalnızca sahiplerine gösterilir."],
+  ["Ücret nasıl olur?", "Ücret tek seferliktir. Rakamı, hazırlanan siteyi gördükten sonra WhatsApp'tan öğrenebilirsiniz; aylık ödeme ve paket yoktur."],
+  ["Neden istemeden site hazırlıyorsunuz?", "Sitenin nasıl görüneceğini ve işletmenizi nasıl anlatacağını önceden görmeniz için."],
+  ["Değişiklik yapabilir miyim?", "İstediğiniz değişiklikleri siteyi hazırlarken WhatsApp'tan iletebilirsiniz. Uygulanacak değişiklikleri birlikte netleştiririz."],
+  ["Alan adı kimin olur?", "Alan adı kurulumu ücrete dahildir. Alan adı sahipliği ve kayıt bilgileri için Serkan Oral'a WhatsApp'tan yazabilirsiniz."],
+  ["Fotoğrafları kim gönderiyor?", "Elinizdeki işletme fotoğraflarını WhatsApp'tan gönderebilirsiniz. Fotoğraflarınızı siteyi hazırlarken kullanırız."],
+  ["Örnekler gerçek mi?", "Hayır. Ocakbaşı Şahin ve Dt. Elif Yarar siteleri örnek amaçlıdır; gerçek müşteri sitesi değildir."],
 ] as const;
 
 const MANIFESTO =
-  "İşletmenizin sitesini siz istemeden yapıyorum. Linkini gönderiyorum. Beğenirseniz tek seferlik ücretle sizin; beğenmezseniz kaldırıyorum.";
-const HIGHLIGHT = new Set(["sizin;", "kaldırıyorum."]);
+  "İşletmenizi anlatan siteyi önce hazırlıyoruz. Siz telefondan inceliyorsunuz. Beğenirseniz yayınlıyoruz.";
+const HIGHLIGHT = new Set(["önce", "yayınlıyoruz."]);
 
 export function SerkanSite({ year }: { year: number }) {
   const root = useRef<HTMLDivElement>(null);
@@ -245,14 +246,14 @@ export function SerkanSite({ year }: { year: number }) {
                 <Image src="/sites/serkan-oral/serkan.webp" alt="Serkan Oral" width={900} height={900} sizes="6rem" />
               </div>
               <p>
-                Web sitesi olmayan işletmeler için siteyi önce yapıyor, sonra gösteriyorum. Beğenirseniz tek seferlik ücretle sizin; alan adı kurulumu dahil.
+                İşletmeniz için siteyi önce hazırlıyoruz. Beğenirseniz tek seferlik ücretle yayınlıyor, alan adı kurulumunu da dahil ediyoruz.
               </p>
             </div>
             <div className="so-hero-actions">
               <a href={wa} className="so-pill so-pill-accent so-pill-lg" target="_blank" rel="noreferrer">
-                WhatsApp’tan yazın
+                WhatsApp’tan örnek site isteyin
               </a>
-              <a href="#surec" className="so-pill so-pill-ghost so-pill-lg">Nasıl çalışıyor?</a>
+              <a href="#isler" className="so-pill so-pill-ghost so-pill-lg">Örnek siteleri inceleyin</a>
             </div>
           </div>
         </div>
@@ -276,18 +277,18 @@ export function SerkanSite({ year }: { year: number }) {
             <h2>Nasıl çalışıyor</h2>
             <div className="so-steps">
               <div className="so-step is-active">
-                <h3>Buluyorum</h3>
-                <p>Google Haritalar’da web sitesi olmayan işletmeleri arıyorum. Telefon, adres, saatler, yorumlar orada hazır.</p>
+                <h3>Hazırlıyorum</h3>
+                <p>İşletmenizi anlatan, önce telefon için tasarlanmış bir site hazırlıyorum.</p>
                 <div className="so-step-bar"><i /></div>
               </div>
               <div className="so-step">
-                <h3>Kuruyorum</h3>
-                <p>Bu gerçek bilgilerle tek sayfalık, telefonda önce çalışan bir site. Sizden hiçbir şey istemeden.</p>
+                <h3>Gösteriyorum</h3>
+                <p>Hazırladığım siteyi WhatsApp’tan size gönderiyorum. Siz kendi telefonunuzdan inceliyorsunuz.</p>
                 <div className="so-step-bar"><i /></div>
               </div>
               <div className="so-step">
-                <h3>Gönderiyorum</h3>
-                <p>Linki WhatsApp’tan atıyorum; site o an canlı. Beğenirseniz sizin, beğenmezseniz belirttiğim gün kaldırıyorum.</p>
+                <h3>Yayınlıyorum</h3>
+                <p>Beğenirseniz tek seferlik ücretle yayınlıyorum. Alan adı kurulumu dahildir; aylık ödeme yoktur.</p>
                 <div className="so-step-bar"><i /></div>
               </div>
             </div>
@@ -333,7 +334,7 @@ export function SerkanSite({ year }: { year: number }) {
       <section className="so-hs" aria-labelledby="olanlar">
         <div className="so-wrap so-hs-head">
           <h2 id="olanlar">Her sitede olanlar</h2>
-          <p>Şablon değil, çalışan bir sistem. Aşağıdakiler her sitede hazır gelir.</p>
+          <p>Aşağıdakiler her sitede hazır gelir.</p>
         </div>
         <div className="so-hs-viewport">
           <div className="so-hs-track">
@@ -353,19 +354,19 @@ export function SerkanSite({ year }: { year: number }) {
       <section id="isler" className="so-works">
         <div className="so-wrap">
           <h2>Örnek çalışmalar</h2>
-          <p className="lead">İki demo site. Açıp telefonunuzdan gezebilirsiniz; işletmelere giden siteler tam olarak böyle çalışır.</p>
+          <p className="lead">Bu iki site örnek amaçlıdır; gerçek müşteri sitesi değildir. Açıp telefonunuzdan inceleyebilirsiniz.</p>
           <div className="so-works-grid">
             <Link href="/ocakbasi-sahin" className="so-work" target="_blank">
               <Image src="/sites/serkan-oral/ocakbasi-sahin.webp" alt="Ocakbaşı restoranı için hazırlanan demo sitenin telefon görünümü" width={900} height={1800} sizes="(min-width: 48rem) 40vw, 90vw" />
               <figcaption>
-                <span>Ocakbaşı Şahin<small>Restoran demosu · İzmir</small></span>
+                <span>Ocakbaşı Şahin<small>Bir restoran için hazırlanmış örnek site</small></span>
                 <span className="open">Siteyi aç →</span>
               </figcaption>
             </Link>
             <Link href="/dishekimi-elif-yarar" className="so-work" target="_blank">
               <Image src="/sites/serkan-oral/dishekimi-elif-yarar.webp" alt="Diş kliniği için hazırlanan demo sitenin telefon görünümü" width={900} height={1800} sizes="(min-width: 48rem) 40vw, 90vw" />
               <figcaption>
-                <span>Dt. Elif Yarar<small>Klinik demosu · İstanbul</small></span>
+                <span>Dt. Elif Yarar<small>Bir klinik için hazırlanmış örnek site</small></span>
                 <span className="open">Siteyi aç →</span>
               </figcaption>
             </Link>
@@ -388,10 +389,10 @@ export function SerkanSite({ year }: { year: number }) {
       <section id="iletisim" className="so-end">
         <div className="so-glow" aria-hidden style={{ right: "-10%", bottom: "-20%", left: "auto" }} />
         <div className="so-wrap">
-          <h2>Bir mesaj yeter.</h2>
-          <p className="sub">İşletmenizin adını ve şehrini yazın; siteyi hazırlayıp linkini WhatsApp’tan gönderirim.</p>
+          <h2>Siteniz hazır.</h2>
+          <p className="sub">Önce telefonunuzdan inceleyin. Beğenirseniz yayınlayalım.</p>
           <div className="so-end-actions">
-            <a href={wa} className="so-pill so-pill-accent so-pill-lg" target="_blank" rel="noreferrer">WhatsApp’tan yazın</a>
+            <a href={wa} className="so-pill so-pill-accent so-pill-lg" target="_blank" rel="noreferrer">WhatsApp’tan örnek site isteyin</a>
             <a href={`tel:+${WHATSAPP}`} className="so-pill so-pill-ghost so-pill-lg">{PHONE}</a>
           </div>
           <footer className="so-footer">
