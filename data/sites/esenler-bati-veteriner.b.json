@@ -1,0 +1,192 @@
+{
+  "business": {
+    "tagline": "Esenler Turgut Reis’te muayene, aşı, kısırlaştırma ve yavru bakımı. Her gün 12:00–00:00; acil durumlar için arayın: 0541 179 99 82."
+  },
+  "theme": {
+    "preset": "graphite",
+    "accent": "#e05252",
+    "mode": "dark",
+    "fonts": "bold",
+    "headingFont": "display",
+    "typeScale": "display",
+    "radius": "none",
+    "density": "airy",
+    "header": "minimal",
+    "photos": "color",
+    "neutralTint": 0.12,
+    "contact": "both",
+    "fabStyle": "pill",
+    "motion": {
+      "hero": "none",
+      "scroll": "none",
+      "smooth": false,
+      "parallax": false
+    }
+  },
+  "sections": [
+    {
+      "id": "ust",
+      "variant": "statement",
+      "headline": "Esenler Batı Veteriner Kliniği",
+      "subline": "Turgut Reis Mah., Cengiz Topel Cd. No:9B, Esenler/İstanbul adresindeyiz. Acil durumlarda gelmeden önce 0541 179 99 82 numarasını arayın.",
+      "badges": [
+        "Her gün 12:00–00:00",
+        "Acil durumlar için arayın"
+      ],
+      "actions": [
+        {
+          "label": "Kliniği arayın",
+          "kind": "call",
+          "style": "primary"
+        },
+        {
+          "label": "WhatsApp'tan yazın",
+          "kind": "whatsapp",
+          "value": "Merhaba, Esenler Batı Veteriner Kliniği için yazıyorum.\nHayvan (tür/yaş): \nŞikâyet: ",
+          "style": "ghost"
+        }
+      ],
+      "urgent": {
+        "title": "Acil durumlar için arayın",
+        "note": "Her gün 12:00–00:00; saat dışında açıklığı arayarak teyit edin."
+      }
+    },
+    {
+      "id": "hakkinda",
+      "title": "Turgut Reis'teki kliniğimiz",
+      "body": "Esenler Batı Veteriner Kliniği, Turgut Reis Mahallesi'nde her gün 12:00–00:00 saatleri arasında açıktır.\n\nMuayene, aşı, kısırlaştırma, yavru bakımı ve acil müdahale hizmetleri için bizimle iletişime geçebilirsiniz.",
+      "highlights": [
+        {
+          "label": "Çalışma saatleri",
+          "value": "Her gün 12:00–00:00"
+        },
+        {
+          "label": "Konum",
+          "value": "Turgut Reis, Esenler"
+        },
+        {
+          "label": "Telefon",
+          "value": "0541 179 99 82"
+        }
+      ]
+    },
+    {
+      "id": "hizmetler",
+      "title": "Hizmetlerimiz",
+      "intro": "Hizmetlerimiz hakkında bilgi almak için kliniğimizi arayabilirsiniz.",
+      "layout": "grid",
+      "tone": "light",
+      "items": [
+        {
+          "name": "Muayene",
+          "description": "Hayvanınızın muayenesi için kliniğimize başvurabilirsiniz."
+        },
+        {
+          "name": "Aşı",
+          "description": "Kliniğimizde aşı uygulamaları yapılır."
+        },
+        {
+          "name": "Kısırlaştırma",
+          "description": "Kısırlaştırma işlemi hakkında bilgi almak için kliniğimizi arayabilirsiniz."
+        },
+        {
+          "name": "Yavru bakımı",
+          "description": "Yavru hayvanların bakımı için kliniğimize başvurabilirsiniz."
+        },
+        {
+          "name": "Acil müdahale",
+          "description": "Acil müdahale için gelmeden önce kliniği arayarak açık olduğunu teyit edin."
+        }
+      ]
+    },
+    {
+      "id": "galeri",
+      "title": "Klinikten",
+      "layout": "grid"
+    },
+    {
+      "id": "yorumlar",
+      "title": "Google yorumları",
+      "layout": "quotes",
+      "items": [
+        {
+          "author": "Melda Kuşcu",
+          "text": "Kızımız Kestane'yi kısırlaştırdık. Tüm süreç boyunca detaylı bilgi verildi ve devamlı iletişim halinde kaldık.",
+          "rating": 5,
+          "source": "Google"
+        },
+        {
+          "author": "Helen",
+          "text": "Halil hoca ve ekibine çok teşekkür ederiz. Endişe ile gittik ama bizi çok rahatlattılar. Tertemiz bir klinikti.",
+          "rating": 5,
+          "source": "Google"
+        },
+        {
+          "author": "Aleyna Korkmaz",
+          "text": "Hiçbir yara izi olmaması toparlanma sürecini fazlasıyla hızlandırdı.",
+          "rating": 5,
+          "source": "Google"
+        },
+        {
+          "author": "Fulya Ulutaş",
+          "text": "Sokaktan almıştık, kötü bir durumdaydı; onu sağlığına kavuşturdu. Klinik olması gerektiği gibi çok hijyenik.",
+          "rating": 5,
+          "source": "Google"
+        }
+      ]
+    },
+    {
+      "id": "sss",
+      "title": "Sık sorulan sorular",
+      "items": [
+        {
+          "q": "Hangi saatlerde açıksınız?",
+          "a": "Çalışma saatlerimiz haftanın her günü 12:00–00:00 arasındadır."
+        },
+        {
+          "q": "Gece yarısından sonra gelebilir miyim?",
+          "a": "Belirtilen çalışma saatlerimiz 12:00–00:00; acil durumlarda gelmeden önce 0541 179 99 82 numarasını arayarak açıklığı teyit edin."
+        },
+        {
+          "q": "Klinik nerede?",
+          "a": "Turgut Reis Mah., Cengiz Topel Cd. No:9B, Esenler/İstanbul adresindeyiz."
+        },
+        {
+          "q": "Size nasıl ulaşabilirim?",
+          "a": "0541 179 99 82 numarasını arayabilir veya WhatsApp'tan yazabilirsiniz. Acil durumlarda doğrudan arayın."
+        }
+      ]
+    },
+    {
+      "id": "saatler",
+      "title": "Çalışma saatleri"
+    },
+    {
+      "id": "konum",
+      "title": "Kliniğe ulaşım",
+      "note": "Turgut Reis Mah., Cengiz Topel Cd. No:9B, Esenler/İstanbul"
+    },
+    {
+      "id": "iletisim",
+      "headline": "Gelmeden önce kliniği arayın",
+      "subline": "Acil durumlarda açıklığı teyit etmek için 0541 179 99 82 numarasından ulaşın.",
+      "actions": [
+        {
+          "label": "Kliniği arayın",
+          "kind": "call",
+          "style": "primary"
+        },
+        {
+          "label": "WhatsApp'tan yazın",
+          "kind": "whatsapp",
+          "value": "Merhaba, Esenler Batı Veteriner Kliniği için yazıyorum.\nHayvan (tür/yaş): \nŞikâyet: ",
+          "style": "ghost"
+        }
+      ]
+    }
+  ],
+  "seo": {
+    "title": "Esenler Batı Veteriner Kliniği | Turgut Reis",
+    "description": "Esenler Turgut Reis’te muayene, aşı, kısırlaştırma ve yavru bakımı. Her gün 12:00–00:00; acil durumlar için arayın: 0541 179 99 82."
+  }
+}
