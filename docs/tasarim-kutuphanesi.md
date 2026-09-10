@@ -1,6 +1,6 @@
 # Darphane tasarım kütüphanesi — kombinasyonlar (reçeteler)
 
-İki ajanın (Claude + Codex) ortak kütüphanesi. Her yeni site bir **reçeteden** başlar; reçete = hero varyantı + giriş animasyonu + kaydırma animasyonu + bölüm sırası ve düzenleri + iletişim deseni + header + tipografi/doku + mode. Makine okur: `data/recipes/<key>.json` (bu belge o dosyalardan üretilir; ikisini birlikte güncelle). Uygulama aracı: `npm run recipe -- <slug> <key> [--variant b]` (Codex yapıyor, bkz. `briefs/codex/2026-09-10-tasarim-b-fark.md`).
+İki ajanın (Claude + Codex) ortak kütüphanesi. Her yeni site bir **reçeteden** başlar; reçete = hero varyantı + giriş animasyonu + kaydırma animasyonu + bölüm sırası ve düzenleri + iletişim deseni + header + tipografi/doku + mode. Makine okur: `data/recipes/<key>.json` (bu belge o dosyalardan üretilir; ikisini birlikte güncelle). Uygulama aracı: `npm run recipe -- <slug> <key> [--variant b]` (uygulama: `scripts/recipe.mts`).
 
 ## Kurallar
 
@@ -159,7 +159,42 @@ Mahalle esnafı: önce 'açık mı', ürün grupları, harita; sade ve hızlı.
 
 ## Sıradaki genişletmeler (ikimiz)
 
-- Hero giriş animasyonlarına mobil özel varyantlar: `stack` (rozet → başlık → buton alttan sırayla, 3 adım), `counter` (statement'ta numaranın rakam rakam gelmesi), `wipe` (görselin soldan açılması). Codex ekler, Claude reçetelere işler.
-- Yüzen butona "açıkken etiketli" mod (Küçükyalı gibi tek eylemde "Ara" yazısı).
+- [x] `stack`: rozet → başlık → alt satır → buton; 90ms aralık, toplam 630ms, CSS ile. `counter`: statement telefonunun rakamları, en fazla 670ms. Sunucu HTML’i okunur; hareket azaltmada animasyon yok, sıra aynı. Dört B’de etkin; diğer reçetelerin varsayılan girişleri korunur.
+- [ ] `wipe`: görselin soldan açılması.
+- [x] Tek eylemli FAB: WhatsApp yoksa doğrudan etiketli Ara bağlantısı; sabit hat WhatsApp’a dönüştürülmez.
 - `menu` için yatay kaydırmalı fotoğraflı şerit (Vitrin mobil).
-- Reçete kalite testi: `npm run recipe -- --check` her reçetenin şemadan geçtiğini ve enum'larla uyuştuğunu doğrular.
+- [x] `npm run recipe -- --check`: on reçetenin tema, bölüm türü/düzeni, aile ve mobil notu doğrulanır. `npm run test:recipes`: katman, CLI ve dört B farkı regresyonları.
+
+
+## Reçete aracı ve katman sözleşmesi
+
+```sh
+npm run recipe -- --check
+npm run --silent recipe -- esatpasa-veteriner gece-nobeti > /tmp/gece.json
+npm run recipe -- esatpasa-veteriner gece-nobeti --variant b --apply
+npm run test:recipes
+```
+
+`--apply` verilmedikçe dosya yazılmaz; JSON stdout’a, uyarılar stderr’e gider. `--apply` seçilen B/C dosyasını değiştirir; mevcut metin düzenlemelerini korumak için önce dry-run çıktısını inceleyin. A dosyası hiçbir zaman yazılmaz. Tema reçeteden, içerik A’dan gelir; içeriksiz ekip, fiyat, menü ve önce/sonra bölümleri atlanır ve uyarılır. Hero eylemlerinden WhatsApp, yalnız gerçek `business.whatsapp` varsa seçilir; uygun eylem kalmazsa telefon kullanılır. Rozet sayısı canlı açık/kapalı rozetini de kapsar.
+
+Katman alanları:
+
+- `sections`: eşleşen `id` alanlarını yamalar; yeni `id` tam ve geçerli bir bölüm olmalıdır. Dizi/nesne alanları sığ olarak değiştirilir. `image: null`, `urgent: null` gibi değerler isteğe bağlı alanı temizler; zorunlu alanı silmek doğrulama hatasıdır.
+- `sectionOrder`: belirtilen bölümler bu sırada gelir; listede olmayanlar eski sıralarıyla sona eklenir. Kesin kompozisyon için `remove` kullanın.
+- `remove`: çıkarılacak mevcut bölüm id’leri. Bilinmeyen/yinelenen id, aynı bölümü hem yamalayıp hem çıkarma veya türünü değiştirme hata verir.
+- `recipe`: başlangıç reçetesinin anahtarı. Katmana sonradan yapılan işletmeye özel uyarlamaları kilitlemez.
+
+Bu alanları kullanmayan eski katmanlar aynı davranır; Noyavet B/C için önceki birleştirmeyle birebir veri eşitliği test edilir.
+
+## Dört veterinerin B uyarlaması — 10 Eylül 2026
+
+Genel reçete, işletmenin A’sına zıt olması için aşağıdaki kontrollü uyarlamalarla kullanılır. Bunlar genel reçetelerin varsayılanlarını değiştirmez. Kalan bölümlerde mevcut B metinleri korunur; yorumlar A kaydından alınır. Yeni hekim bölümleri yalnız brifte verilen adları içerir.
+
+| Site | Başlangıç | İşletmeye özel B | Bölüm farkı |
+|---|---|---|---|
+| Esatpaşa | `gece-nobeti` | Koyu, statement, counter, minimal header, fab/dial; büyük telefon | Hero → saatler → konum; galeri çıkarılır, hizmetler liste ve yorumlar akan şerit |
+| Esenler Batı | `afis` | Koyu, statement, stack, header yok, fab/dial; süslü slogan yerine mevcut klinik adı | Galeri şeridi ikinci; iletişim bandı ortada; hakkında çıkarılır |
+| Küçükyalı | `sessiz` | Koyu, minimal, clean/sans, compact ölçek, normal yoğunluk, keskin köşe, solid header, stack, doğrudan Ara FAB | Konum ve saatler erken; galeri çıkarılır; Mustafa Bey ekip bölümü eklenir; hizmetler grid, yorumlar cards |
+| Adraga | `defter` | Koyu, split, editorial, display ölçek, solid header, stack ve paralaks, fab/dial | Ekip ikinci; iletişim ortada; SSS çıkarılır; hizmetler liste, galeri masonry, yorumlar quotes |
+
+B hero’ları `compact: true` ile daha kısa ilk ekran düzenine katılır; A hero’larına bu alan eklenmez. Koyu statement’ın metin/zemin renkleri ve mobil boyut düzeltmeleri yalnız bu opt-in düzeni etkiler. Tüm B’lerde hareket azaltma açıkken içerik ve iletişim aynı sırayla okunur.

@@ -1,7 +1,7 @@
 "use client";
 
 import { AnimatePresence, m } from "motion/react";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef, useId } from "react";
 import { normalizePhone, whatsappUrl } from "@/lib/actions";
 import { t, type Locale } from "@/lib/i18n";
 import type { Business } from "@/lib/schema";
@@ -32,18 +32,21 @@ export function ContactFab({
   style?: "dial" | "pill";
 }) {
   const [open, setOpen] = useState(false);
+  const [openedOnce, setOpenedOnce] = useState(false);
+  const trigger = useRef<HTMLButtonElement>(null);
+  const menuId = useId();
   const { reduced } = useSiteMotion();
   const s = t(locale);
 
-  const wa = (business.whatsapp ?? business.phone)
-    ? whatsappUrl((business.whatsapp ?? business.phone)!, whatsappMessage ?? s.whatsappDefault(business.name))
+  const wa = business.whatsapp
+    ? whatsappUrl(business.whatsapp, whatsappMessage ?? s.whatsappDefault(business.name))
     : undefined;
   const tel = business.phone ? `tel:${normalizePhone(business.phone)}` : undefined;
 
   // Esc kapatır; dışarı tıklama kapatır
   useEffect(() => {
     if (!open) return;
-    const onKey = (e: KeyboardEvent) => e.key === "Escape" && setOpen(false);
+    const onKey = (e: KeyboardEvent) => { if (e.key === "Escape") { setOpen(false); trigger.current?.focus(); } };
     const onClick = (e: MouseEvent) => {
       if (!(e.target as HTMLElement).closest(".contact-fab")) setOpen(false);
     };
@@ -66,11 +69,12 @@ export function ContactFab({
     return (
       <a
         href={items[0].href}
-        className={`contact-fab contact-fab-main ${className}`}
+        className={`contact-fab contact-fab-main contact-fab-single ${className}`}
         aria-label={items[0].label}
         {...(items[0].external ? { target: "_blank", rel: "noopener noreferrer" } : {})}
       >
         {items[0].icon}
+        <span>{items[0].label}</span>
       </a>
     );
   }
@@ -90,16 +94,16 @@ export function ContactFab({
               <m.div
                 key="acts"
                 className="contact-fab-pill-actions"
-                role="menu"
+                id={menuId} aria-label="İletişim seçenekleri"
                 initial={reduced ? false : { opacity: 0, x: 16 }}
-                animate={{ opacity: 1, x: 0, transition: { delay: 0.08, ...SPRING } }}
-                exit={{ opacity: 0, x: 12, transition: { duration: 0.12 } }}
+                animate={{ opacity: 1, x: 0, transition: reduced ? { duration: 0 } : { delay: 0.08, ...SPRING } }}
+                exit={{ opacity: 0, x: reduced ? 0 : 12, transition: { duration: reduced ? 0 : 0.12 } }}
               >
                 {items.map((item) => (
                   <a
                     key={item.label}
                     href={item.href}
-                    role="menuitem"
+
                     className="contact-fab-pill-item"
                     onClick={() => setOpen(false)}
                     {...(item.external ? { target: "_blank", rel: "noopener noreferrer" } : {})}
@@ -115,15 +119,16 @@ export function ContactFab({
             type="button"
             className="contact-fab-pill-main"
             aria-expanded={open}
-            aria-haspopup="menu"
+            aria-controls={open ? menuId : undefined}
+        ref={trigger}
             aria-label={open ? "Kapat" : `${s.bar.whatsapp} / ${s.bar.call}`}
-            onClick={() => setOpen((v) => !v)}
+            onClick={() => { setOpenedOnce(true); setOpen((v) => !v); }}
             whileTap={reduced ? undefined : { scale: 0.94 }}
           >
-            <m.span className="contact-fab-icon" initial={false} animate={{ opacity: open ? 0 : 1, rotate: open ? 90 : 0 }} transition={{ duration: 0.18 }}>
+            <m.span className="contact-fab-icon" initial={false} animate={{ opacity: open ? 0 : 1, rotate: open ? 90 : 0 }} transition={{ duration: reduced ? 0 : 0.18 }}>
               <WhatsappIcon />
             </m.span>
-            <m.span className="contact-fab-icon" initial={false} animate={{ opacity: open ? 1 : 0, rotate: open ? 0 : -90 }} transition={{ duration: 0.18 }} aria-hidden>
+            <m.span className="contact-fab-icon" initial={false} animate={{ opacity: open ? 1 : 0, rotate: open ? 0 : -90 }} transition={{ duration: reduced ? 0 : 0.18 }} aria-hidden>
               <CloseIcon />
             </m.span>
           </m.button>
@@ -141,20 +146,20 @@ export function ContactFab({
             className="contact-fab-menu"
             initial={reduced ? false : { opacity: 0 }}
             animate={{ opacity: 1 }}
-            exit={{ opacity: 0, transition: { duration: 0.15 } }}
-            role="menu"
+            exit={{ opacity: 0, transition: { duration: reduced ? 0 : 0.15 } }}
+            id={menuId} aria-label="İletişim seçenekleri"
           >
             {items.map((item, i) => (
               <m.li
                 key={item.label}
-                role="none"
-                initial={reduced ? false : { opacity: 0, y: 16, scale: 0.6 }}
-                animate={{ opacity: 1, y: 0, scale: 1, transition: { ...SPRING, delay: (items.length - 1 - i) * 0.05 } }}
-                exit={{ opacity: 0, y: 10, scale: 0.7, transition: { duration: 0.12 } }}
+
+                initial={reduced ? false : { opacity: 0, y: 16, scale: 0.95 }}
+                animate={{ opacity: 1, y: 0, scale: 1, transition: reduced ? { duration: 0 } : { ...SPRING, delay: (items.length - 1 - i) * 0.05 } }}
+                exit={{ opacity: 0, y: reduced ? 0 : 10, scale: reduced ? 1 : 0.95, transition: { duration: reduced ? 0 : 0.12 } }}
               >
                 <a
                   href={item.href}
-                  role="menuitem"
+
                   className="contact-fab-item"
                   onClick={() => setOpen(false)}
                   {...(item.external ? { target: "_blank", rel: "noopener noreferrer" } : {})}
@@ -174,18 +179,19 @@ export function ContactFab({
         type="button"
         className="contact-fab-main"
         aria-expanded={open}
-        aria-haspopup="menu"
+        aria-controls={open ? menuId : undefined}
+        ref={trigger}
         aria-label={open ? "Kapat" : `${s.bar.whatsapp} / ${s.bar.call}`}
-        onClick={() => setOpen((v) => !v)}
+        onClick={() => { setOpenedOnce(true); setOpen((v) => !v); }}
         whileTap={reduced ? undefined : { scale: 0.92 }}
         animate={reduced ? undefined : { rotate: open ? 90 : 0 }}
-        transition={SPRING}
+        transition={reduced ? { duration: 0 } : SPRING}
       >
         <m.span
           className="contact-fab-icon"
           initial={false}
           animate={{ opacity: open ? 0 : 1, scale: open ? 0.4 : 1 }}
-          transition={{ duration: 0.18 }}
+          transition={{ duration: reduced ? 0 : 0.18 }}
         >
           <WhatsappIcon />
         </m.span>
@@ -193,13 +199,13 @@ export function ContactFab({
           className="contact-fab-icon"
           initial={false}
           animate={{ opacity: open ? 1 : 0, scale: open ? 1 : 0.4, rotate: open ? -90 : 0 }}
-          transition={{ duration: 0.18 }}
+          transition={{ duration: reduced ? 0 : 0.18 }}
           aria-hidden
         >
           <CloseIcon />
         </m.span>
         {/* Kapalıyken dikkat çekmek için tek seferlik halka */}
-        {!open && !reduced ? <span className="contact-fab-pulse" aria-hidden /> : null}
+        {!openedOnce && !open && !reduced ? <span className="contact-fab-pulse" aria-hidden /> : null}
       </m.button>
     </div>
   );

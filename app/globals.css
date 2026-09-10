@@ -1013,3 +1013,56 @@ main > .section:nth-child(even of .section):not(.section-dark):not(.cta-band) { 
 .field input:user-invalid,
 .field textarea:user-invalid,
 .field select:user-invalid { border-color: var(--c-accent); box-shadow: 0 0 0 3px color-mix(in srgb, var(--c-accent) 18%, transparent); }
+
+/* Recipe heroes opt in: no change to existing A layouts. */
+[data-compact] { --stack-gap: 1.1rem; }
+.hero-statement[data-compact] { background: var(--c-bg); color: var(--c-text); }
+.hero-statement[data-compact] > .container { padding-top: 5.5rem; padding-bottom: 3rem; }
+.hero-statement[data-compact] .on-image,
+.hero-statement[data-compact] .hero-statement-title,
+.hero-statement[data-compact] .hero-urgent-phone { color: var(--c-text); }
+.hero-statement[data-compact] .hero-statement-subline,
+.hero-statement[data-compact] .hero-urgent-title,
+.hero-statement[data-compact] .hero-urgent-note { color: var(--c-muted); }
+.hero-statement[data-compact] .hero-statement-title { font-size: clamp(2.75rem, 6.6vw, 6rem); line-height: 1.03; }
+.hero-statement[data-compact] .hero-statement-title-secondary { font-size: clamp(1.8rem, 3.5vw, 3rem); }
+.hero-statement[data-compact] .hero-urgent-phone { font-size: clamp(1.85rem, 6.2vw, 5.5rem); white-space: nowrap; }
+.hero-statement[data-compact] .hero-statement-monogram { display: none; }
+.hero-statement[data-compact] .hero-statement-rule { display: none; }
+.hero-statement[data-compact] .hero-statement-tint { background: linear-gradient(90deg, var(--c-bg), color-mix(in srgb, var(--c-bg) 75%, transparent)); }
+.hero-statement[data-compact] .pill { color: var(--c-text); background: var(--c-surface); border-color: var(--c-border); }
+.hero-statement[data-compact] :focus-visible { outline-color: var(--c-accent) !important; }
+.section[data-compact] { padding-block: 3rem; }
+.section[data-compact] h1 { font-size: clamp(2.5rem, 5.5vw, 5rem) !important; line-height: 1.08; max-width: 16ch; }
+[data-compact] .section-intro, [data-compact] .hero-statement-subline { max-width: 48ch; font-size: 1rem; line-height: 1.6; }
+[data-compact] .btn { min-height: 44px; }
+@media (max-width: 767px) {
+  .hero-statement[data-compact] > .container { padding-top: 5rem; padding-bottom: 2.5rem; }
+  .site-root:not(:has(.site-header)) .hero-statement[data-compact] > .container { padding-top: 2.5rem; }
+  .section[data-compact] { padding-block: 2rem; }
+  [data-compact] .hero-urgent-title { font-size: .9375rem; }
+  [data-compact] .hero-urgent-note { font-size: .875rem; }
+  [data-compact] .btn { max-width: calc(100vw - 7.5rem); }
+  .section[data-compact] .aspect-4\/3 { max-height: 32svh; }
+}
+.contact-fab-single { position: fixed; display: flex; flex-direction: row; align-items: center; gap: .45rem; width: auto; padding: 0 1.1rem; background: var(--c-accent); color: var(--c-accent-text); font-weight: 600; text-decoration: none; }
+
+/* Stack: badge → title → subline → action. All text is server rendered. */
+.hero-item-stack { animation-name: hero-stack; animation-duration: 360ms; animation-delay: calc(var(--i) * 90ms); }
+.hero-item-counter { animation-name: hero-stack; animation-duration: 300ms; animation-delay: calc(var(--i) * 70ms); }
+.hero-phone-digits { white-space: nowrap; }
+.hero-phone-digit { display: inline-block; animation: hero-digit 280ms cubic-bezier(.22,1,.36,1) both; animation-delay: calc(var(--digit) * 30ms); }
+.hero-media-stack, .hero-media-counter { animation: hero-media-zoom 600ms cubic-bezier(.22,1,.36,1) both; }
+@keyframes hero-stack { from { transform: translateY(10px); } to { transform: translateY(0); } }
+@keyframes hero-digit { from { opacity: 0; transform: translateY(.25em); } to { opacity: 1; transform: translateY(0); } }
+@media (prefers-reduced-motion: reduce) {
+  .hero-item-stack, .hero-item-counter, .hero-phone-digit, .hero-media-stack, .hero-media-counter { animation: none; transform: none; opacity: 1; }
+}
+
+/* SSR reveal styles must be readable before hydration with reduced motion. */
+@media (prefers-reduced-motion: reduce) {
+  [data-recipe-reveal] { opacity: 1 !important; transform: none !important; }
+  .site-root:has([data-compact]) *, .site-root:has([data-compact]) *::before, .site-root:has([data-compact]) *::after {
+    animation: none !important; transition: none !important; scroll-behavior: auto !important;
+  }
+}

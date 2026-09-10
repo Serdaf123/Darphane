@@ -18,7 +18,9 @@
     "duo": "node scripts/duo.mts",
     "webp": "node scripts/webp.mts",
     "manus": "node --env-file-if-exists=.env.local scripts/manus.mts",
-    "pitch": "node --env-file-if-exists=.env.local scripts/pitch.mts"
+    "pitch": "node --env-file-if-exists=.env.local scripts/pitch.mts",
+    "recipe": "node scripts/recipe.mts",
+    "test:recipes": "node --test tests/recipes.test.mts"
   },
   "dependencies": {
     "@anthropic-ai/sdk": "^0.123.0",

@@ -1,37 +1,32 @@
 {
-  "business": {
-    "tagline": "Maltepe sahilinde dahiliye, cerrahi, laboratuvar ve röntgen. Pazartesi–cumartesi 10:00–19:30, pazar kapalı. Telefon: 0552 799 98 89."
-  },
+  "recipe": "defter",
   "theme": {
-    "preset": "ink",
-    "accent": "#67a879",
+    "preset": "porcelain",
     "mode": "dark",
+    "neutralTint": 0.12,
+    "typeScale": "display",
     "fonts": "editorial",
     "headingFont": "display",
-    "typeScale": "normal",
-    "radius": "sm",
+    "radius": "none",
     "density": "airy",
     "header": "solid",
-    "photos": "color",
-    "neutralTint": 0.12,
-    "contact": "both",
-    "fabStyle": "pill",
+    "photos": "mono",
+    "contact": "fab",
+    "fabStyle": "dial",
     "motion": {
-      "hero": "none",
-      "scroll": "none",
-      "smooth": false,
-      "parallax": false
-    }
+      "hero": "stack",
+      "scroll": "rise",
+      "smooth": true,
+      "parallax": true
+    },
+    "accent": "#67a879"
   },
   "sections": [
     {
       "id": "ust",
       "variant": "split",
-      "headline": "Maltepe sahilinde Adraga Veteriner Kliniği",
-      "subline": "Yalı Mah., Sahilyolu Cd. No:8, Maltepe/İstanbul adresindeyiz. İletişim için 0552 799 98 89 numarasını arayın.",
       "badges": [
-        "Pazartesi–cumartesi 10:00–19:30",
-        "Pazar kapalı"
+        "Pazartesi–cumartesi 10:00–19:30 · Pazar kapalı"
       ],
       "actions": [
         {
@@ -45,32 +40,32 @@
           "value": "Merhaba, Adraga Veteriner Kliniği için yazıyorum.\nHayvan (tür/yaş): \nŞikâyet: ",
           "style": "ghost"
         }
-      ]
+      ],
+      "headline": "Maltepe sahilinde Adraga Veteriner Kliniği",
+      "subline": "Yalı Mah., Sahilyolu Cd. No:8, Maltepe/İstanbul adresindeyiz. İletişim için 0552 799 98 89 numarasını arayın.",
+      "compact": true,
+      "urgent": null
     },
     {
-      "id": "hakkinda",
-      "title": "Sahilyolu Caddesi'ndeki kliniğimiz",
-      "body": "Adraga Veteriner Kliniği, Maltepe sahilinde Yalı Mahallesi'nde bulunur.\n\nDahiliye, cerrahi, doğum ve jinekoloji, laboratuvar, bilgisayarlı röntgen, aşılama, koruyucu hekimlik, diş temizliği ve tıraş-banyo hizmetleri sunulur.",
-      "highlights": [
+      "id": "ekip",
+      "type": "team",
+      "title": "Hekimlerimiz",
+      "members": [
         {
-          "label": "Çalışma saatleri",
-          "value": "Pazartesi–cumartesi 10:00–19:30"
+          "name": "Özüm Bey",
+          "role": "Veteriner hekim"
         },
         {
-          "label": "Pazar",
-          "value": "Kapalı"
-        },
-        {
-          "label": "Konum",
-          "value": "Yalı Mahallesi, Maltepe sahili"
+          "name": "Ece Hanım",
+          "role": "Veteriner hekim"
         }
       ]
     },
     {
       "id": "hizmetler",
+      "layout": "list",
       "title": "Hizmetlerimiz",
       "intro": "Hizmetlerimiz hakkında bilgi almak için kliniğimizi arayabilirsiniz.",
-      "layout": "list",
       "tone": "light",
       "items": [
         {
@@ -117,72 +112,6 @@
       "layout": "masonry"
     },
     {
-      "id": "yorumlar",
-      "title": "Google yorumları",
-      "layout": "quotes",
-      "items": [
-        {
-          "author": "Tarık Yanova",
-          "text": "Kedimizi hızlıca muayene edip röntgen çekip yardımcı oldular. Özüm Bey'in yaklaşımı gerçekten güven vericiydi.",
-          "rating": 5,
-          "source": "Google"
-        },
-        {
-          "author": "Merve Karakuş",
-          "text": "Kimsenin koyamadığı tanıyı anında koyup ona uygun tedaviyi titizlikle uyguladılar.",
-          "rating": 5,
-          "source": "Google"
-        },
-        {
-          "author": "Hamide Bıyıklı",
-          "text": "Ampute etmeden önce bir tedavi deneyelim dedi ve kedi şu an yürüyor.",
-          "rating": 5,
-          "source": "Google"
-        },
-        {
-          "author": "Sinem Akdağ",
-          "text": "Yüksekten düşme yaşadık, bizimle çok ilgilendiler; Ece hoca ameliyatını yaptı.",
-          "rating": 5,
-          "source": "Google"
-        }
-      ]
-    },
-    {
-      "id": "sss",
-      "title": "Sık sorulan sorular",
-      "items": [
-        {
-          "q": "Hangi saatlerde açıksınız?",
-          "a": "Pazartesiden cumartesiye 10:00–19:30 saatleri arasında açığız; pazar günleri kapalıyız."
-        },
-        {
-          "q": "Gece açık mısınız?",
-          "a": "Hayır, belirtilen çalışma saatlerimiz pazartesi–cumartesi 10:00–19:30 arasındadır."
-        },
-        {
-          "q": "Röntgen ve laboratuvar var mı?",
-          "a": "Evet, kliniğimizde bilgisayarlı röntgen ve laboratuvar hizmetleri bulunur."
-        },
-        {
-          "q": "Klinik nerede?",
-          "a": "Yalı Mah., Sahilyolu Cd. No:8, Maltepe/İstanbul adresindeyiz."
-        },
-        {
-          "q": "Size nasıl ulaşabilirim?",
-          "a": "0552 799 98 89 numarasını arayabilir veya WhatsApp'tan yazabilirsiniz. Sabit hattımız 0216 352 95 98."
-        }
-      ]
-    },
-    {
-      "id": "saatler",
-      "title": "Çalışma saatleri"
-    },
-    {
-      "id": "konum",
-      "title": "Kliniğe ulaşım",
-      "note": "Yalı Mah., Sahilyolu Cd. No:8, Maltepe/İstanbul"
-    },
-    {
       "id": "iletisim",
       "headline": "Kliniğimizden bilgi alın",
       "subline": "Hizmetlerimiz hakkında bilgi almak için çalışma saatlerimizde 0552 799 98 89 numarasını arayın.",
@@ -199,8 +128,84 @@
           "style": "ghost"
         }
       ]
+    },
+    {
+      "id": "hakkinda",
+      "title": "Sahilyolu Caddesi'ndeki kliniğimiz",
+      "body": "Adraga Veteriner Kliniği, Maltepe sahilinde Yalı Mahallesi'nde bulunur.\n\nDahiliye, cerrahi, doğum ve jinekoloji, laboratuvar, bilgisayarlı röntgen, aşılama, koruyucu hekimlik, diş temizliği ve tıraş-banyo hizmetleri sunulur.",
+      "highlights": [
+        {
+          "label": "Çalışma saatleri",
+          "value": "Pazartesi–cumartesi 10:00–19:30"
+        },
+        {
+          "label": "Pazar",
+          "value": "Kapalı"
+        },
+        {
+          "label": "Konum",
+          "value": "Yalı Mahallesi, Maltepe sahili"
+        }
+      ]
+    },
+    {
+      "id": "yorumlar",
+      "title": "Google yorumları",
+      "layout": "quotes",
+      "items": [
+        {
+          "author": "Tarık Yanova",
+          "rating": 5,
+          "text": "Çok ilgili ve profesyonel bir hizmet aldık. Kedimizi hızlıca muayene edip röntgen çekip yardımcı oldular. Veterinerimiz Özüm Bey'in yaklaşımı gerçekten güven vericiydi.",
+          "source": "Google"
+        },
+        {
+          "author": "Merve Karakuş",
+          "rating": 5,
+          "text": "Ece Hanım ve Özüm Bey ile tanışmadan önce bir sürü veteriner gezmiştik; kimsenin koyamadığı tanıyı anında koyup ona uygun tedaviyi titizlikle uyguladılar.",
+          "source": "Google"
+        },
+        {
+          "author": "Hamide Bıyıklı",
+          "rating": 5,
+          "text": "Bulduğum sokak kedisini Özüm hocaya götürdüm; ampute etmeden önce bir tedavi deneyelim dedi ve kedi şu an yürüyor.",
+          "source": "Google"
+        },
+        {
+          "author": "Sinem Akdağ",
+          "rating": 5,
+          "text": "Kedimin bebekliğinden beri aşıları için gittiğim klinik. Yüksekten düşme yaşadık, bizimle çok ilgilendiler; Ece hoca ameliyatını yaptı, şu anda sağlıklı.",
+          "source": "Google"
+        }
+      ]
+    },
+    {
+      "id": "konum",
+      "title": "Kliniğe ulaşım",
+      "note": "Yalı Mah., Sahilyolu Cd. No:8, Maltepe/İstanbul"
+    },
+    {
+      "id": "saatler",
+      "title": "Çalışma saatleri"
     }
   ],
+  "sectionOrder": [
+    "ust",
+    "ekip",
+    "hizmetler",
+    "galeri",
+    "iletisim",
+    "hakkinda",
+    "yorumlar",
+    "konum",
+    "saatler"
+  ],
+  "remove": [
+    "sss"
+  ],
+  "business": {
+    "tagline": "Maltepe sahilinde dahiliye, cerrahi, laboratuvar ve röntgen. Pazartesi–cumartesi 10:00–19:30, pazar kapalı. Telefon: 0552 799 98 89."
+  },
   "seo": {
     "title": "Adraga Veteriner Kliniği | Maltepe Sahili",
     "description": "Maltepe sahilinde dahiliye, cerrahi, laboratuvar ve röntgen. Pazartesi–cumartesi 10:00–19:30, pazar kapalı. Telefon: 0552 799 98 89."

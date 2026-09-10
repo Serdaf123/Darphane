@@ -113,7 +113,7 @@ export const THEME_PRESETS = [
 export const FONT_PAIRINGS = ["classic", "hospitality", "clean", "craft", "soft", "bold", "editorial", "plex", "noto"] as const;
 export type ThemePreset = (typeof THEME_PRESETS)[number];
 
-export const HERO_MOTIONS = ["rise", "reveal", "blur", "curtain", "zoom", "split", "none"] as const;
+export const HERO_MOTIONS = ["rise", "reveal", "blur", "curtain", "zoom", "split", "stack", "counter", "none"] as const;
 export const SCROLL_MOTIONS = ["rise", "fade", "slide", "scale", "none"] as const;
 export const HEADER_STYLES = ["glass", "solid", "minimal", "none"] as const;
 
@@ -200,6 +200,8 @@ const heroSection = z.object({
   type: z.literal("hero"),
   /** image: tam görsel · split: metin + görsel · minimal: sade · statement: koyu antet, büyük isim, fotoğrafsız meslekler */
   variant: z.enum(["image", "split", "minimal", "statement"]).default("image"),
+  /** Opt-in compact first screen; existing sites keep their layout. */
+  compact: z.boolean().optional(),
   headline: z.string(),
   subline: z.string().optional(),
   image: imageSchema.optional(),
@@ -503,3 +505,17 @@ export const siteSchema = z.object({
 });
 
 export type Site = z.infer<typeof siteSchema>;
+
+
+/** Partial sections are validated as complete sections after merging. Null clears
+ * an optional field (image/urgent, for example); required fields still fail. */
+export const siteOverlaySchema = z.object({
+  recipe: z.string().optional(),
+  business: businessSchema.partial().optional(),
+  seo: z.object({ title: z.string().optional(), description: z.string().optional(), ogImage: z.string().optional() }).optional(),
+  theme: themeSchema.partial().optional(),
+  sections: z.array(z.object({ id: z.string().min(1) }).catchall(z.unknown())).optional(),
+  sectionOrder: z.array(z.string().min(1)).optional(),
+  remove: z.array(z.string().min(1)).optional(),
+}).strict();
+export type SiteOverlay = z.infer<typeof siteOverlaySchema>;

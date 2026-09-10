@@ -1,5 +1,5 @@
 import { ActionButtons } from "@/components/ActionButtons";
-import { HeroItem, HeroMedia } from "@/components/motion/HeroMotion";
+import { HeroItem, HeroMedia, HeroPhone } from "@/components/motion/HeroMotion";
 import { OpenBadge } from "@/components/OpenBadge";
 import { SiteImage } from "@/components/SiteImage";
 import { normalizePhone, whatsappUrl } from "@/lib/actions";
@@ -37,22 +37,22 @@ export function Hero({
 
   if (section.variant === "minimal") {
     return (
-      <section id={id} className="section section-surface">
+      <section id={id} data-compact={section.compact || undefined} className="section section-surface">
         <div className="container flex flex-col gap-[var(--stack-gap)]">
-          <HeroItem order={1}>
+          <HeroItem order={1} part="headline">
             <h1 style={{ fontSize: "var(--step-6)" }}>
               {section.headline}
             </h1>
           </HeroItem>
           {section.subline ? (
-            <HeroItem order={2}>
+            <HeroItem order={2} part="subline">
               <p className="section-intro text-lg">{section.subline}</p>
             </HeroItem>
           ) : null}
-          <HeroItem order={3}>
+          <HeroItem order={3} part="badges">
             <div className="flex flex-wrap gap-2">{badges}</div>
           </HeroItem>
-          <HeroItem order={4}>
+          <HeroItem order={4} part="actions">
             <ActionButtons actions={section.actions} business={business} className="mt-2" locale={locale} mobileLimit={2} />
           </HeroItem>
         </div>
@@ -77,7 +77,7 @@ export function Hero({
         .replace(/\p{M}/gu, "");
 
     return (
-      <section id={id} className="hero-statement relative isolate overflow-hidden">
+      <section id={id} data-compact={section.compact || undefined} className="hero-statement relative isolate overflow-hidden">
         {/* Fotoğraf varsa koyu mürekkep tonuyla arkaya: referans avukat siteleri gibi
             alacakaranlık şehir / cam cephe — metin okunur kalsın diye ağır katman */}
         {section.image ? (
@@ -103,7 +103,7 @@ export function Hero({
                 <div className="hero-urgent">
                   <p className="hero-urgent-title">{section.urgent.title}</p>
                   <a href={`tel:${normalizePhone(business.phone)}`} className="hero-urgent-phone">
-                    {business.phone}
+                    <HeroPhone phone={business.phone} />
                   </a>
                   {section.urgent.note ? (
                     section.urgent.whatsappMessage && (business.whatsapp ?? business.phone) ? (
@@ -122,7 +122,7 @@ export function Hero({
                 </div>
               </HeroItem>
             ) : null}
-            <HeroItem order={1}>
+            <HeroItem order={1} part="headline">
               <h1 className={`hero-statement-title${section.urgent ? " hero-statement-title-secondary" : ""}`}>
                 {section.headline}
               </h1>
@@ -131,14 +131,14 @@ export function Hero({
               <hr className="hero-statement-rule" />
             </HeroItem>
             {section.subline ? (
-              <HeroItem order={3}>
+              <HeroItem order={3} part="subline">
                 <p className="hero-statement-subline">{section.subline}</p>
               </HeroItem>
             ) : null}
-            <HeroItem order={4}>
+            <HeroItem order={4} part="badges">
               <div className="flex flex-wrap gap-2">{badges}</div>
             </HeroItem>
-            <HeroItem order={5}>
+            <HeroItem order={5} part="actions">
               {/* Acil blok varsa telefonda numara birincil: tek buton yeter */}
               <ActionButtons
                 actions={section.actions}
@@ -156,23 +156,23 @@ export function Hero({
 
   if (section.variant === "split") {
     return (
-      <section id={id} className="section">
+      <section id={id} data-compact={section.compact || undefined} className="section">
         <div className="container grid items-center gap-10 md:grid-cols-2">
           <div className="flex flex-col gap-[var(--stack-gap)]">
-            <HeroItem order={1}>
+            <HeroItem order={1} part="headline">
               <h1 style={{ fontSize: "var(--step-5)" }}>
                 {section.headline}
               </h1>
             </HeroItem>
             {section.subline ? (
-              <HeroItem order={2}>
+              <HeroItem order={2} part="subline">
                 <p className="section-intro">{section.subline}</p>
               </HeroItem>
             ) : null}
-            <HeroItem order={3}>
+            <HeroItem order={3} part="badges">
               <div className="flex flex-wrap gap-2">{badges}</div>
             </HeroItem>
-            <HeroItem order={4}>
+            <HeroItem order={4} part="actions">
               <ActionButtons actions={section.actions} business={business} className="mt-1" locale={locale} mobileLimit={2} />
             </HeroItem>
           </div>
@@ -196,7 +196,7 @@ export function Hero({
 
   // variant: image — tam genişlik görsel, üstünde katman
   return (
-    <section id={id} className="hero-image relative isolate flex min-h-[78svh] items-end overflow-hidden">
+    <section id={id} data-compact={section.compact || undefined} className="hero-image relative isolate flex min-h-[78svh] items-end overflow-hidden">
       <HeroMedia className="absolute inset-0 -z-20">
         <SiteImage
           image={section.image}
@@ -227,7 +227,7 @@ export function Hero({
       />
       <div className="on-image container pb-14 pt-28 text-white">
         <div className="flex max-w-3xl flex-col gap-[var(--stack-gap)]">
-          <HeroItem order={1}>
+          <HeroItem order={1} part="headline">
             <h1
               style={{
                 fontSize: "var(--step-6)",
@@ -239,7 +239,7 @@ export function Hero({
             </h1>
           </HeroItem>
           {section.subline ? (
-            <HeroItem order={2}>
+            <HeroItem order={2} part="subline">
               <p
                 className="text-lg leading-relaxed"
                 style={{ color: "rgba(255,255,255,.92)", maxWidth: "42rem" }}
@@ -248,10 +248,10 @@ export function Hero({
               </p>
             </HeroItem>
           ) : null}
-          <HeroItem order={3} className="hero-badges">
+          <HeroItem order={3} part="badges" className="hero-badges">
             <div className="flex flex-wrap gap-2">{badges}</div>
           </HeroItem>
-          <HeroItem order={4} className="hero-actions">
+          <HeroItem order={4} part="actions" className="hero-actions">
             <ActionButtons actions={section.actions} business={business} className="mt-2" locale={locale} mobileLimit={2} />
           </HeroItem>
         </div>
