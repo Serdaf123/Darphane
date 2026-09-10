@@ -19,9 +19,12 @@ Uzun metin yapıştırma yok; kural bu (Serkan, 10.09). ChatGPT'nin JSON cevabı
 Doğrulanmış olgular (yalnız bunları kullan, yenisini ekleme):
 {olgular: puan, yorum sayısı, adres, telefon, saatler, hizmetler, Maps'ten alınan 3-5 yorum cümlesi}
 
-Tasarım A (Claude yaptı) şu dünyada: {A: preset, vurgu, font, hero tipi, tek cümle}.
-Senden Tasarım B: A'nın kopyası olmayan, aynı olgularla farklı bir dünya. Sadece aşağıdaki
-listelerden seç, başka değer yazma.
+Tasarım A (Claude yaptı) şu dünyada: {A: preset, vurgu, font, hero tipi, bölüm sırası, düzenler, tek cümle}.
+Senden Tasarım B: A'nın renk/font değiştirilmiş kopyası DEĞİL, başka bir sayfa. Zorunlu: hero
+varyantı A'dan farklı; bölüm sırası farklı (en az iki bölüm yer değiştirir, bir bölüm eklenir ya da
+çıkar); iletişim yüzen animasyonlu buton (contact: fab, fabStyle: dial); header stili farklı;
+services/gallery/reviews düzenlerinden en az ikisi farklı; hareket açık ve A'dan farklı; mode
+farklı. Sadece aşağıdaki listelerden seç, başka değer yazma.
 
   preset: porcelain | ember | sage | midnight | cobalt | sand | bosphorus | graphite | ink
   accent: #rrggbb (isteğe bağlı; verilirse palet bundan üretilir)
@@ -34,7 +37,11 @@ listelerden seç, başka değer yazma.
   header: glass | solid | minimal | none
   photos: color | mono
   hero.variant: image | split | minimal | statement
-  motion.hero: rise | reveal | blur | curtain | zoom | split | none
+  motion.hero: rise | reveal | blur | curtain | zoom | split   (none yasak)
+  motion.scroll: rise | fade | slide | scale
+  contact: fab   fabStyle: dial
+  services.layout: grid | list | cards · gallery.layout: grid | masonry | strip · reviews.layout: cards | quotes | marquee
+  bölüm id'leri: ust, hakkinda, hizmetler, galeri, yorumlar, sss, saatler, konum, iletisim (+ ekip)
 
 Metin kuralları: yalnız doğrulanabilir olgu; rakam, yıl, "en iyi", müşteri sayısı, yorum
 uydurma yok. Ton sakin, esnafın diliyle, "siz" hitabı, ünlem yok, İngilizce pazarlama
@@ -47,6 +54,8 @@ Buton metni fiil + ne alacağı. Türkçe kesme işareti doğru.
   "theme": { "preset": "...", "accent": "#...", "mode": "...", "fonts": "...", "headingFont": "...",
              "typeScale": "...", "radius": "...", "density": "...", "header": "...", "photos": "...",
              "motion": { "hero": "..." } },
+  "layout": { "sectionOrder": ["ust", "..."], "remove": ["..."], "services": "...", "gallery": "...", "reviews": "...",
+              "contact": "fab", "fabStyle": "dial", "motion": { "hero": "...", "scroll": "...", "parallax": true } },
   "hero": { "variant": "...", "headline": "...", "subline": "...", "badges": ["...", "..."],
             "primaryCta": "...", "whatsappCta": "...", "whatsappPrefill": "Merhaba, {ad} için yazıyorum.\n..." },
   "about": { "title": "...", "body": "2-3 cümle", "highlights": ["...", "...", "..."] },

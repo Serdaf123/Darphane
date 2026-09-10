@@ -25,6 +25,7 @@ Bu dosya makinenin hafızası: kurallar, yol haritası, kararlar. README "nasıl
   - Unicode glif ikon (★) → çizili SVG
 - **Fotoğraf her şeyi değiştirir.** Referans avukat/otel siteleri: tam kesit alacakaranlık fotoğraf + hafif ağırlıkta (400–500) büyük serif + tek vurgu + koyu/açık bölüm ritmi. Fotoğrafsız meslek → `statement` hero + `photos: mono`.
 - Cesareti tek yerde harca; gerisi sessiz. Bir sayfada en az bir bölüm kutusuz.
+- **A/B fark kuralı (2026-09-10, Serkan):** B, A'nın renk/font değiştirilmiş kopyası olamaz. Zorunlu farklar: hero varyantı; bölüm sırası/kompozisyonu (en az iki bölüm yer değiştirir, en az bir bölüm birinde var diğerinde yok); iletişim deseni (A alt bar, B yüzen animasyonlu buton `contact: fab` + `dial`); header stili; en az iki bölümün layout'u; hareket (B'de kapalı olamaz, A'dan farklı preset); tipografi/doku (headingFont, typeScale, density, radius'tan en az ikisi) ve mode. **Kapı:** canlıya almadan önce A/B yan yana ekran görüntüsü; gri tona çevirince 2 saniyede ayırt edilemiyorsa geri döner, Codex'e düzenleme görevi yazılır (`briefs/codex/`). Her aday için standart yol budur.
 - Tarayıcı yüzeyleri (seçim, imleç, kaydırma çubuğu, odak) temadan gelir; koyu zeminde odak halkası açık renk.
 - Hareket: transform + opacity dışına çıkma (CLS), "hareketi azalt" her zaman saygı görür. Serkan hero + scroll animasyonu istiyor; skill "tek orkestre an" der — mobilde `fade`, masaüstünde `rise` uzlaşması.
 - Mobil: hero'da en fazla 2 buton (acil blok varsa 1); alt bar Ara/Yol Tarifi/WhatsApp; header butonu yalnız masaüstü.
