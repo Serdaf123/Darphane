@@ -32,6 +32,7 @@ Bu repo iki ajan tarafından geliştiriliyor: Claude Code (Serkan'ın Mac'inde) 
 - `docs/tasarim-kutuphanesi.md` + `data/recipes/<key>.json`: hero varyantı, giriş/kaydırma animasyonu, bölüm sırası ve düzenleri, iletişim deseni, header, tipografi, mobil/masaüstü notları. Her yeni site bir reçeteden başlar; **A ve B farklı aileden** (açık↔koyu, fotoğraf↔tip, bar↔fab; en az iki eksen).
 - Kapı: canlıya almadan A/B ekran görüntüsü yan yana, gri tonda 2 saniyede ayırt edilmeli; mobil 390px'te ilk ekran "açık mı · nerede · nasıl ulaşırım" cevaplı; Lighthouse mobil ≥ 95.
 - Reçete değişince JSON ve belge birlikte güncellenir; yeni kombinasyon iki kez kullanılınca reçeteye dönüşür.
+- Canlı vitrin `/kutuphane` (noindex): reçeteler ve tüm animasyonlar gerçek bileşenlerle. Yeni animasyon/reçete eklendiğinde orada görünmeli (`app/kutuphane/`).
 
 ## Her değişiklikten önce
 ```

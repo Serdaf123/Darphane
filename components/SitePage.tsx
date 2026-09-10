@@ -57,6 +57,7 @@ export function SitePage({
     <div
       lang={t(locale).lang}
       className={`site-root ${themeFontClass(theme)}${theme.photos === "mono" ? " photos-mono" : ""}`}
+      data-mode={isDarkTheme(theme) ? "dark" : "light"}
       style={{ ...themeStyle(theme), colorScheme: isDarkTheme(theme) ? "dark" : "light" }}
     >
       <MotionProvider motion={theme.motion}>

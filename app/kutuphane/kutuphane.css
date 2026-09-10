@@ -1,0 +1,102 @@
+/* Tasarım kütüphanesi — iç araç. Sakin zemin, tek vurgu; demolar kendi tema değişkenlerini taşır. */
+.lib {
+  --lb: #f3f2ee;
+  --lf: #17171b;
+  --lm: #66666e;
+  --ll: #dedcd4;
+  --lc: #ffffff;
+  --la: #1f5f3b;
+  min-height: 100dvh;
+  background: var(--lb);
+  color: var(--lf);
+  font-family: var(--f-figtree, system-ui, -apple-system, "Segoe UI", sans-serif);
+  font-size: 0.9375rem;
+  line-height: 1.5;
+}
+.lib a { color: inherit; }
+.lib-wrap { max-width: 78rem; margin: 0 auto; padding: 1.5rem 1.25rem 5rem; }
+.lib-top { display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: 0.5rem 1.5rem; padding-bottom: 1rem; border-bottom: 1px solid var(--ll); }
+.lib-top h1 { margin: 0; font-size: 1.375rem; font-weight: 650; letter-spacing: -0.015em; }
+.lib-top nav { display: flex; flex-wrap: wrap; gap: 0.25rem 1rem; font-size: 0.875rem; color: var(--lm); }
+.lib-top nav a { text-decoration: none; }
+.lib-top nav a:hover { color: var(--lf); }
+.lib-intro { max-width: 62ch; color: var(--lm); margin: 1rem 0 0; }
+.lib-intro strong { color: var(--lf); font-weight: 600; }
+
+.lib h2 { margin: 3.5rem 0 0.25rem; font-size: 1.25rem; font-weight: 650; letter-spacing: -0.01em; }
+.lib h2 + p { margin: 0 0 1.25rem; color: var(--lm); max-width: 70ch; }
+
+/* Örnek site seçici */
+.lib-sites { display: flex; flex-wrap: wrap; gap: 0.375rem; margin: 1rem 0 0; padding: 0; list-style: none; }
+.lib-sites a { display: inline-block; padding: 0.3rem 0.7rem; border: 1px solid var(--ll); border-radius: 999px; background: var(--lc); font-size: 0.8125rem; text-decoration: none; }
+.lib-sites a[aria-current="true"] { background: var(--lf); color: #fff; border-color: var(--lf); }
+
+/* Reçete kartları */
+.lib-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(21rem, 1fr)); gap: 1rem; }
+.lib-recipe { display: grid; grid-template-columns: 1fr auto; gap: 1rem; padding: 1.1rem 1.1rem 1rem; background: var(--lc); border: 1px solid var(--ll); border-radius: 14px; }
+.lib-recipe h3 { margin: 0; font-size: 1.125rem; font-weight: 650; letter-spacing: -0.01em; }
+.lib-recipe .fam { display: inline-block; margin-top: 0.25rem; font-size: 0.75rem; color: var(--lm); }
+.lib-recipe .world { margin: 0.6rem 0 0; font-size: 0.875rem; }
+.lib-recipe .fits { margin: 0.5rem 0 0; font-size: 0.8125rem; color: var(--lm); }
+.lib-chips { display: flex; flex-wrap: wrap; gap: 0.3rem; margin: 0.75rem 0 0; padding: 0; list-style: none; }
+.lib-chips li { padding: 0.15rem 0.5rem; border-radius: 6px; background: var(--lb); font-size: 0.75rem; font-variant-numeric: tabular-nums; }
+.lib-links { display: flex; flex-wrap: wrap; gap: 0.4rem; margin-top: 0.9rem; }
+.lib-links a, .lib-replay { display: inline-flex; align-items: center; padding: 0.4rem 0.75rem; border-radius: 8px; border: 1px solid var(--ll); background: var(--lc); font: inherit; font-size: 0.8125rem; text-decoration: none; cursor: pointer; color: var(--lf); }
+.lib-links a:hover, .lib-replay:hover { border-color: #b9b9b0; }
+.lib-links a.primary { background: var(--la); border-color: var(--la); color: #fff; font-weight: 600; }
+.lib-phone { width: 200px; height: 400px; overflow: hidden; border-radius: 22px; border: 5px solid #1a1a1f; background: #000; box-shadow: 0 10px 30px rgba(0,0,0,.12); }
+.lib-phone iframe { width: 390px; height: 780px; border: 0; transform: scale(0.4872); transform-origin: 0 0; pointer-events: none; background: #fff; }
+@media (max-width: 640px) {
+  .lib-recipe { grid-template-columns: 1fr; }
+  .lib-phone { display: none; }
+}
+
+/* Demolar */
+.lib-demos { display: grid; grid-template-columns: repeat(auto-fill, minmax(19rem, 1fr)); gap: 1rem; }
+.lib-demo-card { padding: 1rem; background: var(--lc); border: 1px solid var(--ll); border-radius: 14px; }
+.lib-demo-card h3 { margin: 0; font-size: 1rem; font-weight: 650; }
+.lib-demo-card .note { margin: 0.2rem 0 0.75rem; font-size: 0.8125rem; color: var(--lm); }
+.lib-demo { display: grid; gap: 0.6rem; justify-items: start; }
+.lib-replay { justify-self: start; }
+
+.lib-hero { position: relative; width: 100%; aspect-ratio: 4 / 3; overflow: hidden; border-radius: 12px; background: var(--c-bg); color: #fff; isolation: isolate; }
+.lib-hero-media { position: absolute; inset: 0; z-index: 0; }
+.lib-hero-media img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.lib-hero-scrim { position: absolute; inset: 0; z-index: 1; background: linear-gradient(to top, rgba(0,0,0,.72), rgba(0,0,0,.15) 55%, rgba(0,0,0,0)); }
+.lib-hero-copy { position: absolute; inset: auto 0 0 0; z-index: 2; display: flex; flex-direction: column; gap: 0.5rem; padding: 1rem; }
+.lib-hero-copy h3 { margin: 0; font-size: 1.5rem; line-height: 1.1; font-weight: 700; letter-spacing: -0.01em; }
+.lib-hero-copy p { margin: 0; font-size: 0.875rem; opacity: 0.92; }
+.lib-pill { display: inline-block; padding: 0.2rem 0.6rem; border-radius: 999px; background: rgba(255,255,255,.18); border: 1px solid rgba(255,255,255,.35); font-size: 0.75rem; backdrop-filter: blur(6px); }
+.lib-btn { display: inline-block; padding: 0.5rem 0.9rem; border-radius: 10px; background: var(--c-accent); color: var(--c-accent-text, #fff); font-size: 0.875rem; font-weight: 600; }
+
+.lib-scroll { width: 100%; padding: 1rem; border-radius: 12px; background: var(--c-bg); color: var(--c-text); border: 1px solid var(--c-border); }
+.lib-scroll h3 { margin: 0 0 0.75rem; font-size: 1.125rem; font-weight: 650; }
+.lib-cards { display: grid; gap: 0.5rem; }
+.lib-card { display: grid; padding: 0.6rem 0.75rem; border-radius: 10px; background: var(--c-surface); border: 1px solid var(--c-border); font-size: 0.875rem; }
+.lib-card span { color: var(--c-muted); font-size: 0.8125rem; }
+
+.lib-fab { position: relative; width: 100%; height: 15rem; overflow: hidden; border-radius: 12px; background: var(--c-bg); color: var(--c-text); border: 1px solid var(--c-border); transform: translateZ(0); }
+.lib-fab .contact-fab { position: absolute; }
+.lib-fab-hint { position: absolute; left: 1rem; bottom: 1rem; margin: 0; font-size: 0.8125rem; color: var(--c-muted); max-width: 12ch; }
+
+/* Paletler ve fontlar */
+.lib-swatches { display: grid; grid-template-columns: repeat(auto-fill, minmax(11rem, 1fr)); gap: 0.75rem; }
+.lib-swatch { border-radius: 12px; overflow: hidden; border: 1px solid var(--ll); background: var(--c-bg); color: var(--c-text); }
+.lib-swatch .top { display: flex; gap: 0.35rem; padding: 0.75rem; }
+.lib-swatch .top span { width: 1.5rem; height: 1.5rem; border-radius: 999px; border: 1px solid rgba(0,0,0,.12); }
+.lib-swatch .name { padding: 0 0.75rem 0.75rem; font-size: 0.8125rem; }
+.lib-swatch .name small { display: block; color: var(--c-muted); }
+.lib-fonts { display: grid; grid-template-columns: repeat(auto-fill, minmax(15rem, 1fr)); gap: 0.75rem; }
+.lib-font { padding: 0.9rem 1rem; background: var(--lc); border: 1px solid var(--ll); border-radius: 12px; }
+.lib-font .d { font-size: 1.5rem; line-height: 1.15; }
+.lib-font .s { margin-top: 0.35rem; font-size: 0.9375rem; color: var(--lm); }
+.lib-font .k { margin-top: 0.5rem; font-size: 0.75rem; color: var(--lm); font-family: var(--f-figtree, system-ui); }
+
+/* Reçete sayfası üst çubuğu */
+.lib-bar { position: relative; z-index: 60; display: flex; flex-wrap: wrap; align-items: center; gap: 0.35rem 1rem; padding: 0.6rem 1rem; background: #17171b; color: #e8e8e3; font-family: system-ui, -apple-system, "Segoe UI", sans-serif; font-size: 0.8125rem; }
+.lib-bar a { color: inherit; text-decoration: none; }
+.lib-bar strong { color: #fff; font-weight: 650; }
+.lib-bar .group { display: flex; flex-wrap: wrap; align-items: center; gap: 0.25rem; }
+.lib-bar .group > span:first-child { color: #9a9aa3; margin-right: 0.15rem; }
+.lib-bar .group a { padding: 0.15rem 0.5rem; border-radius: 6px; border: 1px solid #34343c; }
+.lib-bar .group a[aria-current="true"] { background: #fff; color: #17171b; border-color: #fff; }

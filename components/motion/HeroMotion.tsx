@@ -20,12 +20,15 @@ export function HeroItem({
   className,
   style,
   part,
+  replay = false,
 }: {
   children: ReactNode;
   order?: number;
   part?: "badges" | "headline" | "subline" | "actions";
   className?: string;
   style?: CSSProperties;
+  /** Kütüphane demoları: sayfa açılalı 2,5 sn geçse de split animasyonu oynasın */
+  replay?: boolean;
 }) {
   const { hero, reduced } = useSiteMotion();
 
@@ -42,7 +45,7 @@ export function HeroItem({
 
   if (hero === "split") {
     return (
-      <SplitItem order={order} className={className} style={style}>
+      <SplitItem order={order} className={className} style={style} force={replay}>
         {children}
       </SplitItem>
     );
@@ -78,17 +81,19 @@ function SplitItem({
   order,
   className,
   style,
+  force = false,
 }: {
   children: ReactNode;
   order: number;
   className?: string;
   style?: CSSProperties;
+  force?: boolean;
 }) {
   const ref = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const el = ref.current;
-    if (!el || performance.now() > 2500) return;
+    if (!el || (!force && performance.now() > 2500)) return;
     let cancelled = false;
     let cleanup: (() => void) | undefined;
 
@@ -133,7 +138,7 @@ function SplitItem({
       cancelled = true;
       cleanup?.();
     };
-  }, [order]);
+  }, [order, force]);
 
   return (
     <div ref={ref} className={className} style={style}>

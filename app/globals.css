@@ -605,6 +605,12 @@ main:focus {
   color: var(--c-bg);
 }
 
+/* Antet mürekkep/kâğıt takasıyla çalışır (zemin = metin rengi). Koyu temada takas hero'yu
+   açığa çevirirdi; kök renkleri yakalayıp hero içinde geri çeviriyoruz: koyu zemin, açık yazı.
+   Kompakt hero (data-compact) sayfa rengini kullanır, ona dokunma. */
+.site-root { --root-bg: var(--c-bg); --root-text: var(--c-text); }
+.site-root[data-mode="dark"] .hero-statement:not([data-compact]) { --c-text: var(--root-bg); --c-bg: var(--root-text); }
+
 /* Arka planda büyük, silik monogram — antetli kâğıttaki kabartma gibi */
 .hero-statement-monogram {
   position: absolute;
@@ -643,7 +649,8 @@ main:focus {
 /* Referanslardaki gibi hafif ağırlıkta, büyük serif: otorite ağırlıktan değil boyuttan gelir */
 .hero-statement-title {
   /* Ölçeğin en üstünün 1.4 katı: antet ismi sayfanın tek "bağıran" öğesi */
-  font-size: calc(var(--step-6) * 1.4);
+  /* 13.5vw tavanı: 390px'te "Veteriner" gibi tek uzun kelime taşmasın */
+  font-size: min(calc(var(--step-6) * 1.4), 13.5vw);
   font-weight: 400;
   line-height: 0.96;
   letter-spacing: -0.025em;

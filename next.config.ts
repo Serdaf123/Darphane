@@ -113,6 +113,9 @@ const nextConfig: NextConfig = {
       // fourpear iç paneli (kök artık açık tanıtım sitesi)
       { source: "/panel/:path*", headers: [noindex] },
       { source: "/giris", headers: [noindex] },
+      // Tasarım kütüphanesi (iç araç)
+      { source: "/kutuphane", headers: [noindex] },
+      { source: "/kutuphane/:path*", headers: [noindex] },
       // Satılmamış her işletme sitesi: kök + alt yollar (/b, /c, /en, /teklif)
       ...unsoldSlugs().flatMap((slug) => [
         { source: `/${slug}`, headers: [noindex] },
