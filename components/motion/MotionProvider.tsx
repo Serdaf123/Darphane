@@ -1,7 +1,7 @@
 "use client";
 
-import { createContext, useContext, type ReactNode } from "react";
-import { LazyMotion, domAnimation, useReducedMotion } from "motion/react";
+import { createContext, useContext, useEffect, useState, type ReactNode } from "react";
+import { LazyMotion, domAnimation } from "motion/react";
 import type { Motion } from "@/lib/schema";
 
 /**
@@ -19,7 +19,17 @@ const MotionContext = createContext<MotionContextValue>({
 });
 
 export function MotionProvider({ motion, children }: { motion: Motion; children: ReactNode }) {
-  const reduced = useReducedMotion() ?? false;
+  // Hidrasyon güvenli: ilk istemci çizimi sunucuyla aynı (false), tercih effect'te okunur.
+  // Aksi halde "hareketi azalt" açık kullanıcıda sunucu m.div, istemci düz div çizer;
+  // React uyuşmazlığı yamamaz ve SSR'daki opacity:0 kalır (bölümler görünmez).
+  const [reduced, setReduced] = useState(false);
+  useEffect(() => {
+    const mq = window.matchMedia("(prefers-reduced-motion: reduce)");
+    const update = () => setReduced(mq.matches);
+    update();
+    mq.addEventListener("change", update);
+    return () => mq.removeEventListener("change", update);
+  }, []);
   // LazyMotion: motion'ın tam paketi yerine yalnız DOM animasyon özellikleri (~15 KB) gelir.
   // strict: içeride yanlışlıkla <motion.*> kullanılırsa geliştirmede hata verir; <m.*> kullanılmalı.
   return (

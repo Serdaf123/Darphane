@@ -49,13 +49,12 @@ export function Reveal({
   delay?: number;
   as?: "div" | "section" | "figure" | "li";
 }) {
-  const { scroll, reduced, hero } = useSiteMotion();
-  const recipeReveal = hero === "stack" || hero === "counter" || undefined;
+  const { scroll, reduced } = useSiteMotion();
   const Tag = as;
 
   if (scroll === "none" || reduced) {
     return (
-      <Tag data-recipe-reveal={recipeReveal} className={className} style={style}>
+      <Tag data-reveal="" className={className} style={style}>
         {children}
       </Tag>
     );
@@ -64,7 +63,7 @@ export function Reveal({
   const MotionTag = m[Tag];
   return (
     <MotionTag
-      data-recipe-reveal={recipeReveal}
+      data-reveal=""
       className={className}
       style={style}
       variants={VARIANTS[scroll]}
@@ -92,13 +91,12 @@ export function Stagger({
   step?: number;
   as?: "div" | "ul" | "dl";
 }) {
-  const { scroll, reduced, hero } = useSiteMotion();
-  const recipeReveal = hero === "stack" || hero === "counter" || undefined;
+  const { scroll, reduced } = useSiteMotion();
   const Tag = as;
 
   if (scroll === "none" || reduced) {
     return (
-      <Tag data-recipe-reveal={recipeReveal} className={className} style={style}>
+      <Tag data-reveal="" className={className} style={style}>
         {children}
       </Tag>
     );
@@ -107,7 +105,7 @@ export function Stagger({
   const MotionTag = m[Tag];
   return (
     <MotionTag
-      data-recipe-reveal={recipeReveal}
+      data-reveal=""
       className={className}
       style={style}
       initial="hidden"
@@ -132,13 +130,12 @@ export function Item({
   style?: CSSProperties;
   as?: "div" | "li" | "figure";
 }) {
-  const { scroll, reduced, hero } = useSiteMotion();
-  const recipeReveal = hero === "stack" || hero === "counter" || undefined;
+  const { scroll, reduced } = useSiteMotion();
   const Tag = as;
 
   if (scroll === "none" || reduced) {
     return (
-      <Tag data-recipe-reveal={recipeReveal} className={className} style={style}>
+      <Tag data-reveal="" className={className} style={style}>
         {children}
       </Tag>
     );
@@ -146,7 +143,7 @@ export function Item({
 
   const MotionTag = m[Tag];
   return (
-    <MotionTag data-recipe-reveal={recipeReveal} className={className} style={style} variants={VARIANTS[scroll]}>
+    <MotionTag data-reveal="" className={className} style={style} variants={VARIANTS[scroll]}>
       {children}
     </MotionTag>
   );

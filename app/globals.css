@@ -1059,9 +1059,9 @@ main > .section:nth-child(even of .section):not(.section-dark):not(.cta-band) { 
   .hero-item-stack, .hero-item-counter, .hero-phone-digit, .hero-media-stack, .hero-media-counter { animation: none; transform: none; opacity: 1; }
 }
 
-/* SSR reveal styles must be readable before hydration with reduced motion. */
+/* Hareketi azalt: kaydırma-belirme sarmalayıcıları hidrasyondan önce de görünür (SSR opacity:0 ezilir). */
 @media (prefers-reduced-motion: reduce) {
-  [data-recipe-reveal] { opacity: 1 !important; transform: none !important; }
+  [data-reveal] { opacity: 1 !important; transform: none !important; }
   .site-root:has([data-compact]) *, .site-root:has([data-compact]) *::before, .site-root:has([data-compact]) *::after {
     animation: none !important; transition: none !important; scroll-behavior: auto !important;
   }
