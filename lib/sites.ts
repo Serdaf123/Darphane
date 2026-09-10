@@ -1,7 +1,8 @@
 import fs from "node:fs";
 import path from "node:path";
+import { mergeSiteOverlay } from "./site-overlay";
 import { DEFAULT_LOCALE, type Locale } from "./i18n";
-import { siteSchema, type Section, type Site } from "./schema";
+import { siteSchema, type Site } from "./schema";
 
 /**
  * Site üretmek = data/sites/<slug>.json dosyası oluşturmak.
@@ -70,33 +71,11 @@ export function siteVariants(slug: string): Variant[] {
 function applyOverlay(site: Site, slug: string, suffix: string): Site {
   const file = path.join(SITES_DIR, `${slug}.${suffix}.json`);
   if (!fs.existsSync(file)) return site;
-  const overlay = JSON.parse(fs.readFileSync(file, "utf8")) as {
-    business?: Partial<Site["business"]>;
-    seo?: Partial<Site["seo"]>;
-    theme?: Partial<Site["theme"]>;
-    sections?: Array<Partial<Section> & { id: string }>;
-  };
-
-  const sections = site.sections.map((section, index) => {
-    const id = section.id ?? `${section.type}-${index}`;
-    const patch = overlay.sections?.find((s) => s.id === id);
-    return patch ? { ...section, ...patch } : section;
-  });
-
-  const merged = {
-    ...site,
-    business: { ...site.business, ...overlay.business },
-    seo: { ...site.seo, ...overlay.seo },
-    // Varyant katmanı temayı bütünüyle değiştirir (accent vs preset karışmasın)
-    theme: overlay.theme ? { ...overlay.theme } : site.theme,
-    sections,
-  };
-  const parsed = siteSchema.safeParse(merged);
-  if (!parsed.success) {
-    const issues = parsed.error.issues.map((i) => `  · ${i.path.join(".")}: ${i.message}`).join("\n");
-    throw new Error(`Geçersiz katman: data/sites/${slug}.${suffix}.json\n${issues}`);
+  try {
+    return mergeSiteOverlay(site, JSON.parse(fs.readFileSync(file, "utf8")));
+  } catch (error) {
+    throw new Error(`Geçersiz katman: data/sites/${slug}.${suffix}.json\n${error instanceof Error ? error.message : String(error)}`);
   }
-  return parsed.data;
 }
 
 export function getSite(slug: string, locale: Locale = DEFAULT_LOCALE, variant: Variant = "a"): Site | null {

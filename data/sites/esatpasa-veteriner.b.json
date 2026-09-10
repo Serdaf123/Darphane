@@ -1,37 +1,32 @@
 {
-  "business": {
-    "tagline": "Ataşehir Esatpaşa'da her gün 24 saat açık veteriner kliniği. Muayene, tahlil, aşı ve acil müdahale. Telefon: 0532 570 77 32."
-  },
+  "recipe": "gece-nobeti",
   "theme": {
     "preset": "midnight",
-    "accent": "#e0b84f",
     "mode": "dark",
+    "neutralTint": 0.12,
+    "typeScale": "display",
     "fonts": "plex",
     "headingFont": "sans",
-    "typeScale": "normal",
     "radius": "sm",
-    "density": "normal",
+    "density": "tight",
     "header": "minimal",
     "photos": "color",
-    "neutralTint": 0.12,
-    "contact": "both",
-    "fabStyle": "pill",
+    "contact": "fab",
+    "fabStyle": "dial",
     "motion": {
-      "hero": "none",
-      "scroll": "none",
-      "smooth": false,
+      "hero": "counter",
+      "scroll": "fade",
+      "smooth": true,
       "parallax": false
-    }
+    },
+    "accent": "#e0b84f"
   },
   "sections": [
     {
       "id": "ust",
-      "variant": "split",
-      "headline": "Esatpaşa'da gece gündüz veteriner",
-      "subline": "Esatpaşa Mah., Adnan Menderes Cd. No:108A, Ataşehir/İstanbul adresindeyiz. Acil durumlar için 0532 570 77 32 numarasını arayın.",
+      "variant": "statement",
       "badges": [
-        "Her gün 24 saat açık",
-        "Veteriner Hekim Osman Kısa"
+        "Her gün 24 saat açık"
       ],
       "actions": [
         {
@@ -46,35 +41,30 @@
           "style": "ghost"
         }
       ],
+      "headline": "Esatpaşa'da gece gündüz veteriner",
+      "subline": "Esatpaşa Mah., Adnan Menderes Cd. No:108A, Ataşehir/İstanbul adresindeyiz. Acil durumlar için 0532 570 77 32 numarasını arayın.",
       "urgent": {
         "title": "Acil durumlar için arayın",
         "note": "Her gün 24 saat açık."
-      }
+      },
+      "compact": true,
+      "image": null,
+      "video": null
     },
     {
-      "id": "hakkinda",
-      "title": "Esatpaşa'daki kliniğimiz",
-      "body": "Veteriner Hekim Osman Kısa'nın görev yaptığı kliniğimiz, Esatpaşa'da her gün 24 saat açıktır.\n\nMuayene, tahlil, aşı, acil müdahale, kısırlaştırma ve ameliyat hizmetlerinin yanında mama ve bakım ürünleri de bulunur.",
-      "highlights": [
-        {
-          "label": "Hekim",
-          "value": "Veteriner Hekim Osman Kısa"
-        },
-        {
-          "label": "Çalışma saatleri",
-          "value": "Her gün 24 saat"
-        },
-        {
-          "label": "Konum",
-          "value": "Esatpaşa, Ataşehir"
-        }
-      ]
+      "id": "saatler",
+      "title": "Çalışma saatleri"
+    },
+    {
+      "id": "konum",
+      "title": "Kliniğe ulaşım",
+      "note": "Esatpaşa Mah., Adnan Menderes Cd. No:108A, Ataşehir/İstanbul"
     },
     {
       "id": "hizmetler",
+      "layout": "list",
       "title": "Hizmetlerimiz",
       "intro": "Hizmetlerimiz hakkında bilgi almak için kliniğimizi arayabilirsiniz.",
-      "layout": "list",
       "tone": "light",
       "items": [
         {
@@ -100,31 +90,51 @@
       ]
     },
     {
-      "id": "galeri",
-      "title": "Klinikten",
-      "layout": "strip"
+      "id": "hakkinda",
+      "title": "Esatpaşa'daki kliniğimiz",
+      "body": "Veteriner Hekim Osman Kısa'nın görev yaptığı kliniğimiz, Esatpaşa'da her gün 24 saat açıktır.\n\nMuayene, tahlil, aşı, acil müdahale, kısırlaştırma ve ameliyat hizmetlerinin yanında mama ve bakım ürünleri de bulunur.",
+      "highlights": [
+        {
+          "label": "Hekim",
+          "value": "Veteriner Hekim Osman Kısa"
+        },
+        {
+          "label": "Çalışma saatleri",
+          "value": "Her gün 24 saat"
+        },
+        {
+          "label": "Konum",
+          "value": "Esatpaşa, Ataşehir"
+        }
+      ]
     },
     {
       "id": "yorumlar",
+      "layout": "marquee",
       "title": "Google yorumları",
-      "layout": "quotes",
       "items": [
         {
           "author": "Melissa Nur Gün",
-          "text": "Kedim Ayşegül'e mantar teşhisi konuldu ve hızlıca tedavisine başlandı. Özenli bir şekilde tedavi edildi ve evde uygulayacağım bakım detaylıca anlatıldı.",
           "rating": 5,
+          "text": "Kedim Ayşegül'e mantar teşhisi konuldu ve hızlıca tedavisine başlandı. Özenli bir şekilde tedavi edildi ve evde uygulayacağım bakım detaylıca anlatıldı.",
           "source": "Google"
         },
         {
           "author": "Cilem Cal",
-          "text": "1,5 yaşındaki Şivava köpeğim Berlin için ilk günden itibaren çok ilgili ve güven veren bir süreç yaşadık. Sadece tedavi değil, doğru yönlendirme ve açık iletişim de sundular.",
           "rating": 5,
+          "text": "1,5 yaşındaki Şivava köpeğim Berlin için ilk günden itibaren çok ilgili ve güven veren bir süreç yaşadık. Sadece tedavi değil, doğru yönlendirme ve açık iletişim de sundular.",
           "source": "Google"
         },
         {
           "author": "Nazlıcan Kurt",
-          "text": "Kedim Mia'yı 40 derece ateşle çok zor bir durumda götürdük. Sadece tedaviye ve Mia'nın sağlığına odaklanan, maddi kaygıyı ikinci planda tutan bir hekimle karşılaştık.",
           "rating": 5,
+          "text": "Kedim Mia'yı 40 derece ateşle çok zor bir durumda götürdük. Sürecin başından sonuna kadar sadece tedaviye ve Mia'nın sağlığına odaklanan bir hekimle karşılaştık.",
+          "source": "Google"
+        },
+        {
+          "author": "Enes Turan",
+          "rating": 5,
+          "text": "Osman Hoca kedimiz Mia'nın sarılık ve FIP tedavisinde çok ilgiliydi. Onun sayesinde artık Mia daha sağlıklı.",
           "source": "Google"
         }
       ]
@@ -152,15 +162,6 @@
       ]
     },
     {
-      "id": "saatler",
-      "title": "Çalışma saatleri"
-    },
-    {
-      "id": "konum",
-      "title": "Kliniğe ulaşım",
-      "note": "Esatpaşa Mah., Adnan Menderes Cd. No:108A, Ataşehir/İstanbul"
-    },
-    {
       "id": "iletisim",
       "headline": "Gece de arayabilirsiniz",
       "subline": "Her gün 24 saat açık kliniğimize 0532 570 77 32 numarasından ulaşın.",
@@ -179,6 +180,22 @@
       ]
     }
   ],
+  "sectionOrder": [
+    "ust",
+    "saatler",
+    "konum",
+    "hizmetler",
+    "hakkinda",
+    "yorumlar",
+    "sss",
+    "iletisim"
+  ],
+  "remove": [
+    "galeri"
+  ],
+  "business": {
+    "tagline": "Ataşehir Esatpaşa'da her gün 24 saat açık veteriner kliniği. Muayene, tahlil, aşı ve acil müdahale. Telefon: 0532 570 77 32."
+  },
   "seo": {
     "title": "Esatpaşa Veteriner Kliniği | Ataşehir 7/24",
     "description": "Ataşehir Esatpaşa'da her gün 24 saat açık veteriner kliniği. Muayene, tahlil, aşı ve acil müdahale. Telefon: 0532 570 77 32."

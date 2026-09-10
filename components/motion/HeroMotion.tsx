@@ -19,17 +19,22 @@ export function HeroItem({
   order = 0,
   className,
   style,
+  part,
 }: {
   children: ReactNode;
   order?: number;
+  part?: "badges" | "headline" | "subline" | "actions";
   className?: string;
   style?: CSSProperties;
 }) {
   const { hero, reduced } = useSiteMotion();
 
+  const step = hero === "stack" && part ? { badges: 0, headline: 1, subline: 2, actions: 3 }[part] : Math.min(order, 3);
+  const orderedStyle = hero === "stack" && part ? { ...style, order: step } : style;
+
   if (hero === "none" || reduced) {
     return (
-      <div className={className} style={style}>
+      <div className={className} style={orderedStyle}>
         {children}
       </div>
     );
@@ -43,7 +48,7 @@ export function HeroItem({
     );
   }
 
-  const vars = { "--i": order } as CSSProperties;
+  const vars = { "--i": hero === "stack" || hero === "counter" ? step : order, ...(hero === "stack" && part ? { order: step } : {}) } as CSSProperties;
 
   // reveal: maske, iç blok maskeden yukarı kayar
   if (hero === "reveal") {
@@ -177,7 +182,7 @@ export function HeroMedia({
   }, [parallax, reduced]);
 
   // Parallax dış katmanda, giriş animasyonu iç katmanda: aynı transform'u yazmasınlar.
-  if (hero === "none" || reduced) {
+  if (hero === "none") {
     return (
       <div ref={parallaxRef} className={className} style={style}>
         {children}
@@ -194,4 +199,14 @@ export function HeroMedia({
       {hero === "curtain" ? <div aria-hidden className="hero-curtain" /> : null}
     </div>
   );
+}
+
+
+/** The whole number remains one accessible name; digits animate in server HTML. */
+export function HeroPhone({ phone }: { phone: string }) {
+  const { hero } = useSiteMotion();
+  if (hero !== "counter") return <>{phone}</>;
+  return <><span className="sr-only">{phone}</span><span aria-hidden="true" className="hero-phone-digits">{Array.from(phone).map((char, i) =>
+    <span key={i} className="hero-phone-digit" style={{ "--digit": Math.min(i, 13) } as CSSProperties}>{char === " " ? "\u00a0" : char}</span>
+  )}</span></>;
 }
