@@ -8,3 +8,4 @@ Claude görevleri buraya yazar; Manus (metin), ChatGPT (görsel) ve Codex (kod) 
 | 02 | [Görseller](02-gorseller.md) | ChatGPT (görsel üretimi) | `public/sites/serkan-oral/*.webp` |
 | 03 | [Tasarım B](03-tasarim-b.md) | Codex | `app/serkan-oral/b` + `components/serkan-b` (PR) |
 | 04 | [ChatGPT görevleri](04-chatgpt-gorevleri.md) | ChatGPT | görsel klasörü / `docs/ab-degerlendirme-chatgpt.md` / mesaj kısaltma |
+| 05 | [Yeni işletme: Tasarım B + metinler](05-yeni-isletme-chatgpt.md) | ChatGPT | `data/sites/<slug>.b.json` + metinler (Claude işler); gerçek fotoğraf, WebP |
