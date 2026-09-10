@@ -1,0 +1,316 @@
+{
+  "slug": "adraga-veteriner",
+  "business": {
+    "name": "Adraga Veteriner Kliniği",
+    "category": "Veteriner kliniği",
+    "tagline": "Maltepe sahilde veteriner kliniği. Dahiliye, cerrahi, röntgen, laboratuvar, aşı.",
+    "phone": "0552 799 98 89",
+    "whatsapp": "905527999889",
+    "address": "Yalı Mah., Sahilyolu Cd. No:8",
+    "district": "Maltepe",
+    "city": "İstanbul",
+    "coords": {
+      "lat": 40.9114223,
+      "lng": 29.1392378
+    },
+    "social": {},
+    "hours": {
+      "timezone": "Europe/Istanbul",
+      "days": {
+        "mon": [
+          {
+            "open": "10:00",
+            "close": "19:30"
+          }
+        ],
+        "tue": [
+          {
+            "open": "10:00",
+            "close": "19:30"
+          }
+        ],
+        "wed": [
+          {
+            "open": "10:00",
+            "close": "19:30"
+          }
+        ],
+        "thu": [
+          {
+            "open": "10:00",
+            "close": "19:30"
+          }
+        ],
+        "fri": [
+          {
+            "open": "10:00",
+            "close": "19:30"
+          }
+        ],
+        "sat": [
+          {
+            "open": "10:00",
+            "close": "19:30"
+          }
+        ],
+        "sun": []
+      },
+      "note": "Pazar kapalı. Sabit hat: 0216 352 95 98."
+    }
+  },
+  "theme": {
+    "preset": "sage",
+    "accent": "#e0862a",
+    "mode": "light",
+    "neutralTint": 0.3,
+    "fonts": "craft",
+    "headingFont": "display",
+    "typeScale": "normal",
+    "radius": "md",
+    "density": "normal",
+    "header": "glass",
+    "contact": "both",
+    "fabStyle": "pill",
+    "motion": {
+      "hero": "reveal",
+      "scroll": "rise",
+      "smooth": true,
+      "parallax": true
+    }
+  },
+  "sections": [
+    {
+      "type": "hero",
+      "id": "ust",
+      "variant": "image",
+      "headline": "Adraga Veteriner",
+      "subline": "Maltepe Yalı'da, Sahilyolu Caddesi üzerinde. Dahiliye, cerrahi, doğum ve jinekoloji, laboratuvar, dijital röntgen, aşı, diş temizliği ve bakım.",
+      "badges": [
+        "Google'da 4,8 · 112 yorum",
+        "Pazartesi–Cumartesi 10:00–19:30"
+      ],
+      "actions": [
+        {
+          "label": "WhatsApp'tan Yazın",
+          "kind": "whatsapp",
+          "value": "Merhaba, Adraga Veteriner için yazıyorum.\nHayvan (tür/yaş): \nŞikâyet: ",
+          "style": "primary"
+        },
+        {
+          "label": "Hemen Ara",
+          "kind": "call",
+          "style": "ghost"
+        }
+      ],
+      "image": {
+        "src": "/sites/adraga-veteriner/hero.webp",
+        "alt": "Adraga Veteriner Kliniği'nin resepsiyonu ve bekleme alanı",
+        "focal": "50% 55%"
+      }
+    },
+    {
+      "type": "about",
+      "id": "hakkinda",
+      "title": "Klinik hakkında",
+      "body": "Adraga Veteriner Kliniği, Maltepe Yalı Mahallesi'nde Sahilyolu Caddesi üzerindedir. Pazartesi–cumartesi 10:00–19:30 açıktır; pazar kapalıdır.\n\nKlinikte laboratuvar ve dijital röntgen bulunur; muayene, ameliyat ve aşı aynı yerde yapılır. Yorumlarda Veteriner Hekim Özüm Bey ve Ece Hanım'ın adı sık geçer.",
+      "highlights": [
+        {
+          "label": "Google puanı",
+          "value": "4,8 / 5"
+        },
+        {
+          "label": "Çalışma",
+          "value": "Pzt–Cmt 10:00–19:30"
+        },
+        {
+          "label": "Konum",
+          "value": "Yalı, Maltepe sahil"
+        }
+      ]
+    },
+    {
+      "type": "services",
+      "id": "hizmetler",
+      "title": "Hizmetler",
+      "intro": "Kliniğin tabelasında yazan hizmetler. Başka bir ihtiyaç için arayıp sorun.",
+      "layout": "grid",
+      "tone": "dark",
+      "items": [
+        {
+          "name": "Dahiliye",
+          "description": "Genel muayene ve iç hastalıkları."
+        },
+        {
+          "name": "Cerrahi",
+          "description": "Kısırlaştırma dahil ameliyatlar; öncesi ve sonrası bilgilendirme ile."
+        },
+        {
+          "name": "Doğum ve jinekoloji",
+          "description": "Gebelik takibi ve doğum."
+        },
+        {
+          "name": "Laboratuvar",
+          "description": "Klinik içinde tahlil."
+        },
+        {
+          "name": "Dijital röntgen",
+          "description": "Bilgisayarlı X-ray ile aynı gün görüntüleme."
+        },
+        {
+          "name": "Aşı ve koruyucu hekimlik",
+          "description": "Aşı takvimi, parazit koruması, düzenli kontrol."
+        },
+        {
+          "name": "Diş temizliği",
+          "description": "Kedi ve köpeklerde diş taşı temizliği."
+        },
+        {
+          "name": "Tıraş ve banyo",
+          "description": "Bakım hizmeti; gün almak için yazın."
+        }
+      ]
+    },
+    {
+      "type": "gallery",
+      "id": "galeri",
+      "title": "Klinikten",
+      "layout": "grid",
+      "images": [
+        {
+          "src": "/sites/adraga-veteriner/tabela.webp",
+          "alt": "Sahilyolu Caddesi üzerindeki klinik tabelası",
+          "focal": "50% 50%"
+        },
+        {
+          "src": "/sites/adraga-veteriner/muayene-1.webp",
+          "alt": "Muayene odası",
+          "focal": "50% 50%"
+        },
+        {
+          "src": "/sites/adraga-veteriner/laboratuvar.webp",
+          "alt": "Klinik laboratuvarı ve cihazlar",
+          "focal": "50% 50%"
+        },
+        {
+          "src": "/sites/adraga-veteriner/muayene-2.webp",
+          "alt": "Ameliyat ve muayene masası",
+          "focal": "50% 50%"
+        },
+        {
+          "src": "/sites/adraga-veteriner/koridor.webp",
+          "alt": "Klinik koridoru",
+          "focal": "50% 50%"
+        },
+        {
+          "src": "/sites/adraga-veteriner/bekleme.webp",
+          "alt": "Bekleme alanı",
+          "focal": "50% 50%"
+        }
+      ]
+    },
+    {
+      "type": "reviews",
+      "id": "yorumlar",
+      "title": "Google'da ne diyorlar?",
+      "layout": "cards",
+      "summary": {
+        "rating": 4.8,
+        "count": 112,
+        "source": "Google"
+      },
+      "items": [
+        {
+          "author": "Tarık Yanova",
+          "rating": 5,
+          "text": "Çok ilgili ve profesyonel bir hizmet aldık. Kedimizi hızlıca muayene edip röntgen çekip yardımcı oldular. Veterinerimiz Özüm Bey'in yaklaşımı gerçekten güven vericiydi.",
+          "source": "Google"
+        },
+        {
+          "author": "Merve Karakuş",
+          "rating": 5,
+          "text": "Ece Hanım ve Özüm Bey ile tanışmadan önce bir sürü veteriner gezmiştik; kimsenin koyamadığı tanıyı anında koyup ona uygun tedaviyi titizlikle uyguladılar.",
+          "source": "Google"
+        },
+        {
+          "author": "Hamide Bıyıklı",
+          "rating": 5,
+          "text": "Bulduğum sokak kedisini Özüm hocaya götürdüm; ampute etmeden önce bir tedavi deneyelim dedi ve kedi şu an yürüyor.",
+          "source": "Google"
+        },
+        {
+          "author": "Sinem Akdağ",
+          "rating": 5,
+          "text": "Kedimin bebekliğinden beri aşıları için gittiğim klinik. Yüksekten düşme yaşadık, bizimle çok ilgilendiler; Ece hoca ameliyatını yaptı, şu anda sağlıklı.",
+          "source": "Google"
+        }
+      ]
+    },
+    {
+      "type": "faq",
+      "id": "sss",
+      "title": "Sık sorulan sorular",
+      "items": [
+        {
+          "q": "Randevu gerekiyor mu?",
+          "a": "WhatsApp'tan yazmanız ya da aramanız beklemeyi azaltır; acil durumda doğrudan gelin."
+        },
+        {
+          "q": "Röntgen ve tahlil klinikte mi yapılıyor?",
+          "a": "Evet. Dijital röntgen ve laboratuvar klinik içinde; sonuç için başka yere gitmezsiniz."
+        },
+        {
+          "q": "Pazar açık mısınız?",
+          "a": "Hayır. Pazartesi–cumartesi 10:00–19:30 açığız."
+        },
+        {
+          "q": "Neredesiniz?",
+          "a": "Yalı Mahallesi, Sahilyolu Caddesi No:8, Maltepe. Yol tarifi düğmesi haritayı açar."
+        }
+      ]
+    },
+    {
+      "type": "hours",
+      "id": "saatler",
+      "title": "Çalışma saatleri"
+    },
+    {
+      "type": "location",
+      "id": "konum",
+      "title": "Klinik",
+      "showMap": true,
+      "note": "Sahilyolu Caddesi üzerinde, Yalı."
+    },
+    {
+      "type": "cta",
+      "id": "iletisim",
+      "headline": "Sorunuz varsa yazın, randevu için arayın",
+      "subline": "Muayene, aşı ve bakım için WhatsApp'tan yazın; acilse arayın.",
+      "actions": [
+        {
+          "label": "WhatsApp'tan Yazın",
+          "kind": "whatsapp",
+          "value": "Merhaba, Adraga Veteriner için yazıyorum.\nHayvan (tür/yaş): \nŞikâyet: ",
+          "style": "primary"
+        },
+        {
+          "label": "0552 799 98 89",
+          "kind": "call",
+          "style": "ghost"
+        }
+      ]
+    }
+  ],
+  "offer": {
+    "status": "draft",
+    "price": 8500,
+    "currency": "TRY",
+    "seller": {
+      "name": "fourpear",
+      "whatsapp": "905078463929"
+    }
+  },
+  "seo": {
+    "title": "Adraga Veteriner Kliniği — Maltepe sahil",
+    "description": "Sahilyolu Caddesi'nde veteriner kliniği. Dahiliye, cerrahi, röntgen, laboratuvar, aşı, diş temizliği. Pzt–Cmt 10:00–19:30. 0552 799 98 89."
+  }
+}

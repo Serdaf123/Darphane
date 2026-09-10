@@ -1,0 +1,314 @@
+{
+  "slug": "esatpasa-veteriner",
+  "business": {
+    "name": "Esatpaşa Veteriner Kliniği",
+    "category": "Veteriner kliniği",
+    "tagline": "Ataşehir Esatpaşa'da 7/24 açık nöbetçi veteriner kliniği. Acil müdahale, muayene, aşı, ameliyat.",
+    "phone": "0532 570 77 32",
+    "whatsapp": "905325707732",
+    "address": "Esatpaşa Mah., Adnan Menderes Cd. No:108A",
+    "district": "Ataşehir",
+    "city": "İstanbul",
+    "coords": {
+      "lat": 41.0064113,
+      "lng": 29.08496
+    },
+    "social": {},
+    "hours": {
+      "timezone": "Europe/Istanbul",
+      "days": {
+        "mon": [
+          {
+            "open": "00:00",
+            "close": "00:00"
+          }
+        ],
+        "tue": [
+          {
+            "open": "00:00",
+            "close": "00:00"
+          }
+        ],
+        "wed": [
+          {
+            "open": "00:00",
+            "close": "00:00"
+          }
+        ],
+        "thu": [
+          {
+            "open": "00:00",
+            "close": "00:00"
+          }
+        ],
+        "fri": [
+          {
+            "open": "00:00",
+            "close": "00:00"
+          }
+        ],
+        "sat": [
+          {
+            "open": "00:00",
+            "close": "00:00"
+          }
+        ],
+        "sun": [
+          {
+            "open": "00:00",
+            "close": "00:00"
+          }
+        ]
+      },
+      "note": "Gece gündüz açığız; acil durumda gelmeden önce arayın."
+    }
+  },
+  "theme": {
+    "preset": "ink",
+    "accent": "#b5123f",
+    "mode": "light",
+    "neutralTint": 0.25,
+    "fonts": "clean",
+    "headingFont": "sans",
+    "typeScale": "normal",
+    "radius": "md",
+    "density": "normal",
+    "header": "glass",
+    "contact": "both",
+    "fabStyle": "dial",
+    "motion": {
+      "hero": "reveal",
+      "scroll": "fade",
+      "smooth": true,
+      "parallax": true
+    }
+  },
+  "sections": [
+    {
+      "type": "hero",
+      "id": "ust",
+      "variant": "image",
+      "headline": "Esatpaşa Veteriner",
+      "subline": "Adnan Menderes Caddesi'nde, haftanın yedi günü 24 saat açık nöbetçi veteriner kliniği. Acil müdahale, muayene, aşı ve ameliyat.",
+      "badges": [
+        "Google'da 4,9 · 114 yorum",
+        "7 gün 24 saat"
+      ],
+      "actions": [
+        {
+          "label": "Hemen Ara",
+          "kind": "call",
+          "style": "primary"
+        },
+        {
+          "label": "WhatsApp'tan Yazın",
+          "kind": "whatsapp",
+          "value": "Merhaba, Esatpaşa Veteriner için yazıyorum.\nHayvan (tür/yaş): \nŞikâyet: ",
+          "style": "ghost"
+        }
+      ],
+      "image": {
+        "src": "/sites/esatpasa-veteriner/hero.webp",
+        "alt": "Esatpaşa Veteriner Kliniği'nin sarı cepheli girişi ve tabelası",
+        "focal": "50% 65%"
+      },
+      "urgent": {
+        "title": "Hayvanınız acil mi? Gece gündüz arayın.",
+        "note": "Ulaşamazsanız WhatsApp'a \"acil\" yazın.",
+        "whatsappMessage": "ACİL — Esatpaşa Veteriner\nHayvan (tür/yaş): \nDurum: \nNeredeyim: "
+      }
+    },
+    {
+      "type": "about",
+      "id": "hakkinda",
+      "title": "Klinik hakkında",
+      "body": "Esatpaşa Veteriner Kliniği, Ataşehir Esatpaşa'da Adnan Menderes Caddesi üzerindedir ve haftanın yedi günü 24 saat açıktır. Veteriner Hekim Osman Kısa yönetir.\n\nAcil müdahale, muayene, aşı, kısırlaştırma ve ameliyat hizmeti verilir. Gece gelmeden önce aramanız, ekibin hazırlanmasını sağlar.",
+      "highlights": [
+        {
+          "label": "Google puanı",
+          "value": "4,9 / 5"
+        },
+        {
+          "label": "Çalışma",
+          "value": "7 gün 24 saat"
+        },
+        {
+          "label": "Konum",
+          "value": "Esatpaşa, Ataşehir"
+        }
+      ]
+    },
+    {
+      "type": "services",
+      "id": "hizmetler",
+      "title": "Hizmetler",
+      "intro": "Kliniğin Google kaydında ve müşteri yorumlarında geçen hizmetler. Başka bir ihtiyaç için arayıp sorun.",
+      "layout": "grid",
+      "tone": "dark",
+      "items": [
+        {
+          "name": "Acil müdahale",
+          "description": "Gece gündüz, haftanın her günü. Gelmeden önce arayın; ekip hazır olsun."
+        },
+        {
+          "name": "Muayene ve tahlil",
+          "description": "Genel kontrol, şikâyet muayenesi ve gerekli tahliller."
+        },
+        {
+          "name": "Aşı",
+          "description": "Kedi ve köpek aşı takvimi; hayvanınızın karnesini getirin."
+        },
+        {
+          "name": "Kısırlaştırma ve ameliyat",
+          "description": "Ameliyat öncesi ve sonrası bilgilendirme ile."
+        },
+        {
+          "name": "Mama ve bakım ürünleri",
+          "description": "Klinik içinde satılan mama ve ürünler."
+        }
+      ]
+    },
+    {
+      "type": "gallery",
+      "id": "galeri",
+      "title": "Klinikten",
+      "layout": "grid",
+      "images": [
+        {
+          "src": "/sites/esatpasa-veteriner/ic.webp",
+          "alt": "Kliniğin bekleme alanı ve resepsiyon",
+          "focal": "50% 50%"
+        },
+        {
+          "src": "/sites/esatpasa-veteriner/muayene.webp",
+          "alt": "Muayene odası",
+          "focal": "50% 50%"
+        },
+        {
+          "src": "/sites/esatpasa-veteriner/urunler.webp",
+          "alt": "Mama ve bakım ürünleri rafı",
+          "focal": "50% 50%"
+        },
+        {
+          "src": "/sites/esatpasa-veteriner/hasta-1.webp",
+          "alt": "Muayene masasında bir köpek",
+          "focal": "50% 50%"
+        },
+        {
+          "src": "/sites/esatpasa-veteriner/hasta-2.webp",
+          "alt": "Klinikte bir köpek",
+          "focal": "50% 50%"
+        },
+        {
+          "src": "/sites/esatpasa-veteriner/kedi.webp",
+          "alt": "Dinlenen bir kedi",
+          "focal": "50% 50%"
+        }
+      ]
+    },
+    {
+      "type": "reviews",
+      "id": "yorumlar",
+      "title": "Google'da ne diyorlar?",
+      "layout": "cards",
+      "summary": {
+        "rating": 4.9,
+        "count": 114,
+        "source": "Google"
+      },
+      "items": [
+        {
+          "author": "Melissa Nur Gün",
+          "rating": 5,
+          "text": "Kedim Ayşegül'e mantar teşhisi konuldu ve hızlıca tedavisine başlandı. Özenli bir şekilde tedavi edildi ve evde uygulayacağım bakım detaylıca anlatıldı.",
+          "source": "Google"
+        },
+        {
+          "author": "Cilem Cal",
+          "rating": 5,
+          "text": "1,5 yaşındaki Şivava köpeğim Berlin için ilk günden itibaren çok ilgili ve güven veren bir süreç yaşadık. Sadece tedavi değil, doğru yönlendirme ve açık iletişim de sundular.",
+          "source": "Google"
+        },
+        {
+          "author": "Nazlıcan Kurt",
+          "rating": 5,
+          "text": "Kedim Mia'yı 40 derece ateşle çok zor bir durumda götürdük. Sürecin başından sonuna kadar sadece tedaviye ve Mia'nın sağlığına odaklanan bir hekimle karşılaştık.",
+          "source": "Google"
+        },
+        {
+          "author": "Enes Turan",
+          "rating": 5,
+          "text": "Osman Hoca kedimiz Mia'nın sarılık ve FIP tedavisinde çok ilgiliydi. Onun sayesinde artık Mia daha sağlıklı.",
+          "source": "Google"
+        }
+      ]
+    },
+    {
+      "type": "faq",
+      "id": "sss",
+      "title": "Sık sorulan sorular",
+      "items": [
+        {
+          "q": "Gece de açık mısınız?",
+          "a": "Evet. Klinik haftanın yedi günü 24 saat açıktır."
+        },
+        {
+          "q": "Acil durumda ne yapmalıyım?",
+          "a": "Önce 0532 570 77 32'yi arayın ya da WhatsApp'a \"acil\" yazın; gelirken hayvanınızı sakin ve sıcak tutun."
+        },
+        {
+          "q": "Randevu gerekiyor mu?",
+          "a": "Acil durumda doğrudan gelebilirsiniz. Muayene ve aşı için WhatsApp'tan yazmanız sırayı kolaylaştırır."
+        },
+        {
+          "q": "Neredesiniz?",
+          "a": "Esatpaşa Mahallesi, Adnan Menderes Caddesi No:108A, Ataşehir. Yol tarifi düğmesi haritayı açar."
+        }
+      ]
+    },
+    {
+      "type": "hours",
+      "id": "saatler",
+      "title": "Çalışma saatleri"
+    },
+    {
+      "type": "location",
+      "id": "konum",
+      "title": "Klinik",
+      "showMap": true,
+      "note": "Adnan Menderes Caddesi üzerinde, Esatpaşa."
+    },
+    {
+      "type": "cta",
+      "id": "iletisim",
+      "headline": "Sorunuz varsa yazın, acilse arayın",
+      "subline": "Muayene ve aşı için WhatsApp'tan yazın; acil durumda telefon her saat açık.",
+      "actions": [
+        {
+          "label": "WhatsApp'tan Yazın",
+          "kind": "whatsapp",
+          "value": "Merhaba, Esatpaşa Veteriner için yazıyorum.\nHayvan (tür/yaş): \nŞikâyet: ",
+          "style": "primary"
+        },
+        {
+          "label": "0532 570 77 32",
+          "kind": "call",
+          "style": "ghost"
+        }
+      ]
+    }
+  ],
+  "offer": {
+    "status": "draft",
+    "price": 8500,
+    "currency": "TRY",
+    "seller": {
+      "name": "fourpear",
+      "whatsapp": "905078463929"
+    }
+  },
+  "seo": {
+    "title": "Esatpaşa Veteriner — Ataşehir 7/24 nöbetçi veteriner kliniği",
+    "description": "Adnan Menderes Caddesi'nde 24 saat açık veteriner kliniği. Acil müdahale, muayene, aşı, ameliyat. 0532 570 77 32."
+  }
+}

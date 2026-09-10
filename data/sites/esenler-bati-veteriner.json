@@ -1,0 +1,314 @@
+{
+  "slug": "esenler-bati-veteriner",
+  "business": {
+    "name": "Esenler Batı Veteriner Kliniği",
+    "category": "Veteriner kliniği",
+    "tagline": "Esenler Turgut Reis'te veteriner kliniği. Her gün 12:00–00:00; acil için arayın.",
+    "phone": "0541 179 99 82",
+    "whatsapp": "905411799982",
+    "address": "Turgut Reis Mah., Cengiz Topel Cd. No:9B",
+    "district": "Esenler",
+    "city": "İstanbul",
+    "coords": {
+      "lat": 41.0551362,
+      "lng": 28.8631499
+    },
+    "social": {},
+    "hours": {
+      "timezone": "Europe/Istanbul",
+      "days": {
+        "mon": [
+          {
+            "open": "12:00",
+            "close": "00:00"
+          }
+        ],
+        "tue": [
+          {
+            "open": "12:00",
+            "close": "00:00"
+          }
+        ],
+        "wed": [
+          {
+            "open": "12:00",
+            "close": "00:00"
+          }
+        ],
+        "thu": [
+          {
+            "open": "12:00",
+            "close": "00:00"
+          }
+        ],
+        "fri": [
+          {
+            "open": "12:00",
+            "close": "00:00"
+          }
+        ],
+        "sat": [
+          {
+            "open": "12:00",
+            "close": "00:00"
+          }
+        ],
+        "sun": [
+          {
+            "open": "12:00",
+            "close": "00:00"
+          }
+        ]
+      },
+      "note": "Acil durumlar için saat dışında da arayın."
+    }
+  },
+  "theme": {
+    "preset": "porcelain",
+    "accent": "#c62828",
+    "mode": "light",
+    "neutralTint": 0.2,
+    "fonts": "noto",
+    "headingFont": "sans",
+    "typeScale": "normal",
+    "radius": "sm",
+    "density": "normal",
+    "header": "solid",
+    "contact": "both",
+    "fabStyle": "dial",
+    "motion": {
+      "hero": "rise",
+      "scroll": "rise",
+      "smooth": true,
+      "parallax": false
+    }
+  },
+  "sections": [
+    {
+      "type": "hero",
+      "id": "ust",
+      "variant": "split",
+      "headline": "Esenler Batı Veteriner",
+      "subline": "Turgut Reis'te, Cengiz Topel Caddesi üzerinde. Muayene, aşı, kısırlaştırma ve acil müdahale; her gün öğlen 12'den gece yarısına kadar.",
+      "badges": [
+        "Google'da 4,6 · 95 yorum",
+        "Her gün 12:00–00:00"
+      ],
+      "actions": [
+        {
+          "label": "WhatsApp'tan Yazın",
+          "kind": "whatsapp",
+          "value": "Merhaba, Esenler Batı Veteriner için yazıyorum.\nHayvan (tür/yaş): \nŞikâyet: ",
+          "style": "primary"
+        },
+        {
+          "label": "Hemen Ara",
+          "kind": "call",
+          "style": "ghost"
+        }
+      ],
+      "image": {
+        "src": "/sites/esenler-bati-veteriner/hero.webp",
+        "alt": "Esenler Batı Veteriner Kliniği'nin bekleme alanı ve resepsiyonu",
+        "focal": "50% 50%"
+      },
+      "urgent": {
+        "title": "Acil durum mu? Önce arayın.",
+        "note": "Ulaşamazsanız WhatsApp'a \"acil\" yazın.",
+        "whatsappMessage": "ACİL — Esenler Batı Veteriner\nHayvan (tür/yaş): \nDurum: \nNeredeyim: "
+      }
+    },
+    {
+      "type": "about",
+      "id": "hakkinda",
+      "title": "Klinik hakkında",
+      "body": "Esenler Batı Veteriner Kliniği, Turgut Reis Mahallesi'nde Cengiz Topel Caddesi üzerindedir. Her gün 12:00–00:00 arası açıktır; acil durumlar için saat dışında da aranabilir.\n\nMuayene, aşı, kısırlaştırma ve yavru hayvan bakımı yorumlarda en çok geçen hizmetlerdir.",
+      "highlights": [
+        {
+          "label": "Google puanı",
+          "value": "4,6 / 5"
+        },
+        {
+          "label": "Çalışma",
+          "value": "Her gün 12:00–00:00"
+        },
+        {
+          "label": "Konum",
+          "value": "Turgut Reis, Esenler"
+        }
+      ]
+    },
+    {
+      "type": "services",
+      "id": "hizmetler",
+      "title": "Hizmetler",
+      "intro": "Kliniğin Google kaydında ve müşteri yorumlarında geçen hizmetler. Başka bir ihtiyaç için arayıp sorun.",
+      "layout": "cards",
+      "tone": "light",
+      "items": [
+        {
+          "name": "Muayene",
+          "description": "Genel kontrol ve şikâyet muayenesi."
+        },
+        {
+          "name": "Aşı",
+          "description": "Kedi ve köpek aşı takvimi; hayvanınızın karnesini getirin."
+        },
+        {
+          "name": "Kısırlaştırma",
+          "description": "Operasyon öncesi ve sonrası bilgilendirme ile."
+        },
+        {
+          "name": "Yavru bakımı",
+          "description": "Sokaktan alınan ya da yeni sahiplenilen yavrular için ilk muayene ve tedavi."
+        },
+        {
+          "name": "Acil müdahale",
+          "description": "Gelmeden önce arayın; ekip hazır olsun."
+        }
+      ]
+    },
+    {
+      "type": "gallery",
+      "id": "galeri",
+      "title": "Klinikten",
+      "layout": "masonry",
+      "images": [
+        {
+          "src": "/sites/esenler-bati-veteriner/dis.webp",
+          "alt": "Kliniğin Cengiz Topel Caddesi üzerindeki girişi",
+          "focal": "50% 50%"
+        },
+        {
+          "src": "/sites/esenler-bati-veteriner/kedi-1.webp",
+          "alt": "Muayene masasında yavru bir kedi",
+          "focal": "50% 50%"
+        },
+        {
+          "src": "/sites/esenler-bati-veteriner/kedi-2.webp",
+          "alt": "Muayene masasında beyaz bir kedi",
+          "focal": "50% 50%"
+        },
+        {
+          "src": "/sites/esenler-bati-veteriner/kopek.webp",
+          "alt": "Kucakta küçük bir köpek",
+          "focal": "50% 50%"
+        },
+        {
+          "src": "/sites/esenler-bati-veteriner/kedi-3.webp",
+          "alt": "Muayenede gri bir kedi",
+          "focal": "50% 50%"
+        },
+        {
+          "src": "/sites/esenler-bati-veteriner/kedi-4.webp",
+          "alt": "Masada oturan bir kedi",
+          "focal": "50% 50%"
+        }
+      ]
+    },
+    {
+      "type": "reviews",
+      "id": "yorumlar",
+      "title": "Google'da ne diyorlar?",
+      "layout": "cards",
+      "summary": {
+        "rating": 4.6,
+        "count": 95,
+        "source": "Google"
+      },
+      "items": [
+        {
+          "author": "Melda Kuşcu",
+          "rating": 5,
+          "text": "Kızımız Kestane'yi kısırlaştırdık. Tüm süreç boyunca detaylı bilgi verildi ve devamlı iletişim halinde kaldık. Operasyon öncesi ve sonrasında da çok memnun kaldık.",
+          "source": "Google"
+        },
+        {
+          "author": "Helen",
+          "rating": 5,
+          "text": "Oğlumuzu kısırlaştırdık, Halil hoca ve ekibine çok teşekkür ederiz. Endişe ile gittik ama bizi çok rahatlattılar. Tertemiz bir klinikti.",
+          "source": "Google"
+        },
+        {
+          "author": "Aleyna Korkmaz",
+          "rating": 5,
+          "text": "Erkek kedimin kısırlaştırma operasyonunu burada yaptırdım. Aklıma takılan her sorunun cevabını açıklayıcı bir şekilde aldım. Hiçbir yara izi olmaması toparlanma sürecini hızlandırdı.",
+          "source": "Google"
+        },
+        {
+          "author": "Fulya Ulutaş",
+          "rating": 5,
+          "text": "Halil hoca yavru kedimizle çok detaylı ilgilendi. Sokaktan almıştık, kötü bir durumdaydı; onu sağlığına kavuşturdu. Artık aşılarımız için de gönül rahatlığıyla buraya gidiyoruz.",
+          "source": "Google"
+        }
+      ]
+    },
+    {
+      "type": "faq",
+      "id": "sss",
+      "title": "Sık sorulan sorular",
+      "items": [
+        {
+          "q": "Saat kaça kadar açıksınız?",
+          "a": "Her gün 12:00'den gece 00:00'a kadar açığız. Acil durumlar için saat dışında da arayın."
+        },
+        {
+          "q": "Randevu gerekiyor mu?",
+          "a": "WhatsApp'tan yazmanız sırayı kolaylaştırır; acil durumda doğrudan gelebilirsiniz."
+        },
+        {
+          "q": "Kısırlaştırma öncesi ne yapmalıyım?",
+          "a": "Arayıp gün alın; aç kalma süresi ve hazırlık sizinle konuşulur."
+        },
+        {
+          "q": "Neredesiniz?",
+          "a": "Turgut Reis Mahallesi, Cengiz Topel Caddesi No:9B, Esenler. Yol tarifi düğmesi haritayı açar."
+        }
+      ]
+    },
+    {
+      "type": "hours",
+      "id": "saatler",
+      "title": "Çalışma saatleri"
+    },
+    {
+      "type": "location",
+      "id": "konum",
+      "title": "Klinik",
+      "showMap": true,
+      "note": "Cengiz Topel Caddesi üzerinde, Turgut Reis."
+    },
+    {
+      "type": "cta",
+      "id": "iletisim",
+      "headline": "Sorunuz varsa yazın, acilse arayın",
+      "subline": "Muayene, aşı ve kısırlaştırma için WhatsApp'tan yazın; acil durumda telefon.",
+      "actions": [
+        {
+          "label": "WhatsApp'tan Yazın",
+          "kind": "whatsapp",
+          "value": "Merhaba, Esenler Batı Veteriner için yazıyorum.\nHayvan (tür/yaş): \nŞikâyet: ",
+          "style": "primary"
+        },
+        {
+          "label": "0541 179 99 82",
+          "kind": "call",
+          "style": "ghost"
+        }
+      ]
+    }
+  ],
+  "offer": {
+    "status": "draft",
+    "price": 8500,
+    "currency": "TRY",
+    "seller": {
+      "name": "fourpear",
+      "whatsapp": "905078463929"
+    }
+  },
+  "seo": {
+    "title": "Esenler Batı Veteriner Kliniği — Turgut Reis, Esenler",
+    "description": "Cengiz Topel Caddesi'nde veteriner kliniği. Muayene, aşı, kısırlaştırma, acil. Her gün 12:00–00:00. 0541 179 99 82."
+  }
+}

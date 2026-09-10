@@ -1,0 +1,263 @@
+{
+  "slug": "kucukyali-veteriner",
+  "business": {
+    "name": "Küçükyalı Veteriner Kliniği",
+    "category": "Veteriner kliniği",
+    "tagline": "Maltepe Çınar'da mahalle veteriner kliniği. Muayene, aşı, tedavi.",
+    "phone": "0216 417 03 19",
+    "address": "Çınar Mah., Mızrak Sk. No:3/A",
+    "district": "Maltepe",
+    "city": "İstanbul",
+    "coords": {
+      "lat": 40.9441298,
+      "lng": 29.1126665
+    },
+    "social": {},
+    "hours": {
+      "timezone": "Europe/Istanbul",
+      "days": {
+        "mon": [
+          {
+            "open": "11:00",
+            "close": "20:00"
+          }
+        ],
+        "tue": [
+          {
+            "open": "11:00",
+            "close": "20:00"
+          }
+        ],
+        "wed": [
+          {
+            "open": "11:00",
+            "close": "20:00"
+          }
+        ],
+        "thu": [
+          {
+            "open": "11:00",
+            "close": "20:00"
+          }
+        ],
+        "fri": [
+          {
+            "open": "11:00",
+            "close": "20:00"
+          }
+        ],
+        "sat": [
+          {
+            "open": "11:00",
+            "close": "18:00"
+          }
+        ],
+        "sun": []
+      },
+      "note": "Pazar kapalı."
+    }
+  },
+  "theme": {
+    "preset": "sand",
+    "accent": "#a4161a",
+    "mode": "light",
+    "neutralTint": 0.3,
+    "fonts": "soft",
+    "headingFont": "display",
+    "typeScale": "normal",
+    "radius": "lg",
+    "density": "airy",
+    "header": "minimal",
+    "contact": "bar",
+    "fabStyle": "dial",
+    "motion": {
+      "hero": "rise",
+      "scroll": "fade",
+      "smooth": true,
+      "parallax": false
+    }
+  },
+  "sections": [
+    {
+      "type": "hero",
+      "id": "ust",
+      "variant": "split",
+      "headline": "Küçükyalı Veteriner",
+      "subline": "Maltepe Çınar'da, Mızrak Sokak'ta yıllardır aynı yerde. Kedi ve köpekler için muayene, aşı ve tedavi.",
+      "badges": [
+        "Google'da 4,3 · 84 yorum",
+        "Hafta içi 11:00–20:00"
+      ],
+      "actions": [
+        {
+          "label": "Hemen Ara",
+          "kind": "call",
+          "style": "primary"
+        },
+        {
+          "label": "Yol Tarifi",
+          "kind": "directions",
+          "style": "ghost"
+        }
+      ],
+      "image": {
+        "src": "/sites/kucukyali-veteriner/hero.webp",
+        "alt": "Küçükyalı Veteriner Kliniği'nin Mızrak Sokak'taki girişi",
+        "focal": "50% 50%"
+      }
+    },
+    {
+      "type": "about",
+      "id": "hakkinda",
+      "title": "Klinik hakkında",
+      "body": "Küçükyalı Veteriner Kliniği, Maltepe Çınar Mahallesi'nde Mızrak Sokak üzerindedir. Hafta içi 11:00–20:00, cumartesi 11:00–18:00 açıktır; pazar kapalıdır.\n\nMüşteri yorumlarında en çok muayene, aşı ve uzun süreli takip geçer. Randevu için arayın.",
+      "highlights": [
+        {
+          "label": "Google puanı",
+          "value": "4,3 / 5"
+        },
+        {
+          "label": "Çalışma",
+          "value": "Hafta içi 11–20 · Cmt 11–18"
+        },
+        {
+          "label": "Konum",
+          "value": "Çınar, Maltepe"
+        }
+      ]
+    },
+    {
+      "type": "services",
+      "id": "hizmetler",
+      "title": "Hizmetler",
+      "intro": "Kliniğin Google kaydında ve müşteri yorumlarında geçen hizmetler. Başka bir ihtiyaç için arayıp sorun.",
+      "layout": "list",
+      "tone": "light",
+      "items": [
+        {
+          "name": "Muayene",
+          "description": "Genel kontrol ve şikâyet muayenesi."
+        },
+        {
+          "name": "Aşı",
+          "description": "Kedi ve köpek aşı takvimi; hayvanınızın karnesini getirin."
+        },
+        {
+          "name": "Tedavi ve takip",
+          "description": "İdrar yolu, böbrek gibi süregelen sorunlarda düzenli takip."
+        }
+      ]
+    },
+    {
+      "type": "gallery",
+      "id": "galeri",
+      "title": "Klinikten",
+      "layout": "strip",
+      "images": [
+        {
+          "src": "/sites/kucukyali-veteriner/sokak.webp",
+          "alt": "Mızrak Sokak ve kliniğin çevresi",
+          "focal": "50% 50%"
+        },
+        {
+          "src": "/sites/kucukyali-veteriner/kedi.webp",
+          "alt": "Uyuyan bir kedi",
+          "focal": "50% 50%"
+        }
+      ]
+    },
+    {
+      "type": "reviews",
+      "id": "yorumlar",
+      "title": "Google'da ne diyorlar?",
+      "layout": "quotes",
+      "summary": {
+        "rating": 4.3,
+        "count": 84,
+        "source": "Google"
+      },
+      "items": [
+        {
+          "author": "Umut Ön",
+          "rating": 5,
+          "text": "İki tane kedim var ve ikisini sahiplendiğimden beri Mustafa hocama geliyoruz. Kanal yolunda sorun olan kedimi sonda takmadan iyileştirdi; işinin ehli, sevecen ve ilgili biri.",
+          "source": "Google"
+        },
+        {
+          "author": "Muhammet Hilmi Enes Aracı",
+          "rating": 5,
+          "text": "Pendik'ten Mustafa Bey için geliyoruz; yıllardır güvenerek geldiğimiz biricik veterinerimiz.",
+          "source": "Google"
+        },
+        {
+          "author": "Serap Lang",
+          "rating": 5,
+          "text": "Mustafa Bey senelerden beri benim canlarımın doktorudur. Almanya'da yaşıyorum; kedim böbreklerinden rahatsızlandığında Mustafa Bey telefonla yardımcı oldu.",
+          "source": "Google"
+        }
+      ]
+    },
+    {
+      "type": "faq",
+      "id": "sss",
+      "title": "Sık sorulan sorular",
+      "items": [
+        {
+          "q": "Randevu gerekiyor mu?",
+          "a": "Arayıp gün ve saat almanız beklemeyi azaltır: 0216 417 03 19."
+        },
+        {
+          "q": "Pazar açık mısınız?",
+          "a": "Hayır. Hafta içi 11:00–20:00, cumartesi 11:00–18:00 açığız."
+        },
+        {
+          "q": "Neredesiniz?",
+          "a": "Çınar Mahallesi, Mızrak Sokak No:3/A, Maltepe. Yol tarifi düğmesi haritayı açar."
+        }
+      ]
+    },
+    {
+      "type": "hours",
+      "id": "saatler",
+      "title": "Çalışma saatleri"
+    },
+    {
+      "type": "location",
+      "id": "konum",
+      "title": "Klinik",
+      "showMap": true,
+      "note": "Mızrak Sokak üzerinde, Çınar."
+    },
+    {
+      "type": "cta",
+      "id": "iletisim",
+      "headline": "Randevu için arayın",
+      "subline": "Hafta içi 11:00–20:00, cumartesi 11:00–18:00.",
+      "actions": [
+        {
+          "label": "0216 417 03 19",
+          "kind": "call",
+          "style": "primary"
+        },
+        {
+          "label": "Yol Tarifi",
+          "kind": "directions",
+          "style": "ghost"
+        }
+      ]
+    }
+  ],
+  "offer": {
+    "status": "draft",
+    "price": 8500,
+    "currency": "TRY",
+    "seller": {
+      "name": "fourpear",
+      "whatsapp": "905078463929"
+    }
+  },
+  "seo": {
+    "title": "Küçükyalı Veteriner Kliniği — Çınar, Maltepe",
+    "description": "Mızrak Sokak'ta veteriner kliniği. Muayene, aşı, tedavi. Hafta içi 11:00–20:00. 0216 417 03 19."
+  }
+}
