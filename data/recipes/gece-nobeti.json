@@ -1,0 +1,76 @@
+{
+  "key": "gece-nobeti",
+  "name": "Gece Nöbeti",
+  "world": "Koyu zemin, ekranın en üstünde büyük telefon numarası; 02:00'de tek elle aranacak sayfa.",
+  "fits": [
+    "7/24 veteriner",
+    "nöbetçi eczane",
+    "çilingir",
+    "oto kurtarma",
+    "acil tesisat"
+  ],
+  "theme": {
+    "preset": "midnight",
+    "mode": "dark",
+    "fonts": "plex",
+    "headingFont": "sans",
+    "typeScale": "display",
+    "radius": "sm",
+    "density": "tight",
+    "header": "minimal",
+    "photos": "color",
+    "contact": "fab",
+    "fabStyle": "dial",
+    "motion": {
+      "hero": "reveal",
+      "scroll": "fade",
+      "smooth": true,
+      "parallax": false
+    }
+  },
+  "sections": [
+    {
+      "id": "ust",
+      "type": "hero",
+      "variant": "statement",
+      "urgent": true,
+      "badges": 1,
+      "actions": [
+        "call"
+      ]
+    },
+    {
+      "id": "saatler",
+      "type": "hours"
+    },
+    {
+      "id": "konum",
+      "type": "location"
+    },
+    {
+      "id": "hizmetler",
+      "type": "services",
+      "layout": "list"
+    },
+    {
+      "id": "yorumlar",
+      "type": "reviews",
+      "layout": "marquee"
+    },
+    {
+      "id": "sss",
+      "type": "faq"
+    },
+    {
+      "id": "iletisim",
+      "type": "cta"
+    }
+  ],
+  "mobile": "İlk ekran: telefon numarası (büyük), isim, 'şu an açık' rozeti, tek buton Ara. WhatsApp yüzen butonda (nabız animasyonu 3 kez). Alt bar yok; FAB baş parmak alanında, safe-area boşluğu.",
+  "desktop": "Numara 8–10rem, isim altında; sağda hafif soluk klinik fotoğrafı (statement arka planı %25 opaklık). Bölümler tek sütun, 72ch.",
+  "avoid": [
+    "gündüz saatli işletme",
+    "fotoğrafı güçlü restoran"
+  ],
+  "family": "koyu · tip-öncelikli · fab"
+}

@@ -1,0 +1,78 @@
+{
+  "key": "tezgah",
+  "name": "Tezgâh",
+  "world": "Mahalle esnafı: önce 'açık mı', ürün grupları, harita; sade ve hızlı.",
+  "fits": [
+    "market",
+    "manav",
+    "kasap",
+    "şarküteri",
+    "pet shop",
+    "eczane"
+  ],
+  "theme": {
+    "preset": "sage",
+    "mode": "light",
+    "fonts": "noto",
+    "headingFont": "sans",
+    "typeScale": "compact",
+    "radius": "md",
+    "density": "tight",
+    "header": "solid",
+    "photos": "color",
+    "contact": "both",
+    "fabStyle": "dial",
+    "motion": {
+      "hero": "rise",
+      "scroll": "scale",
+      "smooth": false,
+      "parallax": false
+    }
+  },
+  "sections": [
+    {
+      "id": "ust",
+      "type": "hero",
+      "variant": "split",
+      "badges": 2,
+      "actions": [
+        "call",
+        "directions"
+      ]
+    },
+    {
+      "id": "saatler",
+      "type": "hours"
+    },
+    {
+      "id": "hizmetler",
+      "type": "services",
+      "layout": "grid"
+    },
+    {
+      "id": "galeri",
+      "type": "gallery",
+      "layout": "grid"
+    },
+    {
+      "id": "yorumlar",
+      "type": "reviews",
+      "layout": "cards"
+    },
+    {
+      "id": "konum",
+      "type": "location"
+    },
+    {
+      "id": "iletisim",
+      "type": "cta"
+    }
+  ],
+  "mobile": "İlk ekranda 'şu an açık · 21:00'e kadar' rozeti ve Ara; saat tablosu hemen altında. Hafif sayfa (smooth kapalı), 3G'de hızlı.",
+  "desktop": "Split hero düşük (56svh); ürün grupları 4 sütun; harita geniş.",
+  "avoid": [
+    "lüks",
+    "etkinlik"
+  ],
+  "family": "açık · metin-öncelikli · bar"
+}

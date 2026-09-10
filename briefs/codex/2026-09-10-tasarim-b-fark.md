@@ -34,3 +34,20 @@ Gerekirse `lib/schema.ts`, `lib/sites.ts`, `components/sections/**`, `components
 ## Teslim
 
 PR: `codex/veteriner-b-fark` → `main`. Açıklamada: değişen dosyalar, motor değişikliği varsa gerekçe, 8 ekran görüntüsü (4 site × A/B, mobil öncelikli).
+
+---
+
+## Ek (aynı gün, Serkan): ortak tasarım kütüphanesi
+
+Serkan'ın isteği: "farklı farklı kombinasyonlar yazın, sadece bu tasarım için değil; hero giriş animasyonu; mobil taraf önemli; web ve mobil her zaman üst düzey UI/UX; kendinize bir kütüphane oluşturun, ikiniz birlikte çalışıyorsunuz."
+
+Claude başlangıcı yazdı: **`docs/tasarim-kutuphanesi.md`** (kurallar + 10 reçete + A/B eşleme) ve makine okunur hali **`data/recipes/<key>.json`**. Reçete = tema + hareket + header + iletişim deseni + bölüm sırası/düzenleri + mobil/masaüstü notları.
+
+Codex'in bu görevdeki payı (aynı PR'da ya da ikinci PR):
+
+1. **`scripts/recipe.mts`** → `npm run recipe -- <slug> <key> [--variant b|c] [--apply]`: `data/recipes/<key>.json` + `data/sites/<slug>.json`'dan katman üretir (`<slug>.<variant>.json`): tema reçeteden; hero `variant`/rozet sayısı/eylemler reçeteden (metinler A'dan); bölüm sırası reçetedeki `sections` sırasına göre; A'da olmayan bölüm (ör. `team`, `pricing`, `beforeAfter`, `menu`) için içerik yoksa **atlanır** ve uyarı basılır; `layout` alanları reçeteden. `--apply` yoksa stdout'a yazar. `--check` tüm reçeteleri `lib/schema.ts` enum'larına karşı doğrular.
+2. **Katmanda sıra/ekle/çıkar desteği** (`lib/sites.ts` `applyOverlay`): `sectionOrder?: string[]`, `remove?: string[]`, `id`'si A'da olmayan tam bölüm nesneleri. `noyavet.b/.c.json` ve mevcut testler bozulmaz; A sayfaları aynı kalır.
+3. **Dört veteriner B'si bu araçla**: A'nın ailesinden farklı reçete (kütüphanedeki eşleme tablosu). Öneri: Esatpaşa A "Klinik/Vitrin" gibi → B `gece-nobeti`; Esenler A split → B `afis`; Küçükyalı A split → B `sessiz` (fotoğraf az, WhatsApp yok); Adraga A image → B `defter` ya da `sahne`. Reçete uygulandıktan sonra bugünkü B metinleri korunur.
+4. **Hero giriş animasyonu, mobil odaklı** (isteğe bağlı ama istenen): `HERO_MOTIONS`'a `stack` (rozet → başlık → alt satır → buton, alttan 3 adım, 90ms aralık) ve `counter` (statement'ta numaranın rakam rakam belirmesi, ≤ 700ms) ekle; `components/motion/HeroMotion.tsx` + `app/globals.css` (CSS-öncelikli, JS'siz LCP). "Hareketi azalt" saygı. Reçetelerde Claude günceller; sen `docs/tasarim-kutuphanesi.md` "Sıradaki genişletmeler" bölümüne yaptığını işaretle.
+
+Kütüphane kuralı: bir reçete değişince hem JSON hem belge güncellenir; yeni reçete eklerken aile etiketi ve mobil notu zorunlu.

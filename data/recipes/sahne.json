@@ -1,0 +1,80 @@
+{
+  "key": "sahne",
+  "name": "Sahne",
+  "world": "Siyah zemin, büyük fotoğraf, akan yorum şeridi; etkinlik enerjisi.",
+  "fits": [
+    "düğün salonu",
+    "fotoğrafçı",
+    "DJ",
+    "organizasyon",
+    "gece kulübü"
+  ],
+  "theme": {
+    "preset": "ink",
+    "mode": "dark",
+    "fonts": "hospitality",
+    "headingFont": "display",
+    "typeScale": "display",
+    "radius": "lg",
+    "density": "normal",
+    "header": "minimal",
+    "photos": "color",
+    "contact": "fab",
+    "fabStyle": "pill",
+    "motion": {
+      "hero": "zoom",
+      "scroll": "scale",
+      "smooth": true,
+      "parallax": true
+    }
+  },
+  "sections": [
+    {
+      "id": "ust",
+      "type": "hero",
+      "variant": "image",
+      "badges": 1,
+      "actions": [
+        "whatsapp"
+      ]
+    },
+    {
+      "id": "galeri",
+      "type": "gallery",
+      "layout": "masonry"
+    },
+    {
+      "id": "hizmetler",
+      "type": "services",
+      "layout": "cards"
+    },
+    {
+      "id": "fiyat",
+      "type": "pricing"
+    },
+    {
+      "id": "yorumlar",
+      "type": "reviews",
+      "layout": "marquee"
+    },
+    {
+      "id": "sss",
+      "type": "faq"
+    },
+    {
+      "id": "konum",
+      "type": "location"
+    },
+    {
+      "id": "iletisim",
+      "type": "cta"
+    }
+  ],
+  "mobile": "Hero 80svh, tek buton WhatsApp (tarih sorulur). Masonry galeri 2 sütun. Yorum şeridi otomatik akar, dokununca durur.",
+  "desktop": "Hero 100svh zoom; galeri 4 sütun; paket kartları 3'lü.",
+  "avoid": [
+    "sağlık",
+    "hukuk"
+  ],
+  "family": "koyu · fotoğraf-öncelikli · fab"
+}

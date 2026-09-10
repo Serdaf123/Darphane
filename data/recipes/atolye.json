@@ -1,0 +1,80 @@
+{
+  "key": "atolye",
+  "name": "Atölye",
+  "world": "Sıcak, elle yapılmış his: sıcak nötrler, zanaat fontu, uzun hizmet listesi.",
+  "fits": [
+    "mobilya",
+    "tamir",
+    "tesisat",
+    "oto servis",
+    "terzi",
+    "anahtarcı"
+  ],
+  "theme": {
+    "preset": "ember",
+    "mode": "light",
+    "fonts": "craft",
+    "headingFont": "display",
+    "typeScale": "normal",
+    "radius": "sm",
+    "density": "normal",
+    "header": "solid",
+    "photos": "color",
+    "contact": "fab",
+    "fabStyle": "dial",
+    "motion": {
+      "hero": "reveal",
+      "scroll": "rise",
+      "smooth": true,
+      "parallax": true
+    }
+  },
+  "sections": [
+    {
+      "id": "ust",
+      "type": "hero",
+      "variant": "image",
+      "badges": 2,
+      "actions": [
+        "call",
+        "whatsapp"
+      ]
+    },
+    {
+      "id": "hizmetler",
+      "type": "services",
+      "layout": "list"
+    },
+    {
+      "id": "oncesonra",
+      "type": "beforeAfter"
+    },
+    {
+      "id": "hakkinda",
+      "type": "about"
+    },
+    {
+      "id": "yorumlar",
+      "type": "reviews",
+      "layout": "quotes"
+    },
+    {
+      "id": "konum",
+      "type": "location"
+    },
+    {
+      "id": "saatler",
+      "type": "hours"
+    },
+    {
+      "id": "iletisim",
+      "type": "cta"
+    }
+  ],
+  "mobile": "Hero 60svh, ilk buton Ara (usta telefonla konuşur). Hizmet listesi tek sütun, fiyat notu varsa sağda.",
+  "desktop": "Hero 80svh; hizmet listesi iki sütun; önce/sonra tam genişlik.",
+  "avoid": [
+    "lüks/ince markalar"
+  ],
+  "family": "açık · fotoğraf+metin · fab"
+}

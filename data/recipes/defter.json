@@ -1,0 +1,79 @@
+{
+  "key": "defter",
+  "name": "Defter",
+  "world": "Kâğıt beyazı, serif, fotoğraf tek ton; ağırbaşlı ve kısa.",
+  "fits": [
+    "avukat",
+    "mali müşavir",
+    "mimar",
+    "danışman",
+    "noter"
+  ],
+  "theme": {
+    "preset": "porcelain",
+    "mode": "light",
+    "fonts": "editorial",
+    "headingFont": "display",
+    "typeScale": "normal",
+    "radius": "none",
+    "density": "airy",
+    "header": "solid",
+    "photos": "mono",
+    "contact": "fab",
+    "fabStyle": "pill",
+    "motion": {
+      "hero": "blur",
+      "scroll": "rise",
+      "smooth": true,
+      "parallax": false
+    }
+  },
+  "sections": [
+    {
+      "id": "ust",
+      "type": "hero",
+      "variant": "split",
+      "badges": 1,
+      "actions": [
+        "whatsapp",
+        "call"
+      ]
+    },
+    {
+      "id": "hakkinda",
+      "type": "about"
+    },
+    {
+      "id": "hizmetler",
+      "type": "services",
+      "layout": "list"
+    },
+    {
+      "id": "ekip",
+      "type": "team"
+    },
+    {
+      "id": "sss",
+      "type": "faq"
+    },
+    {
+      "id": "konum",
+      "type": "location"
+    },
+    {
+      "id": "saatler",
+      "type": "hours"
+    },
+    {
+      "id": "iletisim",
+      "type": "cta"
+    }
+  ],
+  "mobile": "Split hero mobilde metin üstte, tek ton portre altta (max 40svh). 1 rozet. Yüzen hap buton (tema rengi), alt bar yok.",
+  "desktop": "Metin sol %55, portre sağ; başlık 400 ağırlık, 4.5rem. Satır 68ch.",
+  "avoid": [
+    "restoran",
+    "hızlı tüketim"
+  ],
+  "family": "açık · tip-öncelikli · fab"
+}

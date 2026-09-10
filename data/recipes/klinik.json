@@ -1,0 +1,84 @@
+{
+  "key": "klinik",
+  "name": "Klinik",
+  "world": "Temiz, açık, düzenli: fotoğraf sağda, hizmet ızgarası, önce/sonra.",
+  "fits": [
+    "diş",
+    "fizyoterapi",
+    "güzellik",
+    "gündüz veteriner",
+    "optik"
+  ],
+  "theme": {
+    "preset": "porcelain",
+    "mode": "light",
+    "fonts": "clean",
+    "headingFont": "sans",
+    "typeScale": "normal",
+    "radius": "md",
+    "density": "normal",
+    "header": "solid",
+    "photos": "color",
+    "contact": "both",
+    "fabStyle": "dial",
+    "motion": {
+      "hero": "rise",
+      "scroll": "fade",
+      "smooth": true,
+      "parallax": false
+    }
+  },
+  "sections": [
+    {
+      "id": "ust",
+      "type": "hero",
+      "variant": "split",
+      "badges": 2,
+      "actions": [
+        "whatsapp",
+        "call"
+      ]
+    },
+    {
+      "id": "hizmetler",
+      "type": "services",
+      "layout": "grid"
+    },
+    {
+      "id": "ekip",
+      "type": "team"
+    },
+    {
+      "id": "oncesonra",
+      "type": "beforeAfter"
+    },
+    {
+      "id": "yorumlar",
+      "type": "reviews",
+      "layout": "cards"
+    },
+    {
+      "id": "sss",
+      "type": "faq"
+    },
+    {
+      "id": "saatler",
+      "type": "hours"
+    },
+    {
+      "id": "konum",
+      "type": "location"
+    },
+    {
+      "id": "iletisim",
+      "type": "cta"
+    }
+  ],
+  "mobile": "Split hero: metin üstte, fotoğraf altta 44svh. Hizmet ızgarası 2 sütun, kısa açıklama. Alt bar.",
+  "desktop": "Hero %50/%50; hizmetler 3 sütun; önce/sonra kaydırıcı 960px.",
+  "avoid": [
+    "gece acil",
+    "poster tarzı markalar"
+  ],
+  "family": "açık · fotoğraf+metin · bar"
+}

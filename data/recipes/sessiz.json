@@ -1,0 +1,78 @@
+{
+  "key": "sessiz",
+  "name": "Sessiz",
+  "world": "Çok boşluk, yumuşak serif, az renk; güven ve sükûnet.",
+  "fits": [
+    "psikolog",
+    "yoga",
+    "spa",
+    "diyetisyen",
+    "cenaze hizmetleri"
+  ],
+  "theme": {
+    "preset": "porcelain",
+    "mode": "light",
+    "fonts": "soft",
+    "headingFont": "display",
+    "typeScale": "normal",
+    "radius": "lg",
+    "density": "airy",
+    "header": "minimal",
+    "photos": "mono",
+    "contact": "fab",
+    "fabStyle": "pill",
+    "motion": {
+      "hero": "blur",
+      "scroll": "fade",
+      "smooth": true,
+      "parallax": false
+    }
+  },
+  "sections": [
+    {
+      "id": "ust",
+      "type": "hero",
+      "variant": "minimal",
+      "badges": 1,
+      "actions": [
+        "whatsapp"
+      ]
+    },
+    {
+      "id": "hakkinda",
+      "type": "about"
+    },
+    {
+      "id": "hizmetler",
+      "type": "services",
+      "layout": "list"
+    },
+    {
+      "id": "ekip",
+      "type": "team"
+    },
+    {
+      "id": "sss",
+      "type": "faq"
+    },
+    {
+      "id": "konum",
+      "type": "location"
+    },
+    {
+      "id": "saatler",
+      "type": "hours"
+    },
+    {
+      "id": "iletisim",
+      "type": "cta"
+    }
+  ],
+  "mobile": "Minimal hero: tek cümle, tek buton, 1 rozet. Hiç fotoğraf yoksa da tam görünür. Hap buton sağ altta, sessiz renk.",
+  "desktop": "Metin 60ch ortalanmış, 1.4 satır aralığı; bölümler arası 8rem.",
+  "avoid": [
+    "gürültülü markalar",
+    "acil"
+  ],
+  "family": "açık · tip-öncelikli · fab"
+}

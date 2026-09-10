@@ -28,6 +28,11 @@ Bu repo iki ajan tarafından geliştiriliyor: Claude Code (Serkan'ın Mac'inde) 
 - İçerik: Tasarım A'daki metinler ve olgular (isim, telefon 0507 846 39 29, WhatsApp 905078463929, tek seferlik ücret, alan adı dahil, iki demo örnek) aynen kullanılabilir; yeni iddia, müşteri, rakam, yorum **ekleme**.
 - Erişilebilirlik ve hareket: `prefers-reduced-motion` açıkken sayfa durağan ve okunur olmalı; klavye odağı görünür; mobil 390px'te yatay taşma yok.
 
+## Tasarım kütüphanesi (iki ajan birlikte bakar)
+- `docs/tasarim-kutuphanesi.md` + `data/recipes/<key>.json`: hero varyantı, giriş/kaydırma animasyonu, bölüm sırası ve düzenleri, iletişim deseni, header, tipografi, mobil/masaüstü notları. Her yeni site bir reçeteden başlar; **A ve B farklı aileden** (açık↔koyu, fotoğraf↔tip, bar↔fab; en az iki eksen).
+- Kapı: canlıya almadan A/B ekran görüntüsü yan yana, gri tonda 2 saniyede ayırt edilmeli; mobil 390px'te ilk ekran "açık mı · nerede · nasıl ulaşırım" cevaplı; Lighthouse mobil ≥ 95.
+- Reçete değişince JSON ve belge birlikte güncellenir; yeni kombinasyon iki kez kullanılınca reçeteye dönüşür.
+
 ## Her değişiklikten önce
 ```
 npm run typecheck && npm run lint && npm run build

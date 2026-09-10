@@ -1,0 +1,81 @@
+{
+  "key": "vitrin",
+  "name": "Vitrin",
+  "world": "Fotoğraf her şey: tam ekran görsel, cam header, yemek/ürün önce.",
+  "fits": [
+    "restoran",
+    "kafe",
+    "pastane",
+    "çiçekçi",
+    "butik"
+  ],
+  "theme": {
+    "preset": "sand",
+    "mode": "light",
+    "fonts": "hospitality",
+    "headingFont": "display",
+    "typeScale": "normal",
+    "radius": "md",
+    "density": "normal",
+    "header": "glass",
+    "photos": "color",
+    "contact": "both",
+    "fabStyle": "dial",
+    "motion": {
+      "hero": "zoom",
+      "scroll": "rise",
+      "smooth": true,
+      "parallax": true
+    }
+  },
+  "sections": [
+    {
+      "id": "ust",
+      "type": "hero",
+      "variant": "image",
+      "badges": 2,
+      "actions": [
+        "whatsapp",
+        "directions"
+      ]
+    },
+    {
+      "id": "menu",
+      "type": "menu",
+      "layout": "photos"
+    },
+    {
+      "id": "galeri",
+      "type": "gallery",
+      "layout": "masonry"
+    },
+    {
+      "id": "hakkinda",
+      "type": "about"
+    },
+    {
+      "id": "yorumlar",
+      "type": "reviews",
+      "layout": "cards"
+    },
+    {
+      "id": "saatler",
+      "type": "hours"
+    },
+    {
+      "id": "konum",
+      "type": "location"
+    },
+    {
+      "id": "iletisim",
+      "type": "cta"
+    }
+  ],
+  "mobile": "Hero görseli 72svh, odak noktası (`focal`) yemeğe; başlık altta solda; 2 buton. Menü fotoğraflı liste yatay kaydırılabilir. Alt bar Ara/Yol/WhatsApp.",
+  "desktop": "Hero 88svh, paralaks. Galeri masonry 3 sütun; menü iki sütun.",
+  "avoid": [
+    "fotoğrafsız meslek",
+    "gece acil"
+  ],
+  "family": "açık · fotoğraf-öncelikli · bar"
+}

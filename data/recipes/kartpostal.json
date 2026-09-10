@@ -1,0 +1,81 @@
+{
+  "key": "kartpostal",
+  "name": "Kartpostal",
+  "world": "Manzara fotoğrafı perde gibi açılır; yumuşak köşeler, ferah boşluk.",
+  "fits": [
+    "otel",
+    "pansiyon",
+    "bungalov",
+    "kamp",
+    "tur"
+  ],
+  "theme": {
+    "preset": "sage",
+    "mode": "light",
+    "fonts": "soft",
+    "headingFont": "display",
+    "typeScale": "normal",
+    "radius": "lg",
+    "density": "airy",
+    "header": "glass",
+    "photos": "color",
+    "contact": "both",
+    "fabStyle": "dial",
+    "motion": {
+      "hero": "curtain",
+      "scroll": "fade",
+      "smooth": true,
+      "parallax": true
+    }
+  },
+  "sections": [
+    {
+      "id": "ust",
+      "type": "hero",
+      "variant": "image",
+      "badges": 2,
+      "actions": [
+        "whatsapp",
+        "call"
+      ]
+    },
+    {
+      "id": "hakkinda",
+      "type": "about"
+    },
+    {
+      "id": "galeri",
+      "type": "gallery",
+      "layout": "grid"
+    },
+    {
+      "id": "hizmetler",
+      "type": "services",
+      "layout": "cards"
+    },
+    {
+      "id": "konum",
+      "type": "location"
+    },
+    {
+      "id": "yorumlar",
+      "type": "reviews",
+      "layout": "cards"
+    },
+    {
+      "id": "sss",
+      "type": "faq"
+    },
+    {
+      "id": "iletisim",
+      "type": "cta"
+    }
+  ],
+  "mobile": "Hero 68svh, perde animasyonu 700ms; 2 rozet (puan, konum). Olanaklar 2 sütun kart. Harita erken (yol tarifi turistin ilk sorusu).",
+  "desktop": "Hero 90svh paralaks; galeri 3 sütun 4:3; olanaklar 3 sütun.",
+  "avoid": [
+    "acil hizmet",
+    "koyu marka"
+  ],
+  "family": "açık · fotoğraf-öncelikli · bar"
+}
