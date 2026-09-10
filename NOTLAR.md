@@ -106,6 +106,8 @@ Durum: ✅ bitti · 🔧 sırada · ⏳ dış girdi bekliyor · 💡 fikir
 ---
 
 ## 3. Karar günlüğü
+
+- **2026-09-10** — Görsel kuralı değişti (Serkan): satış öncesi de işletmenin **Google Maps'teki kendi fotoğrafları** kullanılır (uygun olanlar; çocuk/müşteri yüzü olanlar alınmaz), yapay görsel yok, repo'da yalnız WebP. Aday girişi Drive `sitesiz-lead` tablosundan; Tasarım B ve metinler ChatGPT'den (brif 05).
 - **2026-09-03** İş modeli: tek seferlik ücret; önce şablon+üretici, panel sonra; lead'i Serkan elle bulur; Vercel. Veritabanı yok, JSON + git.
 - **2026-09-03** Site tarafı Claude'da, lead bulma Serkan'da.
 - **2026-09-04** Metin kuralı: yalnızca doğrulanabilir bilgi ("metinler çok saçma").
