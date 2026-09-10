@@ -1,6 +1,10 @@
 # Brif 05 — Yeni işletme: Tasarım B + metinler (ChatGPT)
 
-Her yeni aday için Claude bu brifi işletmenin bilgileriyle doldurup `briefs/isletme/<slug>.md` olarak üretir; Serkan ChatGPT'ye yapıştırır; ChatGPT'nin cevabı Claude'a geri gelir, Claude `.b.json` ve metinleri işler, canlıya alır.
+Her yeni aday için Claude bu şablondan **doğrudan ChatGPT'ye hitap eden** bir görev dosyası üretir: `briefs/isletme/<slug>.md` (birden çok adayda ek olarak tek bir toplu dosya: `briefs/isletme/<tarih>-<grup>.md`). Serkan dosyayı ChatGPT'ye ekler ve yalnız şunu yazar:
+
+> Ekteki dosyayı oku ve içindeki görevi yap. Cevap olarak yalnız istenen JSON'u ver.
+
+Uzun metin yapıştırma yok; kural bu (Serkan, 10.09). ChatGPT'nin JSON cevabı Claude'a geri gelir; Claude `.b.json` ve metinleri işler, canlıya alır.
 
 ## Görsel kuralı (değişmez)
 - Görseller **gerçek fotoğraf** olmalı: üretilmiş/yapay görsel yok, illüstrasyon yok.
