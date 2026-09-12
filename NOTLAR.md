@@ -58,6 +58,7 @@ Bu dosya makinenin hafızası: kurallar, yol haritası, kararlar. README "nasıl
 - next/font: seçenekler literal olmalı (spread yok); tüm çiftler `preload: false`.
 - `.btn`'nin `display`'i Tailwind `hidden`'ı ezer → görünürlük için özel sınıf (`btn-desktop-only`).
 - GSAP ve motion aynı elemanın transform'unu yazmasın → iç/dış katman.
+- **Lighthouse ölçümü (2026-09-12):** bu Mac'te headless Chrome'da ilk boyama sayfadan bağımsız ~2 sn geç gözleniyor (kontrol: `/gizlilik` de aynı); simüle kısıtlamada tek koşu 62–100 arası zıplıyor. Güvenilir ölçüm: `--throttling-method=devtools` (altı sayfa 94–97) ya da CI'daki LHCI / PageSpeed Insights (günlük kota var). Tek simüle koşuya bakıp perf kararı verme; 3 koşunun en iyisi ya da devtools.
 - **Antet (statement) mürekkep takası:** `.hero-statement` zemin = `--c-text`, yazı = `--c-bg`. Koyu temada bu takas hero'yu açığa çevirir; `.site-root[data-mode=dark]` içinde kök renkler geri çevrilir (`--root-bg/--root-text`). Başlık `min(step-6×1.4, 13.5vw)`: 390px'te tek uzun kelime taşmaz (2026-09-10).
 - **Hidrasyon ve `reduced`:** istemcide ilk çizim sunucuyla aynı olmalı; `prefers-reduced-motion` yalnız effect'te okunur (`MotionProvider`). Bileşen tipini (m.div ↔ div) hidrasyon sırasında değiştirmek uyuşmazlık doğurur; React nitelik farklarını yamamaz, SSR'daki `opacity:0` kalır. Ek sigorta: Reveal sarmalayıcılarında `data-reveal` + reduced-motion CSS (2026-09-10).
 - Sticky şerit yüksekliği `--offer-h` ile yayınlanır; header ve çapalar ona göre.
