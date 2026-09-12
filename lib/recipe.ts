@@ -162,7 +162,7 @@ function insertBeforeClosing(order: string[], extra: string[], typeOf: (id: stri
 export type Recipe = z.infer<typeof recipeSchema>;
 
 /** Kütüphanedeki sıra: docs/tasarim-kutuphanesi.md ile aynı. */
-export const RECIPE_ORDER = ['gece-nobeti', 'vitrin', 'defter', 'afis', 'kartpostal', 'klinik', 'atolye', 'sahne', 'tezgah', 'sessiz'];
+export const RECIPE_ORDER = ['gece-nobeti', 'vitrin', 'defter', 'kartpostal', 'klinik', 'atolye', 'sahne', 'tezgah', 'sessiz'];
 const RECIPES_DIR = path.join(process.cwd(), 'data', 'recipes');
 
 export function loadRecipes(): Recipe[] {

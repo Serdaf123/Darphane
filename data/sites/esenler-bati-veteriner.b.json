@@ -1,5 +1,5 @@
 {
-  "recipe": "afis",
+  "recipe": "gece-nobeti",
   "business": {
     "tagline": "Esenler Turgut Reis’te muayene, aşı, kısırlaştırma ve yavru bakımı. Her gün 12:00–00:00; acil durumlar için arayın: 0541 179 99 82.",
     "social": {}
@@ -9,21 +9,21 @@
     "description": "Esenler Turgut Reis’te muayene, aşı, kısırlaştırma ve yavru bakımı. Her gün 12:00–00:00; acil durumlar için arayın: 0541 179 99 82."
   },
   "theme": {
-    "preset": "graphite",
+    "preset": "midnight",
     "mode": "dark",
     "neutralTint": 0.35,
     "typeScale": "display",
-    "fonts": "bold",
-    "headingFont": "display",
-    "radius": "none",
+    "fonts": "plex",
+    "headingFont": "sans",
+    "radius": "sm",
     "density": "tight",
-    "header": "none",
+    "header": "minimal",
     "photos": "color",
     "contact": "fab",
     "fabStyle": "dial",
     "motion": {
-      "hero": "split",
-      "scroll": "slide",
+      "hero": "counter",
+      "scroll": "fade",
       "smooth": true,
       "parallax": false
     }
@@ -35,7 +35,6 @@
       "badges": [
         "Her gün 12:00–00:00 · Acil durumlar için arayın"
       ],
-      "urgent": null,
       "actions": [
         {
           "label": "Kliniği arayın",
@@ -49,17 +48,26 @@
           "style": "ghost"
         }
       ],
+      "urgent": {
+        "title": "Acil durumlar için arayın",
+        "note": "Her gün 12:00–00:00; saat dışında açıklığı arayarak teyit edin.",
+        "whatsappMessage": "ACİL — Esenler Batı Veteriner\nHayvan (tür/yaş): \nDurum: \nNeredeyim: "
+      },
       "headline": "Esenler Batı Veteriner Kliniği",
       "subline": "Turgut Reis Mah., Cengiz Topel Cd. No:9B, Esenler/İstanbul adresindeyiz. Acil durumlarda gelmeden önce 0541 179 99 82 numarasını arayın."
     },
     {
-      "id": "galeri",
-      "layout": "strip",
-      "title": "Klinikten"
+      "id": "saatler",
+      "title": "Çalışma saatleri"
+    },
+    {
+      "id": "konum",
+      "title": "Kliniğe ulaşım",
+      "note": "Turgut Reis Mah., Cengiz Topel Cd. No:9B, Esenler/İstanbul"
     },
     {
       "id": "hizmetler",
-      "layout": "cards",
+      "layout": "list",
       "title": "Hizmetlerimiz",
       "intro": "Hizmetlerimiz hakkında bilgi almak için kliniğimizi arayabilirsiniz.",
       "items": [
@@ -87,7 +95,7 @@
     },
     {
       "id": "yorumlar",
-      "layout": "quotes",
+      "layout": "marquee",
       "title": "Google yorumları",
       "items": [
         {
@@ -117,15 +125,6 @@
       ]
     },
     {
-      "id": "saatler",
-      "title": "Çalışma saatleri"
-    },
-    {
-      "id": "konum",
-      "title": "Kliniğe ulaşım",
-      "note": "Turgut Reis Mah., Cengiz Topel Cd. No:9B, Esenler/İstanbul"
-    },
-    {
       "id": "sss",
       "title": "Sık sorulan sorular",
       "items": [
@@ -148,6 +147,10 @@
       ]
     },
     {
+      "id": "galeri",
+      "title": "Klinikten"
+    },
+    {
       "id": "iletisim",
       "headline": "Gelmeden önce kliniği arayın",
       "subline": "Acil durumlarda açıklığı teyit etmek için 0541 179 99 82 numarasından ulaşın.",
@@ -168,12 +171,12 @@
   ],
   "sectionOrder": [
     "ust",
-    "galeri",
-    "hizmetler",
-    "yorumlar",
     "saatler",
     "konum",
+    "hizmetler",
+    "yorumlar",
     "sss",
+    "galeri",
     "iletisim"
   ],
   "remove": [

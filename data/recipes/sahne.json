@@ -10,7 +10,7 @@
     "gece kulübü"
   ],
   "theme": {
-    "preset": "ink",
+    "preset": "graphite",
     "mode": "dark",
     "fonts": "hospitality",
     "headingFont": "display",

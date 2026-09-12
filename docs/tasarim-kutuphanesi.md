@@ -1,6 +1,6 @@
 # Darphane tasarım kütüphanesi — kombinasyonlar (reçeteler)
 
-İki ajanın (Claude + Codex) ortak kütüphanesi. Her yeni site bir **reçeteden** başlar; reçete = hero varyantı + giriş animasyonu + kaydırma animasyonu + bölüm sırası ve düzenleri + iletişim deseni + header + tipografi/doku + mode. Makine okur: `data/recipes/<key>.json` (bu belge o dosyalardan üretilir; ikisini birlikte güncelle). Uygulama aracı: `npm run recipe -- <slug> <key> [--variant b]` (uygulama: `scripts/recipe.mts`).
+İki ajanın (Claude + Codex) ortak kütüphanesi. Her yeni site bir **reçeteden** başlar; reçete = hero varyantı + giriş animasyonu + kaydırma animasyonu + bölüm sırası ve düzenleri + iletişim deseni + header + tipografi/doku + mode. Makine okur: `data/recipes/<key>.json` (bu belge o dosyalardan üretilir; ikisini birlikte güncelle). **Afiş reçetesi 12.09.2026'da kaldırıldı** (Serkan beğenmedi: Esenler ve Pisi B'leri). Uygulama aracı: `npm run recipe -- <slug> <key> [--variant b]` (uygulama: `scripts/recipe.mts`).
 
 ## Kurallar
 
@@ -9,6 +9,7 @@
 - **Masaüstü de üst düzey.** İçerik ≤ 1200px, satır ≤ 75ch, hover/odak durumları görünür, bölüm tonları dönüşümlü (açık/koyu ritmi), hero ≤ 90svh.
 - **Hareket:** hero girişi tek orkestre an (≤ 900ms), kaydırma animasyonu transform+opacity, "hareketi azalt" açıkken tamamı kapalı. `none` yalnız çok hafif sayfada (Tezgâh smooth kapalı ama hero rise açık).
 - **Performans/erişilebilirlik kapısı:** Lighthouse mobil ≥ 95, LCP görseli `priority` + `focal`, CLS < 0.05, kontrast AA, klavye odağı, 360px'te yatay taşma yok.
+- **Preset ve mode uyumu:** koyu zemin veren presetler yalnız `ember`, `midnight`, `graphite`; `ink` açık kâğıttır. `accent` verilirse palet `mode`'a göre üretilir, preset'in koyuluğu geçersizdir. Koyu aile reçeteleri bu üçünden birini (ya da accent + mode: dark) kullanır (2026-09-12 düzeltmesi: Sahne ink→graphite, Atölye ember→bosphorus).
 - **Kütüphaneyi büyütmek:** yeni reçete = yeni JSON + bu belgede satır; bir sektörde iki kez kullanılan kombinasyon reçeteye dönüştürülür. Aynı reçeteyi bir sektörde üst üste 3 adayda kullanma; varyasyon üret (preset/accent/font çifti değişir, iskelet kalır).
 
 ## Reçeteler
@@ -18,7 +19,6 @@
 | `gece-nobeti` | Gece Nöbeti | koyu · tip-öncelikli · fab | 7/24 veteriner, nöbetçi eczane, çilingir, oto kurtarma, acil tesisat | statement · counter · fade | minimal · fab/dial |
 | `vitrin` | Vitrin | açık · fotoğraf-öncelikli · bar | restoran, kafe, pastane, çiçekçi, butik | image · zoom · rise | glass · both/dial |
 | `defter` | Defter | açık · tip-öncelikli · fab | avukat, mali müşavir, mimar, danışman, noter | split · stack · rise | solid · fab/dial |
-| `afis` | Afiş | koyu · tip-öncelikli · fab | berber, dövme, spor salonu, oto detailing, müzik stüdyosu | statement · split · slide | none · fab/dial |
 | `kartpostal` | Kartpostal | açık · fotoğraf-öncelikli · bar | otel, pansiyon, bungalov, kamp, tur | image · curtain · fade | glass · both/dial |
 | `klinik` | Klinik | açık · fotoğraf+metin · bar | diş, fizyoterapi, güzellik, gündüz veteriner, optik | split · rise · fade | solid · both/dial |
 | `atolye` | Atölye | açık · fotoğraf+metin · fab | mobilya, tamir, tesisat, oto servis, terzi, anahtarcı | image · reveal · rise | solid · fab/dial |
@@ -62,17 +62,6 @@ Kâğıt beyazı, serif, fotoğraf tek ton; ağırbaşlı ve kısa.
 - **Mobil:** Split hero mobilde metin üstte, tek ton portre altta (max 40svh). 1 rozet. Yüzen dial butonu, alt bar yok.
 - **Masaüstü:** Metin sol %55, portre sağ; başlık 400 ağırlık, 4.5rem. Satır 68ch.
 
-### Afiş (`afis`)
-
-Poster gibi: dev harfler, sert köşeler, yüksek kontrast, tek çığlık renk.
-
-- **Aile:** koyu · tip-öncelikli · fab · **Uyar:** berber, dövme, spor salonu, oto detailing, müzik stüdyosu · **Kaçın:** hukuk/sağlık, sakin markalar
-- **Tema:** graphite · dark · bold / başlık display · ölçek display · köşe none · yoğunluk tight · fotoğraf color
-- **Hareket:** hero `split`, kaydırma `slide`, smooth açık, paralaks kapalı
-- **Header / iletişim:** none · fab (dial)
-- **Sıra:** ust(statement) → galeri(strip) → fiyat → hizmetler(cards) → yorumlar(quotes) → saatler → konum → iletisim
-- **Mobil:** Header yok; isim harf harf gelir (split), altında tek buton. Galeri şeridi yatay kaydırma, kare kırpım. Fiyat listesi varsa hero'nun hemen altında.
-- **Masaüstü:** Başlık viewport genişliğinde (clamp 6–11rem), ızgara 12 sütun, şerit galeri tam genişlik.
 
 ### Kartpostal (`kartpostal`)
 
@@ -103,7 +92,7 @@ Temiz, açık, düzenli: fotoğraf sağda, hizmet ızgarası, önce/sonra.
 Sıcak, elle yapılmış his: sıcak nötrler, zanaat fontu, uzun hizmet listesi.
 
 - **Aile:** açık · fotoğraf+metin · fab · **Uyar:** mobilya, tamir, tesisat, oto servis, terzi, anahtarcı · **Kaçın:** lüks/ince markalar
-- **Tema:** ember · light · craft / başlık display · ölçek normal · köşe sm · yoğunluk normal · fotoğraf color
+- **Tema:** bosphorus · light · craft / başlık display · ölçek normal · köşe sm · yoğunluk normal · fotoğraf color
 - **Hareket:** hero `reveal`, kaydırma `rise`, smooth açık, paralaks açık
 - **Header / iletişim:** solid · fab (dial)
 - **Sıra:** ust(image) → hizmetler(list) → oncesonra → hakkinda → yorumlar(quotes) → konum → saatler → iletisim
@@ -115,7 +104,7 @@ Sıcak, elle yapılmış his: sıcak nötrler, zanaat fontu, uzun hizmet listesi
 Siyah zemin, büyük fotoğraf, akan yorum şeridi; etkinlik enerjisi.
 
 - **Aile:** koyu · fotoğraf-öncelikli · fab · **Uyar:** düğün salonu, fotoğrafçı, DJ, organizasyon, gece kulübü · **Kaçın:** sağlık, hukuk
-- **Tema:** ink · dark · hospitality / başlık display · ölçek display · köşe lg · yoğunluk normal · fotoğraf color
+- **Tema:** graphite · dark · hospitality / başlık display · ölçek display · köşe lg · yoğunluk normal · fotoğraf color
 - **Hareket:** hero `zoom`, kaydırma `scale`, smooth açık, paralaks açık
 - **Header / iletişim:** minimal · fab (dial)
 - **Sıra:** ust(image) → galeri(masonry) → hizmetler(cards) → fiyat → yorumlar(marquee) → sss → konum → iletisim
@@ -150,12 +139,12 @@ Mahalle esnafı: önce 'açık mı', ürün grupları, harita; sade ve hızlı.
 
 | A | B (zıt aile) |
 |---|---|
-| Klinik (açık · foto+metin · bar) | Gece Nöbeti (koyu · tip · fab) ya da Afiş |
-| Vitrin (açık · foto · bar) | Sahne (koyu · foto · fab) ya da Afiş |
+| Klinik (açık · foto+metin · bar) | Gece Nöbeti (koyu · tip · fab) ya da Sahne |
+| Vitrin (açık · foto · bar) | Sahne (koyu · foto · fab) ya da Defter |
 | Defter (açık · tip · fab) | Klinik (açık · foto+metin · bar) ya da Sahne |
 | Tezgâh (açık · metin · bar) | Gece Nöbeti ya da Atölye |
 | Kartpostal (açık · foto · bar) | Sahne ya da Sessiz |
-| Atölye (açık · foto+metin · fab) | Afiş ya da Tezgâh |
+| Atölye (açık · foto+metin · fab) | Sahne ya da Tezgâh |
 
 ## Sıradaki genişletmeler (ikimiz)
 
@@ -192,10 +181,10 @@ Bu alanları kullanmayan eski katmanlar aynı davranır; Noyavet B/C için önce
 | Site | A reçetesi | B reçetesi | Notlar |
 |---|---|---|---|
 | Esatpaşa Veteriner | `klinik` | `gece-nobeti` | Açık split/bar ile koyu statement/fab ayrımı; 7/24 telefon `counter` ile önce gelir. |
-| Esenler Batı Veteriner | `klinik` | `afis` | Açık klinik ızgarasına karşı koyu, headersız poster; B hero `split`. |
+| Esenler Batı Veteriner | `klinik` | `gece-nobeti` | Açık klinik ızgarasına karşı koyu antet, telefon önce (`counter`); adında 7/24 acil. |
 | Küçükyalı Veteriner | `tezgah` | `sessiz` | Mahalle tipi split/bar ile fotoğrafsız minimal/fab; WhatsApp yok, tek eylem Ara; B hero `stack`. |
 | Adraga Veteriner | `vitrin` | `defter` | Fotoğraf ve bar öncelikli A ile tek ton, tip öncelikli fab B; B hero `stack`. |
-| Pisi Veteriner | `klinik` | `afis` | Açık klinik ızgarası ile koyu poster; kuş ve tavşan içeriği korunur. |
+| Pisi Veteriner | `klinik` | `sahne` | Açık klinik ızgarası ile koyu tam ekran fotoğraf, masonry galeri, akan yorumlar; kuş ve tavşan içeriği korunur. |
 | Polen Veteriner | `tezgah` | `sahne` | Açık split/bar ile koyu tam ekran fotoğraf/fab; çalışma saatleri ve yorum verisi olmadığı için bu bölümler üretilmez. |
 
 Altı çiftte A tam dosyada, B katmanda `recipe` taşır. B katmanı yeniden üretildiğinde mevcut işletmeye özel metinler ve SEO korunur; reçete tema, bölüm sırası, düzen ve hareketi belirler. Tüm B’lerde dial FAB kullanılır ve hareket azaltma açıkken sunucu/istemci yapısı değişmez.

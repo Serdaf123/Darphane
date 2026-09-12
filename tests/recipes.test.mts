@@ -59,7 +59,7 @@ test('missing content is skipped and landline never becomes WhatsApp', () => {
   if(b.sections[0].type==='hero')assert.deepEqual(b.sections[0].actions.map(a=>a.kind),['call']);
 });
 test('recipe enum errors, wrong layouts and missing family/mobile fail', () => {
-  const recipe=read('data/recipes/afis.json');
+  const recipe=read('data/recipes/sahne.json');
   for(const invalid of [
     {...recipe,family:''},{...recipe,mobile:''},{...recipe,theme:{...recipe.theme,fonts:'invented'}},
     {...recipe,sections:[{id:'ust',type:'hero',variant:'unknown'}]},
@@ -67,11 +67,11 @@ test('recipe enum errors, wrong layouts and missing family/mobile fail', () => {
   ])assert.throws(()=>recipeSchema.parse(invalid));
 });
 test('A recipe writes a full site and B recipe preserves existing copy', () => {
-  const recipe=read('data/recipes/afis.json');
+  const recipe=read('data/recipes/sahne.json');
   const existing={sections:[{id:'ust',headline:'Korunan başlık',subline:'Korunan alt satır',badges:['Korunan rozet']},{id:'hizmetler',title:'Korunan hizmet başlığı'},{id:'hakkinda',title:'Reçetede olmayan korunan bölüm'}]};
   const variant=generateRecipeVariantOverlay(site,existing,recipe,()=>{});
   const b=mergeSiteOverlay(site,variant);
-  assert.equal(b.recipe,'afis');
+  assert.equal(b.recipe,'sahne');
   assert.equal(b.sections[0].type,'hero');
   if(b.sections[0].type==='hero')assert.equal(b.sections[0].headline,'Korunan başlık');
   if(b.sections[0].type==='hero')assert.deepEqual(b.sections[0].badges,['Korunan rozet']);
@@ -104,10 +104,10 @@ test('CLI dry-run makes no writes; --apply writes A or selected variant', () => 
 test('six Excel sites use contrasting A/B recipe families', () => {
   const mappings:Record<string,[string,string]>={
     'esatpasa-veteriner':['klinik','gece-nobeti'],
-    'esenler-bati-veteriner':['klinik','afis'],
+    'esenler-bati-veteriner':['klinik','gece-nobeti'],
     'kucukyali-veteriner':['tezgah','sessiz'],
     'adraga-veteriner':['vitrin','defter'],
-    'pisi-veteriner':['klinik','afis'],
+    'pisi-veteriner':['klinik','sahne'],
     'polen-veteriner':['tezgah','sahne'],
   };
   let stackCount=0;

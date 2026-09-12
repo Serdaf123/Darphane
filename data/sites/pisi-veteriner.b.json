@@ -1,31 +1,30 @@
 {
-  "recipe": "afis",
+  "recipe": "sahne",
   "theme": {
     "preset": "graphite",
     "mode": "dark",
     "neutralTint": 0.35,
     "typeScale": "display",
-    "fonts": "bold",
+    "fonts": "hospitality",
     "headingFont": "display",
-    "radius": "none",
-    "density": "tight",
-    "header": "none",
+    "radius": "lg",
+    "density": "normal",
+    "header": "minimal",
     "photos": "color",
     "contact": "fab",
     "fabStyle": "dial",
     "motion": {
-      "hero": "split",
-      "scroll": "slide",
+      "hero": "zoom",
+      "scroll": "scale",
       "smooth": true,
-      "parallax": false
+      "parallax": true
     }
   },
   "sections": [
     {
       "id": "ust",
-      "variant": "statement",
+      "variant": "image",
       "badges": [],
-      "urgent": null,
       "actions": [
         {
           "label": "WhatsApp'tan Yazın",
@@ -33,11 +32,12 @@
           "value": "Merhaba, Pisi Veteriner için yazıyorum.\nHayvan (tür/yaş): \nŞikâyet: ",
           "style": "primary"
         }
-      ]
+      ],
+      "urgent": null
     },
     {
       "id": "galeri",
-      "layout": "strip"
+      "layout": "masonry"
     },
     {
       "id": "hizmetler",
@@ -45,10 +45,10 @@
     },
     {
       "id": "yorumlar",
-      "layout": "quotes"
+      "layout": "marquee"
     },
     {
-      "id": "saatler"
+      "id": "sss"
     },
     {
       "id": "konum"
@@ -62,12 +62,12 @@
     "galeri",
     "hizmetler",
     "yorumlar",
-    "saatler",
+    "sss",
     "konum",
     "iletisim"
   ],
   "remove": [
     "ekip",
-    "sss"
+    "saatler"
   ]
 }

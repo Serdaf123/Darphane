@@ -11,7 +11,7 @@
     "anahtarcı"
   ],
   "theme": {
-    "preset": "ember",
+    "preset": "bosphorus",
     "mode": "light",
     "fonts": "craft",
     "headingFont": "display",

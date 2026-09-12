@@ -1,7 +1,7 @@
 {
   "recipe": "sahne",
   "theme": {
-    "preset": "ink",
+    "preset": "graphite",
     "mode": "dark",
     "neutralTint": 0.35,
     "typeScale": "display",
