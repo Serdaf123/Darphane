@@ -139,3 +139,23 @@ test('six Excel sites use contrasting A/B recipe families', () => {
   const polenB=mergeSiteOverlay(polen,read('data/sites/polen-veteriner.b.json'));
   assert.equal(polenB.sections.some(section=>section.type==='reviews'),false);
 });
+
+test('kural: A ve B reçeteleri konsept detayı (dial/strip/fis/card/tabela) kullanmaz; C bir konsepttir', () => {
+  const isDetail=(s:{type?:string;layout?:string})=>(s.type==='hours'&&(s.layout==='dial'||s.layout==='strip'))||(s.type==='services'&&s.layout==='fis')||(s.type==='location'&&s.layout==='card')||(s.type==='cta'&&s.layout==='tabela');
+  const offenders:string[]=[];
+  for(const file of fs.readdirSync('data/recipes').filter(f=>f.endsWith('.json'))){
+    const r=read(`data/recipes/${file}`);
+    for(const s of r.sections){ if(isDetail(s)) offenders.push(`${file}:${s.id}`); }
+  }
+  for(const file of fs.readdirSync('data/sites').filter(f=>f.endsWith('.json')&&!f.endsWith('.c.json'))){
+    const d=read(`data/sites/${file}`);
+    const base=file.endsWith('.b.json')?siteSchema.parse(read(`data/sites/${file.replace('.b.json','.json')}`)):null;
+    const full=base?mergeSiteOverlay(base,d):d;
+    for(const s of full.sections??[]){ if(isDetail(s)) offenders.push(`${file}:${s.id}`); }
+    if(d.concept) offenders.push(`${file}:concept`);
+  }
+  assert.deepEqual(offenders,[]);
+  for(const file of fs.readdirSync('data/sites').filter(f=>f.endsWith('.c.json'))){
+    assert.equal(typeof read(`data/sites/${file}`).concept,'string',`${file} bir konsept taşımalı`);
+  }
+});

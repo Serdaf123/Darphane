@@ -224,7 +224,7 @@
       "id": "saatler",
       "type": "hours",
       "title": "Çalışma saatleri",
-      "layout": "strip"
+      "layout": "table"
     },
     {
       "id": "konum",

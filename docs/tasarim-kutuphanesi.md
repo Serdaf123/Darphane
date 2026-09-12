@@ -4,7 +4,7 @@
 
 ## Tasarım detayları (12.09.2026, akşam)
 
-Konseptlerden motora alınan bölüm düzenleri; reçeteler bunları kullanır:
+**Kesin kural (12.09.2026 gece, Serkan): A ve B yalnız reçete, konsept detayı içermez; C bir konsept.** Aşağıdaki düzenler motorda var ama reçetelerde ve A/B sitelerinde KULLANILMAZ (test denetler); yalnız konsept sayfaları ve ileride Serkan onayıyla:
 
 | Bölüm | `layout` | Ne |
 |---|---|---|
@@ -14,7 +14,7 @@ Konseptlerden motora alınan bölüm düzenleri; reçeteler bunları kullanır:
 | location | `card` | tam genişlik harita, üstünde yüzen kart (Harita) |
 | cta | `tabela` | ışıklı tabela + AÇIK/KAPALI rozeti + plaka adres (Tabela) |
 
-Kullanım: Gece Nöbeti → dial + tabela + list; Tezgâh → strip + tabela; Klinik → strip; Vitrin/Kartpostal/Sahne → konum card; Atölye → fis + tabela. **Konseptler C tasarımıdır** (uygunluğa göre Claude seçer): `npm run recipe -- <slug> <konsept> --variant c --apply` (aynı adlı reçete varsa `--concept`).
+**Konseptler C tasarımıdır** (uygunluğa göre Claude seçer): `npm run recipe -- <slug> <konsept> --variant c --apply` (aynı adlı reçete varsa `--concept`).
 
 ## Konseptler reçete olarak (12.09.2026)
 

@@ -216,7 +216,7 @@
       "title": "Klinik",
       "showMap": true,
       "note": "Sahilyolu Caddesi üzerinde, Yalı.",
-      "layout": "card"
+      "layout": "split"
     },
     {
       "id": "hizmetler",

@@ -58,7 +58,6 @@
     },
     {
       "id": "saatler",
-      "layout": "dial",
       "title": "Çalışma saatleri"
     },
     {
@@ -153,7 +152,6 @@
     },
     {
       "id": "iletisim",
-      "layout": "tabela",
       "headline": "Gelmeden önce kliniği arayın",
       "subline": "Acil durumlarda açıklığı teyit etmek için 0541 179 99 82 numarasından ulaşın.",
       "actions": [

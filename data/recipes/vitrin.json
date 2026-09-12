@@ -64,8 +64,7 @@
     },
     {
       "id": "konum",
-      "type": "location",
-      "layout": "card"
+      "type": "location"
     },
     {
       "id": "iletisim",
