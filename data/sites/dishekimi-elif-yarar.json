@@ -1,0 +1,296 @@
+{
+  "slug": "dishekimi-elif-yarar",
+  "business": {
+    "name": "Dt. Elif Yarar Ağız ve Diş Sağlığı",
+    "category": "Diş Kliniği",
+    "tagline": "Korkmadan gidilen diş hekimi.",
+    "phone": "0555 000 00 02",
+    "whatsapp": "905550000002",
+    "email": "randevu@ornek.com",
+    "address": "Bağdat Caddesi No 118, Kat 3",
+    "district": "Kadıköy",
+    "city": "İstanbul",
+    "coords": {
+      "lat": 40.9819,
+      "lng": 29.0578
+    },
+    "social": {
+      "instagram": "@dtelifyarar"
+    },
+    "hours": {
+      "timezone": "Europe/Istanbul",
+      "note": "Acil durumlar için hafta sonu telefonla ulaşabilirsiniz.",
+      "days": {
+        "mon": [
+          {
+            "open": "09:00",
+            "close": "18:30"
+          }
+        ],
+        "tue": [
+          {
+            "open": "09:00",
+            "close": "18:30"
+          }
+        ],
+        "wed": [
+          {
+            "open": "09:00",
+            "close": "18:30"
+          }
+        ],
+        "thu": [
+          {
+            "open": "09:00",
+            "close": "18:30"
+          }
+        ],
+        "fri": [
+          {
+            "open": "09:00",
+            "close": "18:30"
+          }
+        ],
+        "sat": [
+          {
+            "open": "10:00",
+            "close": "15:00"
+          }
+        ],
+        "sun": []
+      }
+    }
+  },
+  "theme": {
+    "preset": "cobalt",
+    "fonts": "clean",
+    "headingFont": "sans",
+    "radius": "lg",
+    "density": "airy",
+    "header": "solid",
+    "motion": {
+      "hero": "reveal",
+      "scroll": "fade",
+      "smooth": true
+    }
+  },
+  "sections": [
+    {
+      "type": "hero",
+      "id": "ust",
+      "variant": "split",
+      "headline": "Diş hekimine gitmeyi erteliyorsanız, sorun sizde değil",
+      "subline": "Her işlemi önce anlatıyoruz, sonra yapıyoruz. Ne olacağını bilmek, ağrının yarısını alıyor.",
+      "image": {
+        "src": "https://images.unsplash.com/photo-1606811841689-23dfddce3e95?w=1400&q=80&auto=format&fit=crop",
+        "alt": "Klinikte muayene"
+      },
+      "badges": [
+        "14 yıl deneyim",
+        "Dijital görüntüleme",
+        "Anlaşmalı sigortalar"
+      ],
+      "actions": [
+        {
+          "label": "Randevu Al",
+          "kind": "whatsapp",
+          "style": "primary"
+        },
+        {
+          "label": "Hizmetler",
+          "kind": "scroll",
+          "value": "hizmetler",
+          "style": "ghost"
+        }
+      ]
+    },
+    {
+      "type": "about",
+      "id": "hakkinda",
+      "title": "Acele etmeyen bir klinik",
+      "body": "Dt. Elif Yarar, Marmara Üniversitesi Diş Hekimliği Fakültesi mezunu. 14 yıldır Kadıköy'de çalışıyor.\n\nBurada randevular üst üste dizilmez. Her hastaya, işlemi anlatmaya ve sorularını bitirmeye yeten süre ayrılır. Çocuk hastalarda ilk seans hiçbir işlem yapılmadan sadece tanışmaya geçer.",
+      "highlights": [
+        {
+          "label": "Deneyim",
+          "value": "14 yıl"
+        },
+        {
+          "label": "Hasta",
+          "value": "6.000+"
+        },
+        {
+          "label": "Randevu süresi",
+          "value": "45 dk"
+        }
+      ]
+    },
+    {
+      "type": "services",
+      "id": "hizmetler",
+      "title": "Hizmetlerimiz",
+      "intro": "Fiyatlar ağız içi muayene sonrası netleşir; aşağıdakiler başlangıç aralıklarıdır.",
+      "layout": "cards",
+      "items": [
+        {
+          "name": "İmplant",
+          "description": "Cerrahi planlama, 3B tomografi ve iyileşme takibi dahil.",
+          "price": "18.000 ₺'den"
+        },
+        {
+          "name": "Zirkonyum Kaplama",
+          "description": "Doğal diş rengine göre seçilir, tek seansta prova.",
+          "price": "7.500 ₺ / diş"
+        },
+        {
+          "name": "Diş Beyazlatma",
+          "description": "Klinikte tek seans veya evde plak sistemi.",
+          "price": "4.000 ₺'den"
+        },
+        {
+          "name": "Şeffaf Plak Ortodonti",
+          "description": "Tel olmadan diş düzeltme, dijital tarama ile planlama.",
+          "price": "45.000 ₺'den"
+        },
+        {
+          "name": "Kanal Tedavisi",
+          "description": "Tek seansta, mikroskop destekli.",
+          "price": "3.500 ₺'den"
+        },
+        {
+          "name": "Çocuk Diş Hekimliği",
+          "description": "İlk seans tanışma seansıdır, işlem yapılmaz.",
+          "price": "Muayene ücretsiz"
+        }
+      ]
+    },
+    {
+      "type": "reviews",
+      "id": "yorumlar",
+      "title": "Hastalarımız ne diyor?",
+      "summary": {
+        "rating": 4.9,
+        "count": 238,
+        "source": "Google"
+      },
+      "items": [
+        {
+          "author": "Ayşe D.",
+          "rating": 5,
+          "text": "Diş hekimi fobim vardı. İlk seansta hiçbir şey yapmadan sadece konuştuk. İkinci seansta kanal tedavisi oldum ve hiç korkmadım.",
+          "source": "Google"
+        },
+        {
+          "author": "Onur B.",
+          "rating": 5,
+          "text": "İmplant sürecinin her aşamasını önceden anlattı. Sürpriz masraf çıkmadı, söylediği fiyat neyse o.",
+          "source": "Google"
+        },
+        {
+          "author": "Zeynep K.",
+          "rating": 5,
+          "text": "Oğlumu götürdüğüm üçüncü hekim. İlk defa ağlamadan çıktık.",
+          "source": "Google"
+        }
+      ]
+    },
+    {
+      "type": "faq",
+      "id": "sorular",
+      "title": "Sıkça Sorulan Sorular",
+      "items": [
+        {
+          "q": "Muayene ücretli mi?",
+          "a": "İlk muayene ve tedavi planı ücretsizdir. Röntgen gerekiyorsa ayrıca ücretlendirilir."
+        },
+        {
+          "q": "Taksit yapıyor musunuz?",
+          "a": "Kredi kartına 9 taksite kadar yapıyoruz. İmplant ve ortodonti gibi uzun süreli tedavilerde seans bazlı ödeme de mümkün."
+        },
+        {
+          "q": "Anlaşmalı olduğunuz sigortalar var mı?",
+          "a": "Özel sağlık sigortalarının çoğuyla anlaşmalıyız. Poliçenizi WhatsApp'tan iletirseniz kapsamı önceden söyleyebiliriz."
+        },
+        {
+          "q": "Acil bir diş ağrım var, aynı gün gelebilir miyim?",
+          "a": "Her gün için acil hasta kontenjanı ayırıyoruz. Sabah arayın, çoğu zaman aynı gün içinde yer açılıyor."
+        }
+      ]
+    },
+    {
+      "type": "hours",
+      "id": "saatler",
+      "title": "Çalışma Saatleri"
+    },
+    {
+      "type": "contact",
+      "id": "randevu",
+      "title": "Randevu Al",
+      "intro": "Formu doldurun, mesajınız WhatsApp'ta hazır olarak açılır. Genelde bir saat içinde dönüyoruz.",
+      "form": {
+        "enabled": true,
+        "submitLabel": "WhatsApp'tan Randevu İste",
+        "fields": [
+          {
+            "name": "isim",
+            "label": "Adınız",
+            "type": "text",
+            "required": true
+          },
+          {
+            "name": "telefon",
+            "label": "Telefon",
+            "type": "tel",
+            "required": true
+          },
+          {
+            "name": "konu",
+            "label": "Hangi konuda?",
+            "type": "select",
+            "required": true,
+            "options": [
+              "Genel muayene",
+              "Diş ağrısı / acil",
+              "İmplant",
+              "Zirkonyum kaplama",
+              "Diş beyazlatma",
+              "Şeffaf plak ortodonti",
+              "Çocuk diş hekimliği"
+            ]
+          },
+          {
+            "name": "tarih",
+            "label": "Tercih ettiğiniz tarih",
+            "type": "date",
+            "required": false
+          },
+          {
+            "name": "not",
+            "label": "Eklemek istediğiniz bir şey",
+            "type": "textarea",
+            "required": false
+          }
+        ]
+      }
+    },
+    {
+      "type": "location",
+      "id": "konum",
+      "title": "Klinik Nerede?",
+      "showMap": true,
+      "note": "Bağdat Caddesi üzerinde, binada asansör var. Marmaray Bostancı durağından 8 dakika yürüme mesafesinde."
+    }
+  ],
+  "offer": {
+    "status": "demo",
+    "price": 12000,
+    "currency": "TRY",
+    "seller": {
+      "name": "fourpear",
+      "whatsapp": "905078463929"
+    }
+  },
+  "seo": {
+    "title": "Dt. Elif Yarar — Kadıköy Diş Kliniği",
+    "description": "Kadıköy Bağdat Caddesi'nde implant, zirkonyum, şeffaf plak ortodonti ve çocuk diş hekimliği. 14 yıl deneyim."
+  }
+}
