@@ -154,25 +154,6 @@
       "note": "Yılmazer Sokak üzerinde, Cevizli."
     },
     {
-      "id": "iletisim",
-      "type": "cta",
-      "headline": "Sorunuz varsa yazın, acilse arayın",
-      "subline": "Muayene ve tahlil için WhatsApp'tan yazın.",
-      "actions": [
-        {
-          "label": "WhatsApp'tan Yazın",
-          "kind": "whatsapp",
-          "value": "Merhaba, Polen Veteriner için yazıyorum.\nHayvan (tür/yaş): \nŞikâyet: ",
-          "style": "primary"
-        },
-        {
-          "label": "0554 186 45 44",
-          "kind": "call",
-          "style": "ghost"
-        }
-      ]
-    },
-    {
       "id": "hakkinda",
       "type": "about",
       "title": "Klinik hakkında",
@@ -212,6 +193,25 @@
         {
           "q": "Neredesiniz?",
           "a": "Cevizli Mahallesi, Yılmazer Sokak No:2-4/A, Maltepe. Yol tarifi düğmesi haritayı açar."
+        }
+      ]
+    },
+    {
+      "id": "iletisim",
+      "type": "cta",
+      "headline": "Sorunuz varsa yazın, acilse arayın",
+      "subline": "Muayene ve tahlil için WhatsApp'tan yazın.",
+      "actions": [
+        {
+          "label": "WhatsApp'tan Yazın",
+          "kind": "whatsapp",
+          "value": "Merhaba, Polen Veteriner için yazıyorum.\nHayvan (tür/yaş): \nŞikâyet: ",
+          "style": "primary"
+        },
+        {
+          "label": "0554 186 45 44",
+          "kind": "call",
+          "style": "ghost"
         }
       ]
     }

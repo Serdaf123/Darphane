@@ -147,24 +147,6 @@
       ]
     },
     {
-      "id": "iletisim",
-      "headline": "Gece de arayabilirsiniz",
-      "subline": "Her gün 24 saat açık kliniğimize 0532 570 77 32 numarasından ulaşın.",
-      "actions": [
-        {
-          "label": "Hemen arayın",
-          "kind": "call",
-          "style": "primary"
-        },
-        {
-          "label": "WhatsApp'tan yazın",
-          "kind": "whatsapp",
-          "value": "Merhaba, Esatpaşa Veteriner Kliniği için yazıyorum.\nHayvan (tür/yaş): \nŞikâyet: ",
-          "style": "ghost"
-        }
-      ]
-    },
-    {
       "id": "hakkinda",
       "title": "Esatpaşa'daki kliniğimiz",
       "body": "Veteriner Hekim Osman Kısa'nın görev yaptığı kliniğimiz, Esatpaşa'da her gün 24 saat açıktır.\n\nMuayene, tahlil, aşı, acil müdahale, kısırlaştırma ve ameliyat hizmetlerinin yanında mama ve bakım ürünleri de bulunur.",
@@ -182,6 +164,24 @@
           "value": "Esatpaşa, Ataşehir"
         }
       ]
+    },
+    {
+      "id": "iletisim",
+      "headline": "Gece de arayabilirsiniz",
+      "subline": "Her gün 24 saat açık kliniğimize 0532 570 77 32 numarasından ulaşın.",
+      "actions": [
+        {
+          "label": "Hemen arayın",
+          "kind": "call",
+          "style": "primary"
+        },
+        {
+          "label": "WhatsApp'tan yazın",
+          "kind": "whatsapp",
+          "value": "Merhaba, Esatpaşa Veteriner Kliniği için yazıyorum.\nHayvan (tür/yaş): \nŞikâyet: ",
+          "style": "ghost"
+        }
+      ]
     }
   ],
   "sectionOrder": [
@@ -191,8 +191,8 @@
     "hizmetler",
     "yorumlar",
     "sss",
-    "iletisim",
-    "hakkinda"
+    "hakkinda",
+    "iletisim"
   ],
   "remove": [
     "galeri"

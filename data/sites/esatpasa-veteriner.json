@@ -222,25 +222,6 @@
       "note": "Adnan Menderes Caddesi üzerinde, Esatpaşa."
     },
     {
-      "id": "iletisim",
-      "type": "cta",
-      "headline": "Sorunuz varsa yazın, acilse arayın",
-      "subline": "Muayene ve aşı için WhatsApp'tan yazın; acil durumda telefon her saat açık.",
-      "actions": [
-        {
-          "label": "WhatsApp'tan Yazın",
-          "kind": "whatsapp",
-          "value": "Merhaba, Esatpaşa Veteriner için yazıyorum.\nHayvan (tür/yaş): \nŞikâyet: ",
-          "style": "primary"
-        },
-        {
-          "label": "0532 570 77 32",
-          "kind": "call",
-          "style": "ghost"
-        }
-      ]
-    },
-    {
       "id": "hakkinda",
       "type": "about",
       "title": "Klinik hakkında",
@@ -295,6 +276,25 @@
           "src": "/sites/esatpasa-veteriner/kedi.webp",
           "alt": "Dinlenen bir kedi",
           "focal": "50% 50%"
+        }
+      ]
+    },
+    {
+      "id": "iletisim",
+      "type": "cta",
+      "headline": "Sorunuz varsa yazın, acilse arayın",
+      "subline": "Muayene ve aşı için WhatsApp'tan yazın; acil durumda telefon her saat açık.",
+      "actions": [
+        {
+          "label": "WhatsApp'tan Yazın",
+          "kind": "whatsapp",
+          "value": "Merhaba, Esatpaşa Veteriner için yazıyorum.\nHayvan (tür/yaş): \nŞikâyet: ",
+          "style": "primary"
+        },
+        {
+          "label": "0532 570 77 32",
+          "kind": "call",
+          "style": "ghost"
         }
       ]
     }

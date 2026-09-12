@@ -143,24 +143,6 @@
       "title": "Çalışma saatleri"
     },
     {
-      "id": "iletisim",
-      "headline": "Kliniğimizden bilgi alın",
-      "subline": "Hizmetlerimiz hakkında bilgi almak için çalışma saatlerimizde 0552 799 98 89 numarasını arayın.",
-      "actions": [
-        {
-          "label": "Kliniği arayın",
-          "kind": "call",
-          "style": "primary"
-        },
-        {
-          "label": "WhatsApp'tan yazın",
-          "kind": "whatsapp",
-          "value": "Merhaba, Adraga Veteriner Kliniği için yazıyorum.\nHayvan (tür/yaş): \nŞikâyet: ",
-          "style": "ghost"
-        }
-      ]
-    },
-    {
       "id": "galeri",
       "title": "Klinikten"
     },
@@ -193,6 +175,24 @@
           "source": "Google"
         }
       ]
+    },
+    {
+      "id": "iletisim",
+      "headline": "Kliniğimizden bilgi alın",
+      "subline": "Hizmetlerimiz hakkında bilgi almak için çalışma saatlerimizde 0552 799 98 89 numarasını arayın.",
+      "actions": [
+        {
+          "label": "Kliniği arayın",
+          "kind": "call",
+          "style": "primary"
+        },
+        {
+          "label": "WhatsApp'tan yazın",
+          "kind": "whatsapp",
+          "value": "Merhaba, Adraga Veteriner Kliniği için yazıyorum.\nHayvan (tür/yaş): \nŞikâyet: ",
+          "style": "ghost"
+        }
+      ]
     }
   ],
   "sectionOrder": [
@@ -203,9 +203,9 @@
     "sss",
     "konum",
     "saatler",
-    "iletisim",
     "galeri",
-    "yorumlar"
+    "yorumlar",
+    "iletisim"
   ],
   "remove": []
 }

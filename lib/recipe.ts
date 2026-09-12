@@ -113,7 +113,7 @@ export function generateRecipeVariantOverlay(
     .filter((section) => Object.keys(section).some((key) => key !== 'id' && key !== 'type'))
     .map((section) => section.id)
     .filter((id) => !recipeOrder.includes(id) && !existing.remove?.includes(id));
-  const order = [...recipeOrder, ...preservedIds];
+  const order = insertBeforeClosing(recipeOrder, preservedIds, (id) => contentSiteById.get(id)?.type);
 
   return siteOverlaySchema.parse({
     recipe: generated.recipe,
@@ -134,6 +134,10 @@ export function generateRecipeVariantOverlay(
 /** Reçeteyi A'nın tam dosyasına uygular; reçetede olmayan mevcut içerik sonda korunur. */
 export function applyRecipeToBase(site: Site, input: unknown, warn: (message: string) => void = console.error): Site {
   const overlay = generateRecipeOverlay(site, input, warn);
+  // Reçetede olmayan mevcut bölümler silinmez; kapanış (cta/contact) en sonda kalsın diye onun önüne girer
+  const ids = site.sections.map((section, index) => section.id ?? `${section.type}-${index}`);
+  const typeOf = (id: string) => site.sections[ids.indexOf(id)]?.type;
+  overlay.sectionOrder = insertBeforeClosing(overlay.sectionOrder ?? [], (overlay.remove ?? []).filter((id) => ids.includes(id)), typeOf);
   delete overlay.remove;
   const sections = overlay.sections?.map((section) => {
     const source = site.sections.find((candidate, index) => (candidate.id ?? `${candidate.type}-${index}`) === section.id);
@@ -146,6 +150,14 @@ export function applyRecipeToBase(site: Site, input: unknown, warn: (message: st
   return mergeSiteOverlay(site, { ...overlay, sections });
 }
 
+
+/** Sıraya girmeyen bölümleri sona değil, kapanış bölümünün (cta/contact) önüne koyar. */
+function insertBeforeClosing(order: string[], extra: string[], typeOf: (id: string) => string | undefined): string[] {
+  if (!extra.length) return order;
+  const last = order[order.length - 1];
+  const closing = last !== undefined && (typeOf(last) === 'cta' || typeOf(last) === 'contact');
+  return closing ? [...order.slice(0, -1), ...extra, last] : [...order, ...extra];
+}
 
 export type Recipe = z.infer<typeof recipeSchema>;
 

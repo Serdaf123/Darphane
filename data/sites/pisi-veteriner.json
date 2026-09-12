@@ -233,25 +233,6 @@
       "note": "İhlas Caddesi üzerinde, Yakuplu."
     },
     {
-      "id": "iletisim",
-      "type": "cta",
-      "headline": "Randevu için yazın ya da arayın",
-      "subline": "Muayene, kısırlaştırma ve bakım için WhatsApp'tan yazın; acilse arayın.",
-      "actions": [
-        {
-          "label": "WhatsApp'tan Yazın",
-          "kind": "whatsapp",
-          "value": "Merhaba, Pisi Veteriner için yazıyorum.\nHayvan (tür/yaş): \nŞikâyet: ",
-          "style": "primary"
-        },
-        {
-          "label": "0533 084 17 70",
-          "kind": "call",
-          "style": "ghost"
-        }
-      ]
-    },
-    {
       "id": "galeri",
       "type": "gallery",
       "title": "Klinikten",
@@ -301,6 +282,25 @@
           "src": "/sites/pisi-veteriner/kedi-2.webp",
           "alt": "Sarı beyaz bir kedi",
           "focal": "50% 50%"
+        }
+      ]
+    },
+    {
+      "id": "iletisim",
+      "type": "cta",
+      "headline": "Randevu için yazın ya da arayın",
+      "subline": "Muayene, kısırlaştırma ve bakım için WhatsApp'tan yazın; acilse arayın.",
+      "actions": [
+        {
+          "label": "WhatsApp'tan Yazın",
+          "kind": "whatsapp",
+          "value": "Merhaba, Pisi Veteriner için yazıyorum.\nHayvan (tür/yaş): \nŞikâyet: ",
+          "style": "primary"
+        },
+        {
+          "label": "0533 084 17 70",
+          "kind": "call",
+          "style": "ghost"
         }
       ]
     }

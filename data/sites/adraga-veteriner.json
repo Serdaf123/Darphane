@@ -217,25 +217,6 @@
       "note": "Sahilyolu Caddesi üzerinde, Yalı."
     },
     {
-      "id": "iletisim",
-      "type": "cta",
-      "headline": "Sorunuz varsa yazın, randevu için arayın",
-      "subline": "Muayene, aşı ve bakım için WhatsApp'tan yazın; acilse arayın.",
-      "actions": [
-        {
-          "label": "WhatsApp'tan Yazın",
-          "kind": "whatsapp",
-          "value": "Merhaba, Adraga Veteriner için yazıyorum.\nHayvan (tür/yaş): \nŞikâyet: ",
-          "style": "primary"
-        },
-        {
-          "label": "0552 799 98 89",
-          "kind": "call",
-          "style": "ghost"
-        }
-      ]
-    },
-    {
       "id": "hizmetler",
       "type": "services",
       "title": "Hizmetler",
@@ -297,6 +278,25 @@
         {
           "q": "Neredesiniz?",
           "a": "Yalı Mahallesi, Sahilyolu Caddesi No:8, Maltepe. Yol tarifi düğmesi haritayı açar."
+        }
+      ]
+    },
+    {
+      "id": "iletisim",
+      "type": "cta",
+      "headline": "Sorunuz varsa yazın, randevu için arayın",
+      "subline": "Muayene, aşı ve bakım için WhatsApp'tan yazın; acilse arayın.",
+      "actions": [
+        {
+          "label": "WhatsApp'tan Yazın",
+          "kind": "whatsapp",
+          "value": "Merhaba, Adraga Veteriner için yazıyorum.\nHayvan (tür/yaş): \nŞikâyet: ",
+          "style": "primary"
+        },
+        {
+          "label": "0552 799 98 89",
+          "kind": "call",
+          "style": "ghost"
         }
       ]
     }

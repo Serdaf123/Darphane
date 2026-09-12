@@ -191,24 +191,6 @@
       "note": "Mızrak Sokak üzerinde, Çınar."
     },
     {
-      "id": "iletisim",
-      "type": "cta",
-      "headline": "Randevu için arayın",
-      "subline": "Hafta içi 11:00–20:00, cumartesi 11:00–18:00.",
-      "actions": [
-        {
-          "label": "0216 417 03 19",
-          "kind": "call",
-          "style": "primary"
-        },
-        {
-          "label": "Yol Tarifi",
-          "kind": "directions",
-          "style": "ghost"
-        }
-      ]
-    },
-    {
       "id": "hakkinda",
       "type": "about",
       "title": "Klinik hakkında",
@@ -244,6 +226,24 @@
         {
           "q": "Neredesiniz?",
           "a": "Çınar Mahallesi, Mızrak Sokak No:3/A, Maltepe. Yol tarifi düğmesi haritayı açar."
+        }
+      ]
+    },
+    {
+      "id": "iletisim",
+      "type": "cta",
+      "headline": "Randevu için arayın",
+      "subline": "Hafta içi 11:00–20:00, cumartesi 11:00–18:00.",
+      "actions": [
+        {
+          "label": "0216 417 03 19",
+          "kind": "call",
+          "style": "primary"
+        },
+        {
+          "label": "Yol Tarifi",
+          "kind": "directions",
+          "style": "ghost"
         }
       ]
     }

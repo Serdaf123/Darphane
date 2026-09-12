@@ -222,25 +222,6 @@
       "note": "Cengiz Topel Caddesi üzerinde, Turgut Reis."
     },
     {
-      "id": "iletisim",
-      "type": "cta",
-      "headline": "Sorunuz varsa yazın, acilse arayın",
-      "subline": "Muayene, aşı ve kısırlaştırma için WhatsApp'tan yazın; acil durumda telefon.",
-      "actions": [
-        {
-          "label": "WhatsApp'tan Yazın",
-          "kind": "whatsapp",
-          "value": "Merhaba, Esenler Batı Veteriner için yazıyorum.\nHayvan (tür/yaş): \nŞikâyet: ",
-          "style": "primary"
-        },
-        {
-          "label": "0541 179 99 82",
-          "kind": "call",
-          "style": "ghost"
-        }
-      ]
-    },
-    {
       "id": "hakkinda",
       "type": "about",
       "title": "Klinik hakkında",
@@ -295,6 +276,25 @@
           "src": "/sites/esenler-bati-veteriner/kedi-4.webp",
           "alt": "Masada oturan bir kedi",
           "focal": "50% 50%"
+        }
+      ]
+    },
+    {
+      "id": "iletisim",
+      "type": "cta",
+      "headline": "Sorunuz varsa yazın, acilse arayın",
+      "subline": "Muayene, aşı ve kısırlaştırma için WhatsApp'tan yazın; acil durumda telefon.",
+      "actions": [
+        {
+          "label": "WhatsApp'tan Yazın",
+          "kind": "whatsapp",
+          "value": "Merhaba, Esenler Batı Veteriner için yazıyorum.\nHayvan (tür/yaş): \nŞikâyet: ",
+          "style": "primary"
+        },
+        {
+          "label": "0541 179 99 82",
+          "kind": "call",
+          "style": "ghost"
         }
       ]
     }

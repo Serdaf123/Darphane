@@ -140,23 +140,6 @@
       "title": "Çalışma saatleri"
     },
     {
-      "id": "iletisim",
-      "headline": "Telefonla bilgi alın",
-      "subline": "Muayene ve takip hakkında bilgi almak için çalışma saatlerimizde 0216 417 03 19 numarasını arayın.",
-      "actions": [
-        {
-          "label": "Kliniği arayın",
-          "kind": "call",
-          "style": "primary"
-        },
-        {
-          "label": "Yol tarifi alın",
-          "kind": "directions",
-          "style": "ghost"
-        }
-      ]
-    },
-    {
       "id": "yorumlar",
       "title": "Google yorumları",
       "items": [
@@ -179,6 +162,23 @@
           "source": "Google"
         }
       ]
+    },
+    {
+      "id": "iletisim",
+      "headline": "Telefonla bilgi alın",
+      "subline": "Muayene ve takip hakkında bilgi almak için çalışma saatlerimizde 0216 417 03 19 numarasını arayın.",
+      "actions": [
+        {
+          "label": "Kliniği arayın",
+          "kind": "call",
+          "style": "primary"
+        },
+        {
+          "label": "Yol tarifi alın",
+          "kind": "directions",
+          "style": "ghost"
+        }
+      ]
     }
   ],
   "sectionOrder": [
@@ -189,8 +189,8 @@
     "sss",
     "konum",
     "saatler",
-    "iletisim",
-    "yorumlar"
+    "yorumlar",
+    "iletisim"
   ],
   "remove": [
     "galeri"
