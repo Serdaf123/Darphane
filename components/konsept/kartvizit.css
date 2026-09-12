@@ -1,0 +1,35 @@
+/* Kartvizit — kabartmalı kart, arka yüz harita. */
+.k-kartvizit { --bg: #dedbd2; --paper: #fbfaf6; --ink: #1c1a17; --mute: #6f6a62; --acc: #8a1c1c; min-height: 100dvh; background: var(--bg); color: var(--ink); font-family: var(--f-plexsans), system-ui, sans-serif; }
+.k-kartvizit .stage { min-height: 100dvh; display: grid; place-items: center; padding: 2rem 1.25rem; perspective: 1600px; }
+.k-kartvizit .card { position: relative; width: min(100%, 34rem); aspect-ratio: 85 / 55; transform-style: preserve-3d; transition: transform 0.9s cubic-bezier(0.22, 1, 0.36, 1); }
+.k-kartvizit .card.flipped { transform: rotateY(180deg); }
+.k-kartvizit .face { position: absolute; inset: 0; backface-visibility: hidden; background: var(--paper); border-radius: 0.35rem; box-shadow: 0 30px 60px rgba(0,0,0,0.22), 0 1px 0 #fff inset, 0 0 0 1px rgba(0,0,0,0.06); padding: clamp(1rem, 4vw, 2.2rem); display: flex; flex-direction: column; justify-content: space-between; overflow: hidden; }
+.k-kartvizit .face.back { transform: rotateY(180deg); padding: 0; }
+.k-kartvizit .cat { margin: 0; font-size: 0.8125rem; color: var(--mute); }
+.k-kartvizit .name { margin: 0.25rem 0 0; font-family: var(--f-ebgaramond), serif; font-weight: 500; font-size: clamp(1.5rem, 5.6vw, 2.6rem); line-height: 1.05; letter-spacing: -0.01em; }
+.k-kartvizit .lines { display: grid; gap: 0.25rem; font-size: clamp(0.8rem, 2.6vw, 1rem); }
+.k-kartvizit .line { margin: 0; color: var(--ink); text-decoration: none; }
+.k-kartvizit .line.phone { font-weight: 600; font-variant-numeric: tabular-nums; }
+.k-kartvizit .line.open { color: #1f5f3b; } .k-kartvizit .line.closed { color: var(--mute); }
+.k-kartvizit .map { display: block; width: 100%; height: 52%; border: 0; filter: grayscale(1) contrast(1.05); }
+.k-kartvizit .back-body { padding: clamp(0.75rem, 3vw, 1.25rem); display: grid; gap: 0.6rem; }
+.k-kartvizit .hours { list-style: none; margin: 0; padding: 0; columns: 2; column-gap: 1.25rem; font-size: clamp(0.7rem, 2.3vw, 0.875rem); font-variant-numeric: tabular-nums; }
+.k-kartvizit .hours li { display: flex; justify-content: space-between; gap: 0.5rem; padding: 0.1rem 0; break-inside: avoid; color: var(--mute); }
+.k-kartvizit .hours li.today { color: var(--ink); font-weight: 600; }
+.k-kartvizit .note { margin: 0; font-size: 0.875rem; color: var(--mute); }
+.k-kartvizit .flip { position: absolute; left: 50%; bottom: -3.4rem; transform: translateX(-50%); min-height: 2.75rem; padding: 0 1.1rem; border: 1px solid #b9b4a9; border-radius: 999px; background: transparent; color: var(--ink); font: inherit; cursor: pointer; }
+.k-kartvizit .flip:focus-visible, .k-kartvizit a:focus-visible { outline: 2px solid var(--acc); outline-offset: 3px; }
+.k-kartvizit .acts { display: flex; flex-wrap: wrap; gap: 0.5rem; }
+.k-kartvizit .btn { display: inline-flex; align-items: center; min-height: 2.75rem; padding: 0 1rem; border: 1px solid #b9b4a9; border-radius: 0.35rem; text-decoration: none; color: var(--ink); font-size: 0.9375rem; font-weight: 500; background: var(--paper); }
+.k-kartvizit .btn.primary { background: var(--ink); color: var(--paper); border-color: var(--ink); }
+.k-kartvizit .rest { max-width: 40rem; margin: 0 auto; padding: 1rem 1.25rem 4rem; display: grid; gap: 0.9rem; }
+.k-kartvizit .row { margin: 0; display: grid; grid-template-columns: 6rem 1fr; gap: 0.75rem; padding-top: 0.75rem; border-top: 1px solid #c9c4b8; font-size: 0.9375rem; line-height: 1.5; }
+.k-kartvizit .k { color: var(--mute); }
+.k-kartvizit .acts.bottom { padding-top: 0.75rem; }
+@media (prefers-reduced-motion: reduce) {
+  .k-kartvizit .stage { perspective: none; }
+  .k-kartvizit .card { aspect-ratio: auto; transform: none !important; transition: none; display: grid; gap: 1rem; }
+  .k-kartvizit .face { position: static; transform: none; aspect-ratio: 85 / 55; }
+  .k-kartvizit .face.back { aspect-ratio: auto; }
+  .k-kartvizit .flip { display: none; }
+}

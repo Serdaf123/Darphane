@@ -1,0 +1,55 @@
+/* Nöbet — siyah, tabular rakam, tek yeşil. */
+.k-nobet { --bg: #070707; --fg: #f4f2ec; --mute: #9a978f; --line: #24231f; --on: #36d36c; min-height: 100dvh; background: var(--bg); color: var(--fg); font-family: var(--f-plexsans), system-ui, sans-serif; padding: 1.25rem 1.25rem 4rem; }
+.k-nobet a { color: inherit; }
+.k-nobet .top { display: flex; justify-content: space-between; align-items: baseline; gap: 1rem; font-size: 0.9375rem; }
+.k-nobet .status { margin: 0; display: inline-flex; align-items: center; gap: 0.5rem; color: var(--mute); }
+.k-nobet .dot { width: 0.6rem; height: 0.6rem; border-radius: 999px; background: #55534d; }
+.k-nobet .dot.on { background: var(--on); box-shadow: 0 0 0 4px rgba(54, 211, 108, 0.18); animation: k-nobet-pulse 2.4s ease-out infinite; }
+.k-nobet .name { margin: 0; color: var(--mute); text-align: right; }
+.k-nobet .phone-block { padding: 3.5rem 0 2.5rem; }
+.k-nobet .lead { margin: 0 0 0.75rem; color: var(--mute); font-size: 1.0625rem; }
+.k-nobet .phone { display: block; font-family: var(--f-plexserif), var(--f-plexsans), serif; font-size: clamp(2.7rem, 11.6vw, 9.5rem); line-height: 0.95; letter-spacing: -0.02em; font-variant-numeric: tabular-nums; text-decoration: none; white-space: nowrap; animation: k-nobet-in 0.7s cubic-bezier(0.22, 1, 0.36, 1) both; }
+.k-nobet .phone:hover { color: var(--on); }
+.k-nobet .under { margin: 1rem 0 0; max-width: 34rem; color: var(--mute); font-size: 1.0625rem; line-height: 1.55; }
+.k-nobet .acts { display: flex; flex-wrap: wrap; gap: 0.6rem; margin-top: 1.5rem; }
+.k-nobet .btn { display: inline-flex; align-items: center; min-height: 3rem; padding: 0 1.1rem; border: 1px solid var(--line); border-radius: 0.5rem; text-decoration: none; font-weight: 500; }
+.k-nobet .btn.primary { background: var(--fg); color: var(--bg); border-color: var(--fg); }
+.k-nobet .btn:focus-visible, .k-nobet .phone:focus-visible { outline: 2px solid var(--on); outline-offset: 3px; }
+.k-nobet .dial-block { display: grid; gap: 1.5rem; align-items: center; padding: 2rem 0; border-top: 1px solid var(--line); }
+.k-nobet .dial { width: min(100%, 22rem); margin: 0 auto; display: block; }
+.k-nobet .dial-track { fill: none; stroke: var(--line); stroke-width: 10; }
+.k-nobet .dial-arc { fill: none; stroke: var(--on); stroke-width: 10; stroke-linecap: butt; transform: rotate(-90deg); transform-origin: 130px 130px; animation: k-nobet-draw 1.2s cubic-bezier(0.22, 1, 0.36, 1) 0.3s both; }
+.k-nobet .dial-tick { stroke: #3a3934; stroke-width: 1.5; }
+.k-nobet .dial-tick.major { stroke: var(--mute); stroke-width: 2; }
+.k-nobet .dial-num { fill: var(--mute); font-size: 11px; font-variant-numeric: tabular-nums; }
+.k-nobet .dial-hand line { stroke: var(--fg); stroke-width: 2.5; stroke-linecap: round; }
+.k-nobet .dial-hand circle { fill: var(--fg); }
+.k-nobet .hours { list-style: none; margin: 0; padding: 0; font-variant-numeric: tabular-nums; }
+.k-nobet .hours li { display: flex; justify-content: space-between; padding: 0.55rem 0; border-bottom: 1px solid var(--line); color: var(--mute); }
+.k-nobet .hours li.today { color: var(--fg); font-weight: 600; }
+.k-nobet .list { padding: 2rem 0; border-top: 1px solid var(--line); }
+.k-nobet .h { margin: 0 0 1.25rem; font-family: var(--f-plexserif), serif; font-weight: 400; font-size: clamp(1.75rem, 4vw, 2.5rem); letter-spacing: -0.01em; }
+.k-nobet .h.sr { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); }
+.k-nobet .list ol { list-style: none; margin: 0; padding: 0; counter-reset: k; }
+.k-nobet .list li { display: grid; grid-template-columns: 2.25rem 1fr; gap: 0.25rem 0.75rem; padding: 0.9rem 0; border-bottom: 1px solid var(--line); counter-increment: k; }
+.k-nobet .list li::before { content: counter(k, decimal-leading-zero); color: var(--mute); font-variant-numeric: tabular-nums; grid-row: span 2; }
+.k-nobet .list strong { font-weight: 600; }
+.k-nobet .list span { grid-column: 2; color: var(--mute); font-size: 0.9375rem; line-height: 1.5; }
+.k-nobet .quotes { padding: 2rem 0; border-top: 1px solid var(--line); display: grid; gap: 1.25rem; }
+.k-nobet .rating { margin: 0; color: var(--mute); font-variant-numeric: tabular-nums; }
+.k-nobet blockquote { margin: 0; max-width: 40rem; }
+.k-nobet blockquote p { margin: 0 0 0.4rem; font-family: var(--f-plexserif), serif; font-size: 1.125rem; line-height: 1.55; }
+.k-nobet cite { font-style: normal; color: var(--mute); font-size: 0.9rem; }
+.k-nobet .where { padding: 2rem 0 0; border-top: 1px solid var(--line); }
+.k-nobet .addr { margin: 0; font-size: 1.125rem; }
+.k-nobet .note { margin: 1rem 0 0; color: var(--mute); font-size: 0.875rem; }
+@media (min-width: 768px) {
+  .k-nobet { padding: 1.5rem 3rem 5rem; }
+  .k-nobet .dial-block { grid-template-columns: 22rem 1fr; gap: 3rem; }
+  .k-nobet .list li { grid-template-columns: 3rem 16rem 1fr; }
+  .k-nobet .list span { grid-column: 3; }
+}
+@keyframes k-nobet-in { from { opacity: 0; transform: translateY(0.35em); } to { opacity: 1; transform: none; } }
+@keyframes k-nobet-draw { from { stroke-dasharray: 0 999; } }
+@keyframes k-nobet-pulse { 0% { box-shadow: 0 0 0 0 rgba(54, 211, 108, 0.35); } 100% { box-shadow: 0 0 0 10px rgba(54, 211, 108, 0); } }
+@media (prefers-reduced-motion: reduce) { .k-nobet .phone, .k-nobet .dial-arc, .k-nobet .dot.on { animation: none; } }

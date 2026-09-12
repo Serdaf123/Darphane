@@ -1,0 +1,30 @@
+/* Boşluk — bir cümle, bir ekran. Kırık beyaz, ince ağırlık, çok boşluk. */
+.k-bosluk { --bg: #f7f5f0; --fg: #1d1b18; --mute: #7d7871; --acc: #1f5f3b; background: var(--bg); color: var(--fg); font-family: var(--f-dmsans), system-ui, sans-serif; }
+.k-bosluk .screen { min-height: 100dvh; display: grid; place-items: center; padding: 3rem 1.5rem; text-align: center; }
+.k-bosluk .screen > * { max-width: 30ch; margin: 0; font-family: var(--f-fraunces), serif; font-weight: 300; font-size: clamp(1.6rem, 4.2vw, 3rem); line-height: 1.3; text-wrap: balance; }
+.k-bosluk .screen.name h1 { font-size: clamp(2.4rem, 7vw, 5.5rem); font-weight: 300; letter-spacing: -0.02em; line-height: 1.05; }
+.k-bosluk .screen.addr p { font-family: var(--f-dmsans), sans-serif; font-weight: 400; font-size: clamp(1.1rem, 2.4vw, 1.5rem); color: var(--mute); max-width: 36ch; }
+.k-bosluk .screen.open p { color: var(--acc); }
+.k-bosluk .screen.closed p { color: var(--mute); }
+.k-bosluk .screen.services p { font-family: var(--f-dmsans), sans-serif; font-weight: 400; font-size: clamp(1.1rem, 2.4vw, 1.5rem); max-width: 40ch; line-height: 1.6; }
+.k-bosluk blockquote { max-width: 34ch; }
+.k-bosluk blockquote p { margin: 0; font-style: italic; font-size: clamp(1.35rem, 3vw, 2.1rem); line-height: 1.4; }
+.k-bosluk cite { display: block; margin-top: 1rem; font-style: normal; font-family: var(--f-dmsans), sans-serif; font-size: 0.9375rem; color: var(--mute); }
+.k-bosluk .screen.last { align-content: center; gap: 1.5rem; }
+.k-bosluk .phone { font-family: var(--f-fraunces), serif; font-weight: 300; font-size: clamp(2.2rem, 8vw, 6rem); letter-spacing: -0.02em; text-decoration: none; color: var(--fg); font-variant-numeric: tabular-nums; white-space: nowrap; }
+.k-bosluk .acts { display: flex; flex-wrap: wrap; justify-content: center; gap: 0.6rem; }
+.k-bosluk .btn { display: inline-flex; align-items: center; min-height: 3rem; padding: 0 1.3rem; border-radius: 999px; background: var(--fg); color: var(--bg); text-decoration: none; font-weight: 500; font-size: 1rem; }
+.k-bosluk .btn.quiet { background: transparent; color: var(--fg); border: 1px solid #cfcac1; }
+.k-bosluk a:focus-visible, .k-bosluk summary:focus-visible { outline: 2px solid var(--acc); outline-offset: 3px; }
+.k-bosluk .hours { font-family: var(--f-dmsans), sans-serif; font-size: 0.9375rem; color: var(--mute); max-width: 22rem; width: 100%; }
+.k-bosluk .hours summary { cursor: pointer; list-style: none; text-decoration: underline; text-underline-offset: 0.25em; }
+.k-bosluk .hours ul { list-style: none; margin: 0.75rem 0 0; padding: 0; font-variant-numeric: tabular-nums; text-align: left; }
+.k-bosluk .hours li { display: flex; justify-content: space-between; padding: 0.3rem 0; border-top: 1px solid #e6e2da; }
+.k-bosluk .hours li.today { color: var(--fg); font-weight: 600; }
+.k-bosluk .dots { position: fixed; right: 0.9rem; top: 50%; transform: translateY(-50%); margin: 0; padding: 0; list-style: none; display: grid; gap: 0.5rem; }
+.k-bosluk .dots li { width: 0.35rem; height: 0.35rem; border-radius: 999px; background: #cbc6bd; }
+@supports (animation-timeline: view()) {
+  .k-bosluk .screen > * { animation: k-bosluk-in linear both; animation-timeline: view(); animation-range: entry 30% cover 45%; }
+}
+@keyframes k-bosluk-in { from { opacity: 0; transform: translateY(0.6rem); } to { opacity: 1; transform: none; } }
+@media (prefers-reduced-motion: reduce) { .k-bosluk .screen > * { animation: none !important; opacity: 1; transform: none; } }

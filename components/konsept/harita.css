@@ -1,0 +1,185 @@
+/* Harita — arkada sabit harita, önde yüzen kart, kaydırınca yükselen beyaz panel. */
+.k-harita {
+  --ink: #16181d;
+  --muted: #5b6069;
+  --line: #e3e5e9;
+  --ground: #dfe3e8;
+  --card: #ffffff;
+  --blue: #1a56db;
+  --open: #157a3e;
+  --closed: #b42318;
+  position: relative;
+  min-height: 100dvh;
+  background: var(--ground);
+  color: var(--ink);
+  font-family: var(--f-figtree), system-ui, -apple-system, "Segoe UI", sans-serif;
+  font-size: 1rem;
+  line-height: 1.5;
+}
+.k-harita * { box-sizing: border-box; }
+
+/* Harita arka planı: sabit, tam ekran; kilitliyken kaydırmayı yakalamaz */
+.k-harita .map {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+}
+.k-harita .map iframe { display: block; width: 100%; height: 100%; border: 0; }
+.k-harita[data-map="locked"] .map { pointer-events: none; }
+
+/* Sahne: ilk ekran; kart yapışık kalır, panel alttan gelip üstünü örter */
+.k-harita .stage {
+  position: relative;
+  z-index: 1;
+  min-height: calc(100dvh - 4.5rem);
+  padding: 1rem;
+}
+.k-harita .card {
+  position: sticky;
+  top: 1rem;
+  max-width: 24rem;
+  padding: 1.25rem 1.25rem 1rem;
+  background: var(--card);
+  border-radius: 1.25rem;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.08), 0 18px 48px -16px rgba(0, 0, 0, 0.35);
+  animation: k-harita-rise 0.55s cubic-bezier(0.2, 0.8, 0.2, 1) both;
+}
+@keyframes k-harita-rise {
+  from { opacity: 0; transform: translateY(18px); }
+  to { opacity: 1; transform: none; }
+}
+.k-harita .cat { margin: 0; font-size: 0.875rem; color: var(--muted); }
+.k-harita h1 {
+  margin: 0.125rem 0 0.5rem;
+  font-size: clamp(1.5rem, 5.5vw, 1.875rem);
+  font-weight: 700;
+  line-height: 1.15;
+  letter-spacing: -0.015em;
+}
+.k-harita .state { margin: 0 0 0.25rem; font-weight: 600; }
+.k-harita .state::before {
+  content: "";
+  display: inline-block;
+  width: 0.5rem;
+  height: 0.5rem;
+  margin-right: 0.5rem;
+  border-radius: 50%;
+  background: currentColor;
+  vertical-align: 0.05em;
+}
+.k-harita .state.open { color: var(--open); }
+.k-harita .state.closed { color: var(--closed); }
+.k-harita .state.unknown { color: var(--muted); font-weight: 500; }
+.k-harita .state.unknown::before { display: none; }
+.k-harita .addr { margin: 0 0 1rem; color: var(--muted); font-size: 0.9375rem; }
+.k-harita .phone { margin: 0.75rem 0 0; font-size: 1.125rem; font-weight: 600; font-variant-numeric: tabular-nums; }
+
+/* Düğmeler: Yol tarifi birincil ve tam genişlik; Ara / WhatsApp yan yana */
+.k-harita .acts { display: grid; gap: 0.5rem; }
+.k-harita .row { display: grid; grid-template-columns: 1fr 1fr; gap: 0.5rem; }
+.k-harita .row:empty { display: none; }
+.k-harita .btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 3rem;
+  padding: 0 1rem;
+  font-weight: 600;
+  font-size: 0.9375rem;
+  color: var(--ink);
+  background: #f1f3f6;
+  border-radius: 0.75rem;
+  text-decoration: none;
+}
+.k-harita .btn.primary { background: var(--blue); color: #fff; }
+.k-harita .btn:focus-visible,
+.k-harita .toggle:focus-visible { outline: 2px solid var(--blue); outline-offset: 2px; }
+.k-harita .toggle {
+  margin: 0.75rem 0 0;
+  padding: 0.5rem 0;
+  min-height: 2.75rem;
+  font: inherit;
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--muted);
+  background: none;
+  border: 0;
+  cursor: pointer;
+  text-decoration: underline;
+  text-underline-offset: 0.2em;
+}
+.k-harita[data-map="live"] .toggle { color: var(--blue); }
+
+/* Panel: haritanın üstüne çıkan beyaz sayfa */
+.k-harita .panel {
+  position: relative;
+  z-index: 2;
+  min-height: 100dvh;
+  max-width: 64rem;
+  margin: 0 auto;
+  background: #fff;
+  border-radius: 1.5rem 1.5rem 0 0;
+  box-shadow: 0 -8px 40px -12px rgba(0, 0, 0, 0.3);
+}
+.k-harita .handle {
+  width: 2.75rem;
+  height: 0.3125rem;
+  margin: 0.75rem auto 0;
+  border-radius: 999px;
+  background: #cfd3da;
+}
+.k-harita .inner { padding: 1.25rem 1.25rem 4rem; }
+.k-harita .lead { margin: 0.5rem 0 1.5rem; font-size: 1.125rem; line-height: 1.5; max-width: 40rem; }
+.k-harita .sec { padding: 1.5rem 0; border-top: 1px solid var(--line); }
+.k-harita h2 { margin: 0 0 0.75rem; font-size: 1.125rem; font-weight: 700; letter-spacing: -0.01em; }
+.k-harita p { margin: 0 0 0.75rem; }
+.k-harita .muted { color: var(--muted); font-size: 0.9375rem; }
+
+.k-harita .services { list-style: none; margin: 0; padding: 0; display: grid; gap: 0.25rem 2rem; }
+.k-harita .services li { display: grid; gap: 0.125rem; padding: 0.625rem 0; border-bottom: 1px solid var(--line); }
+.k-harita .services li:last-child { border-bottom: 0; }
+.k-harita .services strong { font-weight: 600; }
+.k-harita .services span { color: var(--muted); font-size: 0.9375rem; }
+
+.k-harita .hours { list-style: none; margin: 0 0 0.75rem; padding: 0; max-width: 24rem; font-variant-numeric: tabular-nums; }
+.k-harita .hours li { display: flex; justify-content: space-between; gap: 1rem; padding: 0.375rem 0; border-bottom: 1px dashed var(--line); }
+.k-harita .hours li.today { font-weight: 700; }
+.k-harita .hours li.closed span:last-child { color: var(--muted); }
+
+.k-harita .photos { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0.5rem; }
+.k-harita .ph { position: relative; margin: 0; aspect-ratio: 4 / 3; border-radius: 0.75rem; overflow: hidden; background: var(--ground); }
+.k-harita .ph:first-child { grid-column: 1 / -1; aspect-ratio: 16 / 9; }
+
+.k-harita .reviews { display: grid; gap: 0.75rem; }
+.k-harita .reviews blockquote { margin: 0; padding: 1rem 1.125rem; background: #f6f7f9; border-radius: 1rem; }
+.k-harita .reviews p { margin: 0 0 0.5rem; }
+.k-harita .reviews footer { font-size: 0.875rem; color: var(--muted); }
+
+.k-harita .contact .addr-big { font-size: 1.125rem; font-weight: 500; }
+.k-harita .contact .phone { margin: 0 0 1rem; font-size: 1.5rem; }
+.k-harita .contact .acts { max-width: 24rem; }
+
+/* Harita yok: düz düzen, kart üstte sabit değil */
+.k-harita.no-map .stage { min-height: auto; padding: 1.5rem 1rem 1rem; }
+.k-harita.no-map .card { position: static; animation: none; }
+.k-harita.no-map .panel { box-shadow: none; border-radius: 1.5rem 1.5rem 0 0; min-height: auto; }
+
+@media (min-width: 48rem) {
+  .k-harita .stage { padding: 1.5rem; }
+  .k-harita .card { top: 1.5rem; padding: 1.5rem; }
+  .k-harita .inner { padding: 1.5rem 2.5rem 5rem; }
+  .k-harita .services { grid-template-columns: 1fr 1fr; }
+  .k-harita .photos { grid-template-columns: 2fr 1fr; grid-template-rows: 1fr 1fr; }
+  .k-harita .ph:first-child { grid-column: 1; grid-row: 1 / 3; aspect-ratio: auto; }
+  .k-harita .reviews { grid-template-columns: 1fr 1fr; }
+  .k-harita .contact { display: grid; grid-template-columns: 1fr 1fr; gap: 0 2rem; }
+  .k-harita .contact h2 { grid-column: 1 / -1; }
+  .k-harita .contact .addr-big { grid-column: 1; }
+  .k-harita .contact .phone { grid-column: 1; }
+  .k-harita .contact .acts { grid-column: 2; grid-row: 2 / 4; align-self: start; }
+  .k-harita .contact .muted { grid-column: 1 / -1; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .k-harita .card { animation: none; }
+}

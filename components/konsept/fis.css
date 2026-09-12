@@ -1,0 +1,317 @@
+/* Fiş — koyu tezgâh üstünde beyaz kasa fişi. Monospace, zikzak kenar, noktalı kılavuz, yazdırma animasyonu. */
+.k-fis {
+  --tezgah: #2a2b2e;
+  --tezgah-2: #1c1d20;
+  --kagit: #fbfbf7;
+  --murekkep: #17181a;
+  --soluk: #6a6c70;
+  --acik: #1b6e38;
+  --kapali: #a9271f;
+  min-height: 100dvh;
+  background: radial-gradient(90% 70% at 50% 10%, var(--tezgah) 0%, var(--tezgah-2) 100%);
+  color: var(--murekkep);
+  font-family: ui-monospace, "SF Mono", Menlo, monospace;
+  font-size: 0.875rem;
+  line-height: 1.45;
+  padding: 2rem 1rem 4rem;
+}
+.k-fis .tezgah {
+  max-width: 28rem;
+  margin: 0 auto;
+  position: relative;
+}
+/* yazıcı yuvası */
+.k-fis .yuva {
+  position: relative;
+  z-index: 2;
+  height: 0.9rem;
+  margin: 0 -0.75rem;
+  background: linear-gradient(180deg, #4a4c52, #26282c);
+  border-radius: 999px;
+  box-shadow:
+    inset 0 -3px 6px rgba(0, 0, 0, 0.6),
+    0 6px 14px rgba(0, 0, 0, 0.5);
+}
+.k-fis .fis {
+  --dis: 14px;
+  position: relative;
+  margin-top: -0.45rem;
+  background: var(--kagit);
+  padding: calc(var(--dis) + 1.5rem) 1.25rem calc(var(--dis) + 1.5rem);
+  filter: drop-shadow(0 18px 30px rgba(0, 0, 0, 0.55));
+  animation: k-fis-yazdir 1.9s 0.15s cubic-bezier(0.25, 0.7, 0.25, 1) both;
+  -webkit-mask:
+    conic-gradient(from 135deg at top, #0000, #000 1deg 89deg, #0000 90deg) top / var(--dis) calc(var(--dis) / 2) repeat-x,
+    conic-gradient(from -45deg at bottom, #0000, #000 1deg 89deg, #0000 90deg) bottom / var(--dis) calc(var(--dis) / 2) repeat-x,
+    linear-gradient(#000 0 0) 50% / 100% calc(100% - var(--dis)) no-repeat;
+  mask:
+    conic-gradient(from 135deg at top, #0000, #000 1deg 89deg, #0000 90deg) top / var(--dis) calc(var(--dis) / 2) repeat-x,
+    conic-gradient(from -45deg at bottom, #0000, #000 1deg 89deg, #0000 90deg) bottom / var(--dis) calc(var(--dis) / 2) repeat-x,
+    linear-gradient(#000 0 0) 50% / 100% calc(100% - var(--dis)) no-repeat;
+}
+
+/* Başlık */
+.k-fis .baslik {
+  text-align: center;
+  display: grid;
+  gap: 0.35rem;
+}
+.k-fis h1 {
+  margin: 0;
+  font-size: 1.35rem;
+  font-weight: 700;
+  line-height: 1.15;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  text-wrap: balance;
+}
+.k-fis .kat {
+  margin: 0;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--soluk);
+}
+.k-fis .adres {
+  margin: 0;
+  color: var(--soluk);
+  text-wrap: pretty;
+}
+.k-fis .tel {
+  justify-self: center;
+  color: var(--murekkep);
+  font-weight: 700;
+  font-size: 1.05rem;
+  text-decoration: none;
+  letter-spacing: 0.04em;
+  min-height: 44px;
+  display: inline-flex;
+  align-items: center;
+  padding: 0 0.5rem;
+}
+.k-fis .tel:hover {
+  text-decoration: underline;
+  text-underline-offset: 0.25em;
+}
+
+/* Kesik çizgi */
+.k-fis .cizgi {
+  margin: 1rem 0;
+  border: 0;
+  height: 0;
+  border-top: 2px dashed #c9cac4;
+}
+.k-fis .cizgi.kalin {
+  border-top: 2px solid var(--murekkep);
+}
+
+/* Meta */
+.k-fis .meta {
+  margin: 0;
+  display: grid;
+  gap: 0.2rem;
+}
+.k-fis .meta > div {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+}
+.k-fis .meta dt {
+  color: var(--soluk);
+}
+.k-fis .meta dd {
+  margin: 0;
+  font-variant-numeric: tabular-nums;
+  text-align: right;
+}
+.k-fis .durum dd {
+  font-weight: 700;
+}
+.k-fis .durum.open dd {
+  color: var(--acik);
+}
+.k-fis .durum.closed dd {
+  color: var(--kapali);
+}
+
+.k-fis h2 {
+  margin: 0 0 0.6rem;
+  font-size: 0.875rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+}
+
+/* Noktalı kılavuz: sol ad, sağ değer, arası ::after ile nokta */
+.k-fis .satir {
+  display: flex;
+  align-items: baseline;
+  gap: 0.5rem;
+  margin: 0;
+}
+.k-fis .satir .ad {
+  flex: 0 1 auto;
+}
+.k-fis .satir::after {
+  content: "";
+  flex: 1 1 0.75rem;
+  order: 1;
+  border-bottom: 2px dotted #9a9c99;
+  transform: translateY(-0.3em);
+  min-width: 0.75rem;
+}
+.k-fis .satir .isaret,
+.k-fis .satir .deger {
+  order: 2;
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+}
+.k-fis .satir .isaret {
+  font-weight: 700;
+}
+
+.k-fis .kalemler,
+.k-fis .saatler,
+.k-fis .yorumlar {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 0.5rem;
+}
+.k-fis .kalemler li {
+  display: grid;
+  gap: 0.15rem;
+}
+.k-fis .aciklama {
+  color: var(--soluk);
+  font-size: 0.8125rem;
+  padding-left: 1rem;
+  text-wrap: pretty;
+}
+.k-fis .dip {
+  margin: 0.9rem 0 0;
+  color: var(--soluk);
+  font-size: 0.8125rem;
+  text-wrap: pretty;
+}
+
+.k-fis .puan .deger {
+  font-weight: 700;
+  font-size: 1.1rem;
+}
+.k-fis .yorumlar {
+  margin-top: 0.75rem;
+  gap: 0.75rem;
+}
+.k-fis .yorumlar p {
+  margin: 0 0 0.15rem;
+  font-size: 0.8125rem;
+  color: #3a3c40;
+  text-wrap: pretty;
+}
+.k-fis .yorumlar span {
+  color: var(--soluk);
+  font-size: 0.8125rem;
+}
+
+/* TOPLAM yerine düğmeler */
+.k-fis .toplam {
+  display: grid;
+  gap: 0.6rem;
+}
+.k-fis .btn {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+  min-height: 56px;
+  padding: 0 1rem;
+  background: var(--murekkep);
+  color: var(--kagit);
+  text-decoration: none;
+  font-weight: 700;
+  font-size: 1.05rem;
+  letter-spacing: 0.05em;
+  font-variant-numeric: tabular-nums;
+}
+.k-fis .btn:hover {
+  background: #000;
+}
+
+/* Alt bilgi */
+.k-fis .alt {
+  display: grid;
+  gap: 0.75rem;
+}
+.k-fis .alt .adres {
+  text-align: center;
+  margin-top: 0.25rem;
+}
+.k-fis .alt a {
+  color: var(--murekkep);
+  font-weight: 700;
+  text-underline-offset: 0.25em;
+  display: inline-block;
+  padding: 0.5em 0;
+}
+.k-fis .saatler .bugun {
+  font-weight: 700;
+}
+.k-fis .tesekkur {
+  margin: 0.5rem 0 0;
+  text-align: center;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+}
+.k-fis .barkod {
+  height: 2.75rem;
+  margin: 0.25rem auto 0;
+  width: 78%;
+  background: repeating-linear-gradient(
+    90deg,
+    var(--murekkep) 0 2px,
+    transparent 2px 4px,
+    var(--murekkep) 4px 5px,
+    transparent 5px 9px,
+    var(--murekkep) 9px 12px,
+    transparent 12px 14px,
+    var(--murekkep) 14px 15px,
+    transparent 15px 19px
+  );
+}
+.k-fis .barkod-yazi {
+  margin: 0;
+  text-align: center;
+  letter-spacing: 0.3em;
+  font-size: 0.8125rem;
+}
+
+.k-fis a:focus-visible {
+  outline: 3px solid #ffd27a;
+  outline-offset: 3px;
+}
+
+@keyframes k-fis-yazdir {
+  from {
+    clip-path: inset(0 0 100% 0);
+  }
+  to {
+    clip-path: inset(0 0 0 0);
+  }
+}
+
+@media (min-width: 640px) {
+  .k-fis {
+    font-size: 0.9375rem;
+    padding-top: 3rem;
+  }
+  .k-fis h1 {
+    font-size: 1.5rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .k-fis .fis {
+    animation: none;
+    clip-path: none;
+  }
+}

@@ -1,0 +1,414 @@
+/* Katalog: bento ızgara. Tüm seçiciler .k-katalog altında. */
+.k-katalog {
+  --ink: #151a21;
+  --ink-2: #5c6470;
+  --ground: #e9ebef;
+  --tile: #ffffff;
+  --tile-2: #f3f4f7;
+  --accent: #4f46c8;
+  --accent-ink: #ffffff;
+  --ok: #2f7a5a;
+  --radius: 20px;
+  --gap: 0.625rem;
+  --tap: 44px;
+
+  min-height: 100dvh;
+  background: var(--ground);
+  color: var(--ink);
+  font-family: var(--f-dmsans), system-ui, sans-serif;
+  line-height: 1.45;
+  -webkit-font-smoothing: antialiased;
+  padding: var(--gap) var(--gap) 2rem;
+}
+
+.k-katalog .grid {
+  max-width: 72rem;
+  margin-inline: auto;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  grid-auto-rows: minmax(9.5rem, auto);
+  grid-auto-flow: dense;
+  gap: var(--gap);
+}
+
+.k-katalog .tile {
+  position: relative;
+  background: var(--tile);
+  border-radius: var(--radius);
+  padding: 1rem;
+  min-width: 0;
+  overflow: hidden;
+  animation: k-katalog-in 0.5s cubic-bezier(0.2, 0.8, 0.2, 1) both;
+  animation-delay: calc(var(--i, 0) * 60ms);
+}
+
+/* Karo boyutları — mobil */
+.k-katalog .hero,
+.k-katalog .map,
+.k-katalog .services,
+.k-katalog .review,
+.k-katalog .address {
+  grid-column: span 2;
+}
+.k-katalog .hero {
+  grid-row: span 2;
+}
+
+/* Büyük karo */
+.k-katalog .hero {
+  background: var(--accent);
+  color: var(--accent-ink);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 1.25rem;
+}
+.k-katalog .cat {
+  margin: 0;
+  font-size: 0.875rem;
+  opacity: 0.85;
+}
+.k-katalog h1 {
+  margin: 0.25rem 0 0;
+  font-family: var(--f-fraunces), Georgia, serif;
+  font-weight: 500;
+  font-size: clamp(2rem, 8vw, 3.5rem);
+  line-height: 1.02;
+  letter-spacing: -0.02em;
+  overflow-wrap: anywhere;
+}
+.k-katalog .sub {
+  margin: 0.75rem 0 0;
+  font-size: 0.9375rem;
+  opacity: 0.92;
+  max-width: 34rem;
+}
+.k-katalog .cta {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.75rem;
+}
+.k-katalog .phone {
+  color: inherit;
+  text-decoration: none;
+  font-size: clamp(1.375rem, 6vw, 2rem);
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+  letter-spacing: 0.01em;
+  min-height: var(--tap);
+  display: inline-flex;
+  align-items: center;
+}
+.k-katalog .btn {
+  min-height: var(--tap);
+  padding: 0 1.125rem;
+  display: inline-flex;
+  align-items: center;
+  border-radius: 999px;
+  background: var(--accent-ink);
+  color: var(--accent);
+  font-weight: 700;
+  text-decoration: none;
+}
+
+/* Küçük karo yığını */
+.k-katalog .stack {
+  display: flex;
+  flex-direction: column;
+  gap: 0.375rem;
+  height: 100%;
+}
+.k-katalog .small {
+  font-size: 0.8125rem;
+  color: var(--ink-2);
+}
+.k-katalog .hero .small {
+  color: inherit;
+}
+.k-katalog .mid {
+  font-weight: 600;
+  line-height: 1.3;
+}
+.k-katalog .big {
+  font-size: clamp(1.0625rem, 4.6vw, 1.75rem);
+  white-space: nowrap;
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+  line-height: 1.15;
+}
+.k-katalog .score {
+  font-family: var(--f-fraunces), Georgia, serif;
+  font-size: clamp(3rem, 14vw, 4.5rem);
+  font-weight: 500;
+  line-height: 0.95;
+  letter-spacing: -0.03em;
+  color: var(--accent);
+  font-variant-numeric: tabular-nums;
+}
+.k-katalog .link {
+  margin-top: auto;
+  color: var(--accent);
+  font-weight: 700;
+  text-decoration: none;
+  min-height: var(--tap);
+  display: inline-flex;
+  align-items: center;
+}
+.k-katalog .state {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.375rem;
+  font-size: 0.8125rem;
+  font-weight: 600;
+  color: var(--ink-2);
+}
+.k-katalog .state .dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--ink-2);
+}
+.k-katalog .state.open {
+  color: var(--ok);
+}
+.k-katalog .state.open .dot {
+  background: var(--ok);
+}
+
+/* Genişleyen karolar */
+.k-katalog details {
+  height: 100%;
+}
+.k-katalog summary {
+  list-style: none;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  gap: 0.375rem;
+  min-height: var(--tap);
+  padding-right: 2rem;
+}
+.k-katalog summary::-webkit-details-marker {
+  display: none;
+}
+.k-katalog .more {
+  position: absolute;
+  top: 0.875rem;
+  right: 0.875rem;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: var(--tile-2);
+}
+.k-katalog .more::before,
+.k-katalog .more::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 12px;
+  height: 2px;
+  background: var(--ink);
+  transform: translate(-50%, -50%);
+  transition: transform 0.2s ease;
+}
+.k-katalog .more::after {
+  transform: translate(-50%, -50%) rotate(90deg);
+}
+.k-katalog details[open] .more::after {
+  transform: translate(-50%, -50%) rotate(0deg);
+}
+.k-katalog details table {
+  margin-top: 0.875rem;
+  border-collapse: collapse;
+  width: 100%;
+  font-size: 0.9375rem;
+  font-variant-numeric: tabular-nums;
+}
+.k-katalog details th {
+  text-align: left;
+  font-weight: 500;
+  color: var(--ink-2);
+  padding: 0.25rem 0.5rem 0.25rem 0;
+}
+.k-katalog details td {
+  padding: 0.25rem 0;
+  text-align: right;
+}
+.k-katalog details .today th,
+.k-katalog details .today td {
+  color: var(--accent);
+  font-weight: 700;
+}
+.k-katalog .note {
+  margin: 0.5rem 0 0;
+  font-size: 0.875rem;
+  color: var(--ink-2);
+}
+.k-katalog .list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.375rem;
+}
+.k-katalog .chip {
+  background: var(--tile-2);
+  border-radius: 999px;
+  padding: 0.375rem 0.75rem;
+  font-size: 0.9375rem;
+  font-weight: 500;
+}
+.k-katalog .chip.ghost {
+  background: transparent;
+  color: var(--ink-2);
+  border: 1px dashed var(--ink-2);
+}
+.k-katalog details ul {
+  list-style: none;
+  margin: 0.875rem 0 0;
+  padding: 0;
+  display: grid;
+  gap: 0.625rem;
+}
+.k-katalog .services li {
+  display: grid;
+  gap: 0.125rem;
+  padding-top: 0.625rem;
+  border-top: 1px solid var(--tile-2);
+}
+.k-katalog .services li span {
+  font-size: 0.9375rem;
+  color: var(--ink-2);
+}
+.k-katalog .quote {
+  font-family: var(--f-fraunces), Georgia, serif;
+  font-size: 1.0625rem;
+  line-height: 1.35;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3;
+  line-clamp: 3;
+  overflow: hidden;
+}
+.k-katalog details[open] .quote {
+  -webkit-line-clamp: unset;
+  line-clamp: unset;
+  display: block;
+}
+.k-katalog .author {
+  font-size: 0.8125rem;
+  color: var(--ink-2);
+}
+.k-katalog .review li {
+  padding-top: 0.625rem;
+  border-top: 1px solid var(--tile-2);
+}
+.k-katalog .review li p {
+  margin: 0 0 0.25rem;
+  font-family: var(--f-fraunces), Georgia, serif;
+  font-size: 1rem;
+}
+.k-katalog .review .empty {
+  color: var(--ink-2);
+  font-size: 0.875rem;
+}
+
+/* Fotoğraf ve harita */
+.k-katalog .photo {
+  padding: 0;
+  aspect-ratio: 1;
+  background: var(--tile-2);
+}
+.k-katalog .map {
+  padding: 0;
+  min-height: 12rem;
+  background: var(--tile-2);
+}
+.k-katalog .map iframe {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+.k-katalog .btn.float {
+  position: absolute;
+  left: 0.75rem;
+  bottom: 0.75rem;
+  background: var(--accent);
+  color: var(--accent-ink);
+  box-shadow: 0 4px 16px rgba(21, 26, 33, 0.18);
+}
+
+.k-katalog .foot {
+  max-width: 72rem;
+  margin: 1.25rem auto 0;
+  padding: 0 0.5rem;
+  font-size: 0.8125rem;
+  color: var(--ink-2);
+}
+
+/* Odak */
+.k-katalog a:focus-visible,
+.k-katalog summary:focus-visible {
+  outline: 3px solid var(--accent);
+  outline-offset: 2px;
+  border-radius: 8px;
+}
+
+/* Masaüstü: 4 sütun */
+@media (min-width: 48rem) {
+  .k-katalog {
+    --gap: 0.875rem;
+    padding: var(--gap) var(--gap) 2.5rem;
+  }
+  .k-katalog .grid {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    grid-auto-rows: minmax(11rem, auto);
+  }
+  .k-katalog .tile {
+    padding: 1.25rem;
+  }
+  .k-katalog .hero {
+    grid-column: span 2;
+    grid-row: span 2;
+    padding: 1.75rem;
+  }
+  .k-katalog .map {
+    grid-column: span 2;
+    min-height: 0;
+  }
+  .k-katalog .services,
+  .k-katalog .review {
+    grid-column: span 2;
+  }
+  .k-katalog .address {
+    grid-column: span 2;
+  }
+  .k-katalog .more {
+    top: 1.125rem;
+    right: 1.125rem;
+  }
+}
+
+@keyframes k-katalog-in {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .k-katalog .tile {
+    animation: none;
+  }
+  .k-katalog .more::before,
+  .k-katalog .more::after {
+    transition: none;
+  }
+}
