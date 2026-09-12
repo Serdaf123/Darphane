@@ -1,5 +1,6 @@
 {
   "slug": "polen-veteriner",
+  "recipe": "tezgah",
   "business": {
     "name": "Polen Veteriner Kliniği",
     "category": "Veteriner kliniği",
@@ -18,35 +19,36 @@
   },
   "theme": {
     "preset": "sage",
-    "accent": "#2f7a4a",
     "mode": "light",
-    "neutralTint": 0.3,
-    "fonts": "soft",
-    "headingFont": "display",
-    "typeScale": "normal",
-    "radius": "lg",
-    "density": "normal",
-    "header": "glass",
+    "neutralTint": 0.35,
+    "typeScale": "compact",
+    "fonts": "noto",
+    "headingFont": "sans",
+    "radius": "md",
+    "density": "tight",
+    "header": "solid",
+    "photos": "color",
     "contact": "both",
     "fabStyle": "dial",
     "motion": {
-      "hero": "reveal",
-      "scroll": "rise",
-      "smooth": true,
-      "parallax": true
+      "hero": "rise",
+      "scroll": "scale",
+      "smooth": false,
+      "parallax": false
     }
   },
   "sections": [
     {
-      "type": "hero",
       "id": "ust",
-      "variant": "image",
+      "type": "hero",
+      "variant": "split",
       "headline": "Polen Veteriner",
       "subline": "Cevizli'de, Yılmazer Sokak'ta. Kedi ve köpeklerin yanında tavşan, kuş ve kaplumbağa gibi hayvanlara da bakılır.",
-      "badges": [
-        "Google'da 4,8",
-        "Cevizli, Maltepe"
-      ],
+      "image": {
+        "src": "/sites/polen-veteriner/kedi-1.webp",
+        "alt": "Muayene sonrası koruyucu yakalıklı bir kedi",
+        "focal": "50% 40%"
+      },
       "actions": [
         {
           "label": "WhatsApp'tan Yazın",
@@ -60,38 +62,17 @@
           "style": "ghost"
         }
       ],
-      "image": {
-        "src": "/sites/polen-veteriner/kedi-1.webp",
-        "alt": "Muayene sonrası koruyucu yakalıklı bir kedi",
-        "focal": "50% 40%"
-      }
-    },
-    {
-      "type": "about",
-      "id": "hakkinda",
-      "title": "Klinik hakkında",
-      "body": "Polen Veteriner Kliniği, Maltepe Cevizli Mahallesi'nde Yılmazer Sokak üzerindedir.\n\nGoogle fotoğraflarında kedi ve köpeklerin yanında tavşan, sultan papağanı, sıçan ve kaplumbağa gibi hayvanlar ile klinik içinde kan sayım cihazı ve röntgen görülür. Çalışma saatleri için arayın.",
-      "highlights": [
-        {
-          "label": "Google puanı",
-          "value": "4,8 / 5"
-        },
-        {
-          "label": "Hayvanlar",
-          "value": "Kedi, köpek, tavşan, kuş, kaplumbağa"
-        },
-        {
-          "label": "Konum",
-          "value": "Cevizli, Maltepe"
-        }
+      "badges": [
+        "Google'da 4,8",
+        "Çalışma saatleri için arayın"
       ]
     },
     {
-      "type": "services",
       "id": "hizmetler",
+      "type": "services",
       "title": "Hizmetler",
       "intro": "Kliniğin Google fotoğraflarında görülenler. Başka bir ihtiyaç için arayıp sorun.",
-      "layout": "cards",
+      "layout": "grid",
       "tone": "light",
       "items": [
         {
@@ -113,8 +94,8 @@
       ]
     },
     {
-      "type": "gallery",
       "id": "galeri",
+      "type": "gallery",
       "title": "Klinikten",
       "layout": "grid",
       "images": [
@@ -166,8 +147,54 @@
       ]
     },
     {
-      "type": "faq",
+      "id": "konum",
+      "type": "location",
+      "title": "Klinik",
+      "showMap": true,
+      "note": "Yılmazer Sokak üzerinde, Cevizli."
+    },
+    {
+      "id": "iletisim",
+      "type": "cta",
+      "headline": "Sorunuz varsa yazın, acilse arayın",
+      "subline": "Muayene ve tahlil için WhatsApp'tan yazın.",
+      "actions": [
+        {
+          "label": "WhatsApp'tan Yazın",
+          "kind": "whatsapp",
+          "value": "Merhaba, Polen Veteriner için yazıyorum.\nHayvan (tür/yaş): \nŞikâyet: ",
+          "style": "primary"
+        },
+        {
+          "label": "0554 186 45 44",
+          "kind": "call",
+          "style": "ghost"
+        }
+      ]
+    },
+    {
+      "id": "hakkinda",
+      "type": "about",
+      "title": "Klinik hakkında",
+      "body": "Polen Veteriner Kliniği, Maltepe Cevizli Mahallesi'nde Yılmazer Sokak üzerindedir.\n\nGoogle fotoğraflarında kedi ve köpeklerin yanında tavşan, sultan papağanı, sıçan ve kaplumbağa gibi hayvanlar ile klinik içinde kan sayım cihazı ve röntgen görülür. Çalışma saatleri için arayın.",
+      "highlights": [
+        {
+          "label": "Google puanı",
+          "value": "4,8 / 5"
+        },
+        {
+          "label": "Hayvanlar",
+          "value": "Kedi, köpek, tavşan, kuş, kaplumbağa"
+        },
+        {
+          "label": "Konum",
+          "value": "Cevizli, Maltepe"
+        }
+      ]
+    },
+    {
       "id": "sss",
+      "type": "faq",
       "title": "Sık sorulan sorular",
       "items": [
         {
@@ -185,32 +212,6 @@
         {
           "q": "Neredesiniz?",
           "a": "Cevizli Mahallesi, Yılmazer Sokak No:2-4/A, Maltepe. Yol tarifi düğmesi haritayı açar."
-        }
-      ]
-    },
-    {
-      "type": "location",
-      "id": "konum",
-      "title": "Klinik",
-      "showMap": true,
-      "note": "Yılmazer Sokak üzerinde, Cevizli."
-    },
-    {
-      "type": "cta",
-      "id": "iletisim",
-      "headline": "Sorunuz varsa yazın, acilse arayın",
-      "subline": "Muayene ve tahlil için WhatsApp'tan yazın.",
-      "actions": [
-        {
-          "label": "WhatsApp'tan Yazın",
-          "kind": "whatsapp",
-          "value": "Merhaba, Polen Veteriner için yazıyorum.\nHayvan (tür/yaş): \nŞikâyet: ",
-          "style": "primary"
-        },
-        {
-          "label": "0554 186 45 44",
-          "kind": "call",
-          "style": "ghost"
         }
       ]
     }

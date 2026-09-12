@@ -1,10 +1,18 @@
 {
   "recipe": "defter",
+  "business": {
+    "tagline": "Maltepe sahilinde dahiliye, cerrahi, laboratuvar ve röntgen. Pazartesi–cumartesi 10:00–19:30, pazar kapalı. Telefon: 0552 799 98 89.",
+    "social": {}
+  },
+  "seo": {
+    "title": "Adraga Veteriner Kliniği | Maltepe Sahili",
+    "description": "Maltepe sahilinde dahiliye, cerrahi, laboratuvar ve röntgen. Pazartesi–cumartesi 10:00–19:30, pazar kapalı. Telefon: 0552 799 98 89."
+  },
   "theme": {
     "preset": "porcelain",
-    "mode": "dark",
-    "neutralTint": 0.12,
-    "typeScale": "display",
+    "mode": "light",
+    "neutralTint": 0.35,
+    "typeScale": "normal",
     "fonts": "editorial",
     "headingFont": "display",
     "radius": "none",
@@ -17,9 +25,8 @@
       "hero": "stack",
       "scroll": "rise",
       "smooth": true,
-      "parallax": true
-    },
-    "accent": "#67a879"
+      "parallax": false
+    }
   },
   "sections": [
     {
@@ -43,21 +50,24 @@
       ],
       "headline": "Maltepe sahilinde Adraga Veteriner Kliniği",
       "subline": "Yalı Mah., Sahilyolu Cd. No:8, Maltepe/İstanbul adresindeyiz. İletişim için 0552 799 98 89 numarasını arayın.",
-      "compact": true,
       "urgent": null
     },
     {
-      "id": "ekip",
-      "type": "team",
-      "title": "Hekimlerimiz",
-      "members": [
+      "id": "hakkinda",
+      "title": "Sahilyolu Caddesi'ndeki kliniğimiz",
+      "body": "Adraga Veteriner Kliniği, Maltepe sahilinde Yalı Mahallesi'nde bulunur.\n\nDahiliye, cerrahi, doğum ve jinekoloji, laboratuvar, bilgisayarlı röntgen, aşılama, koruyucu hekimlik, diş temizliği ve tıraş-banyo hizmetleri sunulur.",
+      "highlights": [
         {
-          "name": "Özüm Bey",
-          "role": "Veteriner hekim"
+          "label": "Çalışma saatleri",
+          "value": "Pazartesi–cumartesi 10:00–19:30"
         },
         {
-          "name": "Ece Hanım",
-          "role": "Veteriner hekim"
+          "label": "Pazar",
+          "value": "Kapalı"
+        },
+        {
+          "label": "Konum",
+          "value": "Yalı Mahallesi, Maltepe sahili"
         }
       ]
     },
@@ -66,7 +76,6 @@
       "layout": "list",
       "title": "Hizmetlerimiz",
       "intro": "Hizmetlerimiz hakkında bilgi almak için kliniğimizi arayabilirsiniz.",
-      "tone": "light",
       "items": [
         {
           "name": "Dahiliye",
@@ -107,9 +116,31 @@
       ]
     },
     {
-      "id": "galeri",
-      "title": "Klinikten",
-      "layout": "masonry"
+      "id": "ekip",
+      "type": "team",
+      "title": "Hekimlerimiz",
+      "members": [
+        {
+          "name": "Özüm Bey",
+          "role": "Veteriner hekim"
+        },
+        {
+          "name": "Ece Hanım",
+          "role": "Veteriner hekim"
+        }
+      ]
+    },
+    {
+      "id": "sss"
+    },
+    {
+      "id": "konum",
+      "title": "Kliniğe ulaşım",
+      "note": "Yalı Mah., Sahilyolu Cd. No:8, Maltepe/İstanbul"
+    },
+    {
+      "id": "saatler",
+      "title": "Çalışma saatleri"
     },
     {
       "id": "iletisim",
@@ -130,28 +161,12 @@
       ]
     },
     {
-      "id": "hakkinda",
-      "title": "Sahilyolu Caddesi'ndeki kliniğimiz",
-      "body": "Adraga Veteriner Kliniği, Maltepe sahilinde Yalı Mahallesi'nde bulunur.\n\nDahiliye, cerrahi, doğum ve jinekoloji, laboratuvar, bilgisayarlı röntgen, aşılama, koruyucu hekimlik, diş temizliği ve tıraş-banyo hizmetleri sunulur.",
-      "highlights": [
-        {
-          "label": "Çalışma saatleri",
-          "value": "Pazartesi–cumartesi 10:00–19:30"
-        },
-        {
-          "label": "Pazar",
-          "value": "Kapalı"
-        },
-        {
-          "label": "Konum",
-          "value": "Yalı Mahallesi, Maltepe sahili"
-        }
-      ]
+      "id": "galeri",
+      "title": "Klinikten"
     },
     {
       "id": "yorumlar",
       "title": "Google yorumları",
-      "layout": "quotes",
       "items": [
         {
           "author": "Tarık Yanova",
@@ -178,36 +193,19 @@
           "source": "Google"
         }
       ]
-    },
-    {
-      "id": "konum",
-      "title": "Kliniğe ulaşım",
-      "note": "Yalı Mah., Sahilyolu Cd. No:8, Maltepe/İstanbul"
-    },
-    {
-      "id": "saatler",
-      "title": "Çalışma saatleri"
     }
   ],
   "sectionOrder": [
     "ust",
-    "ekip",
-    "hizmetler",
-    "galeri",
-    "iletisim",
     "hakkinda",
-    "yorumlar",
+    "hizmetler",
+    "ekip",
+    "sss",
     "konum",
-    "saatler"
+    "saatler",
+    "iletisim",
+    "galeri",
+    "yorumlar"
   ],
-  "remove": [
-    "sss"
-  ],
-  "business": {
-    "tagline": "Maltepe sahilinde dahiliye, cerrahi, laboratuvar ve röntgen. Pazartesi–cumartesi 10:00–19:30, pazar kapalı. Telefon: 0552 799 98 89."
-  },
-  "seo": {
-    "title": "Adraga Veteriner Kliniği | Maltepe Sahili",
-    "description": "Maltepe sahilinde dahiliye, cerrahi, laboratuvar ve röntgen. Pazartesi–cumartesi 10:00–19:30, pazar kapalı. Telefon: 0552 799 98 89."
-  }
+  "remove": []
 }

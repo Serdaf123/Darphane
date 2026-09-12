@@ -20,7 +20,7 @@
     "header": "minimal",
     "photos": "color",
     "contact": "fab",
-    "fabStyle": "pill",
+    "fabStyle": "dial",
     "motion": {
       "hero": "zoom",
       "scroll": "scale",

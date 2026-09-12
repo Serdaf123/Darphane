@@ -2,13 +2,13 @@ import fs from 'node:fs';
 import path from 'node:path';
 import { pathToFileURL } from 'node:url';
 import { siteSchema } from '../lib/schema.ts';
-import { generateRecipeOverlay, recipeSchema } from '../lib/recipe.ts';
+import { applyRecipeToBase, generateRecipeOverlay, generateRecipeVariantOverlay, recipeSchema } from '../lib/recipe.ts';
 
-export { generateRecipeOverlay, recipeSchema } from '../lib/recipe.ts';
+export { applyRecipeToBase, generateRecipeOverlay, generateRecipeVariantOverlay, recipeSchema } from '../lib/recipe.ts';
 
 /**
  * Reçeteyi bir siteye uygular ve katman (<slug>.<variant>.json) üretir.
- *   npm run recipe -- <slug> <key> [--variant b|c] [--apply]
+ *   npm run recipe -- <slug> <key> [--variant a|b|c] [--apply]
  *   npm run recipe -- --check      # data/recipes/*.json şemadan geçer mi
  * Mantık lib/recipe.ts'te (kütüphane sayfası /kutuphane da aynı kodu kullanır).
  */
@@ -23,20 +23,25 @@ function main(args: string[]) {
     console.log(`${files.length} reçete doğrulandı.`); return;
   }
   const [slug, key, ...flags] = args;
-  if (!slug || !key || !/^[a-z0-9]+(?:-[a-z0-9]+)*$/.test(slug) || !/^[a-z0-9]+(?:-[a-z0-9]+)*$/.test(key)) throw new Error('Kullanım: npm run recipe -- <slug> <key> [--variant b|c] [--apply] veya --check');
+  if (!slug || !key || !/^[a-z0-9]+(?:-[a-z0-9]+)*$/.test(slug) || !/^[a-z0-9]+(?:-[a-z0-9]+)*$/.test(key)) throw new Error('Kullanım: npm run recipe -- <slug> <key> [--variant a|b|c] [--apply] veya --check');
   let variant = 'b'; let apply = false;
   for (let i=0; i<flags.length; i++) {
     if (flags[i] === '--apply') apply = true;
-    else if (flags[i] === '--variant' && ['b','c'].includes(flags[i+1])) variant = flags[++i];
+    else if (flags[i] === '--variant' && ['a','b','c'].includes(flags[i+1])) variant = flags[++i];
     else throw new Error(`Geçersiz seçenek: ${flags[i]}`);
   }
   const file = path.join(process.cwd(), 'data/sites', `${slug}.json`);
   const site = siteSchema.parse(JSON.parse(fs.readFileSync(file, 'utf8')));
   if (site.slug !== slug) throw new Error('Site slug dosya adıyla eşleşmiyor');
-  const output = generateRecipeOverlay(site, JSON.parse(fs.readFileSync(path.join(recipes, `${key}.json`), 'utf8')));
+  const recipe = JSON.parse(fs.readFileSync(path.join(recipes, `${key}.json`), 'utf8'));
+  const target = path.join(process.cwd(), 'data/sites', variant === 'a' ? `${slug}.json` : `${slug}.${variant}.json`);
+  const output = variant === 'a'
+    ? applyRecipeToBase(site, recipe)
+    : fs.existsSync(target)
+      ? generateRecipeVariantOverlay(site, JSON.parse(fs.readFileSync(target, 'utf8')), recipe)
+      : generateRecipeOverlay(site, recipe);
   const json = JSON.stringify(output, null, 2) + '\n';
   if (apply) {
-    const target = path.join(process.cwd(), 'data/sites', `${slug}.${variant}.json`);
     fs.writeFileSync(target, json);
     console.error(`Yazıldı: ${target}`);
   } else process.stdout.write(json);

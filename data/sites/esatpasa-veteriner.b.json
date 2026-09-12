@@ -1,9 +1,17 @@
 {
   "recipe": "gece-nobeti",
+  "business": {
+    "tagline": "Ataşehir Esatpaşa'da her gün 24 saat açık veteriner kliniği. Muayene, tahlil, aşı ve acil müdahale. Telefon: 0532 570 77 32.",
+    "social": {}
+  },
+  "seo": {
+    "title": "Esatpaşa Veteriner Kliniği | Ataşehir 7/24",
+    "description": "Ataşehir Esatpaşa'da her gün 24 saat açık veteriner kliniği. Muayene, tahlil, aşı ve acil müdahale. Telefon: 0532 570 77 32."
+  },
   "theme": {
     "preset": "midnight",
     "mode": "dark",
-    "neutralTint": 0.12,
+    "neutralTint": 0.35,
     "typeScale": "display",
     "fonts": "plex",
     "headingFont": "sans",
@@ -18,8 +26,7 @@
       "scroll": "fade",
       "smooth": true,
       "parallax": false
-    },
-    "accent": "#e0b84f"
+    }
   },
   "sections": [
     {
@@ -46,10 +53,7 @@
       "urgent": {
         "title": "Acil durumlar için arayın",
         "note": "Her gün 24 saat açık."
-      },
-      "compact": true,
-      "image": null,
-      "video": null
+      }
     },
     {
       "id": "saatler",
@@ -58,14 +62,14 @@
     {
       "id": "konum",
       "title": "Kliniğe ulaşım",
-      "note": "Esatpaşa Mah., Adnan Menderes Cd. No:108A, Ataşehir/İstanbul"
+      "note": "Esatpaşa Mah., Adnan Menderes Cd. No:108A, Ataşehir/İstanbul",
+      "showMap": false
     },
     {
       "id": "hizmetler",
       "layout": "list",
       "title": "Hizmetlerimiz",
       "intro": "Hizmetlerimiz hakkında bilgi almak için kliniğimizi arayabilirsiniz.",
-      "tone": "light",
       "items": [
         {
           "name": "Acil müdahale",
@@ -86,25 +90,6 @@
         {
           "name": "Mama ve bakım ürünleri",
           "description": "Kliniğimizde mama ve bakım ürünleri satılır."
-        }
-      ]
-    },
-    {
-      "id": "hakkinda",
-      "title": "Esatpaşa'daki kliniğimiz",
-      "body": "Veteriner Hekim Osman Kısa'nın görev yaptığı kliniğimiz, Esatpaşa'da her gün 24 saat açıktır.\n\nMuayene, tahlil, aşı, acil müdahale, kısırlaştırma ve ameliyat hizmetlerinin yanında mama ve bakım ürünleri de bulunur.",
-      "highlights": [
-        {
-          "label": "Hekim",
-          "value": "Veteriner Hekim Osman Kısa"
-        },
-        {
-          "label": "Çalışma saatleri",
-          "value": "Her gün 24 saat"
-        },
-        {
-          "label": "Konum",
-          "value": "Esatpaşa, Ataşehir"
         }
       ]
     },
@@ -178,6 +163,25 @@
           "style": "ghost"
         }
       ]
+    },
+    {
+      "id": "hakkinda",
+      "title": "Esatpaşa'daki kliniğimiz",
+      "body": "Veteriner Hekim Osman Kısa'nın görev yaptığı kliniğimiz, Esatpaşa'da her gün 24 saat açıktır.\n\nMuayene, tahlil, aşı, acil müdahale, kısırlaştırma ve ameliyat hizmetlerinin yanında mama ve bakım ürünleri de bulunur.",
+      "highlights": [
+        {
+          "label": "Hekim",
+          "value": "Veteriner Hekim Osman Kısa"
+        },
+        {
+          "label": "Çalışma saatleri",
+          "value": "Her gün 24 saat"
+        },
+        {
+          "label": "Konum",
+          "value": "Esatpaşa, Ataşehir"
+        }
+      ]
     }
   ],
   "sectionOrder": [
@@ -185,19 +189,12 @@
     "saatler",
     "konum",
     "hizmetler",
-    "hakkinda",
     "yorumlar",
     "sss",
-    "iletisim"
+    "iletisim",
+    "hakkinda"
   ],
   "remove": [
     "galeri"
-  ],
-  "business": {
-    "tagline": "Ataşehir Esatpaşa'da her gün 24 saat açık veteriner kliniği. Muayene, tahlil, aşı ve acil müdahale. Telefon: 0532 570 77 32."
-  },
-  "seo": {
-    "title": "Esatpaşa Veteriner Kliniği | Ataşehir 7/24",
-    "description": "Ataşehir Esatpaşa'da her gün 24 saat açık veteriner kliniği. Muayene, tahlil, aşı ve acil müdahale. Telefon: 0532 570 77 32."
-  }
+  ]
 }

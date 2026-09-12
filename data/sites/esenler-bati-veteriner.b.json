@@ -1,9 +1,17 @@
 {
   "recipe": "afis",
+  "business": {
+    "tagline": "Esenler Turgut Reis’te muayene, aşı, kısırlaştırma ve yavru bakımı. Her gün 12:00–00:00; acil durumlar için arayın: 0541 179 99 82.",
+    "social": {}
+  },
+  "seo": {
+    "title": "Esenler Batı Veteriner Kliniği | Turgut Reis",
+    "description": "Esenler Turgut Reis’te muayene, aşı, kısırlaştırma ve yavru bakımı. Her gün 12:00–00:00; acil durumlar için arayın: 0541 179 99 82."
+  },
   "theme": {
     "preset": "graphite",
     "mode": "dark",
-    "neutralTint": 0.12,
+    "neutralTint": 0.35,
     "typeScale": "display",
     "fonts": "bold",
     "headingFont": "display",
@@ -14,12 +22,11 @@
     "contact": "fab",
     "fabStyle": "dial",
     "motion": {
-      "hero": "stack",
+      "hero": "split",
       "scroll": "slide",
       "smooth": true,
       "parallax": false
-    },
-    "accent": "#e05252"
+    }
   },
   "sections": [
     {
@@ -43,10 +50,7 @@
         }
       ],
       "headline": "Esenler Batı Veteriner Kliniği",
-      "subline": "Turgut Reis Mah., Cengiz Topel Cd. No:9B, Esenler/İstanbul adresindeyiz. Acil durumlarda gelmeden önce 0541 179 99 82 numarasını arayın.",
-      "compact": true,
-      "image": null,
-      "video": null
+      "subline": "Turgut Reis Mah., Cengiz Topel Cd. No:9B, Esenler/İstanbul adresindeyiz. Acil durumlarda gelmeden önce 0541 179 99 82 numarasını arayın."
     },
     {
       "id": "galeri",
@@ -58,7 +62,6 @@
       "layout": "cards",
       "title": "Hizmetlerimiz",
       "intro": "Hizmetlerimiz hakkında bilgi almak için kliniğimizi arayabilirsiniz.",
-      "tone": "light",
       "items": [
         {
           "name": "Muayene",
@@ -79,24 +82,6 @@
         {
           "name": "Acil müdahale",
           "description": "Acil müdahale için gelmeden önce kliniği arayarak açık olduğunu teyit edin."
-        }
-      ]
-    },
-    {
-      "id": "iletisim",
-      "headline": "Gelmeden önce kliniği arayın",
-      "subline": "Acil durumlarda açıklığı teyit etmek için 0541 179 99 82 numarasından ulaşın.",
-      "actions": [
-        {
-          "label": "Kliniği arayın",
-          "kind": "call",
-          "style": "primary"
-        },
-        {
-          "label": "WhatsApp'tan yazın",
-          "kind": "whatsapp",
-          "value": "Merhaba, Esenler Batı Veteriner Kliniği için yazıyorum.\nHayvan (tür/yaş): \nŞikâyet: ",
-          "style": "ghost"
         }
       ]
     },
@@ -141,6 +126,24 @@
       "note": "Turgut Reis Mah., Cengiz Topel Cd. No:9B, Esenler/İstanbul"
     },
     {
+      "id": "iletisim",
+      "headline": "Gelmeden önce kliniği arayın",
+      "subline": "Acil durumlarda açıklığı teyit etmek için 0541 179 99 82 numarasından ulaşın.",
+      "actions": [
+        {
+          "label": "Kliniği arayın",
+          "kind": "call",
+          "style": "primary"
+        },
+        {
+          "label": "WhatsApp'tan yazın",
+          "kind": "whatsapp",
+          "value": "Merhaba, Esenler Batı Veteriner Kliniği için yazıyorum.\nHayvan (tür/yaş): \nŞikâyet: ",
+          "style": "ghost"
+        }
+      ]
+    },
+    {
       "id": "sss",
       "title": "Sık sorulan sorular",
       "items": [
@@ -167,20 +170,13 @@
     "ust",
     "galeri",
     "hizmetler",
-    "iletisim",
     "yorumlar",
     "saatler",
     "konum",
+    "iletisim",
     "sss"
   ],
   "remove": [
     "hakkinda"
-  ],
-  "business": {
-    "tagline": "Esenler Turgut Reis’te muayene, aşı, kısırlaştırma ve yavru bakımı. Her gün 12:00–00:00; acil durumlar için arayın: 0541 179 99 82."
-  },
-  "seo": {
-    "title": "Esenler Batı Veteriner Kliniği | Turgut Reis",
-    "description": "Esenler Turgut Reis’te muayene, aşı, kısırlaştırma ve yavru bakımı. Her gün 12:00–00:00; acil durumlar için arayın: 0541 179 99 82."
-  }
+  ]
 }

@@ -15,16 +15,16 @@
 
 | Key | Ad | Aile | Uyar | Hero · giriş · kaydırma | Header · iletişim |
 |---|---|---|---|---|---|
-| `gece-nobeti` | Gece Nöbeti | koyu · tip-öncelikli · fab | 7/24 veteriner, nöbetçi eczane, çilingir, oto kurtarma, acil tesisat | statement · reveal · fade | minimal · fab/dial |
+| `gece-nobeti` | Gece Nöbeti | koyu · tip-öncelikli · fab | 7/24 veteriner, nöbetçi eczane, çilingir, oto kurtarma, acil tesisat | statement · counter · fade | minimal · fab/dial |
 | `vitrin` | Vitrin | açık · fotoğraf-öncelikli · bar | restoran, kafe, pastane, çiçekçi, butik | image · zoom · rise | glass · both/dial |
-| `defter` | Defter | açık · tip-öncelikli · fab | avukat, mali müşavir, mimar, danışman, noter | split · blur · rise | solid · fab/pill |
+| `defter` | Defter | açık · tip-öncelikli · fab | avukat, mali müşavir, mimar, danışman, noter | split · stack · rise | solid · fab/dial |
 | `afis` | Afiş | koyu · tip-öncelikli · fab | berber, dövme, spor salonu, oto detailing, müzik stüdyosu | statement · split · slide | none · fab/dial |
 | `kartpostal` | Kartpostal | açık · fotoğraf-öncelikli · bar | otel, pansiyon, bungalov, kamp, tur | image · curtain · fade | glass · both/dial |
 | `klinik` | Klinik | açık · fotoğraf+metin · bar | diş, fizyoterapi, güzellik, gündüz veteriner, optik | split · rise · fade | solid · both/dial |
 | `atolye` | Atölye | açık · fotoğraf+metin · fab | mobilya, tamir, tesisat, oto servis, terzi, anahtarcı | image · reveal · rise | solid · fab/dial |
-| `sahne` | Sahne | koyu · fotoğraf-öncelikli · fab | düğün salonu, fotoğrafçı, DJ, organizasyon, gece kulübü | image · zoom · scale | minimal · fab/pill |
+| `sahne` | Sahne | koyu · fotoğraf-öncelikli · fab | düğün salonu, fotoğrafçı, DJ, organizasyon, gece kulübü | image · zoom · scale | minimal · fab/dial |
 | `tezgah` | Tezgâh | açık · metin-öncelikli · bar | market, manav, kasap, şarküteri, pet shop, eczane | split · rise · scale | solid · both/dial |
-| `sessiz` | Sessiz | açık · tip-öncelikli · fab | psikolog, yoga, spa, diyetisyen, cenaze hizmetleri | minimal · blur · fade | minimal · fab/pill |
+| `sessiz` | Sessiz | açık · tip-öncelikli · fab | psikolog, yoga, spa, diyetisyen, cenaze hizmetleri | minimal · stack · fade | minimal · fab/dial |
 
 ### Gece Nöbeti (`gece-nobeti`)
 
@@ -32,7 +32,7 @@ Koyu zemin, ekranın en üstünde büyük telefon numarası; 02:00'de tek elle a
 
 - **Aile:** koyu · tip-öncelikli · fab · **Uyar:** 7/24 veteriner, nöbetçi eczane, çilingir, oto kurtarma, acil tesisat · **Kaçın:** gündüz saatli işletme, fotoğrafı güçlü restoran
 - **Tema:** midnight · dark · plex / başlık sans · ölçek display · köşe sm · yoğunluk tight · fotoğraf color
-- **Hareket:** hero `reveal`, kaydırma `fade`, smooth açık, paralaks kapalı
+- **Hareket:** hero `counter`, kaydırma `fade`, smooth açık, paralaks kapalı
 - **Header / iletişim:** minimal · fab (dial)
 - **Sıra:** ust(statement, acil) → saatler → konum → hizmetler(list) → yorumlar(marquee) → sss → iletisim
 - **Mobil:** İlk ekran: telefon numarası (büyük), isim, 'şu an açık' rozeti, tek buton Ara. WhatsApp yüzen butonda (nabız animasyonu 3 kez). Alt bar yok; FAB baş parmak alanında, safe-area boşluğu.
@@ -56,10 +56,10 @@ Kâğıt beyazı, serif, fotoğraf tek ton; ağırbaşlı ve kısa.
 
 - **Aile:** açık · tip-öncelikli · fab · **Uyar:** avukat, mali müşavir, mimar, danışman, noter · **Kaçın:** restoran, hızlı tüketim
 - **Tema:** porcelain · light · editorial / başlık display · ölçek normal · köşe none · yoğunluk airy · fotoğraf mono
-- **Hareket:** hero `blur`, kaydırma `rise`, smooth açık, paralaks kapalı
-- **Header / iletişim:** solid · fab (pill)
+- **Hareket:** hero `stack`, kaydırma `rise`, smooth açık, paralaks kapalı
+- **Header / iletişim:** solid · fab (dial)
 - **Sıra:** ust(split) → hakkinda → hizmetler(list) → ekip → sss → konum → saatler → iletisim
-- **Mobil:** Split hero mobilde metin üstte, tek ton portre altta (max 40svh). 1 rozet. Yüzen hap buton (tema rengi), alt bar yok.
+- **Mobil:** Split hero mobilde metin üstte, tek ton portre altta (max 40svh). 1 rozet. Yüzen dial butonu, alt bar yok.
 - **Masaüstü:** Metin sol %55, portre sağ; başlık 400 ağırlık, 4.5rem. Satır 68ch.
 
 ### Afiş (`afis`)
@@ -117,7 +117,7 @@ Siyah zemin, büyük fotoğraf, akan yorum şeridi; etkinlik enerjisi.
 - **Aile:** koyu · fotoğraf-öncelikli · fab · **Uyar:** düğün salonu, fotoğrafçı, DJ, organizasyon, gece kulübü · **Kaçın:** sağlık, hukuk
 - **Tema:** ink · dark · hospitality / başlık display · ölçek display · köşe lg · yoğunluk normal · fotoğraf color
 - **Hareket:** hero `zoom`, kaydırma `scale`, smooth açık, paralaks açık
-- **Header / iletişim:** minimal · fab (pill)
+- **Header / iletişim:** minimal · fab (dial)
 - **Sıra:** ust(image) → galeri(masonry) → hizmetler(cards) → fiyat → yorumlar(marquee) → sss → konum → iletisim
 - **Mobil:** Hero 80svh, tek buton WhatsApp (tarih sorulur). Masonry galeri 2 sütun. Yorum şeridi otomatik akar, dokununca durur.
 - **Masaüstü:** Hero 100svh zoom; galeri 4 sütun; paket kartları 3'lü.
@@ -140,10 +140,10 @@ Mahalle esnafı: önce 'açık mı', ürün grupları, harita; sade ve hızlı.
 
 - **Aile:** açık · tip-öncelikli · fab · **Uyar:** psikolog, yoga, spa, diyetisyen, cenaze hizmetleri · **Kaçın:** gürültülü markalar, acil
 - **Tema:** porcelain · light · soft / başlık display · ölçek normal · köşe lg · yoğunluk airy · fotoğraf mono
-- **Hareket:** hero `blur`, kaydırma `fade`, smooth açık, paralaks kapalı
-- **Header / iletişim:** minimal · fab (pill)
+- **Hareket:** hero `stack`, kaydırma `fade`, smooth açık, paralaks kapalı
+- **Header / iletişim:** minimal · fab (dial)
 - **Sıra:** ust(minimal) → hakkinda → hizmetler(list) → ekip → sss → konum → saatler → iletisim
-- **Mobil:** Minimal hero: tek cümle, tek buton, 1 rozet. Hiç fotoğraf yoksa da tam görünür. Hap buton sağ altta, sessiz renk.
+- **Mobil:** Minimal hero: tek cümle, tek buton, 1 rozet. Hiç fotoğraf yoksa da tam görünür. Dial butonu sağ altta, sessiz renk.
 - **Masaüstü:** Metin 60ch ortalanmış, 1.4 satır aralığı; bölümler arası 8rem.
 
 ## A/B eşleme önerileri
@@ -159,11 +159,11 @@ Mahalle esnafı: önce 'açık mı', ürün grupları, harita; sade ve hızlı.
 
 ## Sıradaki genişletmeler (ikimiz)
 
-- [x] `stack`: rozet → başlık → alt satır → buton; 90ms aralık, toplam 630ms, CSS ile. `counter`: statement telefonunun rakamları, en fazla 670ms. Sunucu HTML’i okunur; hareket azaltmada animasyon yok, sıra aynı. Dört B’de etkin; diğer reçetelerin varsayılan girişleri korunur.
+- [x] `stack`: rozet → başlık → alt satır → buton; 90ms aralık, toplam 630ms, CSS ile. `counter`: statement telefonunun rakamları, en fazla 670ms. Sunucu HTML’i okunur; hareket azaltmada animasyon yok, sıra aynı. Excel grubunda iki B `stack`, 7/24 B `counter` kullanır.
 - [ ] `wipe`: görselin soldan açılması.
 - [x] Tek eylemli FAB: WhatsApp yoksa doğrudan etiketli Ara bağlantısı; sabit hat WhatsApp’a dönüştürülmez.
 - `menu` için yatay kaydırmalı fotoğraflı şerit (Vitrin mobil).
-- [x] `npm run recipe -- --check`: on reçetenin tema, bölüm türü/düzeni, aile ve mobil notu doğrulanır. `npm run test:recipes`: katman, CLI ve dört B farkı regresyonları.
+- [x] `npm run recipe -- --check`: on reçetenin tema, bölüm türü/düzeni, aile ve mobil notu doğrulanır. `npm run test:recipes`: katman, CLI ve altı A/B farkı regresyonları.
 
 
 ## Reçete aracı ve katman sözleşmesi
@@ -171,11 +171,12 @@ Mahalle esnafı: önce 'açık mı', ürün grupları, harita; sade ve hızlı.
 ```sh
 npm run recipe -- --check
 npm run --silent recipe -- esatpasa-veteriner gece-nobeti > /tmp/gece.json
+npm run recipe -- esatpasa-veteriner klinik --variant a --apply
 npm run recipe -- esatpasa-veteriner gece-nobeti --variant b --apply
 npm run test:recipes
 ```
 
-`--apply` verilmedikçe dosya yazılmaz; JSON stdout’a, uyarılar stderr’e gider. `--apply` seçilen B/C dosyasını değiştirir; mevcut metin düzenlemelerini korumak için önce dry-run çıktısını inceleyin. A dosyası hiçbir zaman yazılmaz. Tema reçeteden, içerik A’dan gelir; içeriksiz ekip, fiyat, menü ve önce/sonra bölümleri atlanır ve uyarılır. Hero eylemlerinden WhatsApp, yalnız gerçek `business.whatsapp` varsa seçilir; uygun eylem kalmazsa telefon kullanılır. Rozet sayısı canlı açık/kapalı rozetini de kapsar.
+`--apply` verilmedikçe dosya yazılmaz; JSON stdout’a, uyarılar stderr’e gider. `--variant a --apply` A'nın tam dosyasını yazar ve reçetede bulunmayan mevcut içerik bölümlerini sonda korur. B/C uygulanırken mevcut katmanın metinleri, işletme bilgileri ve SEO alanları korunur; tema, sıra ve bölüm düzenleri yeni reçeteden gelir. İçeriksiz ekip, fiyat, menü ve önce/sonra bölümleri atlanır ve uyarılır. Hero eylemlerinden WhatsApp, yalnız gerçek `business.whatsapp` varsa seçilir; uygun eylem kalmazsa telefon kullanılır. Rozet sayısı canlı açık/kapalı rozetini de kapsar.
 
 Katman alanları:
 
@@ -186,15 +187,15 @@ Katman alanları:
 
 Bu alanları kullanmayan eski katmanlar aynı davranır; Noyavet B/C için önceki birleştirmeyle birebir veri eşitliği test edilir.
 
-## Dört veterinerin B uyarlaması — 10 Eylül 2026
+## Kullanım — Excel siteleri, 12 Eylül 2026
 
-Genel reçete, işletmenin A’sına zıt olması için aşağıdaki kontrollü uyarlamalarla kullanılır. Bunlar genel reçetelerin varsayılanlarını değiştirmez. Kalan bölümlerde mevcut B metinleri korunur; yorumlar A kaydından alınır. Yeni hekim bölümleri yalnız brifte verilen adları içerir.
-
-| Site | Başlangıç | İşletmeye özel B | Bölüm farkı |
+| Site | A reçetesi | B reçetesi | Notlar |
 |---|---|---|---|
-| Esatpaşa | `gece-nobeti` | Koyu, statement, counter, minimal header, fab/dial; büyük telefon | Hero → saatler → konum; galeri çıkarılır, hizmetler liste ve yorumlar akan şerit |
-| Esenler Batı | `afis` | Koyu, statement, stack, header yok, fab/dial; süslü slogan yerine mevcut klinik adı | Galeri şeridi ikinci; iletişim bandı ortada; hakkında çıkarılır |
-| Küçükyalı | `sessiz` | Koyu, minimal, clean/sans, compact ölçek, normal yoğunluk, keskin köşe, solid header, stack, doğrudan Ara FAB | Konum ve saatler erken; galeri çıkarılır; Mustafa Bey ekip bölümü eklenir; hizmetler grid, yorumlar cards |
-| Adraga | `defter` | Koyu, split, editorial, display ölçek, solid header, stack ve paralaks, fab/dial | Ekip ikinci; iletişim ortada; SSS çıkarılır; hizmetler liste, galeri masonry, yorumlar quotes |
+| Esatpaşa Veteriner | `klinik` | `gece-nobeti` | Açık split/bar ile koyu statement/fab ayrımı; 7/24 telefon `counter` ile önce gelir. |
+| Esenler Batı Veteriner | `klinik` | `afis` | Açık klinik ızgarasına karşı koyu, headersız poster; B hero `split`. |
+| Küçükyalı Veteriner | `tezgah` | `sessiz` | Mahalle tipi split/bar ile fotoğrafsız minimal/fab; WhatsApp yok, tek eylem Ara; B hero `stack`. |
+| Adraga Veteriner | `vitrin` | `defter` | Fotoğraf ve bar öncelikli A ile tek ton, tip öncelikli fab B; B hero `stack`. |
+| Pisi Veteriner | `klinik` | `afis` | Açık klinik ızgarası ile koyu poster; kuş ve tavşan içeriği korunur. |
+| Polen Veteriner | `tezgah` | `sahne` | Açık split/bar ile koyu tam ekran fotoğraf/fab; çalışma saatleri ve yorum verisi olmadığı için bu bölümler üretilmez. |
 
-B hero’ları `compact: true` ile daha kısa ilk ekran düzenine katılır; A hero’larına bu alan eklenmez. Koyu statement’ın metin/zemin renkleri ve mobil boyut düzeltmeleri yalnız bu opt-in düzeni etkiler. Tüm B’lerde hareket azaltma açıkken içerik ve iletişim aynı sırayla okunur.
+Altı çiftte A tam dosyada, B katmanda `recipe` taşır. B katmanı yeniden üretildiğinde mevcut işletmeye özel metinler ve SEO korunur; reçete tema, bölüm sırası, düzen ve hareketi belirler. Tüm B’lerde dial FAB kullanılır ve hareket azaltma açıkken sunucu/istemci yapısı değişmez.

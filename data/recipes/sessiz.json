@@ -20,9 +20,9 @@
     "header": "minimal",
     "photos": "mono",
     "contact": "fab",
-    "fabStyle": "pill",
+    "fabStyle": "dial",
     "motion": {
-      "hero": "blur",
+      "hero": "stack",
       "scroll": "fade",
       "smooth": true,
       "parallax": false

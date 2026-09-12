@@ -22,7 +22,7 @@
     "contact": "fab",
     "fabStyle": "dial",
     "motion": {
-      "hero": "reveal",
+      "hero": "counter",
       "scroll": "fade",
       "smooth": true,
       "parallax": false

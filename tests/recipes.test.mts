@@ -6,7 +6,7 @@ import path from 'node:path';
 import { execFileSync } from 'node:child_process';
 import { siteSchema } from '../lib/schema.ts';
 import { mergeSiteOverlay } from '../lib/site-overlay.ts';
-import { generateRecipeOverlay, recipeSchema } from '../scripts/recipe.mts';
+import { applyRecipeToBase, generateRecipeOverlay, generateRecipeVariantOverlay, recipeSchema } from '../scripts/recipe.mts';
 const read = (file: string) => JSON.parse(fs.readFileSync(file, 'utf8'));
 const site = siteSchema.parse(read('data/sites/esatpasa-veteriner.json'));
 
@@ -66,7 +66,26 @@ test('recipe enum errors, wrong layouts and missing family/mobile fail', () => {
     {...recipe,sections:[recipe.sections[0],{id:'services',type:'services',layout:'masonry'}]},
   ])assert.throws(()=>recipeSchema.parse(invalid));
 });
-test('CLI dry-run makes no writes; --apply writes only selected variant', () => {
+test('A recipe writes a full site and B recipe preserves existing copy', () => {
+  const recipe=read('data/recipes/afis.json');
+  const existing={sections:[{id:'ust',headline:'Korunan başlık',subline:'Korunan alt satır',badges:['Korunan rozet']},{id:'hizmetler',title:'Korunan hizmet başlığı'},{id:'hakkinda',title:'Reçetede olmayan korunan bölüm'}]};
+  const variant=generateRecipeVariantOverlay(site,existing,recipe,()=>{});
+  const b=mergeSiteOverlay(site,variant);
+  assert.equal(b.recipe,'afis');
+  assert.equal(b.sections[0].type,'hero');
+  if(b.sections[0].type==='hero')assert.equal(b.sections[0].headline,'Korunan başlık');
+  if(b.sections[0].type==='hero')assert.deepEqual(b.sections[0].badges,['Korunan rozet']);
+  const services=b.sections.find(s=>s.id==='hizmetler');
+  assert.ok(services&&services.type==='services');
+  assert.equal(services.title,'Korunan hizmet başlığı');
+  const about=b.sections.find(s=>s.id==='hakkinda');
+  assert.ok(about&&about.type==='about');
+  assert.equal(about.title,'Reçetede olmayan korunan bölüm');
+  const a=applyRecipeToBase(site,read('data/recipes/klinik.json'),()=>{});
+  assert.equal(a.recipe,'klinik');
+  assert.equal(a.sections.length,site.sections.length);
+});
+test('CLI dry-run makes no writes; --apply writes A or selected variant', () => {
   const cwd=fs.mkdtempSync(path.join(os.tmpdir(),'recipe-test-'));
   try {
     fs.mkdirSync(path.join(cwd,'data/sites'),{recursive:true});fs.mkdirSync(path.join(cwd,'data/recipes'));
@@ -77,24 +96,44 @@ test('CLI dry-run makes no writes; --apply writes only selected variant', () => 
     assert.equal(JSON.parse(json).recipe,'gece-nobeti');assert.equal(fs.readdirSync(path.join(cwd,'data/sites')).length,1);
     execFileSync(process.execPath,[...args,'--variant','c','--apply'],{cwd,stdio:'pipe'});
     assert.ok(fs.existsSync(path.join(cwd,'data/sites/esatpasa-veteriner.c.json')));
-    assert.throws(()=>execFileSync(process.execPath,[...args,'--variant','a','--apply'],{cwd,stdio:'pipe'}));
+    execFileSync(process.execPath,[...args,'--variant','a','--apply'],{cwd,stdio:'pipe'});
+    assert.equal(JSON.parse(fs.readFileSync(path.join(cwd,'data/sites/esatpasa-veteriner.json'),'utf8')).recipe,'gece-nobeti');
     assert.throws(()=>execFileSync(process.execPath,[cli,'../outside','gece-nobeti','--apply'],{cwd,stdio:'pipe'}));
   } finally {fs.rmSync(cwd,{recursive:true,force:true});}
 });
-test('four B designs meet every structural contrast requirement', () => {
-  for(const slug of ['esatpasa-veteriner','esenler-bati-veteriner','kucukyali-veteriner','adraga-veteriner']) {
+test('six Excel sites use contrasting A/B recipe families', () => {
+  const mappings:Record<string,[string,string]>={
+    'esatpasa-veteriner':['klinik','gece-nobeti'],
+    'esenler-bati-veteriner':['klinik','afis'],
+    'kucukyali-veteriner':['tezgah','sessiz'],
+    'adraga-veteriner':['vitrin','defter'],
+    'pisi-veteriner':['klinik','afis'],
+    'polen-veteriner':['tezgah','sahne'],
+  };
+  let stackCount=0;
+  for(const [slug,[aKey,bKey]] of Object.entries(mappings)) {
     const a=siteSchema.parse(read(`data/sites/${slug}.json`));
-    const b=mergeSiteOverlay(a,read(`data/sites/${slug}.b.json`));
+    const overlay=read(`data/sites/${slug}.b.json`);
+    const b=mergeSiteOverlay(a,overlay);
+    const aRecipe=recipeSchema.parse(read(`data/recipes/${aKey}.json`));
+    const bRecipe=recipeSchema.parse(read(`data/recipes/${bKey}.json`));
+    assert.equal(a.recipe,aKey);assert.equal(overlay.recipe,bKey);
+    assert.deepEqual(a.theme,aRecipe.theme);assert.deepEqual(b.theme,bRecipe.theme);
+    const aAxes=aRecipe.family.split(' · ');const bAxes=bRecipe.family.split(' · ');
+    assert.ok(aAxes.filter((axis,index)=>axis!==bAxes[index]).length>=2);
     assert.equal(b.sections[0].type,'hero');
-    if(a.sections[0].type==='hero'&&b.sections[0].type==='hero')assert.notEqual(a.sections[0].variant,b.sections[0].variant);
-    assert.notEqual(a.theme.mode,b.theme.mode);assert.notEqual(a.theme.header,b.theme.header);
     assert.equal(b.theme.contact,'fab');assert.equal(b.theme.fabStyle,'dial');
-    assert.notEqual(b.theme.motion.hero,'none');assert.notEqual(a.theme.motion.hero,b.theme.motion.hero);
-    assert.notEqual(b.theme.motion.scroll,'none');assert.equal(b.theme.motion.smooth,true);
-    assert.ok(['headingFont','typeScale','density','radius'].filter(k=>a.theme[k as keyof typeof a.theme]!==b.theme[k as keyof typeof b.theme]).length>=2);
-    assert.ok(['services','gallery','reviews'].filter(type=>{const sa=a.sections.find(s=>s.type===type);const sb=b.sections.find(s=>s.type===type);return sa&&sb&&'layout' in sa&&'layout' in sb&&sa.layout!==sb.layout;}).length>=2);
-    assert.ok(b.sections.filter((s,i)=>a.sections.findIndex(a=>a.id===s.id)!==i).length>=2);
-    assert.ok(a.sections.some(s=>!b.sections.some(p=>p.id===s.id))||b.sections.some(s=>!a.sections.some(p=>p.id===s.id)));
+    assert.notEqual(b.theme.motion.hero,'none');assert.notEqual(b.theme.motion.scroll,'none');
+    if(b.theme.motion.hero==='stack')stackCount++;
     assert.equal(b.offer.status,a.offer.status);
   }
+  assert.ok(stackCount>=2);
+  const esat=mergeSiteOverlay(site,read('data/sites/esatpasa-veteriner.b.json'));
+  assert.equal(esat.theme.motion.hero,'counter');
+  const kucuk=siteSchema.parse(read('data/sites/kucukyali-veteriner.json'));
+  const kucukB=mergeSiteOverlay(kucuk,read('data/sites/kucukyali-veteriner.b.json'));
+  assert.equal(kucuk.business.whatsapp,undefined);assert.equal(kucukB.theme.contact,'fab');
+  const polen=siteSchema.parse(read('data/sites/polen-veteriner.json'));
+  const polenB=mergeSiteOverlay(polen,read('data/sites/polen-veteriner.b.json'));
+  assert.equal(polenB.sections.some(section=>section.type==='reviews'),false);
 });

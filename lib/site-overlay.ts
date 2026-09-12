@@ -32,6 +32,9 @@ export function mergeSiteOverlay(site: Site, input: unknown): Site {
   const order = [...(overlay.sectionOrder ?? []), ...[...sections.keys()].filter(id => !overlay.sectionOrder?.includes(id))];
   return siteSchema.parse({
     ...site,
+    ...(overlay.recipe !== undefined || site.recipe !== undefined
+      ? { recipe: overlay.recipe ?? site.recipe }
+      : {}),
     business: { ...site.business, ...overlay.business },
     seo: { ...site.seo, ...overlay.seo },
     theme: overlay.theme ?? site.theme,
