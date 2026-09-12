@@ -1,4 +1,5 @@
 {
+  "recipe": "sahne",
   "theme": {
     "preset": "graphite",
     "mode": "dark",
@@ -50,7 +51,8 @@
       "id": "sss"
     },
     {
-      "id": "konum"
+      "id": "konum",
+      "layout": "card"
     },
     {
       "id": "iletisim"
@@ -68,6 +70,5 @@
   "remove": [
     "ekip",
     "saatler"
-  ],
-  "concept": "rozet"
+  ]
 }

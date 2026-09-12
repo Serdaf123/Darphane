@@ -110,7 +110,8 @@
     {
       "id": "saatler",
       "type": "hours",
-      "title": "Çalışma saatleri"
+      "title": "Çalışma saatleri",
+      "layout": "strip"
     },
     {
       "id": "hizmetler",
@@ -188,7 +189,8 @@
       "type": "location",
       "title": "Klinik",
       "showMap": true,
-      "note": "Mızrak Sokak üzerinde, Çınar."
+      "note": "Mızrak Sokak üzerinde, Çınar.",
+      "layout": "split"
     },
     {
       "id": "hakkinda",
@@ -245,7 +247,8 @@
           "kind": "directions",
           "style": "ghost"
         }
-      ]
+      ],
+      "layout": "tabela"
     }
   ],
   "offer": {

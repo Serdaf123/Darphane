@@ -1,4 +1,5 @@
 {
+  "recipe": "defter",
   "business": {
     "tagline": "Maltepe sahilinde dahiliye, cerrahi, laboratuvar ve röntgen. Pazartesi–cumartesi 10:00–19:30, pazar kapalı. Telefon: 0552 799 98 89.",
     "social": {}
@@ -206,6 +207,5 @@
     "yorumlar",
     "iletisim"
   ],
-  "remove": [],
-  "concept": "defter"
+  "remove": []
 }

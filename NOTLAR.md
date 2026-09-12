@@ -111,6 +111,8 @@ Durum: ✅ bitti · 🔧 sırada · ⏳ dış girdi bekliyor · 💡 fikir
 
 ## 3. Karar günlüğü
 
+- **2026-09-12 (gece)** — Serkan: "konseptler C tasarımı; A ve B için kesin reçeteler". Motora konsept detayları eklendi (`hours: dial|strip`, `services: fis`, `location: card`, `cta: tabela`), reçeteler bunları kullanıyor; altı sitede A/B yeniden üretildi (metinler korunarak), C = uygun konsept. Reçete/konsept ad çakışması (`defter`): komut reçeteyi önceler, konsept için `--concept`.
+
 - **2026-09-12 (akşam)** — Serkan: "reçete tarzı ama tasarım detayları da olsun" → **konseptler reçete oldu**: `concept` alanı (site/katman) sayfayı 15 konseptten biriyle çizer; metin ve olgular değişmez. Altı Excel sitesinin B'si konseptle: Esatpaşa→Nöbet, Esenler→Tabela, Küçükyalı→Kartvizit, Adraga→Defter, Pisi→Rozet, Polen→Katalog. Eski reçeteler (kütüphane) tema/sıra için duruyor; tasarım kararı konseptle verilir.
 
 - **2026-09-12** — 15 konsept (`/konsept`, `components/konsept/`, `docs/konseptler.md`) Serkan'ın kararıyla **arşivde**: "aşırı iyi ama bunları kullanmayalım, kaydedelim". Sitelere bağlanmayacak; ileride fikir/parça kaynağı. Reçeteler de beğenilmedi (kütüphane duruyor, kullanılmıyor). Tasarım yönü kararı bekliyor.

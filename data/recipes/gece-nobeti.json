@@ -41,7 +41,8 @@
     },
     {
       "id": "saatler",
-      "type": "hours"
+      "type": "hours",
+      "layout": "dial"
     },
     {
       "id": "konum",
@@ -63,7 +64,8 @@
     },
     {
       "id": "iletisim",
-      "type": "cta"
+      "type": "cta",
+      "layout": "tabela"
     }
   ],
   "mobile": "İlk ekran: telefon numarası (büyük), isim, 'şu an açık' rozeti, tek buton Ara. WhatsApp yüzen butonda (nabız animasyonu 3 kez). Alt bar yok; FAB baş parmak alanında, safe-area boşluğu.",

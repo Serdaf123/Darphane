@@ -2,6 +2,20 @@
 
 İki ajanın (Claude + Codex) ortak kütüphanesi. Her yeni site bir **reçeteden** başlar; reçete = hero varyantı + giriş animasyonu + kaydırma animasyonu + bölüm sırası ve düzenleri + iletişim deseni + header + tipografi/doku + mode. Makine okur: `data/recipes/<key>.json` (bu belge o dosyalardan üretilir; ikisini birlikte güncelle). **Afiş reçetesi 12.09.2026'da kaldırıldı** (Serkan beğenmedi: Esenler ve Pisi B'leri). Uygulama aracı: `npm run recipe -- <slug> <key> [--variant b]` (uygulama: `scripts/recipe.mts`).
 
+## Tasarım detayları (12.09.2026, akşam)
+
+Konseptlerden motora alınan bölüm düzenleri; reçeteler bunları kullanır:
+
+| Bölüm | `layout` | Ne |
+|---|---|---|
+| hours | `dial` | 24 saatlik kadran + liste (Nöbet); 7/24 ve gece işleri |
+| hours | `strip` | haftalık dikey çubuk şerit (Takvim); randevulu işler |
+| services | `fis` | kasa fişi: noktalı kılavuz + onay/fiyat (Fiş) |
+| location | `card` | tam genişlik harita, üstünde yüzen kart (Harita) |
+| cta | `tabela` | ışıklı tabela + AÇIK/KAPALI rozeti + plaka adres (Tabela) |
+
+Kullanım: Gece Nöbeti → dial + tabela + list; Tezgâh → strip + tabela; Klinik → strip; Vitrin/Kartpostal/Sahne → konum card; Atölye → fis + tabela. **Konseptler C tasarımıdır** (uygunluğa göre Claude seçer): `npm run recipe -- <slug> <konsept> --variant c --apply` (aynı adlı reçete varsa `--concept`).
+
 ## Konseptler reçete olarak (12.09.2026)
 
 Serkan'ın kararı: reçete gibi tek anahtarla uygulanan ama tasarım detayı taşıyan sistem. 15 konsept (`docs/konseptler.md`, `/konsept`) artık `concept` alanıyla siteye/katmana uygulanır: `npm run recipe -- <slug> tabela --variant b --apply`. Konsept sayfada bölüm yığınının yerini alır; veri `facts.ts` üzerinden `sections`'tan gelir; teklif şeridi, A/B geçişi, analitik ve noindex aynen çalışır. Bu bölümdeki tema/sıra reçeteleri klasik bölüm yığını için kalır.
@@ -184,11 +198,11 @@ Bu alanları kullanmayan eski katmanlar aynı davranır; Noyavet B/C için önce
 
 | Site | A reçetesi | B reçetesi | Notlar |
 |---|---|---|---|
-| Esatpaşa Veteriner | `klinik` | `gece-nobeti` | Açık split/bar ile koyu statement/fab ayrımı; 7/24 telefon `counter` ile önce gelir. |
-| Esenler Batı Veteriner | `klinik` | `gece-nobeti` | Açık klinik ızgarasına karşı koyu antet, telefon önce (`counter`); adında 7/24 acil. |
-| Küçükyalı Veteriner | `tezgah` | `sessiz` | Mahalle tipi split/bar ile fotoğrafsız minimal/fab; WhatsApp yok, tek eylem Ara; B hero `stack`. |
-| Adraga Veteriner | `vitrin` | `defter` | Fotoğraf ve bar öncelikli A ile tek ton, tip öncelikli fab B; B hero `stack`. |
-| Pisi Veteriner | `klinik` | `sahne` | Açık klinik ızgarası ile koyu tam ekran fotoğraf, masonry galeri, akan yorumlar; kuş ve tavşan içeriği korunur. |
-| Polen Veteriner | `tezgah` | `sahne` | Açık split/bar ile koyu tam ekran fotoğraf/fab; çalışma saatleri ve yorum verisi olmadığı için bu bölümler üretilmez. |
+| Esatpaşa Veteriner | `klinik` | `gece-nobeti` · C: Nöbet | Açık split/bar ile koyu statement/fab ayrımı; 7/24 telefon `counter` ile önce gelir. |
+| Esenler Batı Veteriner | `klinik` | `gece-nobeti` · C: Tabela | Açık klinik ızgarasına karşı koyu antet, telefon önce (`counter`); adında 7/24 acil. |
+| Küçükyalı Veteriner | `tezgah` | `sessiz` · C: Kartvizit | Mahalle tipi split/bar ile fotoğrafsız minimal/fab; WhatsApp yok, tek eylem Ara; B hero `stack`. |
+| Adraga Veteriner | `vitrin` | `defter` · C: Defter (konsept) | Fotoğraf ve bar öncelikli A ile tek ton, tip öncelikli fab B; B hero `stack`. |
+| Pisi Veteriner | `klinik` | `sahne` · C: Rozet | Açık klinik ızgarası ile koyu tam ekran fotoğraf, masonry galeri, akan yorumlar; kuş ve tavşan içeriği korunur. |
+| Polen Veteriner | `tezgah` | `sahne` · C: Katalog | Açık split/bar ile koyu tam ekran fotoğraf/fab; çalışma saatleri ve yorum verisi olmadığı için bu bölümler üretilmez. |
 
 Altı çiftte A tam dosyada, B katmanda `recipe` taşır. B katmanı yeniden üretildiğinde mevcut işletmeye özel metinler ve SEO korunur; reçete tema, bölüm sırası, düzen ve hareketi belirler. Tüm B’lerde dial FAB kullanılır ve hareket azaltma açıkken sunucu/istemci yapısı değişmez.

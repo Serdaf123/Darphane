@@ -223,14 +223,16 @@
     {
       "id": "saatler",
       "type": "hours",
-      "title": "Çalışma saatleri"
+      "title": "Çalışma saatleri",
+      "layout": "strip"
     },
     {
       "id": "konum",
       "type": "location",
       "title": "Klinik",
       "showMap": true,
-      "note": "İhlas Caddesi üzerinde, Yakuplu."
+      "note": "İhlas Caddesi üzerinde, Yakuplu.",
+      "layout": "split"
     },
     {
       "id": "galeri",
@@ -302,7 +304,8 @@
           "kind": "call",
           "style": "ghost"
         }
-      ]
+      ],
+      "layout": "band"
     }
   ],
   "offer": {

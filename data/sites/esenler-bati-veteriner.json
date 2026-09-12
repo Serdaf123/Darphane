@@ -212,14 +212,16 @@
     {
       "id": "saatler",
       "type": "hours",
-      "title": "Çalışma saatleri"
+      "title": "Çalışma saatleri",
+      "layout": "strip"
     },
     {
       "id": "konum",
       "type": "location",
       "title": "Klinik",
       "showMap": true,
-      "note": "Cengiz Topel Caddesi üzerinde, Turgut Reis."
+      "note": "Cengiz Topel Caddesi üzerinde, Turgut Reis.",
+      "layout": "split"
     },
     {
       "id": "hakkinda",
@@ -296,7 +298,8 @@
           "kind": "call",
           "style": "ghost"
         }
-      ]
+      ],
+      "layout": "band"
     }
   ],
   "offer": {

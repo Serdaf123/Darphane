@@ -1073,3 +1073,56 @@ main > .section:nth-child(even of .section):not(.section-dark):not(.cta-band) { 
     animation: none !important; transition: none !important; scroll-behavior: auto !important;
   }
 }
+
+/* ---------------- Reçete detayları: konseptlerden motora alınan bölüm düzenleri ---------------- */
+/* Saatler · kadran */
+.hours-dial-wrap { display: grid; place-items: center; }
+.hours-dial { width: min(100%, 20rem); display: block; }
+.hours-dial-track { fill: none; stroke: var(--c-border); stroke-width: 10; }
+.hours-dial-arc { fill: none; stroke: var(--c-accent); stroke-width: 10; transform: rotate(-90deg); transform-origin: 130px 130px; animation: hours-dial-draw 1.2s cubic-bezier(0.22, 1, 0.36, 1) 0.2s both; }
+.hours-dial-tick { stroke: var(--c-border); stroke-width: 1.5; }
+.hours-dial-tick.major { stroke: var(--c-muted); stroke-width: 2; }
+.hours-dial-num { fill: var(--c-muted); font-size: 11px; font-variant-numeric: tabular-nums; }
+.hours-dial-hand line { stroke: var(--c-text); stroke-width: 2.5; stroke-linecap: round; }
+.hours-dial-hand circle { fill: var(--c-text); }
+@keyframes hours-dial-draw { from { stroke-dasharray: 0 999; } }
+@media (min-width: 768px) { .hours-layout-dial .container { display: grid; grid-template-columns: 1fr; } .hours-layout-dial .hours-dial-wrap { grid-row: 2; } }
+/* Saatler · haftalık şerit */
+.hours-strip { list-style: none; margin: 0; padding: 1rem; display: grid; grid-template-columns: repeat(7, 1fr); gap: 0.5rem; background: var(--c-surface); border: 1px solid var(--c-border); border-radius: var(--radius); }
+.hours-strip li { display: grid; grid-template-rows: auto 12rem auto; justify-items: center; gap: 0.4rem; font-size: 0.75rem; text-align: center; padding: 0.35rem 0.15rem; border-radius: calc(var(--radius) - 2px); }
+.hours-strip li.today { background: var(--c-accent-soft); }
+.hours-strip li.today .hours-strip-day { color: var(--c-accent); font-weight: 700; }
+.hours-strip-day { font-weight: 600; }
+.hours-strip-track { position: relative; width: 100%; max-width: 2rem; height: 100%; background: repeating-linear-gradient(to bottom, transparent 0 calc(100% / 10 - 1px), var(--c-border) calc(100% / 10 - 1px) calc(100% / 10)); border-radius: 999px; overflow: hidden; }
+.hours-strip-bar { position: absolute; left: 0; right: 0; background: var(--c-accent); border-radius: 999px; }
+.hours-strip li.closed .hours-strip-track { background-image: repeating-linear-gradient(135deg, transparent 0 6px, var(--c-border) 6px 8px); }
+.hours-strip-val { color: var(--c-muted); font-variant-numeric: tabular-nums; line-height: 1.2; }
+.hours-table-compact { display: none; }
+@media (max-width: 480px) { .hours-strip li { grid-template-rows: auto 8rem auto; font-size: 0.6875rem; } .hours-strip-val { display: none; } .hours-table-compact { display: table; } }
+/* Hizmetler · fiş */
+.services-fis { margin: 0.5rem auto 0; max-width: 40rem; width: 100%; padding: 1.25rem 1.25rem 1.5rem !important; background: var(--c-surface); border: 1px solid var(--c-border); font-variant-numeric: tabular-nums; -webkit-mask: linear-gradient(#000, #000) padding-box, conic-gradient(from -45deg at bottom, #0000 25%, #000 0) 0 100% / 12px 8px repeat-x; }
+.services-fis-row { padding: 0.55rem 0; }
+.services-fis-line { display: flex; align-items: baseline; gap: 0.5rem; margin: 0; font-weight: 600; }
+.services-fis-lead { flex: 1; border-bottom: 2px dotted var(--c-muted); transform: translateY(-0.3em); opacity: 0.6; }
+.services-fis-mark { color: var(--c-accent); white-space: nowrap; }
+.services-fis-desc { margin: 0.2rem 0 0 0.75rem; font-size: 0.9rem; line-height: 1.5; }
+/* Konum · harita üstü kart */
+.location-card-section { position: relative; min-height: 32rem; display: grid; align-items: end; padding-block: 1.25rem; isolation: isolate; background: var(--c-surface) !important; }
+.location-card-section > .container { position: relative; z-index: 1; }
+.location-card-map { position: absolute; inset: 0; z-index: 0; width: 100%; height: 100%; filter: saturate(0.85); }
+.location-card { max-width: 26rem; padding: 1.25rem; display: flex; flex-direction: column; gap: 0.75rem; background: var(--c-bg); color: var(--c-text); border: 1px solid var(--c-border); border-radius: var(--radius); box-shadow: 0 18px 40px rgba(0,0,0,0.18); }
+@media (min-width: 768px) { .location-card-section { align-items: start; min-height: 36rem; padding-block: 2rem; } }
+/* Kapanış · tabela */
+.cta-tabela { background: color-mix(in srgb, var(--c-text) 14%, var(--c-bg)); }
+.cta-tabela-inner { display: flex; flex-direction: column; align-items: center; text-align: center; gap: var(--stack-gap); }
+.cta-tabela-sign { position: relative; width: min(100%, 40rem); margin-top: 1.5rem; padding: 2rem 1.5rem 1.5rem; background: #0e0d0b; color: #fff; border-radius: 0.5rem; box-shadow: 0 20px 40px rgba(0,0,0,0.35), inset 0 0 0 6px #1d1c1a; }
+.cta-tabela-post { position: absolute; top: -1.5rem; left: 14%; width: 0.9rem; height: 1.6rem; background: #2a2926; border-radius: 2px 2px 0 0; }
+.cta-tabela-post.right { left: auto; right: 14%; }
+.cta-tabela-name { margin: 0; font-family: var(--font-heading); font-weight: 700; font-size: clamp(1.6rem, 5vw, 3rem); line-height: 1.05; letter-spacing: 0.02em; text-transform: uppercase; color: #fff4d6; text-shadow: 0 0 8px #ffd98a, 0 0 22px #ffbf47, 0 0 44px rgba(255,170,40,0.55); animation: cta-tabela-on 1.2s steps(3, end) both; }
+.cta-tabela-cat { margin: 0.4rem 0 0; letter-spacing: 0.18em; text-transform: uppercase; font-size: 0.8rem; color: #cfc8b8; }
+.cta-tabela-head { margin-top: 0.5rem; }
+.cta-tabela-row { display: flex; flex-wrap: wrap; justify-content: center; align-items: center; gap: 0.75rem; }
+.cta-tabela-door .pill { border-width: 2px; font-weight: 700; padding: 0.5rem 0.9rem; }
+.cta-tabela-plate { margin: 0; padding: 0.55rem 1rem; border: 3px solid #fff; border-radius: 0.35rem; background: #0b4fb3; color: #fff; font-weight: 600; letter-spacing: 0.04em; text-transform: uppercase; box-shadow: 0 0 0 2px #0b4fb3; font-size: 0.85rem; }
+@keyframes cta-tabela-on { 0% { opacity: 0.2; text-shadow: none; } 60% { opacity: 0.5; } 100% { opacity: 1; } }
+@media (prefers-reduced-motion: reduce) { .hours-dial-arc, .cta-tabela-name { animation: none; } }

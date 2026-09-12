@@ -63,7 +63,8 @@
     },
     {
       "id": "saatler",
-      "type": "hours"
+      "type": "hours",
+      "layout": "strip"
     },
     {
       "id": "konum",

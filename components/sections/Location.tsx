@@ -24,6 +24,25 @@ export function Location({
 
   if (!address && !embed) return null;
 
+  if (section.layout === "card" && embed) {
+    return (
+      <section id={id} className="section location-card-section">
+        <iframe src={embed} title={`${business.name} konumu`} loading="lazy" referrerPolicy="no-referrer-when-downgrade" className="location-card-map" style={{ border: 0 }} />
+        <div className="container">
+          <Reveal className="location-card">
+            <h2 className="section-title section-title-sm">{section.title}</h2>
+            {address ? <p className="text-lg">{address}</p> : null}
+            {section.note ? <p className="muted text-sm leading-relaxed">{section.note}</p> : null}
+            <div className="flex flex-wrap gap-3">
+              {directions ? <a href={directions} target="_blank" rel="noopener noreferrer" className="btn btn-primary">{t(locale).location.directions}</a> : null}
+              {business.phone ? <a href={`tel:${normalizePhone(business.phone)}`} className="btn btn-ghost">{business.phone}</a> : null}
+            </div>
+          </Reveal>
+        </div>
+      </section>
+    );
+  }
+
   return (
     <section id={id} className="section">
       <div className="container grid gap-8 md:grid-cols-2 md:items-center">

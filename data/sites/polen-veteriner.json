@@ -151,7 +151,8 @@
       "type": "location",
       "title": "Klinik",
       "showMap": true,
-      "note": "Yılmazer Sokak üzerinde, Cevizli."
+      "note": "Yılmazer Sokak üzerinde, Cevizli.",
+      "layout": "split"
     },
     {
       "id": "hakkinda",
@@ -213,7 +214,8 @@
           "kind": "call",
           "style": "ghost"
         }
-      ]
+      ],
+      "layout": "tabela"
     }
   ],
   "offer": {

@@ -64,7 +64,7 @@ export function Sections({
           case "beforeAfter":
             return <BeforeAfter key={key} section={section} id={id} locale={locale} />;
           case "cta":
-            return <Cta key={key} section={section} business={business} id={id} locale={locale} />;
+            return <Cta key={key} section={section} business={business} id={id} locale={locale} serverNow={getServerTime()} />;
         }
       })}
     </>

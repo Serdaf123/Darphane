@@ -43,7 +43,7 @@
     {
       "id": "hizmetler",
       "type": "services",
-      "layout": "list"
+      "layout": "fis"
     },
     {
       "id": "oncesonra",
@@ -68,7 +68,8 @@
     },
     {
       "id": "iletisim",
-      "type": "cta"
+      "type": "cta",
+      "layout": "tabela"
     }
   ],
   "mobile": "Hero 60svh, ilk buton Ara (usta telefonla konuşur). Hizmet listesi tek sütun, fiyat notu varsa sağda.",

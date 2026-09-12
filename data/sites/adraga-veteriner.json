@@ -207,14 +207,16 @@
     {
       "id": "saatler",
       "type": "hours",
-      "title": "Çalışma saatleri"
+      "title": "Çalışma saatleri",
+      "layout": "table"
     },
     {
       "id": "konum",
       "type": "location",
       "title": "Klinik",
       "showMap": true,
-      "note": "Sahilyolu Caddesi üzerinde, Yalı."
+      "note": "Sahilyolu Caddesi üzerinde, Yalı.",
+      "layout": "card"
     },
     {
       "id": "hizmetler",
@@ -298,7 +300,8 @@
           "kind": "call",
           "style": "ghost"
         }
-      ]
+      ],
+      "layout": "band"
     }
   ],
   "offer": {

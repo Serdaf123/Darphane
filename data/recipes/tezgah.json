@@ -42,7 +42,8 @@
     },
     {
       "id": "saatler",
-      "type": "hours"
+      "type": "hours",
+      "layout": "strip"
     },
     {
       "id": "hizmetler",
@@ -65,7 +66,8 @@
     },
     {
       "id": "iletisim",
-      "type": "cta"
+      "type": "cta",
+      "layout": "tabela"
     }
   ],
   "mobile": "İlk ekranda 'şu an açık · 21:00'e kadar' rozeti ve Ara; saat tablosu hemen altında. Hafif sayfa (smooth kapalı), 3G'de hızlı.",

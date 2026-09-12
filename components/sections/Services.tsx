@@ -12,7 +12,17 @@ export function Services({ section, id }: { section: ServicesData; id: string })
           {section.intro ? <p className="section-intro">{section.intro}</p> : null}
         </Reveal>
 
-        {section.layout === "list" ? (
+        {section.layout === "fis" ? (
+          <Stagger as="ul" className="services-fis" style={{ listStyle: "none", padding: 0 }}>
+            {section.items.map((item) => (
+              <Item as="li" key={item.name} className="services-fis-row">
+                <p className="services-fis-line"><span className="services-fis-name">{item.name}</span><span className="services-fis-lead" aria-hidden /><span className="services-fis-mark" aria-hidden>{item.price ?? "✓"}</span></p>
+                {item.description ? <p className="services-fis-desc muted">{item.description}</p> : null}
+                {item.price ? <span className="visually-hidden">{item.price}</span> : null}
+              </Item>
+            ))}
+          </Stagger>
+        ) : section.layout === "list" ? (
           <Stagger as="ul" className="mt-2 flex flex-col" style={{ listStyle: "none", padding: 0 }}>
             {section.items.map((item) => (
               <Item

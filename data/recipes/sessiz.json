@@ -61,7 +61,8 @@
     },
     {
       "id": "saatler",
-      "type": "hours"
+      "type": "hours",
+      "layout": "table"
     },
     {
       "id": "iletisim",

@@ -245,7 +245,8 @@ const servicesSection = z.object({
   title: z.string().default("Hizmetlerimiz"),
   intro: z.string().optional(),
   /** cards: kutulu · list: tek sütun satırlar · grid: iki sütun, kutusuz */
-  layout: z.enum(["cards", "list", "grid"]).default("cards"),
+  /** cards · list · grid · fis: kasa fişi gibi noktalı kılavuzlu satırlar */
+  layout: z.enum(["cards", "list", "grid", "fis"]).default("cards"),
   /** dark: bölüm mürekkep zeminli koyu panel olur — sayfaya koyu/açık ritmi verir */
   tone: z.enum(["light", "dark"]).default("light"),
   items: z.array(
@@ -309,6 +310,8 @@ const hoursSection = z.object({
   ...sectionBase,
   type: z.literal("hours"),
   title: z.string().default("Çalışma Saatleri"),
+  /** table: liste (varsayılan) · dial: 24 saatlik kadran + liste (7/24, gece) · strip: haftalık çubuk şerit (randevulu işler) */
+  layout: z.enum(["table", "dial", "strip"]).default("table"),
 });
 
 const locationSection = z.object({
@@ -318,6 +321,8 @@ const locationSection = z.object({
   /** Haritayı gömmek gizlilik/hız açısından maliyetli; varsayılan kapalı */
   showMap: z.boolean().default(true),
   note: z.string().optional(),
+  /** split: metin + harita yan yana (varsayılan) · card: tam genişlik harita, üstünde yüzen kart (önce "nerede") */
+  layout: z.enum(["split", "card"]).default("split"),
 });
 
 const contactSection = z.object({
@@ -419,6 +424,8 @@ const ctaSection = z.object({
   headline: z.string(),
   subline: z.string().optional(),
   actions: z.array(actionSchema).default([]),
+  /** band: renkli bant (varsayılan) · tabela: dükkân tabelası + kapı etiketi (AÇIK/KAPALI) + plaka düğmeler */
+  layout: z.enum(["band", "tabela"]).default("band"),
 });
 
 export const sectionSchema = z.discriminatedUnion("type", [
