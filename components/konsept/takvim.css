@@ -289,8 +289,8 @@
   margin: 0;
   padding: 0.875rem 1rem;
   background: var(--paper);
-  border-left: 3px solid var(--accent);
-  border-radius: 0 12px 12px 0;
+  border: 1px solid var(--line, #d8e3dc);
+  border-radius: 12px;
 }
 .k-takvim .reviews blockquote p {
   margin: 0;
