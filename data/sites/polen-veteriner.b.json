@@ -1,0 +1,66 @@
+{
+  "recipe": "afis",
+  "theme": {
+    "preset": "graphite",
+    "mode": "dark",
+    "neutralTint": 0.35,
+    "typeScale": "display",
+    "fonts": "bold",
+    "headingFont": "display",
+    "radius": "none",
+    "density": "tight",
+    "header": "none",
+    "photos": "color",
+    "contact": "fab",
+    "fabStyle": "dial",
+    "motion": {
+      "hero": "split",
+      "scroll": "slide",
+      "smooth": true,
+      "parallax": false
+    }
+  },
+  "sections": [
+    {
+      "id": "ust",
+      "variant": "statement",
+      "badges": [
+        "Google'da 4,8"
+      ],
+      "urgent": null,
+      "actions": [
+        {
+          "label": "WhatsApp'tan Yazın",
+          "kind": "whatsapp",
+          "value": "Merhaba, Polen Veteriner için yazıyorum.\nHayvan (tür/yaş): \nŞikâyet: ",
+          "style": "primary"
+        }
+      ]
+    },
+    {
+      "id": "galeri",
+      "layout": "strip"
+    },
+    {
+      "id": "hizmetler",
+      "layout": "cards"
+    },
+    {
+      "id": "konum"
+    },
+    {
+      "id": "iletisim"
+    }
+  ],
+  "sectionOrder": [
+    "ust",
+    "galeri",
+    "hizmetler",
+    "konum",
+    "iletisim"
+  ],
+  "remove": [
+    "hakkinda",
+    "sss"
+  ]
+}
