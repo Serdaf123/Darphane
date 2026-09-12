@@ -116,6 +116,8 @@ const nextConfig: NextConfig = {
       // Tasarım kütüphanesi (iç araç)
       { source: "/kutuphane", headers: [noindex] },
       { source: "/kutuphane/:path*", headers: [noindex] },
+      { source: "/konsept", headers: [noindex] },
+      { source: "/konsept/:path*", headers: [noindex] },
       // Satılmamış her işletme sitesi: kök + alt yollar (/b, /c, /en, /teklif)
       ...unsoldSlugs().flatMap((slug) => [
         { source: `/${slug}`, headers: [noindex] },
