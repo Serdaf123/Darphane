@@ -1,5 +1,6 @@
 {
   "slug": "kucukyali-veteriner",
+  "recipe": "tezgah",
   "business": {
     "name": "Küçükyalı Veteriner Kliniği",
     "category": "Veteriner kliniği",
@@ -15,6 +16,7 @@
     "social": {},
     "hours": {
       "timezone": "Europe/Istanbul",
+      "note": "Pazar kapalı.",
       "days": {
         "mon": [
           {
@@ -53,41 +55,41 @@
           }
         ],
         "sun": []
-      },
-      "note": "Pazar kapalı."
+      }
     }
   },
   "theme": {
-    "preset": "sand",
-    "accent": "#a4161a",
+    "preset": "sage",
     "mode": "light",
-    "neutralTint": 0.3,
-    "fonts": "soft",
-    "headingFont": "display",
-    "typeScale": "normal",
-    "radius": "lg",
-    "density": "airy",
-    "header": "minimal",
-    "contact": "bar",
+    "neutralTint": 0.35,
+    "typeScale": "compact",
+    "fonts": "noto",
+    "headingFont": "sans",
+    "radius": "md",
+    "density": "tight",
+    "header": "solid",
+    "photos": "color",
+    "contact": "both",
     "fabStyle": "dial",
     "motion": {
       "hero": "rise",
-      "scroll": "fade",
-      "smooth": true,
+      "scroll": "scale",
+      "smooth": false,
       "parallax": false
     }
   },
   "sections": [
     {
-      "type": "hero",
       "id": "ust",
+      "type": "hero",
       "variant": "split",
       "headline": "Küçükyalı Veteriner",
       "subline": "Maltepe Çınar'da, Mızrak Sokak'ta yıllardır aynı yerde. Kedi ve köpekler için muayene, aşı ve tedavi.",
-      "badges": [
-        "Google'da 4,3 · 84 yorum",
-        "Hafta içi 11:00–20:00"
-      ],
+      "image": {
+        "src": "/sites/kucukyali-veteriner/hero.webp",
+        "alt": "Küçükyalı Veteriner Kliniği'nin Mızrak Sokak'taki girişi",
+        "focal": "50% 50%"
+      },
       "actions": [
         {
           "label": "Hemen Ara",
@@ -100,38 +102,22 @@
           "style": "ghost"
         }
       ],
-      "image": {
-        "src": "/sites/kucukyali-veteriner/hero.webp",
-        "alt": "Küçükyalı Veteriner Kliniği'nin Mızrak Sokak'taki girişi",
-        "focal": "50% 50%"
-      }
-    },
-    {
-      "type": "about",
-      "id": "hakkinda",
-      "title": "Klinik hakkında",
-      "body": "Küçükyalı Veteriner Kliniği, Maltepe Çınar Mahallesi'nde Mızrak Sokak üzerindedir. Hafta içi 11:00–20:00, cumartesi 11:00–18:00 açıktır; pazar kapalıdır.\n\nMüşteri yorumlarında en çok muayene, aşı ve uzun süreli takip geçer. Randevu için arayın.",
-      "highlights": [
-        {
-          "label": "Google puanı",
-          "value": "4,3 / 5"
-        },
-        {
-          "label": "Çalışma",
-          "value": "Hafta içi 11–20 · Cmt 11–18"
-        },
-        {
-          "label": "Konum",
-          "value": "Çınar, Maltepe"
-        }
+      "badges": [
+        "Google'da 4,3 · 84 yorum",
+        "Hafta içi 11:00–20:00"
       ]
     },
     {
-      "type": "services",
+      "id": "saatler",
+      "type": "hours",
+      "title": "Çalışma saatleri"
+    },
+    {
       "id": "hizmetler",
+      "type": "services",
       "title": "Hizmetler",
       "intro": "Kliniğin Google kaydında ve müşteri yorumlarında geçen hizmetler. Başka bir ihtiyaç için arayıp sorun.",
-      "layout": "list",
+      "layout": "grid",
       "tone": "light",
       "items": [
         {
@@ -149,10 +135,10 @@
       ]
     },
     {
-      "type": "gallery",
       "id": "galeri",
+      "type": "gallery",
       "title": "Klinikten",
-      "layout": "strip",
+      "layout": "grid",
       "images": [
         {
           "src": "/sites/kucukyali-veteriner/sokak.webp",
@@ -167,10 +153,10 @@
       ]
     },
     {
-      "type": "reviews",
       "id": "yorumlar",
+      "type": "reviews",
       "title": "Google'da ne diyorlar?",
-      "layout": "quotes",
+      "layout": "cards",
       "summary": {
         "rating": 4.3,
         "count": 84,
@@ -198,8 +184,53 @@
       ]
     },
     {
-      "type": "faq",
+      "id": "konum",
+      "type": "location",
+      "title": "Klinik",
+      "showMap": true,
+      "note": "Mızrak Sokak üzerinde, Çınar."
+    },
+    {
+      "id": "iletisim",
+      "type": "cta",
+      "headline": "Randevu için arayın",
+      "subline": "Hafta içi 11:00–20:00, cumartesi 11:00–18:00.",
+      "actions": [
+        {
+          "label": "0216 417 03 19",
+          "kind": "call",
+          "style": "primary"
+        },
+        {
+          "label": "Yol Tarifi",
+          "kind": "directions",
+          "style": "ghost"
+        }
+      ]
+    },
+    {
+      "id": "hakkinda",
+      "type": "about",
+      "title": "Klinik hakkında",
+      "body": "Küçükyalı Veteriner Kliniği, Maltepe Çınar Mahallesi'nde Mızrak Sokak üzerindedir. Hafta içi 11:00–20:00, cumartesi 11:00–18:00 açıktır; pazar kapalıdır.\n\nMüşteri yorumlarında en çok muayene, aşı ve uzun süreli takip geçer. Randevu için arayın.",
+      "highlights": [
+        {
+          "label": "Google puanı",
+          "value": "4,3 / 5"
+        },
+        {
+          "label": "Çalışma",
+          "value": "Hafta içi 11–20 · Cmt 11–18"
+        },
+        {
+          "label": "Konum",
+          "value": "Çınar, Maltepe"
+        }
+      ]
+    },
+    {
       "id": "sss",
+      "type": "faq",
       "title": "Sık sorulan sorular",
       "items": [
         {
@@ -213,36 +244,6 @@
         {
           "q": "Neredesiniz?",
           "a": "Çınar Mahallesi, Mızrak Sokak No:3/A, Maltepe. Yol tarifi düğmesi haritayı açar."
-        }
-      ]
-    },
-    {
-      "type": "hours",
-      "id": "saatler",
-      "title": "Çalışma saatleri"
-    },
-    {
-      "type": "location",
-      "id": "konum",
-      "title": "Klinik",
-      "showMap": true,
-      "note": "Mızrak Sokak üzerinde, Çınar."
-    },
-    {
-      "type": "cta",
-      "id": "iletisim",
-      "headline": "Randevu için arayın",
-      "subline": "Hafta içi 11:00–20:00, cumartesi 11:00–18:00.",
-      "actions": [
-        {
-          "label": "0216 417 03 19",
-          "kind": "call",
-          "style": "primary"
-        },
-        {
-          "label": "Yol Tarifi",
-          "kind": "directions",
-          "style": "ghost"
         }
       ]
     }

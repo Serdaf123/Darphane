@@ -1,16 +1,24 @@
 {
   "recipe": "sessiz",
+  "business": {
+    "tagline": "Maltepe Çınar Mahallesi’nde muayene, aşı, tedavi ve takip. Hafta içi 11:00–20:00, cumartesi 11:00–18:00. Telefon: 0216 417 03 19.",
+    "social": {}
+  },
+  "seo": {
+    "title": "Küçükyalı Veteriner Kliniği | Maltepe",
+    "description": "Maltepe Çınar Mahallesi’nde muayene, aşı, tedavi ve takip. Hafta içi 11:00–20:00, cumartesi 11:00–18:00. Telefon: 0216 417 03 19."
+  },
   "theme": {
     "preset": "porcelain",
-    "mode": "dark",
-    "neutralTint": 0.12,
-    "typeScale": "compact",
-    "fonts": "clean",
-    "headingFont": "sans",
-    "radius": "none",
-    "density": "normal",
-    "header": "solid",
-    "photos": "color",
+    "mode": "light",
+    "neutralTint": 0.35,
+    "typeScale": "normal",
+    "fonts": "soft",
+    "headingFont": "display",
+    "radius": "lg",
+    "density": "airy",
+    "header": "minimal",
+    "photos": "mono",
     "contact": "fab",
     "fabStyle": "dial",
     "motion": {
@@ -18,8 +26,7 @@
       "scroll": "fade",
       "smooth": true,
       "parallax": false
-    },
-    "accent": "#b4232c"
+    }
   },
   "sections": [
     {
@@ -44,35 +51,32 @@
       ],
       "headline": "Küçükyalı Veteriner Kliniği",
       "subline": "Çınar Mah., Mızrak Sk. No:3/A, Maltepe/İstanbul adresindeyiz. İletişim için 0216 417 03 19 numarasını arayın.",
-      "compact": true,
       "urgent": null
     },
     {
-      "id": "konum",
-      "title": "Kliniğe ulaşım",
-      "note": "Çınar Mah., Mızrak Sk. No:3/A, Maltepe/İstanbul"
-    },
-    {
-      "id": "saatler",
-      "title": "Çalışma saatleri"
-    },
-    {
-      "id": "ekip",
-      "type": "team",
-      "title": "Hekimlerimiz",
-      "members": [
+      "id": "hakkinda",
+      "title": "Çınar Mahallesi'ndeki kliniğimiz",
+      "body": "Küçükyalı Veteriner Kliniği, Maltepe'nin Çınar Mahallesi'nde bulunur.\n\nMuayene, aşı, tedavi ve uzun süreli takip için kliniğimize başvurabilirsiniz.",
+      "highlights": [
         {
-          "name": "Mustafa Bey",
-          "role": "Veteriner hekim"
+          "label": "Hafta içi",
+          "value": "11:00–20:00"
+        },
+        {
+          "label": "Hafta sonu",
+          "value": "Cumartesi 11:00–18:00, pazar kapalı"
+        },
+        {
+          "label": "Telefon",
+          "value": "0216 417 03 19"
         }
       ]
     },
     {
       "id": "hizmetler",
-      "layout": "grid",
+      "layout": "list",
       "title": "Hizmetlerimiz",
       "intro": "Hizmetlerimiz hakkında bilgi almak için kliniğimizi arayabilirsiniz.",
-      "tone": "light",
       "items": [
         {
           "name": "Muayene",
@@ -93,46 +97,13 @@
       ]
     },
     {
-      "id": "yorumlar",
-      "title": "Google yorumları",
-      "layout": "cards",
-      "items": [
+      "id": "ekip",
+      "type": "team",
+      "title": "Hekimlerimiz",
+      "members": [
         {
-          "author": "Umut Ön",
-          "rating": 5,
-          "text": "İki tane kedim var ve ikisini sahiplendiğimden beri Mustafa hocama geliyoruz. Kanal yolunda sorun olan kedimi sonda takmadan iyileştirdi; işinin ehli, sevecen ve ilgili biri.",
-          "source": "Google"
-        },
-        {
-          "author": "Muhammet Hilmi Enes Aracı",
-          "rating": 5,
-          "text": "Pendik'ten Mustafa Bey için geliyoruz; yıllardır güvenerek geldiğimiz biricik veterinerimiz.",
-          "source": "Google"
-        },
-        {
-          "author": "Serap Lang",
-          "rating": 5,
-          "text": "Mustafa Bey senelerden beri benim canlarımın doktorudur. Almanya'da yaşıyorum; kedim böbreklerinden rahatsızlandığında Mustafa Bey telefonla yardımcı oldu.",
-          "source": "Google"
-        }
-      ]
-    },
-    {
-      "id": "hakkinda",
-      "title": "Çınar Mahallesi'ndeki kliniğimiz",
-      "body": "Küçükyalı Veteriner Kliniği, Maltepe'nin Çınar Mahallesi'nde bulunur.\n\nMuayene, aşı, tedavi ve uzun süreli takip için kliniğimize başvurabilirsiniz.",
-      "highlights": [
-        {
-          "label": "Hafta içi",
-          "value": "11:00–20:00"
-        },
-        {
-          "label": "Hafta sonu",
-          "value": "Cumartesi 11:00–18:00, pazar kapalı"
-        },
-        {
-          "label": "Telefon",
-          "value": "0216 417 03 19"
+          "name": "Mustafa Bey",
+          "role": "Veteriner hekim"
         }
       ]
     },
@@ -159,6 +130,16 @@
       ]
     },
     {
+      "id": "konum",
+      "title": "Kliniğe ulaşım",
+      "note": "Çınar Mah., Mızrak Sk. No:3/A, Maltepe/İstanbul",
+      "showMap": false
+    },
+    {
+      "id": "saatler",
+      "title": "Çalışma saatleri"
+    },
+    {
       "id": "iletisim",
       "headline": "Telefonla bilgi alın",
       "subline": "Muayene ve takip hakkında bilgi almak için çalışma saatlerimizde 0216 417 03 19 numarasını arayın.",
@@ -174,27 +155,44 @@
           "style": "ghost"
         }
       ]
+    },
+    {
+      "id": "yorumlar",
+      "title": "Google yorumları",
+      "items": [
+        {
+          "author": "Umut Ön",
+          "rating": 5,
+          "text": "İki tane kedim var ve ikisini sahiplendiğimden beri Mustafa hocama geliyoruz. Kanal yolunda sorun olan kedimi sonda takmadan iyileştirdi; işinin ehli, sevecen ve ilgili biri.",
+          "source": "Google"
+        },
+        {
+          "author": "Muhammet Hilmi Enes Aracı",
+          "rating": 5,
+          "text": "Pendik'ten Mustafa Bey için geliyoruz; yıllardır güvenerek geldiğimiz biricik veterinerimiz.",
+          "source": "Google"
+        },
+        {
+          "author": "Serap Lang",
+          "rating": 5,
+          "text": "Mustafa Bey senelerden beri benim canlarımın doktorudur. Almanya'da yaşıyorum; kedim böbreklerinden rahatsızlandığında Mustafa Bey telefonla yardımcı oldu.",
+          "source": "Google"
+        }
+      ]
     }
   ],
   "sectionOrder": [
     "ust",
+    "hakkinda",
+    "hizmetler",
+    "ekip",
+    "sss",
     "konum",
     "saatler",
-    "ekip",
-    "hizmetler",
-    "yorumlar",
-    "hakkinda",
-    "sss",
-    "iletisim"
+    "iletisim",
+    "yorumlar"
   ],
   "remove": [
     "galeri"
-  ],
-  "business": {
-    "tagline": "Maltepe Çınar Mahallesi’nde muayene, aşı, tedavi ve takip. Hafta içi 11:00–20:00, cumartesi 11:00–18:00. Telefon: 0216 417 03 19."
-  },
-  "seo": {
-    "title": "Küçükyalı Veteriner Kliniği | Maltepe",
-    "description": "Maltepe Çınar Mahallesi’nde muayene, aşı, tedavi ve takip. Hafta içi 11:00–20:00, cumartesi 11:00–18:00. Telefon: 0216 417 03 19."
-  }
+  ]
 }

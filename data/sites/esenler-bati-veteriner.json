@@ -1,5 +1,6 @@
 {
   "slug": "esenler-bati-veteriner",
+  "recipe": "klinik",
   "business": {
     "name": "Esenler Batı Veteriner Kliniği",
     "category": "Veteriner kliniği",
@@ -16,6 +17,7 @@
     "social": {},
     "hours": {
       "timezone": "Europe/Istanbul",
+      "note": "Acil durumlar için saat dışında da arayın.",
       "days": {
         "mon": [
           {
@@ -59,41 +61,41 @@
             "close": "00:00"
           }
         ]
-      },
-      "note": "Acil durumlar için saat dışında da arayın."
+      }
     }
   },
   "theme": {
     "preset": "porcelain",
-    "accent": "#c62828",
     "mode": "light",
-    "neutralTint": 0.2,
-    "fonts": "noto",
-    "headingFont": "sans",
+    "neutralTint": 0.35,
     "typeScale": "normal",
-    "radius": "sm",
+    "fonts": "clean",
+    "headingFont": "sans",
+    "radius": "md",
     "density": "normal",
     "header": "solid",
+    "photos": "color",
     "contact": "both",
     "fabStyle": "dial",
     "motion": {
       "hero": "rise",
-      "scroll": "rise",
+      "scroll": "fade",
       "smooth": true,
       "parallax": false
     }
   },
   "sections": [
     {
-      "type": "hero",
       "id": "ust",
+      "type": "hero",
       "variant": "split",
       "headline": "Esenler Batı Veteriner",
       "subline": "Turgut Reis'te, Cengiz Topel Caddesi üzerinde. Muayene, aşı, kısırlaştırma ve acil müdahale; her gün öğlen 12'den gece yarısına kadar.",
-      "badges": [
-        "Google'da 4,6 · 95 yorum",
-        "Her gün 12:00–00:00"
-      ],
+      "image": {
+        "src": "/sites/esenler-bati-veteriner/hero.webp",
+        "alt": "Esenler Batı Veteriner Kliniği'nin bekleme alanı ve resepsiyonu",
+        "focal": "50% 50%"
+      },
       "actions": [
         {
           "label": "WhatsApp'tan Yazın",
@@ -107,11 +109,10 @@
           "style": "ghost"
         }
       ],
-      "image": {
-        "src": "/sites/esenler-bati-veteriner/hero.webp",
-        "alt": "Esenler Batı Veteriner Kliniği'nin bekleme alanı ve resepsiyonu",
-        "focal": "50% 50%"
-      },
+      "badges": [
+        "Google'da 4,6 · 95 yorum",
+        "Her gün 12:00–00:00"
+      ],
       "urgent": {
         "title": "Acil durum mu? Önce arayın.",
         "note": "Ulaşamazsanız WhatsApp'a \"acil\" yazın.",
@@ -119,31 +120,11 @@
       }
     },
     {
-      "type": "about",
-      "id": "hakkinda",
-      "title": "Klinik hakkında",
-      "body": "Esenler Batı Veteriner Kliniği, Turgut Reis Mahallesi'nde Cengiz Topel Caddesi üzerindedir. Her gün 12:00–00:00 arası açıktır; acil durumlar için saat dışında da aranabilir.\n\nMuayene, aşı, kısırlaştırma ve yavru hayvan bakımı yorumlarda en çok geçen hizmetlerdir.",
-      "highlights": [
-        {
-          "label": "Google puanı",
-          "value": "4,6 / 5"
-        },
-        {
-          "label": "Çalışma",
-          "value": "Her gün 12:00–00:00"
-        },
-        {
-          "label": "Konum",
-          "value": "Turgut Reis, Esenler"
-        }
-      ]
-    },
-    {
-      "type": "services",
       "id": "hizmetler",
+      "type": "services",
       "title": "Hizmetler",
       "intro": "Kliniğin Google kaydında ve müşteri yorumlarında geçen hizmetler. Başka bir ihtiyaç için arayıp sorun.",
-      "layout": "cards",
+      "layout": "grid",
       "tone": "light",
       "items": [
         {
@@ -169,46 +150,8 @@
       ]
     },
     {
-      "type": "gallery",
-      "id": "galeri",
-      "title": "Klinikten",
-      "layout": "masonry",
-      "images": [
-        {
-          "src": "/sites/esenler-bati-veteriner/dis.webp",
-          "alt": "Kliniğin Cengiz Topel Caddesi üzerindeki girişi",
-          "focal": "50% 50%"
-        },
-        {
-          "src": "/sites/esenler-bati-veteriner/kedi-1.webp",
-          "alt": "Muayene masasında yavru bir kedi",
-          "focal": "50% 50%"
-        },
-        {
-          "src": "/sites/esenler-bati-veteriner/kedi-2.webp",
-          "alt": "Muayene masasında beyaz bir kedi",
-          "focal": "50% 50%"
-        },
-        {
-          "src": "/sites/esenler-bati-veteriner/kopek.webp",
-          "alt": "Kucakta küçük bir köpek",
-          "focal": "50% 50%"
-        },
-        {
-          "src": "/sites/esenler-bati-veteriner/kedi-3.webp",
-          "alt": "Muayenede gri bir kedi",
-          "focal": "50% 50%"
-        },
-        {
-          "src": "/sites/esenler-bati-veteriner/kedi-4.webp",
-          "alt": "Masada oturan bir kedi",
-          "focal": "50% 50%"
-        }
-      ]
-    },
-    {
-      "type": "reviews",
       "id": "yorumlar",
+      "type": "reviews",
       "title": "Google'da ne diyorlar?",
       "layout": "cards",
       "summary": {
@@ -244,8 +187,8 @@
       ]
     },
     {
-      "type": "faq",
       "id": "sss",
+      "type": "faq",
       "title": "Sık sorulan sorular",
       "items": [
         {
@@ -267,20 +210,20 @@
       ]
     },
     {
-      "type": "hours",
       "id": "saatler",
+      "type": "hours",
       "title": "Çalışma saatleri"
     },
     {
-      "type": "location",
       "id": "konum",
+      "type": "location",
       "title": "Klinik",
       "showMap": true,
       "note": "Cengiz Topel Caddesi üzerinde, Turgut Reis."
     },
     {
-      "type": "cta",
       "id": "iletisim",
+      "type": "cta",
       "headline": "Sorunuz varsa yazın, acilse arayın",
       "subline": "Muayene, aşı ve kısırlaştırma için WhatsApp'tan yazın; acil durumda telefon.",
       "actions": [
@@ -294,6 +237,64 @@
           "label": "0541 179 99 82",
           "kind": "call",
           "style": "ghost"
+        }
+      ]
+    },
+    {
+      "id": "hakkinda",
+      "type": "about",
+      "title": "Klinik hakkında",
+      "body": "Esenler Batı Veteriner Kliniği, Turgut Reis Mahallesi'nde Cengiz Topel Caddesi üzerindedir. Her gün 12:00–00:00 arası açıktır; acil durumlar için saat dışında da aranabilir.\n\nMuayene, aşı, kısırlaştırma ve yavru hayvan bakımı yorumlarda en çok geçen hizmetlerdir.",
+      "highlights": [
+        {
+          "label": "Google puanı",
+          "value": "4,6 / 5"
+        },
+        {
+          "label": "Çalışma",
+          "value": "Her gün 12:00–00:00"
+        },
+        {
+          "label": "Konum",
+          "value": "Turgut Reis, Esenler"
+        }
+      ]
+    },
+    {
+      "id": "galeri",
+      "type": "gallery",
+      "title": "Klinikten",
+      "layout": "masonry",
+      "images": [
+        {
+          "src": "/sites/esenler-bati-veteriner/dis.webp",
+          "alt": "Kliniğin Cengiz Topel Caddesi üzerindeki girişi",
+          "focal": "50% 50%"
+        },
+        {
+          "src": "/sites/esenler-bati-veteriner/kedi-1.webp",
+          "alt": "Muayene masasında yavru bir kedi",
+          "focal": "50% 50%"
+        },
+        {
+          "src": "/sites/esenler-bati-veteriner/kedi-2.webp",
+          "alt": "Muayene masasında beyaz bir kedi",
+          "focal": "50% 50%"
+        },
+        {
+          "src": "/sites/esenler-bati-veteriner/kopek.webp",
+          "alt": "Kucakta küçük bir köpek",
+          "focal": "50% 50%"
+        },
+        {
+          "src": "/sites/esenler-bati-veteriner/kedi-3.webp",
+          "alt": "Muayenede gri bir kedi",
+          "focal": "50% 50%"
+        },
+        {
+          "src": "/sites/esenler-bati-veteriner/kedi-4.webp",
+          "alt": "Masada oturan bir kedi",
+          "focal": "50% 50%"
         }
       ]
     }

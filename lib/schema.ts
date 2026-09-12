@@ -491,6 +491,8 @@ export const siteSchema = z.object({
   slug: z
     .string()
     .regex(/^[a-z0-9]+(?:-[a-z0-9]+)*$/, "slug küçük harf ve tire içermeli"),
+  /** Tasarımın başladığı kütüphane reçetesi; içerik ve işletme bilgilerini etkilemez. */
+  recipe: z.string().optional(),
   business: businessSchema,
   theme: themeSchema.prefault({}),
   sections: z.array(sectionSchema).min(1),

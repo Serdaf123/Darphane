@@ -1,5 +1,6 @@
 {
   "slug": "pisi-veteriner",
+  "recipe": "klinik",
   "business": {
     "name": "Pisi Veteriner Kliniği",
     "category": "Veteriner kliniği",
@@ -16,6 +17,7 @@
     "social": {},
     "hours": {
       "timezone": "Europe/Istanbul",
+      "note": "Pazar 13:00'te açılır.",
       "days": {
         "mon": [
           {
@@ -59,21 +61,20 @@
             "close": "20:00"
           }
         ]
-      },
-      "note": "Pazar 13:00'te açılır."
+      }
     }
   },
   "theme": {
     "preset": "porcelain",
-    "accent": "#c8102e",
     "mode": "light",
-    "neutralTint": 0.25,
+    "neutralTint": 0.35,
+    "typeScale": "normal",
     "fonts": "clean",
     "headingFont": "sans",
-    "typeScale": "normal",
     "radius": "md",
     "density": "normal",
     "header": "solid",
+    "photos": "color",
     "contact": "both",
     "fabStyle": "dial",
     "motion": {
@@ -85,15 +86,16 @@
   },
   "sections": [
     {
-      "type": "hero",
       "id": "ust",
+      "type": "hero",
       "variant": "split",
       "headline": "Pisi Veteriner",
       "subline": "Yakuplu'da, İhlas Caddesi üzerinde. Kedi ve köpeklerin yanında kuş ve tavşanlara da bakılır; muayene, kısırlaştırma, ultrason.",
-      "badges": [
-        "Google'da 4,6 · 185 yorum",
-        "Her gün açık"
-      ],
+      "image": {
+        "src": "/sites/pisi-veteriner/hero.webp",
+        "alt": "Pisi Veteriner Kliniği'nin İhlas Caddesi üzerindeki tabelası",
+        "focal": "50% 40%"
+      },
       "actions": [
         {
           "label": "WhatsApp'tan Yazın",
@@ -107,15 +109,14 @@
           "style": "ghost"
         }
       ],
-      "image": {
-        "src": "/sites/pisi-veteriner/hero.webp",
-        "alt": "Pisi Veteriner Kliniği'nin İhlas Caddesi üzerindeki tabelası",
-        "focal": "50% 40%"
-      }
+      "badges": [
+        "Google'da 4,6 · 185 yorum",
+        "Her gün açık"
+      ]
     },
     {
-      "type": "services",
       "id": "hizmetler",
+      "type": "services",
       "title": "Hizmetler",
       "intro": "Google yorumlarında ve klinik fotoğraflarında geçen hizmetler. Başka bir ihtiyaç için arayıp sorun.",
       "layout": "grid",
@@ -148,8 +149,8 @@
       ]
     },
     {
-      "type": "team",
       "id": "ekip",
+      "type": "team",
       "title": "Hekim",
       "members": [
         {
@@ -160,8 +161,99 @@
       ]
     },
     {
-      "type": "gallery",
+      "id": "yorumlar",
+      "type": "reviews",
+      "title": "Google'da ne diyorlar?",
+      "layout": "cards",
+      "summary": {
+        "rating": 4.6,
+        "count": 185,
+        "source": "Google"
+      },
+      "items": [
+        {
+          "author": "Belinay Demir",
+          "rating": 5,
+          "text": "Anıl Bey çok ilgili ve işinde gerçekten çok başarılı. Sokakta bulduğum kedilerle de kendi kedimle de büyük bir ilgi ve özenle ilgilendi. Tedavi sürecinde her zaman ulaşılabilir oldu.",
+          "source": "Google"
+        },
+        {
+          "author": "Selen Tosun",
+          "rating": 5,
+          "text": "Kedilerimi gönül rahatlığıyla götürdüğüm bir klinik. Anıl Bey her şeyi açıklayarak yardımcı oluyor. Yakın zamanda kedimi kısırlaştırdık, şu an durumu gayet iyi.",
+          "source": "Google"
+        },
+        {
+          "author": "Sezer Can Bektaş",
+          "rating": 5,
+          "text": "Muhabbet kuşum Gogoş'u götürdük; ayağının üstüne basamıyordu. Anıl Bey çok güzel ilgilendi, verdiği ilaç sayesinde kuşum eski sağlıklı haline döndü.",
+          "source": "Google"
+        },
+        {
+          "author": "Murat Bor",
+          "rating": 5,
+          "text": "Evde bakımını üstlendiğim sokak kedisinde strese bağlı aşırı yalanma ve kaşınma vardı. Anıl Bey teşhisi doğru koydu ve kızımız sağlığına kavuştu.",
+          "source": "Google"
+        }
+      ]
+    },
+    {
+      "id": "sss",
+      "type": "faq",
+      "title": "Sık sorulan sorular",
+      "items": [
+        {
+          "q": "Kuş ve tavşana bakıyor musunuz?",
+          "a": "Evet. Muhabbet kuşu, sultan papağanı ve tavşan muayenesi yapılır; gelmeden önce yazmanız sırayı kolaylaştırır."
+        },
+        {
+          "q": "Pazar açık mısınız?",
+          "a": "Evet, pazar 13:00–20:00; diğer günler 10:00–20:00."
+        },
+        {
+          "q": "Kısırlaştırma için ne yapmalıyım?",
+          "a": "WhatsApp'tan yazıp gün alın; aç kalma süresi ve hazırlık sizinle konuşulur."
+        },
+        {
+          "q": "Neredesiniz?",
+          "a": "Marmara Mahallesi, İhlas Caddesi No:31-A/B, Yakuplu, Beylikdüzü. Yol tarifi düğmesi haritayı açar."
+        }
+      ]
+    },
+    {
+      "id": "saatler",
+      "type": "hours",
+      "title": "Çalışma saatleri"
+    },
+    {
+      "id": "konum",
+      "type": "location",
+      "title": "Klinik",
+      "showMap": true,
+      "note": "İhlas Caddesi üzerinde, Yakuplu."
+    },
+    {
+      "id": "iletisim",
+      "type": "cta",
+      "headline": "Randevu için yazın ya da arayın",
+      "subline": "Muayene, kısırlaştırma ve bakım için WhatsApp'tan yazın; acilse arayın.",
+      "actions": [
+        {
+          "label": "WhatsApp'tan Yazın",
+          "kind": "whatsapp",
+          "value": "Merhaba, Pisi Veteriner için yazıyorum.\nHayvan (tür/yaş): \nŞikâyet: ",
+          "style": "primary"
+        },
+        {
+          "label": "0533 084 17 70",
+          "kind": "call",
+          "style": "ghost"
+        }
+      ]
+    },
+    {
       "id": "galeri",
+      "type": "gallery",
       "title": "Klinikten",
       "layout": "masonry",
       "images": [
@@ -209,97 +301,6 @@
           "src": "/sites/pisi-veteriner/kedi-2.webp",
           "alt": "Sarı beyaz bir kedi",
           "focal": "50% 50%"
-        }
-      ]
-    },
-    {
-      "type": "reviews",
-      "id": "yorumlar",
-      "title": "Google'da ne diyorlar?",
-      "layout": "cards",
-      "summary": {
-        "rating": 4.6,
-        "count": 185,
-        "source": "Google"
-      },
-      "items": [
-        {
-          "author": "Belinay Demir",
-          "rating": 5,
-          "text": "Anıl Bey çok ilgili ve işinde gerçekten çok başarılı. Sokakta bulduğum kedilerle de kendi kedimle de büyük bir ilgi ve özenle ilgilendi. Tedavi sürecinde her zaman ulaşılabilir oldu.",
-          "source": "Google"
-        },
-        {
-          "author": "Selen Tosun",
-          "rating": 5,
-          "text": "Kedilerimi gönül rahatlığıyla götürdüğüm bir klinik. Anıl Bey her şeyi açıklayarak yardımcı oluyor. Yakın zamanda kedimi kısırlaştırdık, şu an durumu gayet iyi.",
-          "source": "Google"
-        },
-        {
-          "author": "Sezer Can Bektaş",
-          "rating": 5,
-          "text": "Muhabbet kuşum Gogoş'u götürdük; ayağının üstüne basamıyordu. Anıl Bey çok güzel ilgilendi, verdiği ilaç sayesinde kuşum eski sağlıklı haline döndü.",
-          "source": "Google"
-        },
-        {
-          "author": "Murat Bor",
-          "rating": 5,
-          "text": "Evde bakımını üstlendiğim sokak kedisinde strese bağlı aşırı yalanma ve kaşınma vardı. Anıl Bey teşhisi doğru koydu ve kızımız sağlığına kavuştu.",
-          "source": "Google"
-        }
-      ]
-    },
-    {
-      "type": "faq",
-      "id": "sss",
-      "title": "Sık sorulan sorular",
-      "items": [
-        {
-          "q": "Kuş ve tavşana bakıyor musunuz?",
-          "a": "Evet. Muhabbet kuşu, sultan papağanı ve tavşan muayenesi yapılır; gelmeden önce yazmanız sırayı kolaylaştırır."
-        },
-        {
-          "q": "Pazar açık mısınız?",
-          "a": "Evet, pazar 13:00–20:00; diğer günler 10:00–20:00."
-        },
-        {
-          "q": "Kısırlaştırma için ne yapmalıyım?",
-          "a": "WhatsApp'tan yazıp gün alın; aç kalma süresi ve hazırlık sizinle konuşulur."
-        },
-        {
-          "q": "Neredesiniz?",
-          "a": "Marmara Mahallesi, İhlas Caddesi No:31-A/B, Yakuplu, Beylikdüzü. Yol tarifi düğmesi haritayı açar."
-        }
-      ]
-    },
-    {
-      "type": "hours",
-      "id": "saatler",
-      "title": "Çalışma saatleri"
-    },
-    {
-      "type": "location",
-      "id": "konum",
-      "title": "Klinik",
-      "showMap": true,
-      "note": "İhlas Caddesi üzerinde, Yakuplu."
-    },
-    {
-      "type": "cta",
-      "id": "iletisim",
-      "headline": "Randevu için yazın ya da arayın",
-      "subline": "Muayene, kısırlaştırma ve bakım için WhatsApp'tan yazın; acilse arayın.",
-      "actions": [
-        {
-          "label": "WhatsApp'tan Yazın",
-          "kind": "whatsapp",
-          "value": "Merhaba, Pisi Veteriner için yazıyorum.\nHayvan (tür/yaş): \nŞikâyet: ",
-          "style": "primary"
-        },
-        {
-          "label": "0533 084 17 70",
-          "kind": "call",
-          "style": "ghost"
         }
       ]
     }

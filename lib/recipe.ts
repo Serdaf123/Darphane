@@ -1,7 +1,7 @@
 import { z } from 'zod';
 import fs from 'node:fs';
 import path from 'node:path';
-import { siteSchema, sectionSchema, type Site, type SiteOverlay } from './schema.ts';
+import { siteSchema, sectionSchema, siteOverlaySchema, type Site, type SiteOverlay } from './schema.ts';
 import { mergeSiteOverlay } from './site-overlay.ts';
 
 const nonempty = z.string().min(1);
@@ -78,6 +78,72 @@ export function generateRecipeOverlay(site: Site, input: unknown, warn: (message
   const overlay: SiteOverlay = { recipe: recipe.key, theme: recipe.theme, sections, sectionOrder: [...used], remove: baseIds.filter(id => !used.has(id)) };
   mergeSiteOverlay(site, overlay);
   return overlay;
+}
+
+const SECTION_DESIGN_FIELDS = new Set(['variant', 'layout', 'tone', 'compact', 'image', 'video']);
+
+/** Mevcut varyantın metnini korur; tema, sıra ve bölüm düzenini yeni reçeteden alır. */
+export function generateRecipeVariantOverlay(
+  site: Site,
+  existingInput: unknown,
+  input: unknown,
+  warn: (message: string) => void = console.error,
+): SiteOverlay {
+  const existing = siteOverlaySchema.parse(existingInput);
+  const contentSections: NonNullable<SiteOverlay['sections']> = (existing.sections ?? []).map((section) => {
+    const content: { id: string; [key: string]: unknown } = { id: section.id };
+    for (const [key, value] of Object.entries(section)) {
+      if (key !== 'id' && !SECTION_DESIGN_FIELDS.has(key)) content[key] = value;
+    }
+    return content;
+  });
+  const contentOverlay: SiteOverlay = {
+    business: existing.business,
+    seo: existing.seo,
+    sections: contentSections,
+  };
+  const contentSite = mergeSiteOverlay(site, contentOverlay);
+  const generated = generateRecipeOverlay(contentSite, input, warn);
+  const baseIds = new Set(site.sections.map((section, index) => section.id ?? `${section.type}-${index}`));
+  const contentById = new Map(contentSections.map((section) => [section.id as string, section]));
+  const generatedById = new Map((generated.sections ?? []).map((section) => [section.id, section]));
+  const contentSiteById = new Map(contentSite.sections.map((section, index) => [section.id ?? `${section.type}-${index}`, section]));
+  const recipeOrder = generated.sectionOrder ?? [];
+  const preservedIds = contentSections
+    .filter((section) => Object.keys(section).some((key) => key !== 'id' && key !== 'type'))
+    .map((section) => section.id)
+    .filter((id) => !recipeOrder.includes(id) && !existing.remove?.includes(id));
+  const order = [...recipeOrder, ...preservedIds];
+
+  return siteOverlaySchema.parse({
+    recipe: generated.recipe,
+    theme: generated.theme,
+    business: existing.business,
+    seo: existing.seo,
+    sectionOrder: order,
+    remove: (generated.remove ?? []).filter((id) => baseIds.has(id) && !preservedIds.includes(id)),
+    sections: order.map((id) => {
+      if (!baseIds.has(id)) {
+        return sectionSchema.parse({ ...contentSiteById.get(id), ...generatedById.get(id) });
+      }
+      return { ...generatedById.get(id), ...contentById.get(id), id };
+    }),
+  });
+}
+
+/** Reçeteyi A'nın tam dosyasına uygular; reçetede olmayan mevcut içerik sonda korunur. */
+export function applyRecipeToBase(site: Site, input: unknown, warn: (message: string) => void = console.error): Site {
+  const overlay = generateRecipeOverlay(site, input, warn);
+  delete overlay.remove;
+  const sections = overlay.sections?.map((section) => {
+    const source = site.sections.find((candidate, index) => (candidate.id ?? `${candidate.type}-${index}`) === section.id);
+    if (source?.type !== 'hero') return section;
+    const design = { ...section };
+    delete design.badges;
+    delete design.actions;
+    return design;
+  });
+  return mergeSiteOverlay(site, { ...overlay, sections });
 }
 
 
