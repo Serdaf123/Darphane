@@ -33,6 +33,7 @@ Bu repo iki ajan tarafından geliştiriliyor: Claude Code (Serkan'ın Mac'inde) 
 - Kapı: canlıya almadan A/B ekran görüntüsü yan yana, gri tonda 2 saniyede ayırt edilmeli; mobil 390px'te ilk ekran "açık mı · nerede · nasıl ulaşırım" cevaplı; Lighthouse mobil ≥ 95.
 - Reçete değişince JSON ve belge birlikte güncellenir; yeni kombinasyon iki kez kullanılınca reçeteye dönüşür.
 - Canlı vitrin `/kutuphane` (noindex): reçeteler ve tüm animasyonlar gerçek bileşenlerle. Yeni animasyon/reçete eklendiğinde orada görünmeli (`app/kutuphane/`).
+- **Konseptler = reçete** (12.09.2026, Serkan): 15 tam tasarım `components/konsept/<key>` (`/konsept` vitrini). Site ya da katman JSON'una `"concept": "tabela"` yazınca sayfa o konseptle çizilir; içerik `sections`'tan (`facts.ts`), teklif şeridi/A-B/analitik aynı kalır. Uygulama: `npm run recipe -- <slug> <konsept> --variant b --apply`. Yeni konsept: bileşen + CSS + `lib/concept-keys.ts` + `registry.ts` + `docs/konseptler.md`.
 
 ## Her değişiklikten önce
 ```

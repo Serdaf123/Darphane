@@ -1,0 +1,8 @@
+/* Konsept sayfası + teklif şeridi: şerit --offer-h yayınlar; üstte sabit/yapışkan konsept öğeleri onun altına iner. */
+.konsept-root .k-perde .bar.top { top: var(--offer-h, 0px); }
+.konsept-root .k-perde .progress { top: calc(var(--offer-h, 0px) + var(--bar) - 3px); }
+.konsept-root .k-perde .frame { top: calc(var(--offer-h, 0px) + var(--bar)); }
+.konsept-root .k-defter .tabs { top: var(--offer-h, 0px); }
+.konsept-root .k-sohbet .bar { top: var(--offer-h, 0px); }
+.konsept-root .k-harita .map { top: var(--offer-h, 0px); }
+.konsept-root .k-harita .card { top: calc(var(--offer-h, 0px) + 1rem); }

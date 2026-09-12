@@ -1,5 +1,4 @@
 {
-  "recipe": "sessiz",
   "business": {
     "tagline": "Maltepe Çınar Mahallesi’nde muayene, aşı, tedavi ve takip. Hafta içi 11:00–20:00, cumartesi 11:00–18:00. Telefon: 0216 417 03 19.",
     "social": {}
@@ -194,5 +193,6 @@
   ],
   "remove": [
     "galeri"
-  ]
+  ],
+  "concept": "kartvizit"
 }

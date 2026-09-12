@@ -1,4 +1,5 @@
 import type { ComponentType } from "react";
+import { CONCEPT_KEYS, isConceptKey, type ConceptKey } from "@/lib/concept-keys";
 import type { Facts } from "./facts";
 
 export type ConceptProps = { facts: Facts };
@@ -22,11 +23,8 @@ export const CONCEPTS = [
   { key: "katalog", name: "Katalog", idea: "Her şey tek ekranda: bento karolar (saat, puan, harita, hizmet, fotoğraf).", fits: "hızlı karar isteyen her işletme" },
 ] as const;
 
-export type ConceptKey = (typeof CONCEPTS)[number]["key"];
-
-export function isConceptKey(key: string): key is ConceptKey {
-  return CONCEPTS.some((c) => c.key === key);
-}
+export { CONCEPT_KEYS, isConceptKey };
+export type { ConceptKey };
 
 /** Her konsept ayrı parça: yalnız açılan konseptin kodu iner. */
 export const CONCEPT_LOADERS: Record<ConceptKey, () => Promise<{ default: ComponentType<ConceptProps> }>> = {

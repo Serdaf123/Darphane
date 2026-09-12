@@ -111,6 +111,8 @@ Durum: ✅ bitti · 🔧 sırada · ⏳ dış girdi bekliyor · 💡 fikir
 
 ## 3. Karar günlüğü
 
+- **2026-09-12 (akşam)** — Serkan: "reçete tarzı ama tasarım detayları da olsun" → **konseptler reçete oldu**: `concept` alanı (site/katman) sayfayı 15 konseptten biriyle çizer; metin ve olgular değişmez. Altı Excel sitesinin B'si konseptle: Esatpaşa→Nöbet, Esenler→Tabela, Küçükyalı→Kartvizit, Adraga→Defter, Pisi→Rozet, Polen→Katalog. Eski reçeteler (kütüphane) tema/sıra için duruyor; tasarım kararı konseptle verilir.
+
 - **2026-09-12** — 15 konsept (`/konsept`, `components/konsept/`, `docs/konseptler.md`) Serkan'ın kararıyla **arşivde**: "aşırı iyi ama bunları kullanmayalım, kaydedelim". Sitelere bağlanmayacak; ileride fikir/parça kaynağı. Reçeteler de beğenilmedi (kütüphane duruyor, kullanılmıyor). Tasarım yönü kararı bekliyor.
 
 - **2026-09-10** — Görsel kuralı değişti (Serkan): satış öncesi de işletmenin **Google Maps'teki kendi fotoğrafları** kullanılır (uygun olanlar; çocuk/müşteri yüzü olanlar alınmaz), yapay görsel yok, repo'da yalnız WebP. Aday girişi Drive `sitesiz-lead` tablosundan; Tasarım B ve metinler ChatGPT'den (brif 05).

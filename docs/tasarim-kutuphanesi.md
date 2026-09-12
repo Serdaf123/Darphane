@@ -2,6 +2,10 @@
 
 İki ajanın (Claude + Codex) ortak kütüphanesi. Her yeni site bir **reçeteden** başlar; reçete = hero varyantı + giriş animasyonu + kaydırma animasyonu + bölüm sırası ve düzenleri + iletişim deseni + header + tipografi/doku + mode. Makine okur: `data/recipes/<key>.json` (bu belge o dosyalardan üretilir; ikisini birlikte güncelle). **Afiş reçetesi 12.09.2026'da kaldırıldı** (Serkan beğenmedi: Esenler ve Pisi B'leri). Uygulama aracı: `npm run recipe -- <slug> <key> [--variant b]` (uygulama: `scripts/recipe.mts`).
 
+## Konseptler reçete olarak (12.09.2026)
+
+Serkan'ın kararı: reçete gibi tek anahtarla uygulanan ama tasarım detayı taşıyan sistem. 15 konsept (`docs/konseptler.md`, `/konsept`) artık `concept` alanıyla siteye/katmana uygulanır: `npm run recipe -- <slug> tabela --variant b --apply`. Konsept sayfada bölüm yığınının yerini alır; veri `facts.ts` üzerinden `sections`'tan gelir; teklif şeridi, A/B geçişi, analitik ve noindex aynen çalışır. Bu bölümdeki tema/sıra reçeteleri klasik bölüm yığını için kalır.
+
 ## Kurallar
 
 - **A ve B farklı aileden.** Aile etiketi: `mode · öncelik · iletişim` (ör. "koyu · tip-öncelikli · fab"). En az iki eksen farklı olmalı: açık↔koyu, fotoğraf↔tip, bar↔fab. Aynı aileden A/B yasak (NOTLAR §1 A/B fark kuralı).

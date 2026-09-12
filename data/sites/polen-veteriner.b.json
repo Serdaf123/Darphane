@@ -1,5 +1,4 @@
 {
-  "recipe": "sahne",
   "theme": {
     "preset": "graphite",
     "mode": "dark",
@@ -66,5 +65,6 @@
   ],
   "remove": [
     "hakkinda"
-  ]
+  ],
+  "concept": "katalog"
 }

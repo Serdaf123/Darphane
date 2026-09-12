@@ -35,6 +35,11 @@ export function mergeSiteOverlay(site: Site, input: unknown): Site {
     ...(overlay.recipe !== undefined || site.recipe !== undefined
       ? { recipe: overlay.recipe ?? site.recipe }
       : {}),
+    ...(overlay.concept === null
+      ? { concept: undefined }
+      : overlay.concept !== undefined || site.concept !== undefined
+        ? { concept: overlay.concept ?? site.concept }
+        : {}),
     business: { ...site.business, ...overlay.business },
     seo: { ...site.seo, ...overlay.seo },
     theme: overlay.theme ?? site.theme,

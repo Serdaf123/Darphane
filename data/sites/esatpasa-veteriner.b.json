@@ -1,5 +1,4 @@
 {
-  "recipe": "gece-nobeti",
   "business": {
     "tagline": "Ataşehir Esatpaşa'da her gün 24 saat açık veteriner kliniği. Muayene, tahlil, aşı ve acil müdahale. Telefon: 0532 570 77 32.",
     "social": {}
@@ -196,5 +195,6 @@
   ],
   "remove": [
     "galeri"
-  ]
+  ],
+  "concept": "nobet"
 }

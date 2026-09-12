@@ -1,4 +1,7 @@
 import { SiteAnalytics } from "@/components/analytics/SiteAnalytics";
+import { siteFacts } from "@/components/konsept/facts";
+import { CONCEPT_LOADERS } from "@/components/konsept/registry";
+import "@/components/konsept/konsept-root.css";
 import { MotionProvider } from "@/components/motion/MotionProvider";
 import { SmoothScroll } from "@/components/motion/SmoothScroll";
 import { OfferExpired } from "@/components/OfferExpired";
@@ -19,7 +22,7 @@ import { isDarkTheme, themeFontClass, themeStyle } from "@/lib/theme";
  * Bir işletme sitesinin gövdesi. /[slug] (TR) ve /[slug]/en aynı bileşeni
  * farklı locale ile çizer; içerik farkı lib/sites.ts'teki dil katmanından gelir.
  */
-export function SitePage({
+export async function SitePage({
   site,
   locale,
   locales,
@@ -39,6 +42,27 @@ export function SitePage({
   // Süresi dolmuş sitede işletme içeriği HTML'e hiç girmez.
   if (isOfferExpired(site)) {
     return <OfferExpired offer={offer} businessName={business.name} />;
+  }
+
+  // Konsept: sayfa bölüm yığını yerine tek bir konsept bileşeniyle çizilir (teklif şeridi, A/B, analitik aynı kalır).
+  if (site.concept) {
+    const { default: Concept } = await CONCEPT_LOADERS[site.concept]();
+    const facts = siteFacts(site);
+    return (
+      <div lang={t(locale).lang} className="site-root konsept-root" data-mode={isDarkTheme(theme) ? "dark" : "light"} style={{ ...themeStyle(theme), colorScheme: isDarkTheme(theme) ? "dark" : "light" }}>
+        <OfferLayer
+          offer={offer}
+          slug={slug}
+          businessName={business.name}
+          variant={variant}
+          variantLinks={variants.length > 1 ? { a: `/${slug}`, b: `/${slug}/b`, ...(variants.includes("c") ? { c: `/${slug}/c` } : {}) } : undefined}
+        >
+          <Concept facts={facts} />
+          {isPubliclyIndexable(site) ? <LocalBusinessJsonLd site={site} /> : null}
+          <SiteAnalytics slug={slug} status={offer.status} variant={variant} />
+        </OfferLayer>
+      </div>
+    );
   }
 
   // Header görselli hero'nun üstüne biner; diğer hero'larda kendi zeminiyle durur.

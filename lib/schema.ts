@@ -1,4 +1,5 @@
 import { z } from "zod";
+import { CONCEPT_KEYS } from "./concept-keys.ts";
 
 /**
  * Tek doğruluk kaynağı: bir işletme sitesi bu şemaya uyan tek bir JSON dosyasıdır.
@@ -493,6 +494,8 @@ export const siteSchema = z.object({
     .regex(/^[a-z0-9]+(?:-[a-z0-9]+)*$/, "slug küçük harf ve tire içermeli"),
   /** Tasarımın başladığı kütüphane reçetesi; içerik ve işletme bilgilerini etkilemez. */
   recipe: z.string().optional(),
+  /** Verilirse sayfa bölüm yığını yerine bu konseptle çizilir (components/konsept/<key>); veri yine sections'tan (facts). */
+  concept: z.enum(CONCEPT_KEYS).optional(),
   business: businessSchema,
   theme: themeSchema.prefault({}),
   sections: z.array(sectionSchema).min(1),
@@ -513,6 +516,8 @@ export type Site = z.infer<typeof siteSchema>;
  * an optional field (image/urgent, for example); required fields still fail. */
 export const siteOverlaySchema = z.object({
   recipe: z.string().optional(),
+  /** Katman konsept seçebilir; null verilirse A'daki konsept kaldırılır. */
+  concept: z.enum(CONCEPT_KEYS).nullable().optional(),
   business: businessSchema.partial().optional(),
   seo: z.object({ title: z.string().optional(), description: z.string().optional(), ogImage: z.string().optional() }).optional(),
   theme: themeSchema.partial().optional(),

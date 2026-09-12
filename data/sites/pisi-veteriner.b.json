@@ -1,5 +1,4 @@
 {
-  "recipe": "sahne",
   "theme": {
     "preset": "graphite",
     "mode": "dark",
@@ -69,5 +68,6 @@
   "remove": [
     "ekip",
     "saatler"
-  ]
+  ],
+  "concept": "rozet"
 }

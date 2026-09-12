@@ -3,6 +3,7 @@ import path from 'node:path';
 import { pathToFileURL } from 'node:url';
 import { siteSchema } from '../lib/schema.ts';
 import { applyRecipeToBase, generateRecipeOverlay, generateRecipeVariantOverlay, recipeSchema } from '../lib/recipe.ts';
+import { isConceptKey } from '../lib/concept-keys.ts';
 
 export { applyRecipeToBase, generateRecipeOverlay, generateRecipeVariantOverlay, recipeSchema } from '../lib/recipe.ts';
 
@@ -33,8 +34,16 @@ function main(args: string[]) {
   const file = path.join(process.cwd(), 'data/sites', `${slug}.json`);
   const site = siteSchema.parse(JSON.parse(fs.readFileSync(file, 'utf8')));
   if (site.slug !== slug) throw new Error('Site slug dosya adıyla eşleşmiyor');
-  const recipe = JSON.parse(fs.readFileSync(path.join(recipes, `${key}.json`), 'utf8'));
   const target = path.join(process.cwd(), 'data/sites', variant === 'a' ? `${slug}.json` : `${slug}.${variant}.json`);
+  // Konsept anahtarı: reçete dosyası yok; katman/site yalnız `concept` alır (metin ve tema olduğu gibi kalır)
+  if (isConceptKey(key)) {
+    const existing = fs.existsSync(target) ? JSON.parse(fs.readFileSync(target, 'utf8')) : (variant === 'a' ? site : {});
+    const output = variant === 'a' ? { ...site, concept: key } : { ...existing, concept: key, recipe: undefined };
+    const json = JSON.stringify(output, null, 2) + '\n';
+    if (apply) { fs.writeFileSync(target, json); console.error(`Yazıldı: ${target} (concept: ${key})`); } else process.stdout.write(json);
+    return;
+  }
+  const recipe = JSON.parse(fs.readFileSync(path.join(recipes, `${key}.json`), 'utf8'));
   const output = variant === 'a'
     ? applyRecipeToBase(site, recipe)
     : fs.existsSync(target)
